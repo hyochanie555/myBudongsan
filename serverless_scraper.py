@@ -59,7 +59,7 @@ def fetch_listings():
     })
     
     # 0. Preliminary step: Visit Naver Land home to get initial session cookies
-    print("Simulating real user visit to Naver Land...")
+    print("DEBUG: Simulating real user visit to Naver Land home...")
     try:
         session.get("https://new.land.naver.com/", timeout=15)
         time.sleep(1)
@@ -71,7 +71,7 @@ def fetch_listings():
     for tgt in TARGETS:
         apt_name = tgt["name"]
         complex_id = tgt["id"]
-        print(f"Fetching complex: {apt_name} ({complex_id})...")
+        print(f"\n[TARGET] {apt_name} ({complex_id})")
         
         # 1. Preliminary step per complex: Visit the complex page as a real user would
         complex_url = f"https://new.land.naver.com/complexes/{complex_id}"
@@ -83,8 +83,8 @@ def fetch_listings():
             
         page = 1
         while True:
-            # Simplified production API endpoint pattern for maximum robustness
-            url = f"https://new.land.naver.com/api/articles/complex/{complex_id}?realEstateType=APT&tradeType=A1&tag=::::::::&rentPriceMin=0&rentPriceMax=900000000&priceMin=0&priceMax=900000000&areaMin=0&areaMax=900000000&oldBuildYears&recentlyBuildYears&minHouseHoldCount&maxHouseHoldCount&showArticle=false&sameAddressGroup=false&minMaintenanceCost&maxMaintenanceCost&priceType=RETAIL&directions=&page={page}&complexNo={complex_id}&buildingNos=&areaNos=&type=list&order=dateDesc"
+            # Simplified production API endpoint pattern (Standard APT query)
+            url = f"https://new.land.naver.com/api/articles/complex/{complex_id}?realEstateType=APT&tradeType=A1&page={page}&type=list&order=dateDesc"
             
             # API specific headers
             api_headers = {
@@ -97,17 +97,13 @@ def fetch_listings():
             
             try:
                 # Randomized sleep
-                wait_time = 1.5 + (time.time() * 1000 % 1500) / 1000.0
-                time.sleep(wait_time) 
+                time.sleep(1.5 + (time.time() * 1000 % 1000) / 1000.0) 
                 
                 res = session.get(url, headers=api_headers, timeout=15)
                 
                 if res.status_code != 200: 
                     print(f"  HTTP error {res.status_code} for {apt_name} (Page {page})")
-                    print(f"  Response Sample: {res.text[:150]}")
-                    if res.status_code == 429:
-                        print("  Rate limited! Waiting longer...")
-                        time.sleep(10)
+                    print(f"  Response: {res.text[:200]}")
                     break
                 
                 # Check for empty or null response
@@ -116,22 +112,31 @@ def fetch_listings():
                     print(f"  Received 'null' or empty for {apt_name} (Possible block/Page {page})")
                     break
                     
+                # PRINT JSON FOR DEBUGGING (ONLY FOR THE FIRST COMPLEX AND FIRST PAGE)
+                if page == 1:
+                    print(f"DEBUG: RAW JSON SAMPLE (First 500 chars):")
+                    print(raw_text[:500])
+                    
                 data = res.json()
                 items = data.get("articleList", [])
+                
                 if not items: 
-                    print(f"  End of list for {apt_name} (Page {page})")
+                    print(f"  No articles found on Page {page} for {apt_name}")
                     break
+                
+                print(f"  Found {len(items)} items on Page {page}. Processing filtering...")
                 
                 new_on_page = 0
                 for item in items:
                     article_no = str(item.get("articleNo", ""))
                     if not article_no: continue
                     
-                    area1 = float(item.get("area1", 0))
-                    area2 = float(item.get("area2", 0))
+                    # Convert to float safely
+                    area1 = float(item.get("area1", 0)) # Supply Area
+                    area2 = float(item.get("area2", 0)) # Net Area
                     
-                    # Compatibility filter
-                    if tgt["area_min"] <= area1 <= tgt["area_max"] or tgt["area_min"] <= area2 <= tgt["area_max"]:
+                    # DEBUG: Relaxed filter for tracing (wide range)
+                    if 10 <= area1 <= 300 or 10 <= area2 <= 300:
                         raw_date = str(item.get("articleConfirmYmd", ""))
                         fmt_date = f"{raw_date[2:4]}.{raw_date[4:6]}.{raw_date[6:8]}" if len(raw_date) == 8 else raw_date
                         
@@ -149,11 +154,13 @@ def fetch_listings():
                         }
                         new_on_page += 1
                 
+                print(f"  Successfully extracted {new_on_page} items after filtering.")
+                
                 if len(items) < 20: 
                     break
                     
                 page += 1
-                if page > 15: break
+                if page > 10: break
             except Exception as e:
                 print(f"Error fetching {apt_name} at page {page}: {e}", file=sys.stderr)
                 break
