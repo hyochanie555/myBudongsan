@@ -48,47 +48,46 @@ def parse_price(p_str):
         return 0
 
 def fetch_listings():
-    # Use Session to maintain cookies (simulates a real browser session)
-    session = requests.Session()
-    session.headers.update({
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive'
-    })
+    # List of common browser User-Agents to rotate
+    UAS = [
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/604.1'
+    ]
     
-    # 0. Preliminary step: Visit Naver Land home to get initial session cookies
-    print("DEBUG: Simulating real user visit to Naver Land home...")
-    try:
-        session.get("https://new.land.naver.com/", timeout=15)
-        time.sleep(1)
-    except Exception as e:
-        print(f"  Warning: Home page visit failed: {e}")
-        
+    # Use Session to maintain cookies
+    session = requests.Session()
+    
     current_listings = {} # article_no -> data
     
-    for tgt in TARGETS:
+    for i, tgt in enumerate(TARGETS):
         apt_name = tgt["name"]
         complex_id = tgt["id"]
         print(f"\n[TARGET] {apt_name} ({complex_id})")
         
-        # 1. Preliminary step per complex: Visit the complex page as a real user would
-        complex_url = f"https://new.land.naver.com/complexes/{complex_id}"
+        # 0. Set a new random User-Agent for this complex
+        import random
+        ua = random.choice(UAS)
+        session.headers.update({
+            'User-Agent': ua,
+            'Accept': 'application/json, text/plain, */*',
+            'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Connection': 'keep-alive'
+        })
+        
+        # 1. Preliminary visit to the home page to get session
         try:
-            session.get(complex_url, timeout=15)
-            time.sleep(1)
-        except Exception:
-            pass
+            session.get("https://new.land.naver.com/", timeout=15)
+            time.sleep(2)
+        except Exception: pass
             
         page = 1
         while True:
-            # Simplified production API endpoint pattern (Standard APT query)
+            # Standard API query
             url = f"https://new.land.naver.com/api/articles/complex/{complex_id}?realEstateType=APT&tradeType=A1&page={page}&type=list&order=dateDesc"
             
-            # API specific headers
             api_headers = {
-                'Accept': 'application/json, text/plain, */*',
                 'Referer': f'https://new.land.naver.com/complexes/{complex_id}',
                 'Sec-Fetch-Dest': 'empty',
                 'Sec-Fetch-Mode': 'cors',
@@ -96,35 +95,37 @@ def fetch_listings():
             }
             
             try:
-                # Randomized sleep
-                time.sleep(1.5 + (time.time() * 1000 % 1000) / 1000.0) 
+                # Small intra-page sleep
+                time.sleep(2 + random.random() * 2) 
                 
-                res = session.get(url, headers=api_headers, timeout=15)
+                res = session.get(url, headers=api_headers, timeout=20)
                 
                 if res.status_code != 200: 
-                    print(f"  HTTP error {res.status_code} for {apt_name} (Page {page})")
-                    print(f"  Response: {res.text[:200]}")
+                    print(f"  HTTP error {res.status_code} (Page {page})")
+                    print(f"  Response: {res.text[:150]}")
+                    if res.status_code == 429:
+                        print("  ‼️ Rate Limited! Skipping this complex for safety.")
+                        break
                     break
                 
-                # Check for empty or null response
+                # Check for 'null'
                 raw_text = res.text.strip() if res.text else ""
                 if not raw_text or raw_text == "null":
-                    print(f"  Received 'null' or empty for {apt_name} (Possible block/Page {page})")
+                    print(f"  Received 'null' (Possible block/Page {page})")
                     break
                     
-                # PRINT JSON FOR DEBUGGING (ONLY FOR THE FIRST COMPLEX AND FIRST PAGE)
+                # DEBUG: Print sample of JSON on Page 1
                 if page == 1:
-                    print(f"DEBUG: RAW JSON SAMPLE (First 500 chars):")
-                    print(raw_text[:500])
+                    print(f"DEBUG Sample: {raw_text[:200]}")
                     
                 data = res.json()
                 items = data.get("articleList", [])
                 
                 if not items: 
-                    print(f"  No articles found on Page {page} for {apt_name}")
+                    print(f"  No articles on Page {page}")
                     break
                 
-                print(f"  Found {len(items)} items on Page {page}. Processing filtering...")
+                print(f"  Found {len(items)} items on Page {page}. Processing...")
                 
                 new_on_page = 0
                 for item in items:
@@ -132,10 +133,10 @@ def fetch_listings():
                     if not article_no: continue
                     
                     # Convert to float safely
-                    area1 = float(item.get("area1", 0)) # Supply Area
-                    area2 = float(item.get("area2", 0)) # Net Area
+                    area1 = float(item.get("area1", 0)) # Supply
+                    area2 = float(item.get("area2", 0)) # Net
                     
-                    # DEBUG: Relaxed filter for tracing (wide range)
+                    # Target Filter (keeping 10-300 for debug, but user might want original soon)
                     if 10 <= area1 <= 300 or 10 <= area2 <= 300:
                         raw_date = str(item.get("articleConfirmYmd", ""))
                         fmt_date = f"{raw_date[2:4]}.{raw_date[4:6]}.{raw_date[6:8]}" if len(raw_date) == 8 else raw_date
@@ -154,16 +155,18 @@ def fetch_listings():
                         }
                         new_on_page += 1
                 
-                print(f"  Successfully extracted {new_on_page} items after filtering.")
-                
-                if len(items) < 20: 
-                    break
-                    
+                if len(items) < 20: break
                 page += 1
                 if page > 10: break
             except Exception as e:
-                print(f"Error fetching {apt_name} at page {page}: {e}", file=sys.stderr)
+                print(f"  Error: {e}", file=sys.stderr)
                 break
+        
+        # ‼️ CRITICAL: Long randomized delay between complexes to avoid 429
+        if i < len(TARGETS) - 1:
+            wait_between = 60 + random.randint(0, 60)
+            print(f"  ✅ Finished {apt_name}. Waiting {wait_between} seconds to avoid IP block...")
+            time.sleep(wait_between)
                 
     return current_listings
 

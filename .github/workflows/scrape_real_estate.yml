@@ -25,12 +25,14 @@ jobs:
           pip install requests
 
       - name: Run Scraper
-        run: python serverless_scraper.py
+        run: |
+          # Robust execution with long randomized delays between complexes to avoid 429
+          python serverless_scraper.py
 
       - name: Validate Update
         run: |
           echo "Last Update in results.json:"
-          grep "last_update" data/results.json || echo "results.json not found or empty"
+          [ -f data/results.json ] && grep "last_update" data/results.json || echo "results.json missing"
 
       - name: Commit and Push Changes
         run: |
