@@ -205,8 +205,22 @@ def main():
             
     # Safety Check: If results are zero, do not overwrite to avoid blanking out data due to IP blocks
     if not today_listings:
-        print("⚠️ Safety check triggered: No listings found. Not overwriting results.json to preserve existing data.")
-        print("   Check if Naver Real Estate is blocking your IP or if the URL/Selectors have changed.")
+        print("⚠️ Safety check triggered: No listings found.")
+        
+        # If results.json doesn't exist at all (e.g. after accidental deletion), create a placeholder
+        if not os.path.exists(RESULTS_FILE):
+            now_kst = (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).strftime("%Y-%m-%d %H:%M")
+            placeholder = {
+                "last_update": now_kst,
+                "summary": {tgt["name"]: {"prev": 0, "today": 0} for tgt in TARGETS},
+                "listings": [],
+                "message": "네이버 차단으로 인해 데이터를 가져오지 못했습니다. 잠시 후 상단 Actions에서 다시 실행해 주세요."
+            }
+            with open(RESULTS_FILE, "w", encoding="utf-8") as f:
+                json.dump(placeholder, f, ensure_ascii=False, indent=2)
+            print(f"Created a placeholder {RESULTS_FILE} to prevent UI error.")
+            
+        print("Not overwriting existing data if it exists.")
         return
             
     # Sort results
