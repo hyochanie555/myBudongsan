@@ -48,110 +48,85 @@ def parse_price(p_str):
         return 0
 
 def fetch_listings():
-    # List of common browser User-Agents to rotate
+    # List of common mobile browser User-Agents
     UAS = [
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/604.1'
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/604.1',
+        'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Mobile Safari/537.36'
     ]
     
-    # Use Session to maintain cookies
     session = requests.Session()
-    
-    current_listings = {} # article_no -> data
+    current_listings = {} 
     
     for i, tgt in enumerate(TARGETS):
         apt_name = tgt["name"]
         complex_id = tgt["id"]
         print(f"\n[TARGET] {apt_name} ({complex_id})")
         
-        # 0. Set a new random User-Agent for this complex
+        # 0. Mobile Specific Headers
         import random
         ua = random.choice(UAS)
         session.headers.update({
             'User-Agent': ua,
             'Accept': 'application/json, text/plain, */*',
-            'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Referer': f'https://m.land.naver.com/complex/info/{complex_id}?tradTpCd=A1',
             'Connection': 'keep-alive'
         })
-        
-        # 1. Preliminary visit to the home page to get session
-        try:
-            session.get("https://new.land.naver.com/", timeout=15)
-            time.sleep(2)
-        except Exception: pass
             
         page = 1
         while True:
-            # Standard API query
-            url = f"https://new.land.naver.com/api/articles/complex/{complex_id}?realEstateType=APT&tradeType=A1&page={page}&type=list&order=dateDesc"
-            
-            api_headers = {
-                'Referer': f'https://new.land.naver.com/complexes/{complex_id}',
-                'Sec-Fetch-Dest': 'empty',
-                'Sec-Fetch-Mode': 'cors',
-                'Sec-Fetch-Site': 'same-origin',
-            }
+            # ‼️ MOBILE API ENDPOINT (Often has different WAF rules)
+            # hscpNo: Complex ID, tradTpCd: A1 (Deal), rletTpCd: A01 (APT)
+            url = f"https://m.land.naver.com/api/article/list?hscpNo={complex_id}&tradTpCd=A1&rletTpCd=A01&showNoPrice=false&page={page}"
             
             try:
-                # Small intra-page sleep
-                time.sleep(2 + random.random() * 2) 
+                # Randomized sleep
+                time.sleep(2 + random.random() * 3) 
                 
-                res = session.get(url, headers=api_headers, timeout=20)
+                res = session.get(url, timeout=20)
                 
                 if res.status_code != 200: 
-                    print(f"  HTTP error {res.status_code} (Page {page})")
+                    print(f"  HTTP error {res.status_code} (Mobile API)")
                     print(f"  Response: {res.text[:150]}")
-                    if res.status_code == 429:
-                        print("  ‼️ Rate Limited! Skipping this complex for safety.")
-                        break
                     break
                 
-                # Check for 'null'
-                raw_text = res.text.strip() if res.text else ""
-                if not raw_text or raw_text == "null":
-                    print(f"  Received 'null' (Possible block/Page {page})")
-                    break
-                    
-                # DEBUG: Print sample of JSON on Page 1
-                if page == 1:
-                    print(f"DEBUG Sample: {raw_text[:200]}")
-                    
                 data = res.json()
-                items = data.get("articleList", [])
-                
+                # Mobile API structure: result.list
+                result_obj = data.get("result", {})
+                if not result_obj:
+                    print(f"  No 'result' found in Mobile API (Block or Empty)")
+                    break
+                    
+                items = result_obj.get("list", [])
                 if not items: 
-                    print(f"  No articles on Page {page}")
+                    print(f"  End of list (Page {page})")
                     break
                 
-                print(f"  Found {len(items)} items on Page {page}. Processing...")
+                print(f"  Found {len(items)} items on Page {page} (Mobile).")
                 
                 new_on_page = 0
                 for item in items:
-                    article_no = str(item.get("articleNo", ""))
+                    article_no = str(item.get("atclNo", "")) # Mobile use atclNo
                     if not article_no: continue
                     
-                    # Convert to float safely
-                    area1 = float(item.get("area1", 0)) # Supply
-                    area2 = float(item.get("area2", 0)) # Net
+                    # Mobile uses spc1 (Supply), spc2 (Net)
+                    area1 = float(item.get("spc1", 0))
+                    area2 = float(item.get("spc2", 0))
                     
-                    # Target Filter (keeping 10-300 for debug, but user might want original soon)
+                    # Filter (10-300 for debug)
                     if 10 <= area1 <= 300 or 10 <= area2 <= 300:
-                        raw_date = str(item.get("articleConfirmYmd", ""))
-                        fmt_date = f"{raw_date[2:4]}.{raw_date[4:6]}.{raw_date[6:8]}" if len(raw_date) == 8 else raw_date
+                        raw_date = str(item.get("atclCfmYmd", "")) # Mobile use atclCfmYmd
                         
                         current_listings[article_no] = {
                             'article_no': article_no,
                             'complex_name': apt_name,
-                            'dong': item.get("buildingName", ""),
-                            'floor': item.get("floorInfo", ""),
-                            'price': item.get("dealOrWarrantPrc", "") + " (매매)",
-                            'price_val': parse_price(item.get("dealOrWarrantPrc", "")),
+                            'dong': item.get("bildNm", ""), # Mobile use bildNm
+                            'floor': item.get("flrInfo", ""), # Mobile use flrInfo
+                            'price': item.get("prc", "") + " (매매)", # Mobile use prc
+                            'price_val': parse_price(item.get("prc", "")),
                             'area': f"{area1}㎡ / {area2}㎡",
-                            'reg_date': fmt_date,
-                            'cp_name': item.get("cpName", ""),
-                            'unit_hash': item.get("sameAddressHash", article_no)
+                            'reg_date': raw_date, # Format: YY.MM.DD
+                            'cp_name': item.get("cpNm", ""), # Mobile use cpNm
+                            'unit_hash': article_no
                         }
                         new_on_page += 1
                 
@@ -159,13 +134,13 @@ def fetch_listings():
                 page += 1
                 if page > 10: break
             except Exception as e:
-                print(f"  Error: {e}", file=sys.stderr)
+                print(f"  Error: {e}")
                 break
         
-        # ‼️ CRITICAL: Long randomized delay between complexes to avoid 429
+        # Long randomized delay between complexes
         if i < len(TARGETS) - 1:
-            wait_between = 60 + random.randint(0, 60)
-            print(f"  ✅ Finished {apt_name}. Waiting {wait_between} seconds to avoid IP block...")
+            wait_between = 40 + random.randint(0, 40)
+            print(f"  ✅ Finished {apt_name}. Waiting {wait_between} seconds...")
             time.sleep(wait_between)
                 
     return current_listings
