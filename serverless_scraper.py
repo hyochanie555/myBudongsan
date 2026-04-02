@@ -1,0 +1,253 @@
+import requests
+import json
+import time
+import datetime
+import os
+import sys
+
+# Fix Korean output on Windows terminals
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
+# --- Configuration ---
+TARGETS = [
+    {"name": "더샵동천포레스트", "id": "110798", "area_min": 108, "area_max": 115},
+    {"name": "울산 힐스테이트 강동", "id": "109228", "area_min": 108, "area_max": 115},
+    {"name": "한강센트럴자이 1단지", "id": "108487", "area_min": 108, "area_max": 115},
+    {"name": "선암에코하이츠", "id": "106191", "area_min": 75, "area_max": 83}
+]
+
+DATA_DIR = "data"
+HISTORY_FILE = os.path.join(DATA_DIR, "history.json")
+RESULTS_FILE = os.path.join(DATA_DIR, "results.json")
+
+def parse_price(p_str):
+    if not p_str: return 0
+    try:
+        # "3억 1,800" -> "3억1800"
+        p_str = p_str.replace(",", "").replace(" ", "")
+        
+        # Split by non-digit or '억'
+        total = 0
+        if '억' in p_str:
+            parts = p_str.split('억')
+            if parts[0]:
+                total += int(parts[0]) * 10000
+            if len(parts) > 1 and parts[1]:
+                # Remove any leftover non-digits (like '만')
+                digits_only = "".join(filter(str.isdigit, parts[1]))
+                if digits_only:
+                    total += int(digits_only)
+        else:
+            digits_only = "".join(filter(str.isdigit, p_str))
+            if digits_only:
+                total = int(digits_only)
+        return total
+    except Exception as e:
+        print(f"Price parsing error for '{p_str}': {e}", file=sys.stderr)
+        return 0
+
+def fetch_listings():
+    # Use Session to maintain cookies (simulates a real browser session)
+    session = requests.Session()
+    session.headers.update({
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive'
+    })
+    
+    # 0. Preliminary step: Visit Naver Land home to get initial session cookies
+    print("Simulating real user visit to Naver Land...")
+    try:
+        session.get("https://new.land.naver.com/", timeout=15)
+        time.sleep(1)
+    except Exception as e:
+        print(f"  Warning: Home page visit failed: {e}")
+        
+    current_listings = {} # article_no -> data
+    
+    for tgt in TARGETS:
+        apt_name = tgt["name"]
+        complex_id = tgt["id"]
+        print(f"Fetching complex: {apt_name} ({complex_id})...")
+        
+        # 1. Preliminary step per complex: Visit the complex page as a real user would
+        complex_url = f"https://new.land.naver.com/complexes/{complex_id}"
+        try:
+            session.get(complex_url, timeout=15)
+            time.sleep(1)
+        except Exception:
+            pass
+            
+        page = 1
+        while True:
+            # Simplified production API endpoint pattern for maximum robustness
+            url = f"https://new.land.naver.com/api/articles/complex/{complex_id}?realEstateType=APT&tradeType=A1&tag=::::::::&rentPriceMin=0&rentPriceMax=900000000&priceMin=0&priceMax=900000000&areaMin=0&areaMax=900000000&oldBuildYears&recentlyBuildYears&minHouseHoldCount&maxHouseHoldCount&showArticle=false&sameAddressGroup=false&minMaintenanceCost&maxMaintenanceCost&priceType=RETAIL&directions=&page={page}&complexNo={complex_id}&buildingNos=&areaNos=&type=list&order=dateDesc"
+            
+            # API specific headers
+            api_headers = {
+                'Accept': 'application/json, text/plain, */*',
+                'Referer': f'https://new.land.naver.com/complexes/{complex_id}',
+                'Sec-Fetch-Dest': 'empty',
+                'Sec-Fetch-Mode': 'cors',
+                'Sec-Fetch-Site': 'same-origin',
+            }
+            
+            try:
+                # Randomized sleep
+                wait_time = 1.5 + (time.time() * 1000 % 1500) / 1000.0
+                time.sleep(wait_time) 
+                
+                res = session.get(url, headers=api_headers, timeout=15)
+                
+                if res.status_code != 200: 
+                    print(f"  HTTP error {res.status_code} for {apt_name} (Page {page})")
+                    print(f"  Response Sample: {res.text[:150]}")
+                    if res.status_code == 429:
+                        print("  Rate limited! Waiting longer...")
+                        time.sleep(10)
+                    break
+                
+                # Check for empty or null response
+                raw_text = res.text.strip() if res.text else ""
+                if not raw_text or raw_text == "null":
+                    print(f"  Received 'null' or empty for {apt_name} (Possible block/Page {page})")
+                    break
+                    
+                data = res.json()
+                items = data.get("articleList", [])
+                if not items: 
+                    print(f"  End of list for {apt_name} (Page {page})")
+                    break
+                
+                new_on_page = 0
+                for item in items:
+                    article_no = str(item.get("articleNo", ""))
+                    if not article_no: continue
+                    
+                    area1 = float(item.get("area1", 0))
+                    area2 = float(item.get("area2", 0))
+                    
+                    # Compatibility filter
+                    if tgt["area_min"] <= area1 <= tgt["area_max"] or tgt["area_min"] <= area2 <= tgt["area_max"]:
+                        raw_date = str(item.get("articleConfirmYmd", ""))
+                        fmt_date = f"{raw_date[2:4]}.{raw_date[4:6]}.{raw_date[6:8]}" if len(raw_date) == 8 else raw_date
+                        
+                        current_listings[article_no] = {
+                            'article_no': article_no,
+                            'complex_name': apt_name,
+                            'dong': item.get("buildingName", ""),
+                            'floor': item.get("floorInfo", ""),
+                            'price': item.get("dealOrWarrantPrc", "") + " (매매)",
+                            'price_val': parse_price(item.get("dealOrWarrantPrc", "")),
+                            'area': f"{area1}㎡ / {area2}㎡",
+                            'reg_date': fmt_date,
+                            'cp_name': item.get("cpName", ""),
+                            'unit_hash': item.get("sameAddressHash", article_no)
+                        }
+                        new_on_page += 1
+                
+                if len(items) < 20: 
+                    break
+                    
+                page += 1
+                if page > 15: break
+            except Exception as e:
+                print(f"Error fetching {apt_name} at page {page}: {e}", file=sys.stderr)
+                break
+                
+    return current_listings
+
+def main():
+    if not os.path.exists(DATA_DIR):
+        os.makedirs(DATA_DIR)
+        
+    # 1. Load History
+    history = {"last_day_listings": {}, "historical_articles": [], "historical_hashes": []}
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+            history = json.load(f)
+            
+    prev_listings = history.get("last_day_listings", {})
+    hist_articles = set(history.get("historical_articles", []))
+    hist_hashes = set(history.get("historical_hashes", []))
+    
+    # 2. Scrape Current
+    today_listings = fetch_listings()
+    today_hashes = set(data['unit_hash'] for no, data in today_listings.items() if data.get('unit_hash'))
+    
+    results = []
+    
+    # 3. Compare: Today's listings
+    for no, data in today_listings.items():
+        status = "유지"
+        if no not in prev_listings:
+            if no in hist_articles or (data['unit_hash'] and data['unit_hash'] in hist_hashes):
+                status = "매물 재등록"
+            else:
+                status = "신규매물"
+        
+        data['status'] = status
+        results.append(data)
+        
+    # 4. Compare: Previous listings (to find Completed/Deleted)
+    for no, data in prev_listings.items():
+        if no not in today_listings:
+            # Check if it was replaced (re-registered) in today's set
+            unit_hash = data.get('unit_hash')
+            if unit_hash and unit_hash in today_hashes:
+                continue # Replaced by another article, don't count as complete
+                
+            data['status'] = "거래 완료"
+            results.append(data)
+            
+    # Safety Check: If results are zero, do not overwrite to avoid blanking out data due to IP blocks
+    if not today_listings:
+        print("⚠️ Safety check triggered: No listings found. Not overwriting results.json to preserve existing data.")
+        print("   Check if Naver Real Estate is blocking your IP or if the URL/Selectors have changed.")
+        return
+            
+    # Sort results
+    results.sort(key=lambda x: (
+        x.get('status') != '거래 완료', 
+        int(x.get('price_val', 0)), 
+        str(x.get('dong', '')),
+        str(x.get('floor', ''))
+    ))
+    
+    # 5. Save Results for Frontend
+    now_kst = (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).strftime("%Y-%m-%d %H:%M")
+    
+    summary = {}
+    for apt in TARGETS:
+        name = apt["name"]
+        today_count = len([l for l in today_listings.values() if l["complex_name"] == name])
+        prev_count = len([l for l in prev_listings.values() if l["complex_name"] == name])
+        summary[name] = {"prev": prev_count, "today": today_count}
+
+    output = {
+        "last_update": now_kst,
+        "summary": summary,
+        "listings": results
+    }
+    with open(RESULTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+        
+    # 6. Update History
+    new_hist_articles = list(hist_articles.union(prev_listings.keys()))
+    new_hist_hashes = list(hist_hashes.union(set(d.get('unit_hash') for d in prev_listings.values() if d.get('unit_hash'))))
+    
+    new_history = {
+        "last_day_listings": today_listings,
+        "historical_articles": new_hist_articles,
+        "historical_hashes": new_hist_hashes
+    }
+    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(new_history, f, ensure_ascii=False, indent=2)
+        
+    print(f"Done! Updated {len(today_listings)} listings.")
+
+if __name__ == "__main__":
+    main()

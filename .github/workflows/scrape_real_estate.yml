@@ -1,0 +1,41 @@
+name: Scrape Real Estate Listings
+
+on:
+  schedule:
+    - cron: '0 2,7 * * *' # 오전 11시, 오후 4시 KST (UTC 02:00, 07:00)
+  workflow_dispatch: # 수동 실행 버튼 허용
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run Scraper
+        run: python serverless_scraper.py
+
+      - name: Validate Update
+        run: |
+          echo "Last Update in results.json:"
+          grep "last_update" data/results.json || echo "results.json not found or empty"
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/history.json data/results.json
+          git commit -m "Auto-update listings: $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
+          git push

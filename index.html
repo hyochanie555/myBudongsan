@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 부동산 Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./index.css?v=1.6">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="dashboard-header">
+            <div>
+                <h1>부동산 매물 현황 DashBoard</h1>
+                <p class="subtitle" id="last-update">데이터를 불러오는 중...</p>
+            </div>
+            <div class="actions">
+                <button id="scrape-btn" class="secondary-btn" style="margin-right: 0.5rem;">데이터 갱신 안내</button>
+                <button id="refresh-btn" class="primary-btn">새로고침</button>
+            </div>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card glass">
+                <div class="card-icon new-icon"></div>
+                <div class="card-content">
+                    <h3>신규매물</h3>
+                    <p id="count-new" class="count">0</p>
+                </div>
+            </div>
+            <div class="card glass">
+                <div class="card-icon re-icon"></div>
+                <div class="card-content">
+                    <h3>매물 재등록</h3>
+                    <p id="count-re" class="count">0</p>
+                </div>
+            </div>
+            <div class="card glass">
+                <div class="card-icon done-icon"></div>
+                <div class="card-content">
+                    <h3>거래 완료 (또는 삭제)</h3>
+                    <p id="count-done" class="count">0</p>
+                </div>
+            </div>
+            <div class="card glass">
+                <div class="card-icon total-icon"></div>
+                <div class="card-content">
+                    <h3>현재 활성 매물 (전체)</h3>
+                    <p id="count-active" class="count">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-apt="더샵동천포레스트">더샵동천포레스트</button>
+            <button class="filter-btn" data-apt="울산 힐스테이트 강동">울산 힐스테이트 강동</button>
+            <button class="filter-btn" data-apt="한강센트럴자이 1단지">한강센트럴자이 1단지</button>
+            <button class="filter-btn" data-apt="선암에코하이츠">선암에코하이츠</button>
+        </div>
+
+        <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="show-changes-only" style="width: 18px; height: 18px;">
+            <label for="show-changes-only" style="font-weight: 500; cursor: pointer;">유지된 매물 숨기기 (변동 사항만 보기)</label>
+        </div>
+
+        <main class="dashboard-main glass">
+            <div class="table-container">
+                <table id="listings-table">
+                    <thead>
+                        <tr>
+                            <th>단지명</th>
+                            <th>상태</th>
+                            <th>동</th>
+                            <th>층</th>
+                            <th>면적 (공급/전용)</th>
+                            <th>가격</th>
+                            <th>등록일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listings-body">
+                        <!-- JS renders rows here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="./app.js?v=1.6"></script>
+</body>
+
+</html>
