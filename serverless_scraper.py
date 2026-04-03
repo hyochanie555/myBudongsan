@@ -52,7 +52,6 @@ def fetch_listings():
     
     if not SCRAPERAPI_KEY:
         print("❌ SCRAPERAPI_KEY not found in environment variables.", flush=True)
-        print("Please add it to GitHub Secrets: https://github.com/settings/secrets/actions", flush=True)
         return current_listings
 
     for i, tgt in enumerate(TARGETS):
@@ -61,55 +60,69 @@ def fetch_listings():
         print(f"\n[TARGET] {apt_name} ({complex_id})", flush=True)
         
         try:
-            # 1. High-Efficiency API Call (render=false)
-            # This calls Naver's internal API directly via ScraperAPI's South Korean proxy.
-            # Speed: Instant (<1s) | Cost: 1 credit (saves 90% vs rendering)
-            target_url = f"https://fin.land.naver.com/front-api/v1/article/list?complexNo={complex_id}&tradeType=A1&priceOrder=ASC"
+            # 1. Definitive Bypass Strategy: Mobile Web Rendering
+            # API calls are heavily blocked (Error 500), but rendering the full mobile UI
+            # is indistinguishable from real users. 
+            # Cost: ~10-25 credits | Speed: ~20-30s per complex
+            target_url = f"https://m.land.naver.com/complex/info/{complex_id}?tab=article"
             proxy_url = "http://api.scraperapi.com"
             params = {
                 'api_key': SCRAPERAPI_KEY,
                 'url': target_url,
-                'render': 'false', # Instant JSON capture
-                'country_code': 'kr',
-                'premium': 'true' # REQUIRED for Naver (Protected Domain) to avoid 500 errors
+                'render': 'true',         # Cloud-based browser rendering
+                'premium': 'true',        # High-quality residential proxies
+                'country_code': 'kr',     # South Korean targeting
+                'wait_for_selector': 'li[class*="ArticleCard_item__"]' # Ensure items load
             }
             
-            print(f"  Requesting via ScraperAPI (Direct API High Speed)...", flush=True)
-            response = requests.get(proxy_url, params=params, timeout=60)
+            print(f"  Requesting via ScraperAPI (Mobile Web Rendering)...", flush=True)
+            response = requests.get(proxy_url, params=params, timeout=180)
             
             if response.status_code != 200:
                 print(f"  Proxy error ({response.status_code}): {response.text[:200]}", flush=True)
                 continue
                 
-            data = response.json()
-            items = data.get('result', {}).get('list', [])
-            print(f"  Found {len(items)} items in JSON response.", flush=True)
+            html = response.text
             
-            for item in items:
+            # 2. Parse the rendered HTML DOM
+            # The mobile UI uses deep components; we target the ArticleCard items
+            items = re.findall(r'<li[^>]*class="[^"]*ArticleCard_item__[^"]*"[^>]*>(.*?)</li>', html, re.DOTALL)
+            print(f"  Found {len(items)} items in rendered DOM.", flush=True)
+            
+            for item_html in items:
                 try:
-                    article_no = str(item.get('articleNo', ''))
+                    # Article ID
+                    match_id = re.search(r'articles/(\d+)', item_html)
+                    article_no = match_id.group(1) if match_id else ""
                     if not article_no: continue
                     
-                    rep_info = item.get('representativeArticleInfo', {})
-                    dong = rep_info.get('dongName', '')
+                    # Dong
+                    match_dong = re.search(r'<span[^>]*class="[^"]*ArticleCard_name__[^"]*"[^>]*>(.*?)</span>', item_html)
+                    full_name = match_dong.group(1) if match_dong else ""
+                    dong = full_name.split(' ')[-1] if ' ' in full_name else full_name
                     
-                    price_info = item.get('priceInfo', {})
-                    price_text = price_info.get('dealPriceName', '')
-                    price_val = price_info.get('dealPrice', 0)
-                    
+                    # Price
+                    match_price = re.search(r'<span[^>]*class="[^"]*ArticleCard_price__[^"]*"[^>]*>(.*?)</span>', item_html)
+                    price_text = match_price.group(1) if match_price else ""
                     if "매매" not in price_text: continue
                     
-                    space_info = item.get('spaceInfo', {})
-                    area1 = space_info.get('exclusiveSpace', 0)
-                    area2 = space_info.get('supplySpace', area1)
+                    # Summary (Area, Floor) - Mobile structure
+                    match_summaries = re.findall(r'<li[^>]*class="[^"]*ArticleCard_item-summary__[^"]*"[^>]*>(.*?)</li>', item_html)
+                    if len(match_summaries) < 3: continue
+                    area_text = match_summaries[1]
+                    floor_text = match_summaries[2]
+                    
+                    areas = re.findall(r'(\d+(?:\.\d+)?)', area_text)
+                    if not areas: continue
+                    area1 = float(areas[0])
+                    area2 = float(areas[1]) if len(areas) > 1 else area1
                     
                     if tgt["area_min"] <= area1 <= tgt["area_max"] or tgt["area_min"] <= area2 <= tgt["area_max"]:
-                        detail = item.get('articleDetail', {})
-                        floor_text = detail.get('floorInfo', '')
+                        # Reg Date from mobile confirm label
+                        match_date = re.search(r'확인매물 (\d{4}\.\d{2}\.\d{2})', item_html)
+                        reg_date = match_date.group(1)[2:] if match_date else ""
                         
-                        verif_info = item.get('verificationInfo', {})
-                        reg_date = verif_info.get('articleConfirmDate', '')
-                        if reg_date: reg_date = reg_date[2:].replace('-', '.') # "2026-04-03" -> "26.04.03"
+                        price_val = parse_price(price_text)
                         
                         current_listings[article_no] = {
                             'article_no': article_no,
@@ -120,7 +133,7 @@ def fetch_listings():
                             'price_val': price_val,
                             'area': f"{area1}㎡ / {area2}㎡",
                             'reg_date': reg_date,
-                            'cp_name': "Naver API",
+                            'cp_name': "Naver Mobile",
                             'unit_hash': article_no 
                         }
                 except Exception as e:
