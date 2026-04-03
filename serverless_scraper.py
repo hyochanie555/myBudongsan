@@ -5,14 +5,14 @@ from datetime import timezone
 import os
 import sys
 import re
-import random
-from playwright.sync_api import sync_playwright
+import requests
 
 # Fix Korean output on Windows terminals
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 # --- Configuration ---
+SCRAPERAPI_KEY = os.environ.get("SCRAPERAPI_KEY") 
 TARGETS = [
     {"name": "더샵동천포레스트", "id": "110798", "area_min": 108, "area_max": 115},
     {"name": "울산 힐스테이트 강동", "id": "109228", "area_min": 108, "area_max": 115},
@@ -50,162 +50,85 @@ def parse_price(p_str):
 def fetch_listings():
     current_listings = {}
     
-    # 0. Initial Jitter: Break data-center signature by starting at a random time
-    jitter = random.uniform(5.0, 15.0)
-    print(f"  Initial jitter delay: {jitter:.1f}s", flush=True)
-    time.sleep(jitter)
-    
-    with sync_playwright() as p:
-        # 1. Launch with DEEP Stealth & TCP Bypass
-        browser = p.chromium.launch(
-            headless=True,
-            args=[
-                '--disable-blink-features=AutomationControlled',
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-http2',            # FORCED TCP Bypass: Fallback to HTTP/1.1
-                '--ignore-certificate-errors' # SSL Resilience
-            ]
-        )
-        
-        # 2. MOBILE EMULATION (iPhone 13)
-        iphone_13 = p.devices['iPhone 13']
-        context = browser.new_context(**iphone_13, ignore_https_errors=True)
-        
-        # 3. Stealth Script to hide Playwright/WebDriver
-        page = context.new_page()
-        page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-        
-        # Helper: Safe Goto with Retry Logic for ERR_CONNECTION_RESET
-        def safe_goto(url, retries=3):
-            for attempt in range(retries + 1):
-                try:
-                    # Increased Timeout to 60s for slow WAF responses
-                    page.goto(url, wait_until="load", timeout=60000)
-                    return True
-                except Exception as e:
-                    print(f"  Attempt {attempt+1} failed for {url}: {e}", flush=True)
-                    if attempt < retries:
-                        delay = 5 + (attempt * 5) + random.uniform(0, 5)
-                        print(f"  Retrying in {delay:.1f}s...", flush=True)
-                        time.sleep(delay)
-                        continue
-                    return False
-        
-        # 4. Session Warmup: Visit mobile home first
-        print("  Warming up mobile session...", flush=True)
-        safe_goto("https://m.land.naver.com/", retries=2)
-        time.sleep(3)
+    if not SCRAPERAPI_KEY:
+        print("❌ SCRAPERAPI_KEY not found in environment variables.", flush=True)
+        print("Please add it to GitHub Secrets: https://github.com/settings/secrets/actions", flush=True)
+        return current_listings
 
-        for i, tgt in enumerate(TARGETS):
-            apt_name = tgt["name"]
-            complex_id = tgt["id"]
-            print(f"\n[TARGET] {apt_name} ({complex_id})", flush=True)
+    for i, tgt in enumerate(TARGETS):
+        apt_name = tgt["name"]
+        complex_id = tgt["id"]
+        print(f"\n[TARGET] {apt_name} ({complex_id})", flush=True)
+        
+        try:
+            # 1. High-Efficiency API Call (render=false)
+            # This calls Naver's internal API directly via ScraperAPI's South Korean proxy.
+            # Speed: Instant (<1s) | Cost: 1 credit (saves 90% vs rendering)
+            target_url = f"https://fin.land.naver.com/front-api/v1/article/list?complexNo={complex_id}&tradeType=A1&priceOrder=ASC"
+            proxy_url = "http://api.scraperapi.com"
+            params = {
+                'api_key': SCRAPERAPI_KEY,
+                'url': target_url,
+                'render': 'false', # No headless browser needed for JSON, saving time/money
+                'country_code': 'kr'
+            }
             
-            try:
-                # 1. Navigate to the mobile complex info page
-                # tradTpCd=A1 filter ensures only Sales (매매) listings appear
-                url = f"https://m.land.naver.com/complex/info/{complex_id}?tradTpCd=A1"
-                success = safe_goto(url, retries=3)
-                if not success:
-                    print(f"  Skipping {apt_name} due to repeated navigation failure.", flush=True)
-                    continue
-                
-                time.sleep(3) # Extra wait for DOM stability
-                
-                # 2. Click "매물" (Listings) tab if necessary
-                # Often the mobile site requires a click to show the items sidebar/view
-                try:
-                    # Selector for the tab button containing "매물"
-                    tab_btn = page.query_selector('button[class*="LineTab-module_link__"]:has-text("매물")')
-                    if tab_btn:
-                        tab_btn.click()
-                        time.sleep(2)
-                except:
-                    pass # Tab might already be active or selector changed
-                
-                # 3. Scrape the DOM
-                # The mobile site uses ArticleCard components similar to the new PC site
-                try:
-                    page.wait_for_selector('li[class*="ArticleCard_item__"]', timeout=15000)
-                except:
-                    print(f"  No listings visible for {apt_name} (Might be zero or blocked).", flush=True)
-                    continue
-                
-                cards = page.query_selector_all('li[class*="ArticleCard_item__"]')
-                print(f"  Found {len(cards)} items in DOM.", flush=True)
-                
-                for card in cards:
-                    try:
-                        # Article Number (ID) from link
-                        thumb_link = card.query_selector('a[class*="ArticleCard_link__"], a[class*="ArticleCard_area-thumbnail__"]')
-                        if not thumb_link: continue
-                        href = thumb_link.get_attribute('href') or ""
-                        match = re.search(r'/articles/(\d+)', href)
-                        article_no = match.group(1) if match else ""
-                        if not article_no: continue
-                        
-                        # Dong (e.g., "더샵동천포레스트 101동")
-                        name_el = card.query_selector('span[class*="ArticleCard_name__"]')
-                        full_name = name_el.inner_text() if name_el else ""
-                        # Extract the last part (Dong)
-                        dong = full_name.split(' ')[-1] if ' ' in full_name else full_name
-                        
-                        # Price (e.g., "매매 9억 3,000")
-                        price_el = card.query_selector('span[class*="ArticleCard_price__"]')
-                        price_text = price_el.inner_text() if price_el else ""
-                        if "매매" not in price_text: continue
-                        
-                        # Area & Floor from summary list
-                        summary_items = card.query_selector_all('li[class*="ArticleCard_item-summary__"]')
-                        if len(summary_items) < 3: continue
-                        
-                        area_text = summary_items[1].inner_text() # e.g., "112A㎡ (전용84A)"
-                        floor_text = summary_items[2].inner_text() # e.g., "7/21층"
-                        
-                        areas = re.findall(r'(\d+(?:\.\d+)?)', area_text)
-                        if not areas: continue
-                        area1 = float(areas[0])
-                        area2 = float(areas[1]) if len(areas) > 1 else area1
-                        
-                        # Filter by area
-                        if tgt["area_min"] <= area1 <= tgt["area_max"] or tgt["area_min"] <= area2 <= tgt["area_max"]:
-                            # Reg Date (e.g., "확인매물 2026.04.03")
-                            date_el = card.query_selector('li[class*="PropertyBadgeList_type-confirmed__"]')
-                            reg_date = ""
-                            if date_el:
-                                date_match = re.search(r'(\d{4}\.\d{2}\.\d{2})', date_el.inner_text())
-                                if date_match:
-                                    reg_date = date_match.group(1)[2:] # "26.04.03"
-                            
-                            price_val = parse_price(price_text)
-                            
-                            current_listings[article_no] = {
-                                'article_no': article_no,
-                                'complex_name': apt_name,
-                                'dong': dong,
-                                'floor': floor_text,
-                                'price': price_text,
-                                'price_val': price_val,
-                                'area': f"{area1}㎡ / {area2}㎡",
-                                'reg_date': reg_date,
-                                'cp_name': "Naver Mobile",
-                                'unit_hash': article_no 
-                            }
-                    except Exception as e:
-                        continue
-                        
-            except Exception as e:
-                print(f"  Error processing {apt_name}: {e}", flush=True)
+            print(f"  Requesting via ScraperAPI (Direct API High Speed)...", flush=True)
+            response = requests.get(proxy_url, params=params, timeout=60)
+            
+            if response.status_code != 200:
+                print(f"  Proxy error ({response.status_code}): {response.text[:200]}", flush=True)
                 continue
                 
-            # Random wait between targets
-            if i < len(TARGETS) - 1:
-                time.sleep(5 + (time.time() * 1000 % 5000) / 1000.0)
-                
-        browser.close()
-                
+            data = response.json()
+            items = data.get('result', {}).get('list', [])
+            print(f"  Found {len(items)} items in JSON response.", flush=True)
+            
+            for item in items:
+                try:
+                    article_no = str(item.get('articleNo', ''))
+                    if not article_no: continue
+                    
+                    rep_info = item.get('representativeArticleInfo', {})
+                    dong = rep_info.get('dongName', '')
+                    
+                    price_info = item.get('priceInfo', {})
+                    price_text = price_info.get('dealPriceName', '')
+                    price_val = price_info.get('dealPrice', 0)
+                    
+                    if "매매" not in price_text: continue
+                    
+                    space_info = item.get('spaceInfo', {})
+                    area1 = space_info.get('exclusiveSpace', 0)
+                    area2 = space_info.get('supplySpace', area1)
+                    
+                    if tgt["area_min"] <= area1 <= tgt["area_max"] or tgt["area_min"] <= area2 <= tgt["area_max"]:
+                        detail = item.get('articleDetail', {})
+                        floor_text = detail.get('floorInfo', '')
+                        
+                        verif_info = item.get('verificationInfo', {})
+                        reg_date = verif_info.get('articleConfirmDate', '')
+                        if reg_date: reg_date = reg_date[2:].replace('-', '.') # "2026-04-03" -> "26.04.03"
+                        
+                        current_listings[article_no] = {
+                            'article_no': article_no,
+                            'complex_name': apt_name,
+                            'dong': dong,
+                            'floor': floor_text,
+                            'price': price_text,
+                            'price_val': price_val,
+                            'area': f"{area1}㎡ / {area2}㎡",
+                            'reg_date': reg_date,
+                            'cp_name': "Naver API",
+                            'unit_hash': article_no 
+                        }
+                except Exception as e:
+                    continue
+                    
+        except Exception as e:
+            print(f"  Error processing {apt_name}: {e}", flush=True)
+            continue
+            
     return current_listings
 
 def main():
@@ -262,7 +185,7 @@ def main():
                 "last_update": now_kst,
                 "summary": {tgt["name"]: {"prev": 0, "today": 0} for tgt in TARGETS},
                 "listings": [],
-                "message": "네이버 차단으로 인해 데이터를 가져오지 못했습니다. 잠시 후 상단 Actions에서 다시 실행해 주세요."
+                "message": "⚠️ SCRAPERAPI_KEY가 설정되지 않았거나 프록시 오류가 발생했습니다. 저장소의 Settings > Secrets에 키를 등록했는지 확인해 주세요."
             }
             with open(RESULTS_FILE, "w", encoding="utf-8") as f:
                 json.dump(placeholder, f, ensure_ascii=False, indent=2)
