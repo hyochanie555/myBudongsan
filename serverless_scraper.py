@@ -5,6 +5,7 @@ from datetime import timezone
 import os
 import sys
 import re
+import random
 from playwright.sync_api import sync_playwright
 
 # Fix Korean output on Windows terminals
@@ -49,45 +50,53 @@ def parse_price(p_str):
 def fetch_listings():
     current_listings = {}
     
+    # 0. Initial Jitter: Break data-center signature by starting at a random time
+    jitter = random.uniform(5.0, 15.0)
+    print(f"  Initial jitter delay: {jitter:.1f}s", flush=True)
+    time.sleep(jitter)
+    
     with sync_playwright() as p:
-        # 1. Launch with Anti-Automation flags
+        # 1. Launch with DEEP Stealth & TCP Bypass
         browser = p.chromium.launch(
             headless=True,
             args=[
                 '--disable-blink-features=AutomationControlled',
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage' # Important for Linux CI
+                '--disable-dev-shm-usage',
+                '--disable-http2',            # FORCED TCP Bypass: Fallback to HTTP/1.1
+                '--ignore-certificate-errors' # SSL Resilience
             ]
         )
         
         # 2. MOBILE EMULATION (iPhone 13)
-        # This sets realistic viewport, user-agent, touch, and scale-factor automatically.
         iphone_13 = p.devices['iPhone 13']
-        context = browser.new_context(**iphone_13)
+        context = browser.new_context(**iphone_13, ignore_https_errors=True)
         
         # 3. Stealth Script to hide Playwright/WebDriver
         page = context.new_page()
         page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         
         # Helper: Safe Goto with Retry Logic for ERR_CONNECTION_RESET
-        def safe_goto(url, retries=2):
+        def safe_goto(url, retries=3):
             for attempt in range(retries + 1):
                 try:
-                    # Mobile site is simpler, 'load' is often enough and faster
-                    page.goto(url, wait_until="load", timeout=45000)
+                    # Increased Timeout to 60s for slow WAF responses
+                    page.goto(url, wait_until="load", timeout=60000)
                     return True
                 except Exception as e:
                     print(f"  Attempt {attempt+1} failed for {url}: {e}", flush=True)
                     if attempt < retries:
-                        time.sleep(3 + (attempt * 2))
+                        delay = 5 + (attempt * 5) + random.uniform(0, 5)
+                        print(f"  Retrying in {delay:.1f}s...", flush=True)
+                        time.sleep(delay)
                         continue
                     return False
         
         # 4. Session Warmup: Visit mobile home first
         print("  Warming up mobile session...", flush=True)
         safe_goto("https://m.land.naver.com/", retries=2)
-        time.sleep(2)
+        time.sleep(3)
 
         for i, tgt in enumerate(TARGETS):
             apt_name = tgt["name"]
