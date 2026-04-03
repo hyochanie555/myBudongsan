@@ -50,31 +50,71 @@ def fetch_listings():
     current_listings = {}
     
     with sync_playwright() as p:
-        # Use a real browser with a realistic user agent
-        browser = p.chromium.launch(headless=True)
+        # 1. Launch with Anti-Automation flags
+        browser = p.chromium.launch(
+            headless=True,
+            args=[
+                '--disable-blink-features=AutomationControlled',
+                '--no-sandbox', # Necessary for some CI environments
+                '--disable-setuid-sandbox',
+            ]
+        )
+        
+        # 2. Modern Context with Extra Headers
         context = browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-            viewport={"width": 1280, "height": 800}
+            viewport={"width": 1280, "height": 800},
+            extra_http_headers={
+                "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
+            }
         )
-        page = context.new_page()
         
+        # 3. Stealth Script to hide Playwright/WebDriver
+        page = context.new_page()
+        page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+        
+        # Helper: Safe Goto with Retry Logic for ERR_CONNECTION_RESET
+        def safe_goto(url, retries=2):
+            for attempt in range(retries + 1):
+                try:
+                    # Faster wait than 'networkidle' to avoid timeouts due to blocked trackers
+                    page.goto(url, wait_until="domcontentloaded", timeout=45000)
+                    return True
+                except Exception as e:
+                    print(f"  Attempt {attempt+1} failed for {url}: {e}", flush=True)
+                    if attempt < retries:
+                        time.sleep(3 + (attempt * 2)) # Exponential backoff
+                        continue
+                    return False
+        
+        # 4. Session Warmup: Visit main page first to get cookies
+        print("  Warming up session...", flush=True)
+        safe_goto("https://fin.land.naver.com/", retries=2)
+        time.sleep(2)
+
         for i, tgt in enumerate(TARGETS):
             apt_name = tgt["name"]
             complex_id = tgt["id"]
             print(f"\n[TARGET] {apt_name} ({complex_id})", flush=True)
             
             try:
-                # 1. Navigate to the complex page
+                # 1. Navigate to the complex page with safe_goto
                 url = f"https://fin.land.naver.com/complexes/{complex_id}"
-                page.goto(url, wait_until="networkidle", timeout=60000)
-                time.sleep(3) # Extra wait for lazy loading
+                success = safe_goto(url, retries=3)
+                if not success:
+                    print(f"  Skipping {apt_name} due to repeated navigation failure.", flush=True)
+                    continue
                 
-                # 2. Click the '매물' (Listings) tab if it's not active
-                # The page usually defaults to some overview or map. We need the list.
-                # Actually, /complexes/{id} often shows the list directly in the sidebar on recent Naver Land.
+                time.sleep(2) # Extra wait for DOM stability
                 
                 # Wait for any ArticleCard items to appear
-                page.wait_for_selector('li[class*="ArticleCard_item"]', timeout=10000)
+                # If they don't appear, the connection might have reset silently or it's a block
+                try:
+                    page.wait_for_selector('li[class*="ArticleCard_item"]', timeout=15000)
+                except:
+                    print(f"  Cards did not load for {apt_name} (Likely blocked).", flush=True)
+                    continue
                 
                 # 3. Scrape the DOM
                 cards = page.query_selector_all('li[class*="ArticleCard_item"]')
