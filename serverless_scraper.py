@@ -69,8 +69,9 @@ def fetch_listings():
             params = {
                 'api_key': SCRAPERAPI_KEY,
                 'url': target_url,
-                'render': 'false', # No headless browser needed for JSON, saving time/money
-                'country_code': 'kr'
+                'render': 'false', # Instant JSON capture
+                'country_code': 'kr',
+                'premium': 'true' # REQUIRED for Naver (Protected Domain) to avoid 500 errors
             }
             
             print(f"  Requesting via ScraperAPI (Direct API High Speed)...", flush=True)
