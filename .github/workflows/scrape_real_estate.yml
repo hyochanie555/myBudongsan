@@ -7,15 +7,15 @@ on:
 
 jobs:
   scrape:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -24,12 +24,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests playwright
       
-      - name: Install Playwright Browsers
-        run: playwright install chromium
+      - name: Install Playwright Browsers & Deps
+        run: |
+          npx playwright install chromium
+          npx playwright install-deps chromium
 
       - name: Run Scraper
         run: |
-          # Robust execution with long randomized delays between complexes to avoid 429
+          # Robust execution with mobile emulation
           python serverless_scraper.py
 
       - name: Validate Update

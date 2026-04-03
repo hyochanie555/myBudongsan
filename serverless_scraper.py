@@ -55,20 +55,16 @@ def fetch_listings():
             headless=True,
             args=[
                 '--disable-blink-features=AutomationControlled',
-                '--no-sandbox', # Necessary for some CI environments
+                '--no-sandbox',
                 '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage' # Important for Linux CI
             ]
         )
         
-        # 2. Modern Context with Extra Headers
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-            viewport={"width": 1280, "height": 800},
-            extra_http_headers={
-                "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
-            }
-        )
+        # 2. MOBILE EMULATION (iPhone 13)
+        # This sets realistic viewport, user-agent, touch, and scale-factor automatically.
+        iphone_13 = p.devices['iPhone 13']
+        context = browser.new_context(**iphone_13)
         
         # 3. Stealth Script to hide Playwright/WebDriver
         page = context.new_page()
@@ -78,19 +74,19 @@ def fetch_listings():
         def safe_goto(url, retries=2):
             for attempt in range(retries + 1):
                 try:
-                    # Faster wait than 'networkidle' to avoid timeouts due to blocked trackers
-                    page.goto(url, wait_until="domcontentloaded", timeout=45000)
+                    # Mobile site is simpler, 'load' is often enough and faster
+                    page.goto(url, wait_until="load", timeout=45000)
                     return True
                 except Exception as e:
                     print(f"  Attempt {attempt+1} failed for {url}: {e}", flush=True)
                     if attempt < retries:
-                        time.sleep(3 + (attempt * 2)) # Exponential backoff
+                        time.sleep(3 + (attempt * 2))
                         continue
                     return False
         
-        # 4. Session Warmup: Visit main page first to get cookies
-        print("  Warming up session...", flush=True)
-        safe_goto("https://fin.land.naver.com/", retries=2)
+        # 4. Session Warmup: Visit mobile home first
+        print("  Warming up mobile session...", flush=True)
+        safe_goto("https://m.land.naver.com/", retries=2)
         time.sleep(2)
 
         for i, tgt in enumerate(TARGETS):
@@ -99,57 +95,66 @@ def fetch_listings():
             print(f"\n[TARGET] {apt_name} ({complex_id})", flush=True)
             
             try:
-                # 1. Navigate to the complex page with safe_goto
-                url = f"https://fin.land.naver.com/complexes/{complex_id}"
+                # 1. Navigate to the mobile complex info page
+                # tradTpCd=A1 filter ensures only Sales (매매) listings appear
+                url = f"https://m.land.naver.com/complex/info/{complex_id}?tradTpCd=A1"
                 success = safe_goto(url, retries=3)
                 if not success:
                     print(f"  Skipping {apt_name} due to repeated navigation failure.", flush=True)
                     continue
                 
-                time.sleep(2) # Extra wait for DOM stability
+                time.sleep(3) # Extra wait for DOM stability
                 
-                # Wait for any ArticleCard items to appear
-                # If they don't appear, the connection might have reset silently or it's a block
+                # 2. Click "매물" (Listings) tab if necessary
+                # Often the mobile site requires a click to show the items sidebar/view
                 try:
-                    page.wait_for_selector('li[class*="ArticleCard_item"]', timeout=15000)
+                    # Selector for the tab button containing "매물"
+                    tab_btn = page.query_selector('button[class*="LineTab-module_link__"]:has-text("매물")')
+                    if tab_btn:
+                        tab_btn.click()
+                        time.sleep(2)
                 except:
-                    print(f"  Cards did not load for {apt_name} (Likely blocked).", flush=True)
-                    continue
+                    pass # Tab might already be active or selector changed
                 
                 # 3. Scrape the DOM
-                cards = page.query_selector_all('li[class*="ArticleCard_item"]')
+                # The mobile site uses ArticleCard components similar to the new PC site
+                try:
+                    page.wait_for_selector('li[class*="ArticleCard_item__"]', timeout=15000)
+                except:
+                    print(f"  No listings visible for {apt_name} (Might be zero or blocked).", flush=True)
+                    continue
+                
+                cards = page.query_selector_all('li[class*="ArticleCard_item__"]')
                 print(f"  Found {len(cards)} items in DOM.", flush=True)
                 
                 for card in cards:
                     try:
-                        # Article Number (ID)
-                        thumb_link = card.query_selector('a[class*="ArticleCard_area-thumbnail"]')
+                        # Article Number (ID) from link
+                        thumb_link = card.query_selector('a[class*="ArticleCard_link__"], a[class*="ArticleCard_area-thumbnail__"]')
                         if not thumb_link: continue
                         href = thumb_link.get_attribute('href') or ""
                         match = re.search(r'/articles/(\d+)', href)
                         article_no = match.group(1) if match else ""
                         if not article_no: continue
                         
-                        # Dong (e.g., "더샵동천포레스트 102동")
-                        name_el = card.query_selector('span[class*="ArticleCard_name"]')
+                        # Dong (e.g., "더샵동천포레스트 101동")
+                        name_el = card.query_selector('span[class*="ArticleCard_name__"]')
                         full_name = name_el.inner_text() if name_el else ""
+                        # Extract the last part (Dong)
                         dong = full_name.split(' ')[-1] if ' ' in full_name else full_name
                         
                         # Price (e.g., "매매 9억 3,000")
-                        price_el = card.query_selector('span[class*="ArticleCard_price"]')
+                        price_el = card.query_selector('span[class*="ArticleCard_price__"]')
                         price_text = price_el.inner_text() if price_el else ""
-                        if "매매" not in price_text: continue # Skip if not Sale
+                        if "매매" not in price_text: continue
                         
-                        # Area & Floor
-                        # In the summary list: li:nth-child(2) is Area, li:nth-child(3) is Floor
-                        summary_items = card.query_selector_all('li[class*="ArticleCard_item-summary"]')
+                        # Area & Floor from summary list
+                        summary_items = card.query_selector_all('li[class*="ArticleCard_item-summary__"]')
                         if len(summary_items) < 3: continue
                         
                         area_text = summary_items[1].inner_text() # e.g., "112A㎡ (전용84A)"
                         floor_text = summary_items[2].inner_text() # e.g., "7/21층"
                         
-                        # Extract area numbers for filtering
-                        # e.g., "112A㎡ (전용84A)" -> 112, 84
                         areas = re.findall(r'(\d+(?:\.\d+)?)', area_text)
                         if not areas: continue
                         area1 = float(areas[0])
@@ -158,14 +163,13 @@ def fetch_listings():
                         # Filter by area
                         if tgt["area_min"] <= area1 <= tgt["area_max"] or tgt["area_min"] <= area2 <= tgt["area_max"]:
                             # Reg Date (e.g., "확인매물 2026.04.03")
-                            date_el = card.query_selector('li[class*="PropertyBadgeList_type-confirmed"]')
+                            date_el = card.query_selector('li[class*="PropertyBadgeList_type-confirmed__"]')
                             reg_date = ""
                             if date_el:
                                 date_match = re.search(r'(\d{4}\.\d{2}\.\d{2})', date_el.inner_text())
                                 if date_match:
                                     reg_date = date_match.group(1)[2:] # "26.04.03"
                             
-                            # Price value for sorting
                             price_val = parse_price(price_text)
                             
                             current_listings[article_no] = {
@@ -177,11 +181,11 @@ def fetch_listings():
                                 'price_val': price_val,
                                 'area': f"{area1}㎡ / {area2}㎡",
                                 'reg_date': reg_date,
-                                'cp_name': "Naver Land",
+                                'cp_name': "Naver Mobile",
                                 'unit_hash': article_no 
                             }
                     except Exception as e:
-                        continue # Skip individual item error
+                        continue
                         
             except Exception as e:
                 print(f"  Error processing {apt_name}: {e}", flush=True)
