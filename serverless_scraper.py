@@ -1,7 +1,7 @@
 import json
 import time
 import datetime
-from datetime import UTC
+from datetime import timezone
 import os
 import sys
 import re
@@ -204,7 +204,7 @@ def main():
         
         # If results.json doesn't exist at all (e.g. after accidental deletion), create a placeholder
         if not os.path.exists(RESULTS_FILE):
-            now_kst = (datetime.datetime.now(UTC) + datetime.timedelta(hours=9)).strftime("%Y-%m-%d %H:%M")
+            now_kst = (datetime.datetime.now(timezone.utc) + datetime.timedelta(hours=9)).strftime("%Y-%m-%d %H:%M")
             placeholder = {
                 "last_update": now_kst,
                 "summary": {tgt["name"]: {"prev": 0, "today": 0} for tgt in TARGETS},
@@ -227,7 +227,7 @@ def main():
     ))
     
     # 5. Save Results for Frontend
-    now_kst = (datetime.datetime.now(UTC) + datetime.timedelta(hours=9)).strftime("%Y-%m-%d %H:%M")
+    now_kst = (datetime.datetime.now(timezone.utc) + datetime.timedelta(hours=9)).strftime("%Y-%m-%d %H:%M")
     
     summary = {}
     for apt in TARGETS:
