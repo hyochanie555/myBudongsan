@@ -60,23 +60,31 @@ def fetch_listings():
         print(f"\n[TARGET] {apt_name} ({complex_id})", flush=True)
         
         try:
-            # 1. Definitive Bypass Strategy: Mobile Web Rendering
-            # API calls are heavily blocked (Error 500), but rendering the full mobile UI
-            # is indistinguishable from real users. 
-            # Cost: ~10-25 credits | Speed: ~20-30s per complex
+            # 1. Definitive Bypass Strategy: Mobile Web Rendering with Custom Headers
+            # Adding a real Mobile User-Agent and setting keep_headers: 'true'
+            # makes our request indistinguishable from a legitimate mobile device.
             target_url = f"https://m.land.naver.com/complex/info/{complex_id}?tab=article"
             proxy_url = "http://api.scraperapi.com"
+            
+            # Use a robust mobile User-Agent (iPhone/iOS)
+            custom_headers = {
+                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7'
+            }
+            
             params = {
                 'api_key': SCRAPERAPI_KEY,
                 'url': target_url,
                 'render': 'true',         # Cloud-based browser rendering
                 'premium': 'true',        # High-quality residential proxies
                 'country_code': 'kr',     # South Korean targeting
-                'wait_for_selector': 'li[class*="ArticleCard_item__"]' # Ensure items load
+                'keep_headers': 'true',   # CRITICAL: Forward our custom User-Agent to Naver
+                'wait_for_selector': 'li[class*="ArticleCard_item__"]' 
             }
             
-            print(f"  Requesting via ScraperAPI (Mobile Web Rendering)...", flush=True)
-            response = requests.get(proxy_url, params=params, timeout=180)
+            print(f"  Requesting via ScraperAPI (Stealth Rendering Mode)...", flush=True)
+            response = requests.get(proxy_url, params=params, headers=custom_headers, timeout=180)
             
             if response.status_code != 200:
                 print(f"  Proxy error ({response.status_code}): {response.text[:200]}", flush=True)
@@ -149,65 +157,89 @@ def main():
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
         
-    # 1. Load History
-    history = {"last_day_listings": {}, "historical_articles": [], "historical_hashes": []}
+    # 1. Load History & Determine Daily Reference
+    history = {
+        "last_day_listings": {}, 
+        "historical_articles": [], 
+        "historical_hashes": [],
+        "last_ref_date": "",
+        "reference_listings": {}
+    }
+    
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, "r", encoding="utf-8") as f:
             history = json.load(f)
             
-    prev_listings = history.get("last_day_listings", {})
+    prev_listings = history.get("last_day_listings", {}) # Final state of the last run
     hist_articles = set(history.get("historical_articles", []))
     hist_hashes = set(history.get("historical_hashes", []))
     
+    # [Day-based Comparison Mode]
+    now_kst_dt = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)
+    current_date = now_kst_dt.strftime("%Y-%m-%d")
+    last_ref_date = history.get("last_ref_date", "")
+    
+    # If it's a new day, we set a new baseline for "Today's Changes"
+    if current_date != last_ref_date:
+        print(f"🌞 [SYSTEM] New Date detected ({current_date}). Setting morning baseline...", flush=True)
+        # The baseline for today's comparison is what we saw at the end of yesterday
+        reference_listings = prev_listings.copy()
+        history["last_ref_date"] = current_date
+        history["reference_listings"] = reference_listings
+    else:
+        # Throughout the day, we keep comparing against the same fixed morning baseline
+        reference_listings = history.get("reference_listings", prev_listings)
+        print(f"🕒 [SYSTEM] Day-based mode: Comparing to {current_date} baseline.", flush=True)
+
     # 2. Scrape Current
     today_listings = fetch_listings()
+    if not today_listings:
+        print("⚠️  No listings scraped. Safety check: Keeping existing results to avoid blanking out UI.", flush=True)
+        return
+
     today_hashes = set(data['unit_hash'] for no, data in today_listings.items() if data.get('unit_hash'))
-    
     results = []
     
-    # 3. Compare: Today's listings
+    # 3. Compare with Morning Baseline (Cumulative Today's Changes)
+    new_count = 0
+    mod_count = 0
+    del_count = 0
+    
     for no, data in today_listings.items():
         status = "유지"
-        if no not in prev_listings:
+        # If it wasn't there this morning, it's New for today
+        if no not in reference_listings:
             if no in hist_articles or (data['unit_hash'] and data['unit_hash'] in hist_hashes):
                 status = "매물 재등록"
             else:
                 status = "신규매물"
+            new_count += 1
+        elif data['price_val'] != reference_listings[no]['price_val']:
+            status = "변동"
+            mod_count += 1
         
         data['status'] = status
         results.append(data)
         
-    # 4. Compare: Previous listings (to find Completed/Deleted)
-    for no, data in prev_listings.items():
+        # Archive
+        hist_articles.add(no)
+        if data.get('unit_hash'):
+            hist_hashes.add(data['unit_hash'])
+            
+    # Check for removals since this morning (Completed at some point today)
+    for no, data in reference_listings.items():
         if no not in today_listings:
-            # Check if it was replaced (re-registered) in today's set
+            # Check for re-registration (to avoid double counting removals)
             unit_hash = data.get('unit_hash')
             if unit_hash and unit_hash in today_hashes:
-                continue # Replaced by another article, don't count as complete
+                continue 
                 
             data['status'] = "거래 완료"
             results.append(data)
-            
-    # Safety Check: If results are zero, do not overwrite to avoid blanking out data due to IP blocks
-    if not today_listings:
-        print("⚠️ Safety check triggered: No listings found.")
-        
-        # If results.json doesn't exist at all (e.g. after accidental deletion), create a placeholder
-        if not os.path.exists(RESULTS_FILE):
-            now_kst = (datetime.datetime.now(timezone.utc) + datetime.timedelta(hours=9)).strftime("%Y-%m-%d %H:%M")
-            placeholder = {
-                "last_update": now_kst,
-                "summary": {tgt["name"]: {"prev": 0, "today": 0} for tgt in TARGETS},
-                "listings": [],
-                "message": "⚠️ SCRAPERAPI_KEY가 설정되지 않았거나 프록시 오류가 발생했습니다. 저장소의 Settings > Secrets에 키를 등록했는지 확인해 주세요."
-            }
-            with open(RESULTS_FILE, "w", encoding="utf-8") as f:
-                json.dump(placeholder, f, ensure_ascii=False, indent=2)
-            print(f"Created a placeholder {RESULTS_FILE} to prevent UI error.")
-            
-        print("Not overwriting existing data if it exists.")
-        return
-            
+            del_count += 1
+
+    print(f"📊 Daily Summary: {new_count} New, {mod_count} Changed, {del_count} Completed since morning.", flush=True)
+
     # Sort results
     results.sort(key=lambda x: (
         x.get('status') != '거래 완료', 
@@ -216,35 +248,31 @@ def main():
         str(x.get('floor', ''))
     ))
     
-    # 5. Save Results for Frontend
-    now_kst = (datetime.datetime.now(timezone.utc) + datetime.timedelta(hours=9)).strftime("%Y-%m-%d %H:%M")
+    # 4. Save results.json for Frontend
+    now_kst_str = now_kst_dt.strftime("%Y-%m-%d %H:%M")
     
     summary = {}
     for apt in TARGETS:
         name = apt["name"]
-        today_count = len([l for l in today_listings.values() if l["complex_name"] == name])
-        prev_count = len([l for l in prev_listings.values() if l["complex_name"] == name])
-        summary[name] = {"prev": prev_count, "today": today_count}
+        today_cnt = len([l for l in today_listings.values() if l["complex_name"] == name])
+        ref_cnt = len([l for l in reference_listings.values() if l["complex_name"] == name])
+        summary[name] = {"prev": ref_cnt, "today": today_cnt}
 
     output = {
-        "last_update": now_kst,
+        "last_update": now_kst_str,
         "summary": summary,
         "listings": results
     }
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-        
-    # 6. Update History
-    new_hist_articles = list(hist_articles.union(prev_listings.keys()))
-    new_hist_hashes = list(hist_hashes.union(set(d.get('unit_hash') for d in prev_listings.values() if d.get('unit_hash'))))
+
+    # 5. Update History (Save current run as 'last seen' for next time)
+    history["last_day_listings"] = today_listings
+    history["historical_articles"] = list(hist_articles)
+    history["historical_hashes"] = list(hist_hashes)
     
-    new_history = {
-        "last_day_listings": today_listings,
-        "historical_articles": new_hist_articles,
-        "historical_hashes": new_hist_hashes
-    }
-    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(new_history, f, ensure_ascii=False, indent=2)
+    with os.fdopen(os.open(HISTORY_FILE, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o666), 'w', encoding='utf-8') as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
         
     print(f"Done! Updated {len(today_listings)} listings.")
 
