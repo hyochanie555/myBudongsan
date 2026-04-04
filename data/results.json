@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-04-04 13:31",
+  "last_update": "2026-04-04 13:37",
   "summary": {
     "더샵동천포레스트": {
       "prev": 0,
@@ -11,7 +11,7 @@
     },
     "한강센트럴자이 1단지": {
       "prev": 0,
-      "today": 20
+      "today": 22
     },
     "선암에코하이츠": {
       "prev": 0,
@@ -30,7 +30,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2614007946",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617522004",
@@ -43,7 +43,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617522004",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617082069",
@@ -56,7 +56,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617082069",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618293180",
@@ -69,7 +69,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618293180",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618303556",
@@ -82,20 +82,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618303556",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2618324056",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "105동",
-      "floor": "19/28",
-      "price": "0억 (매매)",
-      "price_val": 0,
-      "area": "112.56㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618324056",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617965099",
@@ -108,7 +95,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617965099",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618010868",
@@ -121,7 +108,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618010868",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616559156",
@@ -134,7 +121,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616559156",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617305591",
@@ -147,7 +134,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617305591",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617820667",
@@ -160,7 +147,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617820667",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617098926",
@@ -173,7 +160,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617098926",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617377146",
@@ -186,7 +173,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617377146",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618271457",
@@ -199,7 +186,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618271457",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617281245",
@@ -212,7 +199,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617281245",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617516840",
@@ -225,7 +212,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617516840",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617108406",
@@ -238,7 +225,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617108406",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618284057",
@@ -251,7 +238,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618284057",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617965700",
@@ -264,7 +251,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617965700",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617817495",
@@ -277,7 +264,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617817495",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618058692",
@@ -290,7 +277,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618058692",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617429512",
@@ -303,7 +290,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617429512",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617744599",
@@ -316,7 +303,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617744599",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617956769",
@@ -329,7 +316,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617956769",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617744316",
@@ -342,7 +329,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617744316",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617426798",
@@ -355,7 +342,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617426798",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618385441",
@@ -368,7 +355,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618385441",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617906540",
@@ -381,7 +368,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617906540",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617750750",
@@ -394,7 +381,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617750750",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617743126",
@@ -407,7 +394,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617743126",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618006138",
@@ -420,7 +407,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618006138",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616636217",
@@ -433,7 +420,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616636217",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616936605",
@@ -446,7 +433,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616936605",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617571082",
@@ -459,7 +446,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617571082",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618201523",
@@ -472,7 +459,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618201523",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617408133",
@@ -485,7 +472,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617408133",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618174204",
@@ -498,7 +485,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618174204",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617744600",
@@ -511,7 +498,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617744600",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617098907",
@@ -524,7 +511,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617098907",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618271192",
@@ -537,7 +524,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618271192",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618386962",
@@ -550,7 +537,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618386962",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618202605",
@@ -563,7 +550,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618202605",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618202248",
@@ -576,7 +563,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618202248",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617746774",
@@ -589,7 +576,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617746774",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2613774570",
@@ -602,7 +589,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2613774570",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618291458",
@@ -615,7 +602,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618291458",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618322667",
@@ -628,7 +615,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618322667",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618000078",
@@ -641,6 +628,32 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618000078",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618323764",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "132동",
+      "floor": "26/28",
+      "price": "4억 8,500 (매매)",
+      "price_val": 485000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618323764",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618324480",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "17/29",
+      "price": "4억 9,000 (매매)",
+      "price_val": 490000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618324480",
       "status": "신규매물"
     },
     {
@@ -654,7 +667,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618287302",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618334026",
@@ -667,7 +680,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618334026",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618292261",
@@ -680,7 +693,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618292261",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618376488",
@@ -693,6 +706,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618376488",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618383962",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "121동",
+      "floor": "8/29",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618383962",
       "status": "신규매물"
     },
     {
@@ -706,7 +732,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618325171",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618286970",
@@ -719,19 +745,32 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618286970",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617783581",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "127동",
+      "floor": "13/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617783581",
       "status": "신규매물"
     },
     {
-      "article_no": "2618384204",
+      "article_no": "2618310063",
       "complex_name": "한강센트럴자이 1단지",
-      "dong": "121동",
-      "floor": "9/29",
+      "dong": "132동",
+      "floor": "10/28",
       "price": "5억 2,000 (매매)",
       "price_val": 520000000,
       "area": "112.56㎡ / 84.96㎡",
       "reg_date": "최근",
       "cp_name": "네이버부동산",
-      "unit_hash": "2618384204",
+      "unit_hash": "2618310063",
       "status": "신규매물"
     },
     {
@@ -745,7 +784,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618292955",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618293134",
@@ -758,7 +797,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618293134",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618333277",
@@ -771,7 +810,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618333277",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618291654",
@@ -784,7 +823,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618291654",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617999720",
@@ -797,7 +836,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617999720",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618322260",
@@ -810,7 +849,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618322260",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618330501",
@@ -823,7 +862,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618330501",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618216255",
@@ -836,20 +875,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618216255",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2618384926",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "118동",
-      "floor": "27/28",
-      "price": "7억 (매매)",
-      "price_val": 700000000,
-      "area": "112.54㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618384926",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617663941",
@@ -862,7 +888,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617663941",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618398755",
@@ -875,7 +901,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618398755",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618398996",
@@ -888,7 +914,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618398996",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618153542",
@@ -901,7 +927,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618153542",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2613228061",
@@ -914,7 +940,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2613228061",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618309125",
@@ -927,7 +953,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618309125",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616870912",
@@ -940,7 +966,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616870912",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617859801",
@@ -953,7 +979,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617859801",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2614116762",
@@ -966,7 +992,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2614116762",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2614160299",
@@ -979,7 +1005,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2614160299",
-      "status": "신규매물"
+      "status": "매물 재등록"
     }
   ]
 }
