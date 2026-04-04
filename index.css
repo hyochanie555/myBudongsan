@@ -44,6 +44,7 @@ body {
     font-weight: 700;
     background: linear-gradient(to right, #60a5fa, #a78bfa);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -200,6 +201,12 @@ table {
     font-size: 1.0rem;
 }
 
+.search-container input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
 th,
 td {
     padding: 1rem;
@@ -341,63 +348,94 @@ tbody tr {
         font-size: 1.05rem;
     }
 
-    /* Table to Cards Transformation */
+    /* Compact List View for Mobile */
     .dashboard-main {
-        padding: 0.8rem;
-        border-radius: 12px;
+        padding: 0.5rem;
     }
 
     table, thead, tbody, th, td, tr {
         display: block;
     }
 
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
+    thead {
+        display: none;
     }
 
     tbody tr {
-        margin-bottom: 1.2rem;
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.03);
-        padding: 0.5rem;
-        position: relative;
-    }
-
-    td {
-        border: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        position: relative;
-        padding: 0.8rem 0.8rem 0.8rem 40% !important;
-        text-align: right !important;
-        min-height: 3rem;
         display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        flex-direction: column;
+        padding: 1rem 0.75rem;
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border-color);
+        gap: 0.4rem;
     }
 
-    td:last-child {
-        border-bottom: 0;
+    /* Primary Row: Dong, Floor, Area and Price */
+    td[data-label="동"],
+    td[data-label="층"],
+    td[data-label="면적"],
+    td[data-label="가격"] {
+        padding: 0 !important;
+        border: none;
+        display: inline-flex;
+        text-align: left !important;
+        min-height: auto;
+        width: auto !important;
     }
 
-    td::before {
-        content: attr(data-label);
+    td[data-label="단지명"] {
+        display: none; /* Already selected by filter */
+    }
+
+    td[data-label="상태"] {
         position: absolute;
-        left: 0.8rem;
-        width: 35%;
-        text-align: left;
-        font-weight: 600;
-        color: var(--text-secondary);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+        top: 0.75rem;
+        right: 0.75rem;
+        padding: 0 !important;
     }
 
-    /* Keep badges styled nicely in card view */
-    .status-badge {
-        font-size: 0.75rem;
-        padding: 0.2rem 0.6rem;
+    /* Layout Positioning */
+    .property-main-info {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        padding-right: 4rem; /* Space for Price */
+    }
+    
+    .property-price {
+        position: absolute;
+        right: 0.75rem;
+        bottom: 2.2rem;
+        color: var(--accent-blue);
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    .property-sub-info {
+        display: flex;
+        gap: 0.8rem;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-top: 0.2rem;
+    }
+
+    /* Hide labels in this mode */
+    td::before {
+        display: none !important;
+    }
+
+    /* Adjust specific elements */
+    td[data-label="동"] { font-size: 1rem; font-weight: 600; color: #fff; }
+    td[data-label="층"] { font-size: 0.9rem; color: var(--text-secondary); }
+    td[data-label="면적"] { font-size: 0.9rem; color: var(--text-secondary); }
+    td[data-label="가격"] { font-size: 1.1rem; font-weight: 700; color: #60a5fa; }
+    td[data-label="등록일"], td[data-label="제공처"] {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        padding: 0 !important;
+        display: inline-block;
     }
 }

@@ -108,7 +108,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Dashboard (Cards + Table)
     const renderDashboard = (aptFilter) => {
         const showChangesOnly = showChangesCheckbox.checked;
-        const filtered = allData.filter(item => item.complex_name === aptFilter);
+        const searchTerm = document.getElementById('search-input')?.value.toLowerCase() || "";
+        
+        // Comprehensive Filtering
+        const filtered = allData.filter(item => {
+            // 1. Apartment Filter
+            if (item.complex_name !== aptFilter) return false;
+            
+            // 2. Search Term Filter (Multi-column)
+            if (searchTerm) {
+                const searchStr = `${item.complex_name} ${item.dong} ${item.floor} ${item.price} ${item.area} ${item.reg_date}`.toLowerCase();
+                if (!searchStr.includes(searchTerm)) return false;
+            }
+            
+            return true;
+        });
 
         // Multi-level Sorting Logic
         filtered.sort((a, b) => {
@@ -173,15 +187,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const tr = document.createElement('tr');
             const badgeClass = `status-${status.replace(/\s+/g, '')}`;
+            
+            // Show grouped count if > 1
+            const countSuffix = item.count > 1 ? ` <span style="color: #94a3b8; font-size: 0.85em; font-weight: normal;">(${item.count}건)</span>` : '';
+            
+            // Link to the first article if available
+            const articleLink = item.article_no ? `https://m.land.naver.com/article/info/${item.article_no}` : '#';
 
             tr.innerHTML = `
                 <td data-label="단지명"><strong>${item.complex_name}</strong></td>
                 <td data-label="상태"><span class="status-badge ${badgeClass}">${status}</span></td>
-                <td data-label="동">${item.dong}</td>
-                <td data-label="층">${item.floor}</td>
-                <td data-label="면적">${item.area}</td>
-                <td data-label="가격"><strong>${item.price}</strong></td>
-                <td data-label="등록일" style="color: #bbb; font-size: 0.9em;">${item.reg_date || '-'}</td>
+                <td data-label="동" class="property-main-info">
+                    <a href="${articleLink}" target="_blank" style="color: inherit; text-decoration: none;">
+                        <strong>${item.dong}${countSuffix}</strong>
+                    </a>
+                </td>
+                <td data-label="층" class="property-main-info">${item.floor}</td>
+                <td data-label="면적" class="property-main-info">${item.area}</td>
+                <td data-label="가격" class="property-price"><strong>${item.price}</strong></td>
+                <td data-label="등록일" class="property-sub-info">${item.reg_date || '-'}</td>
+                <td data-label="제공처" class="property-sub-info">${item.cp_name || '부동산'}</td>
             `;
             tbody.appendChild(tr);
             renderedCount++;
@@ -220,6 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
     refreshBtn.addEventListener('click', loadData);
     scrapeBtn.addEventListener('click', scrapeData);
     showChangesCheckbox.addEventListener('change', () => {
+        const activeBtn = document.querySelector('.filter-btn.active');
+        renderDashboard(activeBtn ? activeBtn.dataset.apt : '더샵동천포레스트');
+    });
+    
+    // 🔍 Real-time Search Listener
+    document.getElementById('search-input')?.addEventListener('input', () => {
         const activeBtn = document.querySelector('.filter-btn.active');
         renderDashboard(activeBtn ? activeBtn.dataset.apt : '더샵동천포레스트');
     });

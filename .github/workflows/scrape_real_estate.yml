@@ -1,8 +1,8 @@
 name: Scrape Real Estate Listings
 
 on:
-  schedule:
-    - cron: '0 3 * * 1-6' # 매일 낮 12시 KST, 월~토 (일요일 제외)
+  # schedule:
+  #   - cron: '0 3 * * 1-6' # 매일 낮 12시 KST, 월~토 (일요일 제외) - 로컬 동기화 권장으로 비활성화
   workflow_dispatch: # 수동 실행 버튼 허용
 
 jobs:

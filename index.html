@@ -7,7 +7,7 @@
     <title>나의 부동산 Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./index.css?v=1.6">
+    <link rel="stylesheet" href="./index.css?v=1.7">
 </head>
 
 <body>
@@ -61,6 +61,11 @@
             <button class="filter-btn" data-apt="선암에코하이츠">선암에코하이츠</button>
         </div>
 
+        <div class="search-container glass" style="margin-bottom: 1.5rem; padding: 1rem;">
+            <input type="text" id="search-input" placeholder="아파트명, 동, 가격 등으로 검색..." 
+                style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.2); color: white; font-size: 1rem;">
+        </div>
+
         <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
             <input type="checkbox" id="show-changes-only" style="width: 18px; height: 18px;">
             <label for="show-changes-only" style="font-weight: 500; cursor: pointer;">유지된 매물 숨기기 (변동 사항만 보기)</label>
@@ -87,7 +92,7 @@
             </div>
         </main>
     </div>
-    <script src="./app.js?v=1.6"></script>
+    <script src="./app.js?v=1.7"></script>
 </body>
 
 </html>

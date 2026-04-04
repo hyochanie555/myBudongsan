@@ -12,7 +12,18 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 # --- Configuration ---
-SCRAPERAPI_KEY = os.environ.get("SCRAPERAPI_KEY") 
+SCRAPERAPI_KEY = os.environ.get("SCRAPERAPI_KEY")
+
+# Local .env support for environments that don't share terminal session variables
+if not SCRAPERAPI_KEY and os.path.exists(".env"):
+    try:
+        with open(".env", "r", encoding="utf-8") as f:
+            for line in f:
+                if line.startswith("SCRAPERAPI_KEY="):
+                    SCRAPERAPI_KEY = line.strip().split("=")[1].strip().strip("'").strip('"')
+                    break
+    except Exception:
+        pass
 TARGETS = [
     {"name": "더샵동천포레스트", "id": "110798", "area_min": 108, "area_max": 115},
     {"name": "울산 힐스테이트 강동", "id": "109228", "area_min": 108, "area_max": 115},
@@ -27,6 +38,10 @@ RESULTS_FILE = os.path.join(DATA_DIR, "results.json")
 def parse_price(p_str):
     if not p_str: return 0
     try:
+        # Handle range format "4억 8,000 ~ 4억 9,000" by taking the lower bound
+        if '~' in p_str:
+            p_str = p_str.split('~')[0].strip()
+            
         # "매매 9억 3,000" -> "9억3000"
         p_str = p_str.replace(",", "").replace(" ", "").replace("매매", "")
         
@@ -117,20 +132,45 @@ def fetch_listings():
                     # Summary (Area, Floor) - Mobile structure
                     match_summaries = re.findall(r'<li[^>]*class="[^"]*ArticleCard_item-summary__[^"]*"[^>]*>(.*?)</li>', item_html)
                     if len(match_summaries) < 3: continue
-                    area_text = match_summaries[1]
+                    area_text = match_summaries[1] # e.g. "112A/84㎡"
                     floor_text = match_summaries[2]
                     
-                    areas = re.findall(r'(\d+(?:\.\d+)?)', area_text)
-                    if not areas: continue
-                    area1 = float(areas[0])
-                    area2 = float(areas[1]) if len(areas) > 1 else area1
+                    # Improve Area Parsing (Preserve Type Name like 112A)
+                    area_clean = area_text.replace('㎡', '').replace(' ', '')
+                    if '/' in area_clean:
+                        area_parts = area_clean.split('/')
+                        area_type = area_parts[0]
+                        area_val = area_parts[1]
+                    else:
+                        area_type = area_clean
+                        area_val = area_clean
                     
-                    if tgt["area_min"] <= area1 <= tgt["area_max"] or tgt["area_min"] <= area2 <= tgt["area_max"]:
+                    areas = re.findall(r'(\d+(?:\.\d+)?)', area_val)
+                    if not areas: continue
+                    area_num = float(areas[0])
+                    
+                    if tgt["area_min"] <= area_num <= tgt["area_max"]:
                         # Reg Date from mobile confirm label
                         match_date = re.search(r'확인매물 (\d{4}\.\d{2}\.\d{2})', item_html)
                         reg_date = match_date.group(1)[2:] if match_date else ""
                         
                         price_val = parse_price(price_text)
+                        
+                        # [Grouping] Extract Naver's native count (e.g. "중개사 8곳에서 등록했어요")
+                        match_count = re.search(r'중개사\s*(\d+)곳에서\s*등록했어요', item_html)
+                        group_count = int(match_count.group(1)) if match_count else 1
+                        
+                        # [Filter] Extract CP Name (Realtor/Source) and skip if association
+                        # Naver uses both <span> and <li> for these classes
+                        match_cp = re.search(r'<(?:span|li)[^>]*class="[^"]*ArticleBrokerInfo_item-source__[^"]*"[^>]*>(.*?)</(?:span|li)>', item_html)
+                        cp_name = match_cp.group(1).strip() if match_cp else "Naver Mobile"
+                        
+                        if "공인중개사협회" in cp_name:
+                            continue
+
+                        # [Hash] Use Naver's clustering logic (Article No is unique for the card/group)
+                        # We use article_no as the primary ID, fulfilling "Don't organize it yourself"
+                        unit_hash = f"NV_{article_no}" 
                         
                         current_listings[article_no] = {
                             'article_no': article_no,
@@ -139,10 +179,11 @@ def fetch_listings():
                             'floor': floor_text,
                             'price': price_text,
                             'price_val': price_val,
-                            'area': f"{area1}㎡ / {area2}㎡",
+                            'area': f"{area_type} / {area_num}㎡",
                             'reg_date': reg_date,
-                            'cp_name': "Naver Mobile",
-                            'unit_hash': article_no 
+                            'cp_name': cp_name,
+                            'unit_hash': unit_hash,
+                            'count': group_count
                         }
                 except Exception as e:
                     continue
@@ -152,6 +193,22 @@ def fetch_listings():
             continue
             
     return current_listings
+
+def group_listings(listings_dict):
+    """Groups multiple article_nos into unique properties (trusting Naver's grouping)."""
+    groups = {}
+    for no, data in listings_dict.items():
+        uh = data['unit_hash']
+        if uh not in groups:
+            groups[uh] = data.copy()
+            groups[uh]['ids'] = [no]
+            # [Grouping] Use Naver's defined count if available
+            groups[uh]['count'] = data.get('count', 1)
+        else:
+            groups[uh]['ids'].append(no)
+            # Sum counts if somehow they match
+            groups[uh]['count'] += data.get('count', 1)
+    return groups
 
 def main():
     if not os.path.exists(DATA_DIR):
@@ -168,10 +225,11 @@ def main():
     
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, "r", encoding="utf-8") as f:
-            history = json.load(f)
+            try:
+                history = json.load(f)
+            except: pass
             
     prev_listings = history.get("last_day_listings", {}) # Final state of the last run
-    hist_articles = set(history.get("historical_articles", []))
     hist_hashes = set(history.get("historical_hashes", []))
     
     # [Day-based Comparison Mode]
@@ -179,66 +237,54 @@ def main():
     current_date = now_kst_dt.strftime("%Y-%m-%d")
     last_ref_date = history.get("last_ref_date", "")
     
-    # If it's a new day, we set a new baseline for "Today's Changes"
     if current_date != last_ref_date:
         print(f"🌞 [SYSTEM] New Date detected ({current_date}). Setting morning baseline...", flush=True)
-        # The baseline for today's comparison is what we saw at the end of yesterday
         reference_listings = prev_listings.copy()
         history["last_ref_date"] = current_date
         history["reference_listings"] = reference_listings
     else:
-        # Throughout the day, we keep comparing against the same fixed morning baseline
         reference_listings = history.get("reference_listings", prev_listings)
         print(f"🕒 [SYSTEM] Day-based mode: Comparing to {current_date} baseline.", flush=True)
 
     # 2. Scrape Current
-    today_listings = fetch_listings()
-    if not today_listings:
-        print("⚠️  No listings scraped. Safety check: Keeping existing results to avoid blanking out UI.", flush=True)
+    today_articles = fetch_listings()
+    if not today_articles:
+        print("⚠️ No listings scraped. Safety check: Keeping existing results.", flush=True)
         return
 
-    today_hashes = set(data['unit_hash'] for no, data in today_listings.items() if data.get('unit_hash'))
-    results = []
+    # 3. Grouping - THE CORE CHANGE
+    today_groups = group_listings(today_articles)
+    ref_groups = group_listings(reference_listings)
     
-    # 3. Compare with Morning Baseline (Cumulative Today's Changes)
+    results = []
     new_count = 0
-    mod_count = 0
+    re_count = 0
     del_count = 0
     
-    for no, data in today_listings.items():
+    # 4. Compare Groups (Unique Properties)
+    for uh, data in today_groups.items():
         status = "유지"
-        # If it wasn't there this morning, it's New for today
-        if no not in reference_listings:
-            if no in hist_articles or (data['unit_hash'] and data['unit_hash'] in hist_hashes):
+        if uh not in ref_groups:
+            # Check if this property was ever seen before (Re-registration)
+            if uh in hist_hashes:
                 status = "매물 재등록"
+                re_count += 1
             else:
                 status = "신규매물"
-            new_count += 1
-        elif data['price_val'] != reference_listings[no]['price_val']:
-            status = "변동"
-            mod_count += 1
+                new_count += 1
         
         data['status'] = status
         results.append(data)
-        
-        # Archive
-        hist_articles.add(no)
-        if data.get('unit_hash'):
-            hist_hashes.add(data['unit_hash'])
+        hist_hashes.add(uh)
             
-    # Check for removals since this morning (Completed at some point today)
-    for no, data in reference_listings.items():
-        if no not in today_listings:
-            # Check for re-registration (to avoid double counting removals)
-            unit_hash = data.get('unit_hash')
-            if unit_hash and unit_hash in today_hashes:
-                continue 
-                
+    # Check for removals (Completed)
+    for uh, data in ref_groups.items():
+        if uh not in today_groups:
             data['status'] = "거래 완료"
             results.append(data)
             del_count += 1
 
-    print(f"📊 Daily Summary: {new_count} New, {mod_count} Changed, {del_count} Completed since morning.", flush=True)
+    print(f"📊 Property Summary: {new_count} New, {re_count} Re-reg, {del_count} Completed since morning.", flush=True)
 
     # Sort results
     results.sort(key=lambda x: (
@@ -248,14 +294,14 @@ def main():
         str(x.get('floor', ''))
     ))
     
-    # 4. Save results.json for Frontend
+    # 5. Save results.json for Frontend
     now_kst_str = now_kst_dt.strftime("%Y-%m-%d %H:%M")
     
     summary = {}
     for apt in TARGETS:
         name = apt["name"]
-        today_cnt = len([l for l in today_listings.values() if l["complex_name"] == name])
-        ref_cnt = len([l for l in reference_listings.values() if l["complex_name"] == name])
+        today_cnt = len([l for l in today_groups.values() if l["complex_name"] == name])
+        ref_cnt = len([l for l in ref_groups.values() if l["complex_name"] == name])
         summary[name] = {"prev": ref_cnt, "today": today_cnt}
 
     output = {
@@ -266,15 +312,14 @@ def main():
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    # 5. Update History (Save current run as 'last seen' for next time)
-    history["last_day_listings"] = today_listings
-    history["historical_articles"] = list(hist_articles)
+    # 6. Update History
+    history["last_day_listings"] = today_articles # Keep raw articles for baseline
     history["historical_hashes"] = list(hist_hashes)
     
     with os.fdopen(os.open(HISTORY_FILE, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o666), 'w', encoding='utf-8') as f:
         json.dump(history, f, ensure_ascii=False, indent=2)
         
-    print(f"Done! Updated {len(today_listings)} listings.")
+    print(f"Done! Saved {len(today_groups)} unique properties ({len(today_articles)} total ads).")
 
 if __name__ == "__main__":
     main()
