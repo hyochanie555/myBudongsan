@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-04-04 14:39",
+  "last_update": "2026-04-04 16:39",
   "summary": {
     "더샵동천포레스트": {
       "prev": 0,
@@ -7,11 +7,11 @@
     },
     "울산 힐스테이트 강동": {
       "prev": 0,
-      "today": 86
+      "today": 60
     },
     "한강센트럴자이 1단지": {
       "prev": 0,
-      "today": 116
+      "today": 255
     },
     "선암에코하이츠": {
       "prev": 0,
@@ -43,7 +43,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616441847",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615495433",
@@ -56,7 +56,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615495433",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618293180",
@@ -69,7 +69,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618293180",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618303556",
@@ -108,7 +108,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616604921",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616800544",
@@ -121,7 +121,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616800544",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617965099",
@@ -134,20 +134,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617965099",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617940342",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "저/28",
-      "price": "0억 (매매)",
-      "price_val": 0,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617940342",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618308974",
@@ -176,6 +163,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2618106129",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "저/29",
+      "price": "0억 (매매)",
+      "price_val": 0,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618106129",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617508966",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "115동",
@@ -189,17 +189,82 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2618198847",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "고/32",
-      "price": "2억 7,500 (매매)",
-      "price_val": 275000000,
-      "area": "113.01㎡ / 84.76㎡",
+      "article_no": "2617626022",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "117동",
+      "floor": "고/25",
+      "price": "0억 (매매)",
+      "price_val": 0,
+      "area": "107.67㎡ / 81.83㎡",
       "reg_date": "최근",
       "cp_name": "네이버부동산",
-      "unit_hash": "2618198847",
+      "unit_hash": "2617626022",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618049638",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "저/29",
+      "price": "0억 (매매)",
+      "price_val": 0,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618049638",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618215018",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "저/29",
+      "price": "0억 (매매)",
+      "price_val": 0,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618215018",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618292562",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "127동",
+      "floor": "저/29",
+      "price": "0억 (매매)",
+      "price_val": 0,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618292562",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615829865",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "저/28",
+      "price": "0억 (매매)",
+      "price_val": 0,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615829865",
       "status": "신규매물"
+    },
+    {
+      "article_no": "2617979385",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "저/23",
+      "price": "0억 (매매)",
+      "price_val": 0,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617979385",
+      "status": "매물 재등록"
     },
     {
       "article_no": "2614695819",
@@ -212,7 +277,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2614695819",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618010868",
@@ -225,20 +290,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618010868",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2613159315",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "중/32",
-      "price": "2억 8,600 (매매)",
-      "price_val": 286000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2613159315",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617113442",
@@ -251,7 +303,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617113442",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617820667",
@@ -264,7 +316,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617820667",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617098926",
@@ -277,7 +329,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617098926",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617377146",
@@ -290,20 +342,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617377146",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2615365164",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "저/31",
-      "price": "2억 9,500 (매매)",
-      "price_val": 295000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2615365164",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617108406",
@@ -316,7 +355,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617108406",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615858200",
@@ -329,20 +368,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615858200",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614241023",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "저/30",
-      "price": "3억 (매매)",
-      "price_val": 300000000,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614241023",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618284057",
@@ -355,7 +381,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618284057",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617965700",
@@ -368,7 +394,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617965700",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617817495",
@@ -381,7 +407,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617817495",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618058692",
@@ -394,7 +420,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618058692",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615534827",
@@ -407,7 +433,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615534827",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617429512",
@@ -420,7 +446,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617429512",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617744599",
@@ -433,7 +459,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617744599",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616840879",
@@ -446,7 +472,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616840879",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616586049",
@@ -459,7 +485,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616586049",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617956769",
@@ -472,7 +498,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617956769",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616841010",
@@ -485,7 +511,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616841010",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617744316",
@@ -498,7 +524,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617744316",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616605297",
@@ -511,7 +537,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616605297",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617426798",
@@ -524,7 +550,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617426798",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616767738",
@@ -537,20 +563,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616767738",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2612340406",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "중/32",
-      "price": "3억 1,000 (매매)",
-      "price_val": 310000000,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2612340406",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615531097",
@@ -563,33 +576,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615531097",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2613230093",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "중/32",
-      "price": "3억 1,000 (매매)",
-      "price_val": 310000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2613230093",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614650084",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "24/31",
-      "price": "3억 1,000 (매매)",
-      "price_val": 310000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614650084",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618385441",
@@ -602,7 +589,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618385441",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617906540",
@@ -615,7 +602,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617906540",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617750750",
@@ -628,7 +615,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617750750",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616845914",
@@ -641,7 +628,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616845914",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616802027",
@@ -654,20 +641,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616802027",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2613725934",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "저/29",
-      "price": "3억 1,000 (매매)",
-      "price_val": 310000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2613725934",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616956938",
@@ -680,7 +654,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616956938",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615494290",
@@ -693,7 +667,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615494290",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617743126",
@@ -706,59 +680,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617743126",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614242322",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 2,000 (매매)",
-      "price_val": 320000000,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614242322",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2613740295",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 2,000 (매매)",
-      "price_val": 320000000,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2613740295",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2613980929",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "중/31",
-      "price": "3억 2,000 (매매)",
-      "price_val": 320000000,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2613980929",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2618332949",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "중/31",
-      "price": "3억 2,000 (매매)",
-      "price_val": 320000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618332949",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616936605",
@@ -771,33 +693,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616936605",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2612266475",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "고/29",
-      "price": "3억 2,000 (매매)",
-      "price_val": 320000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2612266475",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614261502",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "저/29",
-      "price": "3억 2,000 (매매)",
-      "price_val": 320000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614261502",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617571082",
@@ -810,20 +706,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617571082",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614530696",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "중/29",
-      "price": "3억 2,000 (매매)",
-      "price_val": 320000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614530696",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615297735",
@@ -836,7 +719,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615297735",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2613157994",
@@ -849,7 +732,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2613157994",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618201523",
@@ -862,7 +745,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618201523",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615393398",
@@ -875,46 +758,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615393398",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2612527042",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "고/32",
-      "price": "3억 3,000 (매매)",
-      "price_val": 330000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2612527042",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614127621",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 3,000 (매매)",
-      "price_val": 330000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614127621",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617590769",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "29/29",
-      "price": "3억 3,000 (매매)",
-      "price_val": 330000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617590769",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618174204",
@@ -927,7 +771,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618174204",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617744600",
@@ -940,7 +784,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617744600",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617098907",
@@ -953,20 +797,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617098907",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2612166901",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 3,500 (매매)",
-      "price_val": 335000000,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2612166901",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616751706",
@@ -979,33 +810,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616751706",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617591339",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "10/32",
-      "price": "3억 4,000 (매매)",
-      "price_val": 340000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617591339",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614255680",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "저/32",
-      "price": "3억 4,000 (매매)",
-      "price_val": 340000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614255680",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618386962",
@@ -1018,7 +823,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618386962",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618202605",
@@ -1031,7 +836,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618202605",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2614249653",
@@ -1044,7 +849,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2614249653",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615858467",
@@ -1057,7 +862,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615858467",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616442020",
@@ -1070,7 +875,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616442020",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618202248",
@@ -1083,7 +888,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618202248",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615529866",
@@ -1096,7 +901,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615529866",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615090663",
@@ -1109,7 +914,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615090663",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617423989",
@@ -1122,33 +927,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617423989",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614242822",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "3억 5,000 (매매)",
-      "price_val": 350000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614242822",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614018730",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "3억 5,000 (매매)",
-      "price_val": 350000000,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614018730",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2617746774",
@@ -1161,7 +940,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617746774",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2615299425",
@@ -1174,20 +953,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615299425",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2612142888",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "중/29",
-      "price": "3억 5,500 (매매)",
-      "price_val": 355000000,
-      "area": "113.01㎡ / 84.76㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2612142888",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2616049135",
@@ -1200,20 +966,7 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616049135",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2614517004",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "4억 (매매)",
-      "price_val": 400000000,
-      "area": "113.75㎡ / 84.96㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2614517004",
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2618218216",
@@ -1307,6 +1060,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617085814",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "134동",
+      "floor": "중/17",
+      "price": "4억 8,000 (매매)",
+      "price_val": 480000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617085814",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618103946",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "103동",
@@ -1320,7 +1086,7 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2618000078",
+      "article_no": "2618291804",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "107동",
       "floor": "15/28",
@@ -1329,8 +1095,21 @@
       "area": "112.77㎡ / 84.97㎡",
       "reg_date": "최근",
       "cp_name": "네이버부동산",
-      "unit_hash": "2618000078",
-      "status": "매물 재등록"
+      "unit_hash": "2618291804",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2615735350",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "127동",
+      "floor": "저/29",
+      "price": "4억 8,500 (매매)",
+      "price_val": 485000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615735350",
+      "status": "신규매물"
     },
     {
       "article_no": "2618323764",
@@ -1346,6 +1125,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616056610",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "103동",
+      "floor": "중/25",
+      "price": "4억 8,800 (매매)",
+      "price_val": 488000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616056610",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2618323419",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "107동",
@@ -1356,6 +1148,45 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618323419",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618123243",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "112동",
+      "floor": "중/28",
+      "price": "4억 8,800 (매매)",
+      "price_val": 488000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618123243",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615221477",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "9/28",
+      "price": "4억 8,900 (매매)",
+      "price_val": 489000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615221477",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618104154",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "103동",
+      "floor": "고/25",
+      "price": "4억 9,000 (매매)",
+      "price_val": 490000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618104154",
       "status": "매물 재등록"
     },
     {
@@ -1424,6 +1255,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617642674",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "저/29",
+      "price": "4억 9,000 (매매)",
+      "price_val": 490000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617642674",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616665242",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "124동",
+      "floor": "13/22",
+      "price": "4억 9,000 (매매)",
+      "price_val": 490000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616665242",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617386583",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "125동",
@@ -1476,6 +1333,58 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616915462",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "130동",
+      "floor": "2/29",
+      "price": "4억 9,000 (매매)",
+      "price_val": 490000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616915462",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2614627104",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "132동",
+      "floor": "11/28",
+      "price": "4억 9,000 (매매)",
+      "price_val": 490000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2614627104",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2616743953",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "112동",
+      "floor": "저/28",
+      "price": "4억 9,500 (매매)",
+      "price_val": 495000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616743953",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617433931",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "저/29",
+      "price": "4억 9,500 (매매)",
+      "price_val": 495000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617433931",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617384680",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "117동",
@@ -1486,6 +1395,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617384680",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616872849",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "118동",
+      "floor": "24/28",
+      "price": "4억 9,500 (매매)",
+      "price_val": 495000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616872849",
       "status": "매물 재등록"
     },
     {
@@ -1502,6 +1424,110 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2618363742",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "109동",
+      "floor": "고/28",
+      "price": "4억 9,800 (매매)",
+      "price_val": 498000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618363742",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618013581",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "101동",
+      "floor": "고/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618013581",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617091205",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "101동",
+      "floor": "저/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617091205",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617664635",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "103동",
+      "floor": "저/25",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617664635",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616873080",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "107동",
+      "floor": "23/28",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616873080",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615568436",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "110동",
+      "floor": "7/24",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "107.67㎡ / 81.83㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615568436",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617152519",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "111동",
+      "floor": "저/27",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617152519",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615962094",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "113동",
+      "floor": "14/25",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "107.67㎡ / 81.83㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615962094",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617600667",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "113동",
@@ -1512,6 +1538,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617600667",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617556292",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "중/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617556292",
       "status": "매물 재등록"
     },
     {
@@ -1528,6 +1567,71 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617854572",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "저/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617854572",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617226043",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "중/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617226043",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2614759251",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "117동",
+      "floor": "10/25",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "107.67㎡ / 81.83㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2614759251",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617038133",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "117동",
+      "floor": "고/25",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "107.67㎡ / 81.83㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617038133",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617150427",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "117동",
+      "floor": "중/25",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "107.67㎡ / 81.83㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617150427",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2616972470",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
@@ -1538,6 +1642,71 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616972470",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616872987",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "118동",
+      "floor": "저/28",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616872987",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615991558",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "118동",
+      "floor": "중/28",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615991558",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2616944345",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "119동",
+      "floor": "고/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616944345",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615968454",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "119동",
+      "floor": "중/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615968454",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618122454",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "120동",
+      "floor": "고/26",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618122454",
       "status": "매물 재등록"
     },
     {
@@ -1567,6 +1736,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616094487",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "127동",
+      "floor": "저/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616094487",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618361536",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "130동",
+      "floor": "고/29",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618361536",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617601188",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "134동",
@@ -1580,6 +1775,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617750214",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "135동",
+      "floor": "고/17",
+      "price": "5억 (매매)",
+      "price_val": 500000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617750214",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618387809",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "105동",
@@ -1590,6 +1798,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618387809",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618310147",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "133동",
+      "floor": "저/21",
+      "price": "5억 500 (매매)",
+      "price_val": 505000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618310147",
       "status": "매물 재등록"
     },
     {
@@ -1619,6 +1840,71 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2618386725",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "107동",
+      "floor": "저/28",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618386725",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615973130",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "109동",
+      "floor": "고/28",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615973130",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2616736318",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "111동",
+      "floor": "고/27",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616736318",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617832899",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "112동",
+      "floor": "저/28",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617832899",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617038296",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "112동",
+      "floor": "중/28",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617038296",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617093025",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "116동",
@@ -1632,6 +1918,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616550520",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "120동",
+      "floor": "중/26",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616550520",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616274875",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "121동",
+      "floor": "4/29",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616274875",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618383962",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "121동",
@@ -1642,6 +1954,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618383962",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618327891",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "고/29",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618327891",
       "status": "매물 재등록"
     },
     {
@@ -1671,6 +1996,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2614848561",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "125동",
+      "floor": "3/29",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2614848561",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2617094718",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "127동",
@@ -1694,6 +2032,45 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618325171",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615960530",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "중/28",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615960530",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618385792",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "130동",
+      "floor": "저/29",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618385792",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618309928",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "130동",
+      "floor": "중/29",
+      "price": "5억 1,000 (매매)",
+      "price_val": 510000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618309928",
       "status": "매물 재등록"
     },
     {
@@ -1723,6 +2100,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616874486",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "101동",
+      "floor": "1/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616874486",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616148792",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "106동",
+      "floor": "1/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616148792",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618072167",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "109동",
@@ -1749,6 +2152,58 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617972463",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "112동",
+      "floor": "고/28",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617972463",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616856384",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "14/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616856384",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616348591",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "중/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616348591",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617846892",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "저/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617846892",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617557064",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
@@ -1762,6 +2217,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617036219",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "118동",
+      "floor": "17/28",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617036219",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618338951",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "119동",
+      "floor": "고/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618338951",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618201882",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "121동",
@@ -1772,6 +2253,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618201882",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616265002",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "121동",
+      "floor": "4/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616265002",
       "status": "매물 재등록"
     },
     {
@@ -1827,6 +2321,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617145625",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "124동",
+      "floor": "고/22",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617145625",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616413745",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "124동",
+      "floor": "저/22",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616413745",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2617783581",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "127동",
@@ -1838,6 +2358,58 @@
       "cp_name": "네이버부동산",
       "unit_hash": "2617783581",
       "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618445576",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "127동",
+      "floor": "중/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618445576",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2616768688",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "127동",
+      "floor": "중/29",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616768688",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616875598",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "저/23",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616875598",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615902635",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "저/23",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615902635",
+      "status": "신규매물"
     },
     {
       "article_no": "2618310063",
@@ -1853,6 +2425,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2615976412",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "132동",
+      "floor": "22/28",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615976412",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617750277",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "133동",
@@ -1863,6 +2448,45 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617750277",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617647570",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "133동",
+      "floor": "중/21",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617647570",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615967387",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "134동",
+      "floor": "중/17",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615967387",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2616875340",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "135동",
+      "floor": "중/17",
+      "price": "5억 2,000 (매매)",
+      "price_val": 520000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616875340",
       "status": "매물 재등록"
     },
     {
@@ -1902,6 +2526,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618333277",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616479822",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "104동",
+      "floor": "7/26",
+      "price": "5억 3,000 (매매)",
+      "price_val": 530000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616479822",
       "status": "매물 재등록"
     },
     {
@@ -1957,6 +2594,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616309831",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "109동",
+      "floor": "3/28",
+      "price": "5억 3,000 (매매)",
+      "price_val": 530000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616309831",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617836064",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "114동",
@@ -2009,6 +2659,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616547558",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "121동",
+      "floor": "저/29",
+      "price": "5억 3,000 (매매)",
+      "price_val": 530000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616547558",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617103314",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "121동",
+      "floor": "중/29",
+      "price": "5억 3,000 (매매)",
+      "price_val": 530000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617103314",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618059653",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "122동",
@@ -2022,6 +2698,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617080083",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "저/29",
+      "price": "5억 3,000 (매매)",
+      "price_val": 530000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617080083",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616812385",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "124동",
+      "floor": "저/22",
+      "price": "5억 3,000 (매매)",
+      "price_val": 530000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616812385",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617118990",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "125동",
@@ -2032,6 +2734,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617118990",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616613357",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "23/28",
+      "price": "5억 3,000 (매매)",
+      "price_val": 530000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616613357",
       "status": "매물 재등록"
     },
     {
@@ -2074,6 +2789,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617119007",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "135동",
+      "floor": "중/17",
+      "price": "5억 3,000 (매매)",
+      "price_val": 530000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617119007",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618322260",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "125동",
@@ -2113,6 +2841,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617899619",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "133동",
+      "floor": "중/21",
+      "price": "5억 3,500 (매매)",
+      "price_val": 535000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617899619",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618365632",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "104동",
@@ -2139,6 +2880,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617105103",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "103동",
+      "floor": "저/25",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617105103",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617839968",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "106동",
@@ -2149,6 +2903,58 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617839968",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616811639",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "110동",
+      "floor": "중/24",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "107.67㎡ / 81.83㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616811639",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615663629",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "112동",
+      "floor": "저/28",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615663629",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2615121286",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "3/29",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615121286",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617560977",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "고/29",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617560977",
       "status": "매물 재등록"
     },
     {
@@ -2178,6 +2984,58 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617146048",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "저/29",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617146048",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616310036",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "저/29",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616310036",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2616549768",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "124동",
+      "floor": "7/22",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616549768",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615029311",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "125동",
+      "floor": "3/29",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615029311",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2617168331",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "127동",
@@ -2204,6 +3062,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2618309745",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "127동",
+      "floor": "중/29",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618309745",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618068152",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "128동",
@@ -2214,6 +3085,32 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618068152",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616883205",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "저/28",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616883205",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617095026",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "중/28",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617095026",
       "status": "매물 재등록"
     },
     {
@@ -2230,6 +3127,45 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616562710",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "2/23",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616562710",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615412914",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "133동",
+      "floor": "16/21",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615412914",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616594018",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "134동",
+      "floor": "고/17",
+      "price": "5억 4,000 (매매)",
+      "price_val": 540000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616594018",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2618204630",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "135동",
@@ -2240,6 +3176,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618204630",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617606026",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "105동",
+      "floor": "저/28",
+      "price": "5억 4,500 (매매)",
+      "price_val": 545000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617606026",
       "status": "매물 재등록"
     },
     {
@@ -2256,6 +3205,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616031662",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "101동",
+      "floor": "23/29",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616031662",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617600251",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "103동",
@@ -2266,6 +3228,32 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617600251",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617842333",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "104동",
+      "floor": "저/26",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617842333",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618217743",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "104동",
+      "floor": "중/26",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618217743",
       "status": "매물 재등록"
     },
     {
@@ -2295,6 +3283,45 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617616468",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "105동",
+      "floor": "고/28",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617616468",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618214419",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "105동",
+      "floor": "중/28",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618214419",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617397930",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "105동",
+      "floor": "중/28",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617397930",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618336509",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "107동",
@@ -2321,6 +3348,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2618066206",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "109동",
+      "floor": "중/28",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618066206",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618384064",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "110동",
+      "floor": "고/24",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "107.67㎡ / 81.83㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618384064",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618330501",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "111동",
@@ -2332,6 +3385,19 @@
       "cp_name": "네이버부동산",
       "unit_hash": "2618330501",
       "status": "매물 재등록"
+    },
+    {
+      "article_no": "2614865631",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "112동",
+      "floor": "11/28",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2614865631",
+      "status": "신규매물"
     },
     {
       "article_no": "2617847642",
@@ -2357,6 +3423,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618362629",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618204866",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "112동",
+      "floor": "고/28",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618204866",
       "status": "매물 재등록"
     },
     {
@@ -2399,6 +3478,32 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617112622",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "119동",
+      "floor": "고/29",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617112622",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616138292",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "121동",
+      "floor": "22/29",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616138292",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2618321159",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "121동",
@@ -2409,6 +3514,110 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618321159",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615653566",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "19/29",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615653566",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615415315",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "26/29",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615415315",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617404208",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "고/29",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617404208",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617831317",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "저/29",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617831317",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616593595",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "중/29",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616593595",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618073104",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "고/28",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618073104",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616682507",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "저/23",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616682507",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616400014",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "134동",
+      "floor": "13/17",
+      "price": "5억 5,000 (매매)",
+      "price_val": 550000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616400014",
       "status": "매물 재등록"
     },
     {
@@ -2435,6 +3644,32 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617146510",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617844086",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "107동",
+      "floor": "고/28",
+      "price": "5억 6,000 (매매)",
+      "price_val": 560000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617844086",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2618154425",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "111동",
+      "floor": "고/27",
+      "price": "5억 6,000 (매매)",
+      "price_val": 560000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618154425",
       "status": "매물 재등록"
     },
     {
@@ -2477,6 +3712,58 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2616190691",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "24/29",
+      "price": "5억 6,000 (매매)",
+      "price_val": 560000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616190691",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617618840",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "저/29",
+      "price": "5억 6,000 (매매)",
+      "price_val": 560000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617618840",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615957343",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "124동",
+      "floor": "고/22",
+      "price": "5억 6,000 (매매)",
+      "price_val": 560000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615957343",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617091649",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "고/29",
+      "price": "5억 7,000 (매매)",
+      "price_val": 570000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617091649",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617928749",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "117동",
@@ -2488,6 +3775,19 @@
       "cp_name": "네이버부동산",
       "unit_hash": "2617928749",
       "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616433831",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "중/29",
+      "price": "5억 7,000 (매매)",
+      "price_val": 570000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616433831",
+      "status": "신규매물"
     },
     {
       "article_no": "2618155397",
@@ -2503,6 +3803,58 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617170632",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "20/23",
+      "price": "5억 7,000 (매매)",
+      "price_val": 570000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617170632",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616968813",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "20/23",
+      "price": "5억 7,000 (매매)",
+      "price_val": 570000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616968813",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617118004",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "107동",
+      "floor": "중/28",
+      "price": "5억 8,000 (매매)",
+      "price_val": 580000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617118004",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615652255",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "고/29",
+      "price": "5억 8,000 (매매)",
+      "price_val": 580000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615652255",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2617620348",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
@@ -2513,6 +3865,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617620348",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617116790",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "107동",
+      "floor": "저/28",
+      "price": "6억 (매매)",
+      "price_val": 600000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617116790",
       "status": "매물 재등록"
     },
     {
@@ -2555,6 +3920,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2615383395",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "24/28",
+      "price": "6억 (매매)",
+      "price_val": 600000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615383395",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2617845356",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "128동",
@@ -2581,6 +3959,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2617928433",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "고/23",
+      "price": "6억 2,000 (매매)",
+      "price_val": 620000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617928433",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617599855",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "121동",
@@ -2594,6 +3985,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2618049030",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "22/23",
+      "price": "6억 5,000 (매매)",
+      "price_val": 650000000,
+      "area": "112.56㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618049030",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617113770",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "131동",
@@ -2604,6 +4008,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617113770",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2617862717",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "중/29",
+      "price": "6억 7,000 (매매)",
+      "price_val": 670000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617862717",
       "status": "매물 재등록"
     },
     {
@@ -2646,6 +4063,19 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2615932440",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "121동",
+      "floor": "11/29",
+      "price": "7억 (매매)",
+      "price_val": 700000000,
+      "area": "112.54㎡ / 84.96㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615932440",
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2617114494",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "111동",
@@ -2672,7 +4102,46 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2617663941",
+      "article_no": "2617279883",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "중/29",
+      "price": "7억 2,000 (매매)",
+      "price_val": 720000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617279883",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2616969022",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "중/29",
+      "price": "7억 2,000 (매매)",
+      "price_val": 720000000,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616969022",
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2615691779",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "106동",
+      "floor": "고/29",
+      "price": "8억 (매매)",
+      "price_val": 800000000,
+      "area": "113.89㎡ / 84.76㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2615691779",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618438835",
       "complex_name": "더샵동천포레스트",
       "dong": "101동",
       "floor": "저/21",
@@ -2681,8 +4150,8 @@
       "area": "112.82㎡ / 84.86㎡",
       "reg_date": "최근",
       "cp_name": "네이버부동산",
-      "unit_hash": "2617663941",
-      "status": "매물 재등록"
+      "unit_hash": "2618438835",
+      "status": "신규매물"
     },
     {
       "article_no": "2618398755",
