@@ -197,13 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
             tr.innerHTML = `
                 <td data-label="단지명"><strong>${item.complex_name}</strong></td>
                 <td data-label="상태" class="mobile-status-container"><span class="status-badge ${badgeClass}">${status}</span></td>
-                <td data-label="동" class="mobile-row-1-left">
+                <td class="mobile-row-1-left">
                     <a href="${articleLink}" target="_blank" style="color: inherit; text-decoration: none;">
                         <strong>${item.dong}${countSuffix}</strong>
                     </a>
+                    <span class="mobile-info-item">${item.floor || ''}</span>
+                    <span class="mobile-info-item">${item.area || ''}</span>
                 </td>
-                <td data-label="층" class="mobile-row-1-left">${item.floor || ''}</td>
-                <td data-label="면적" class="mobile-row-1-left">${item.area || ''}</td>
                 <td data-label="가격" class="mobile-row-2-right"><strong>${item.price}</strong></td>
                 <td data-label="등록일" class="mobile-row-2-left">${item.reg_date || '-'}</td>
             `;
