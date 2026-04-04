@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-04-04 17:31",
+  "last_update": "2026-04-04 17:38",
   "summary": {
     "더샵동천포레스트": {
       "prev": 0,
@@ -11,20 +11,46 @@
     },
     "한강센트럴자이 1단지": {
       "prev": 0,
-      "today": 228
+      "today": 207
     },
     "선암에코하이츠": {
       "prev": 0,
-      "today": 0
+      "today": 23
     }
   },
   "listings": [
+    {
+      "article_no": "2618458221",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "5/20",
+      "price": "가격협의 (매매)",
+      "price_val": 0,
+      "area": "81.33㎡ / 59.91㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618458221",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617522004",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "중/20",
+      "price": "가격협의 (매매)",
+      "price_val": 0,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617522004",
+      "status": "신규매물"
+    },
     {
       "article_no": "2617082069",
       "complex_name": "더샵동천포레스트",
       "dong": "101동",
       "floor": "중/21",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "112.82㎡ / 84.86㎡",
       "reg_date": "최근",
@@ -37,7 +63,7 @@
       "complex_name": "울산 힐스테이트 강동",
       "dong": "101동",
       "floor": "중/30",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "113.75㎡ / 84.96㎡",
       "reg_date": "최근",
@@ -50,7 +76,7 @@
       "complex_name": "울산 힐스테이트 강동",
       "dong": "101동",
       "floor": "중/30",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "113.75㎡ / 84.96㎡",
       "reg_date": "최근",
@@ -63,7 +89,7 @@
       "complex_name": "울산 힐스테이트 강동",
       "dong": "102동",
       "floor": "중/32",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "113.01㎡ / 84.76㎡",
       "reg_date": "최근",
@@ -76,7 +102,7 @@
       "complex_name": "더샵동천포레스트",
       "dong": "104동",
       "floor": "저/21",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "112.82㎡ / 84.86㎡",
       "reg_date": "최근",
@@ -89,7 +115,7 @@
       "complex_name": "한강센트럴자이 1단지",
       "dong": "105동",
       "floor": "19/28",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "112.56㎡ / 84.96㎡",
       "reg_date": "최근",
@@ -102,7 +128,7 @@
       "complex_name": "울산 힐스테이트 강동",
       "dong": "105동",
       "floor": "고/29",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "113.01㎡ / 84.76㎡",
       "reg_date": "최근",
@@ -115,7 +141,7 @@
       "complex_name": "울산 힐스테이트 강동",
       "dong": "105동",
       "floor": "저/29",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "113.01㎡ / 84.76㎡",
       "reg_date": "최근",
@@ -128,7 +154,7 @@
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
       "floor": "2/28",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "113.75㎡ / 84.96㎡",
       "reg_date": "최근",
@@ -141,7 +167,7 @@
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
       "floor": "저/28",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "113.75㎡ / 84.96㎡",
       "reg_date": "최근",
@@ -154,7 +180,7 @@
       "complex_name": "한강센트럴자이 1단지",
       "dong": "108동",
       "floor": "6/29",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "112.56㎡ / 84.96㎡",
       "reg_date": "최근",
@@ -163,24 +189,11 @@
       "status": "신규매물"
     },
     {
-      "article_no": "2618298474",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "110동",
-      "floor": "24/24",
-      "price": "0억 (매매)",
-      "price_val": 0,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618298474",
-      "status": "신규매물"
-    },
-    {
       "article_no": "2618106129",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "114동",
       "floor": "저/29",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "112.77㎡ / 84.97㎡",
       "reg_date": "최근",
@@ -189,50 +202,11 @@
       "status": "신규매물"
     },
     {
-      "article_no": "2617508966",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "115동",
-      "floor": "29/29",
-      "price": "0억 (매매)",
-      "price_val": 0,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617508966",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617626022",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "117동",
-      "floor": "고/25",
-      "price": "0억 (매매)",
-      "price_val": 0,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617626022",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2618049638",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "저/29",
-      "price": "0억 (매매)",
-      "price_val": 0,
-      "area": "112.77㎡ / 84.97㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618049638",
-      "status": "신규매물"
-    },
-    {
       "article_no": "2618215018",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "122동",
       "floor": "저/29",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "112.56㎡ / 84.96㎡",
       "reg_date": "최근",
@@ -241,11 +215,24 @@
       "status": "신규매물"
     },
     {
+      "article_no": "2618049638",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "122동",
+      "floor": "저/29",
+      "price": "가격협의 (매매)",
+      "price_val": 0,
+      "area": "112.77㎡ / 84.97㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618049638",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2618292562",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "127동",
       "floor": "저/29",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "112.77㎡ / 84.97㎡",
       "reg_date": "최근",
@@ -258,7 +245,7 @@
       "complex_name": "한강센트럴자이 1단지",
       "dong": "131동",
       "floor": "저/23",
-      "price": "0억 (매매)",
+      "price": "가격협의 (매매)",
       "price_val": 0,
       "area": "112.56㎡ / 84.96㎡",
       "reg_date": "최근",
@@ -332,6 +319,32 @@
       "status": "신규매물"
     },
     {
+      "article_no": "2616559156",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "3/20",
+      "price": "2억 9,000 (매매)",
+      "price_val": 290000000,
+      "area": "81.67㎡ / 59.99㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2616559156",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617285960",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "저/20",
+      "price": "2억 9,000 (매매)",
+      "price_val": 290000000,
+      "area": "81.67㎡ / 59.99㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617285960",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2617820667",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "103동",
@@ -381,6 +394,84 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615365164",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618271457",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "고/20",
+      "price": "3억 (매매)",
+      "price_val": 300000000,
+      "area": "81.67㎡ / 59.99㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618271457",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617281245",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "고/20",
+      "price": "3억 (매매)",
+      "price_val": 300000000,
+      "area": "81.33㎡ / 59.91㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617281245",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617286446",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "고/20",
+      "price": "3억 (매매)",
+      "price_val": 300000000,
+      "area": "81.33㎡ / 59.91㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617286446",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2612539411",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "고/20",
+      "price": "3억 (매매)",
+      "price_val": 300000000,
+      "area": "81.67㎡ / 59.99㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2612539411",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617516840",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "저/20",
+      "price": "3억 (매매)",
+      "price_val": 300000000,
+      "area": "81.33㎡ / 59.91㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617516840",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617713870",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "저/20",
+      "price": "3억 (매매)",
+      "price_val": 300000000,
+      "area": "81.33㎡ / 59.91㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617713870",
       "status": "신규매물"
     },
     {
@@ -774,6 +865,32 @@
       "status": "신규매물"
     },
     {
+      "article_no": "2618427685",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "6/20",
+      "price": "3억 1,500 (매매)",
+      "price_val": 315000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618427685",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618440104",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "6/20",
+      "price": "3억 1,500 (매매)",
+      "price_val": 315000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618440104",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2617743126",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "105동",
@@ -784,6 +901,71 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617743126",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618006138",
+      "complex_name": "선암에코하이츠",
+      "dong": "106동",
+      "floor": "5/20",
+      "price": "3억 1,500 (매매)",
+      "price_val": 315000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618006138",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618254980",
+      "complex_name": "선암에코하이츠",
+      "dong": "106동",
+      "floor": "5/20",
+      "price": "3억 1,500 (매매)",
+      "price_val": 315000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618254980",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618427902",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "중/20",
+      "price": "3억 1,800 (매매)",
+      "price_val": 318000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618427902",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618439169",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "6/20",
+      "price": "3억 2,000 (매매)",
+      "price_val": 320000000,
+      "area": "81.33㎡ / 59.91㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618439169",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618005602",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "6/20",
+      "price": "3억 2,000 (매매)",
+      "price_val": 320000000,
+      "area": "81.33㎡ / 59.91㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618005602",
       "status": "신규매물"
     },
     {
@@ -943,6 +1125,32 @@
       "status": "신규매물"
     },
     {
+      "article_no": "2617408133",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "고/20",
+      "price": "3억 2,500 (매매)",
+      "price_val": 325000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617408133",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2614207728",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "고/20",
+      "price": "3억 2,500 (매매)",
+      "price_val": 325000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2614207728",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2615393398",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "103동",
@@ -953,6 +1161,19 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2615393398",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2612229559",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "14/20",
+      "price": "3억 3,000 (매매)",
+      "price_val": 330000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2612229559",
       "status": "신규매물"
     },
     {
@@ -1057,6 +1278,32 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2616751706",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618271192",
+      "complex_name": "선암에코하이츠",
+      "dong": "102동",
+      "floor": "6/20",
+      "price": "3억 4,000 (매매)",
+      "price_val": 340000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2618271192",
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617286111",
+      "complex_name": "선암에코하이츠",
+      "dong": "102동",
+      "floor": "6/20",
+      "price": "3억 4,000 (매매)",
+      "price_val": 340000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2617286111",
       "status": "신규매물"
     },
     {
@@ -1268,6 +1515,19 @@
       "status": "신규매물"
     },
     {
+      "article_no": "2613774570",
+      "complex_name": "선암에코하이츠",
+      "dong": "106동",
+      "floor": "7/20",
+      "price": "3억 6,000 (매매)",
+      "price_val": 360000000,
+      "area": "81.43㎡ / 59.94㎡",
+      "reg_date": "최근",
+      "cp_name": "네이버부동산",
+      "unit_hash": "2613774570",
+      "status": "신규매물"
+    },
+    {
       "article_no": "2616049135",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "101동",
@@ -1294,32 +1554,6 @@
       "status": "신규매물"
     },
     {
-      "article_no": "2618218216",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "110동",
-      "floor": "5/24",
-      "price": "4억 6,000 (매매)",
-      "price_val": 460000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618218216",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617672104",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "113동",
-      "floor": "16/25",
-      "price": "4억 6,500 (매매)",
-      "price_val": 465000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617672104",
-      "status": "신규매물"
-    },
-    {
       "article_no": "2618291458",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "135동",
@@ -1343,32 +1577,6 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618322667",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2618305279",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "110동",
-      "floor": "2/24",
-      "price": "4억 8,000 (매매)",
-      "price_val": 480000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618305279",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617600260",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "110동",
-      "floor": "6/24",
-      "price": "4억 8,000 (매매)",
-      "price_val": 480000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617600260",
       "status": "신규매물"
     },
     {
@@ -1499,19 +1707,6 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2618324480",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2618346977",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "115동",
-      "floor": "13/29",
-      "price": "4억 9,000 (매매)",
-      "price_val": 490000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618346977",
       "status": "신규매물"
     },
     {
@@ -1658,19 +1853,6 @@
       "status": "신규매물"
     },
     {
-      "article_no": "2617384680",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "117동",
-      "floor": "12/25",
-      "price": "4억 9,500 (매매)",
-      "price_val": 495000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617384680",
-      "status": "신규매물"
-    },
-    {
       "article_no": "2616872849",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
@@ -1762,19 +1944,6 @@
       "status": "신규매물"
     },
     {
-      "article_no": "2615568436",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "110동",
-      "floor": "7/24",
-      "price": "5억 (매매)",
-      "price_val": 500000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2615568436",
-      "status": "신규매물"
-    },
-    {
       "article_no": "2617152519",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "111동",
@@ -1785,32 +1954,6 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617152519",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2615962094",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "113동",
-      "floor": "14/25",
-      "price": "5억 (매매)",
-      "price_val": 500000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2615962094",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617600667",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "113동",
-      "floor": "2/25",
-      "price": "5억 (매매)",
-      "price_val": 500000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617600667",
       "status": "신규매물"
     },
     {
@@ -1863,32 +2006,6 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617226043",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617038133",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "117동",
-      "floor": "고/25",
-      "price": "5억 (매매)",
-      "price_val": 500000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617038133",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617150427",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "117동",
-      "floor": "중/25",
-      "price": "5억 (매매)",
-      "price_val": 500000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617150427",
       "status": "신규매물"
     },
     {
@@ -3049,19 +3166,6 @@
       "status": "신규매물"
     },
     {
-      "article_no": "2616811639",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "110동",
-      "floor": "중/24",
-      "price": "5억 4,000 (매매)",
-      "price_val": 540000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2616811639",
-      "status": "신규매물"
-    },
-    {
       "article_no": "2617560977",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "116동",
@@ -3439,19 +3543,6 @@
       "status": "신규매물"
     },
     {
-      "article_no": "2618384064",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "110동",
-      "floor": "고/24",
-      "price": "5억 5,000 (매매)",
-      "price_val": 550000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618384064",
-      "status": "신규매물"
-    },
-    {
       "article_no": "2618330501",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "111동",
@@ -3514,32 +3605,6 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617845187",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2618421846",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "117동",
-      "floor": "15/25",
-      "price": "5억 5,000 (매매)",
-      "price_val": 550000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2618421846",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617939317",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "117동",
-      "floor": "19/25",
-      "price": "5억 5,000 (매매)",
-      "price_val": 550000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617939317",
       "status": "신규매물"
     },
     {
@@ -3803,19 +3868,6 @@
       "status": "신규매물"
     },
     {
-      "article_no": "2617928749",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "117동",
-      "floor": "2/25",
-      "price": "5억 7,000 (매매)",
-      "price_val": 570000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617928749",
-      "status": "신규매물"
-    },
-    {
       "article_no": "2618155397",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "125동",
@@ -3891,32 +3943,6 @@
       "reg_date": "최근",
       "cp_name": "네이버부동산",
       "unit_hash": "2617116790",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617135399",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "110동",
-      "floor": "17/24",
-      "price": "6억 (매매)",
-      "price_val": 600000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617135399",
-      "status": "신규매물"
-    },
-    {
-      "article_no": "2617118396",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "113동",
-      "floor": "24/25",
-      "price": "6억 (매매)",
-      "price_val": 600000000,
-      "area": "107.67㎡ / 81.83㎡",
-      "reg_date": "최근",
-      "cp_name": "네이버부동산",
-      "unit_hash": "2617118396",
       "status": "신규매물"
     },
     {
