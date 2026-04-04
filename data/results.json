@@ -1,9 +1,9 @@
 {
-  "last_update": "2026-04-04 23:33",
+  "last_update": "2026-04-04 23:41",
   "summary": {
     "더샵동천포레스트": {
       "prev": 0,
-      "today": 0
+      "today": 10
     },
     "울산 힐스테이트 강동": {
       "prev": 0,
@@ -6391,6 +6391,176 @@
       "count": 1,
       "ids": [
         "2615691779"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618438835",
+      "complex_name": "더샵동천포레스트",
+      "dong": "101동",
+      "floor": "저/21",
+      "price": "8억 9,500",
+      "price_val": 895000000,
+      "area": "112B / 84.86㎡",
+      "reg_date": "2026.04.04",
+      "cp_name": "",
+      "unit_hash": "NV_2618438835",
+      "count": 1,
+      "ids": [
+        "2618438835"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618398755",
+      "complex_name": "더샵동천포레스트",
+      "dong": "103동",
+      "floor": "저/17",
+      "price": "9억 2,000",
+      "price_val": 920000000,
+      "area": "112A / 84.86㎡",
+      "reg_date": "2026.04.04",
+      "cp_name": "",
+      "unit_hash": "NV_2618398755",
+      "count": 1,
+      "ids": [
+        "2618398755"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618398996",
+      "complex_name": "더샵동천포레스트",
+      "dong": "101동",
+      "floor": "고/21",
+      "price": "9억 3,000",
+      "price_val": 930000000,
+      "area": "112B / 84.86㎡",
+      "reg_date": "2026.04.04",
+      "cp_name": "",
+      "unit_hash": "NV_2618398996",
+      "count": 1,
+      "ids": [
+        "2618398996"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618153542",
+      "complex_name": "더샵동천포레스트",
+      "dong": "102동",
+      "floor": "7/21",
+      "price": "9억 3,000",
+      "price_val": 930000000,
+      "area": "112A / 84.86㎡",
+      "reg_date": "2026.04.03",
+      "cp_name": "",
+      "unit_hash": "NV_2618153542",
+      "count": 1,
+      "ids": [
+        "2618153542"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2613228061",
+      "complex_name": "더샵동천포레스트",
+      "dong": "102동",
+      "floor": "저/21",
+      "price": "9억 3,000",
+      "price_val": 930000000,
+      "area": "112A / 84.86㎡",
+      "reg_date": "2026.03.10",
+      "cp_name": "",
+      "unit_hash": "NV_2613228061",
+      "count": 1,
+      "ids": [
+        "2613228061"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2618309125",
+      "complex_name": "더샵동천포레스트",
+      "dong": "101동",
+      "floor": "중/21",
+      "price": "9억 5,000",
+      "price_val": 950000000,
+      "area": "112B / 84.86㎡",
+      "reg_date": "2026.04.04",
+      "cp_name": "",
+      "unit_hash": "NV_2618309125",
+      "count": 1,
+      "ids": [
+        "2618309125"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2616870912",
+      "complex_name": "더샵동천포레스트",
+      "dong": "103동",
+      "floor": "16/17",
+      "price": "9억 5,000",
+      "price_val": 950000000,
+      "area": "112A / 84.86㎡",
+      "reg_date": "2026.03.28",
+      "cp_name": "",
+      "unit_hash": "NV_2616870912",
+      "count": 1,
+      "ids": [
+        "2616870912"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2617859801",
+      "complex_name": "더샵동천포레스트",
+      "dong": "103동",
+      "floor": "17/17",
+      "price": "9억 5,000",
+      "price_val": 950000000,
+      "area": "112A / 84.86㎡",
+      "reg_date": "2026.04.02",
+      "cp_name": "",
+      "unit_hash": "NV_2617859801",
+      "count": 1,
+      "ids": [
+        "2617859801"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2614116762",
+      "complex_name": "더샵동천포레스트",
+      "dong": "104동",
+      "floor": "15/21",
+      "price": "9억 5,000",
+      "price_val": 950000000,
+      "area": "112A / 84.86㎡",
+      "reg_date": "2026.03.14",
+      "cp_name": "",
+      "unit_hash": "NV_2614116762",
+      "count": 1,
+      "ids": [
+        "2614116762"
+      ],
+      "status": "신규매물"
+    },
+    {
+      "article_no": "2614160299",
+      "complex_name": "더샵동천포레스트",
+      "dong": "104동",
+      "floor": "중/21",
+      "price": "10억 2,000",
+      "price_val": 1020000000,
+      "area": "112A / 84.86㎡",
+      "reg_date": "2026.03.14",
+      "cp_name": "",
+      "unit_hash": "NV_2614160299",
+      "count": 1,
+      "ids": [
+        "2614160299"
       ],
       "status": "신규매물"
     }
