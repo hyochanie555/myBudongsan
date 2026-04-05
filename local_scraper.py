@@ -295,12 +295,17 @@ async def main():
             except: pass
             
     prev_listings = history.get("last_day_listings", {})
-    hist_hashes = set(history.get("historical_hashes", []))
-    hist_props = set(history.get("historical_props", []))
+    hist_hashes_raw = history.get("historical_hashes", {})
+    hist_props_raw = history.get("historical_props", {})
     
     # Timezone handling (KST)
     now_kst = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)
     current_date = now_kst.strftime("%Y-%m-%d")
+
+    # Migration for list to dict if necessary
+    hist_hashes = {h: current_date for h in hist_hashes_raw} if isinstance(hist_hashes_raw, list) else hist_hashes_raw
+    hist_props = {p: current_date for p in hist_props_raw} if isinstance(hist_props_raw, list) else hist_props_raw
+    
     last_ref_date = history.get("last_ref_date", "")
     
     if current_date != last_ref_date:
@@ -365,8 +370,8 @@ async def main():
             data['status'] = "유지"
             results.append(data)
             processed_today.add(uh)
-            hist_hashes.add(uh)
-            hist_props.add(get_prop_hash(data))
+            hist_hashes[uh] = current_date
+            hist_props[get_prop_hash(data)] = current_date
 
     # Build maps for remaining ref_groups
     ref_leftovers = {uh: data for uh, data in ref_groups.items() if uh not in today_groups}
@@ -384,17 +389,28 @@ async def main():
             replaced_ref_uhs.add(old_uh)
             data['status'] = "매물 재등록"
             re_count += 1
-        # Check if it existed in history
-        elif uh in hist_hashes or prop_hash in hist_props:
-            data['status'] = "매물 재등록"
-            re_count += 1
         else:
-            data['status'] = "신규매물"
-            new_count += 1
+            # Check if it existed within the last 7 days
+            is_re_reg = False
+            for check_dict, key in [(hist_hashes, uh), (hist_props, prop_hash)]:
+                if key in check_dict:
+                    try:
+                        old_date = datetime.datetime.strptime(check_dict[key], "%Y-%m-%d").date()
+                        if (now_kst.date() - old_date).days <= 7:
+                            is_re_reg = True
+                            break
+                    except: pass
+            
+            if is_re_reg:
+                data['status'] = "매물 재등록"
+                re_count += 1
+            else:
+                data['status'] = "신규매물"
+                new_count += 1
             
         results.append(data)
-        hist_hashes.add(uh)
-        hist_props.add(prop_hash)
+        hist_hashes[uh] = current_date
+        hist_props[prop_hash] = current_date
         
     # Pass 3: Process remaining ref_groups
     expire_count = 0
@@ -443,8 +459,8 @@ async def main():
 
     history["daily_stats"] = daily_stats
     history["last_day_listings"] = all_today_articles
-    history["historical_hashes"] = list(hist_hashes)
-    history["historical_props"] = list(hist_props)
+    history["historical_hashes"] = hist_hashes
+    history["historical_props"] = hist_props
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(history, f, ensure_ascii=False, indent=2)
         
