@@ -263,6 +263,10 @@ async def fetch_complex_listings(context, tgt):
         
     return listings
 
+def get_prop_hash(data):
+    """Generates a physical property hash based on core attributes to detect re-registered items."""
+    return f"{data.get('complex_name', '')}_{data.get('dong', '')}_{data.get('floor', '')}_{data.get('price_val', 0)}_{data.get('area', '')}"
+
 def group_listings(listings_dict):
     """Groups multiple article_nos into unique properties (trusting Naver's grouping)."""
     groups = {}
@@ -292,6 +296,7 @@ async def main():
             
     prev_listings = history.get("last_day_listings", {})
     hist_hashes = set(history.get("historical_hashes", []))
+    hist_props = set(history.get("historical_props", []))
     
     # Timezone handling (KST)
     now_kst = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)
@@ -351,41 +356,95 @@ async def main():
     results = []
     new_count, re_count, del_count = 0, 0, 0
     
+    processed_today = set()
+    replaced_ref_uhs = set()
+    
+    # Pass 1: exact matches (유지)
     for uh, data in today_groups.items():
-        status = "유지"
-        if uh not in ref_groups:
-            if uh in hist_hashes:
-                status = "매물 재등록"
-                re_count += 1
-            else:
-                status = "신규매물"
-                new_count += 1
+        if uh in ref_groups:
+            data['status'] = "유지"
+            results.append(data)
+            processed_today.add(uh)
+            hist_hashes.add(uh)
+            hist_props.add(get_prop_hash(data))
+
+    # Build maps for remaining ref_groups
+    ref_leftovers = {uh: data for uh, data in ref_groups.items() if uh not in today_groups}
+    ref_prop_map = {get_prop_hash(data): uh for uh, data in ref_leftovers.items()}
+    
+    # Pass 2: remaining in today_groups (신규 or 재등록)
+    for uh, data in today_groups.items():
+        if uh in processed_today: continue
         
-        data['status'] = status
+        prop_hash = get_prop_hash(data)
+        
+        # Check if it physically replaces an item in ref_groups (Deleted then re-registered)
+        if prop_hash in ref_prop_map:
+            old_uh = ref_prop_map[prop_hash]
+            replaced_ref_uhs.add(old_uh)
+            data['status'] = "매물 재등록"
+            re_count += 1
+        # Check if it existed in history
+        elif uh in hist_hashes or prop_hash in hist_props:
+            data['status'] = "매물 재등록"
+            re_count += 1
+        else:
+            data['status'] = "신규매물"
+            new_count += 1
+            
         results.append(data)
         hist_hashes.add(uh)
+        hist_props.add(prop_hash)
+        
+    # Pass 3: Process remaining ref_groups
+    expire_count = 0
+    for uh, data in ref_leftovers.items():
+        if uh not in replaced_ref_uhs:
+            status = "거래 완료"
+            reg_date_str = data.get("reg_date", "")
+            if reg_date_str and "." in reg_date_str:
+                try:
+                    r_date = datetime.datetime.strptime(reg_date_str, "%Y.%m.%d").date()
+                    n_date = now_kst.date()
+                    if (n_date - r_date).days >= 30:
+                        status = "등록 만료"
+                        expire_count += 1
+                except: pass
             
-    for uh, data in ref_groups.items():
-        if uh not in today_groups:
-            data['status'] = "거래 완료"
+            data['status'] = status
             results.append(data)
-            del_count += 1
+            if status == "거래 완료":
+                del_count += 1
 
-    print(f"\n📊 Summary (Properties): New: {new_count}, Re-reg: {re_count}, Completed: {del_count}")
+    print(f"\n📊 Summary (Properties): New: {new_count}, Re-reg: {re_count}, Completed: {del_count}, Expired: {expire_count}")
 
-    results.sort(key=lambda x: (x.get('status') != '거래 완료', int(x.get('price_val', 0)), str(x.get('dong', '')), str(x.get('floor', ''))))
+    results.sort(key=lambda x: (x.get('status') not in ['거래 완료', '등록 만료'], int(x.get('price_val', 0)), str(x.get('dong', '')), str(x.get('floor', ''))))
     
+    # Calculate Daily Stats
+    daily_stats = history.get("daily_stats", {})
+    today_str = now_kst.strftime("%Y-%m-%d")
+    for apt in TARGETS:
+        apt_name = apt["name"]
+        t_count = len([l for l in today_groups.values() if l["complex_name"] == apt_name])
+        d_count = len([r for r in results if r["complex_name"] == apt_name and r["status"] == "거래 완료"])
+        if apt_name not in daily_stats:
+            daily_stats[apt_name] = {}
+        daily_stats[apt_name][today_str] = {"total": t_count, "done": d_count}
+
     output = {
         "last_update": now_kst.strftime("%Y-%m-%d %H:%M"),
         "summary": {apt["name"]: {"prev": len([l for l in ref_groups.values() if l["complex_name"] == apt["name"]]), "today": len([l for l in today_groups.values() if l["complex_name"] == apt["name"]])} for apt in TARGETS},
+        "daily_stats": daily_stats,
         "listings": results
     }
     
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
+    history["daily_stats"] = daily_stats
     history["last_day_listings"] = all_today_articles
     history["historical_hashes"] = list(hist_hashes)
+    history["historical_props"] = list(hist_props)
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(history, f, ensure_ascii=False, indent=2)
         
@@ -393,3 +452,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+

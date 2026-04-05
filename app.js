@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const responseData = await res.json();
             allData = responseData.listings || [];
             summaryData = responseData.summary || {};
+            window.dailyStatsData = responseData.daily_stats || {};
 
             // Show Last Update Time with Stale Warning
             if (responseData.last_update) {
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     countActive++;
                 } else if (status === '유지') {
                     countActive++;
-                } else if (status === '거래 완료') {
+                } else if (status === '거래 완료' || status === '등록 만료') {
                     countDone++;
                 }
             });
@@ -223,26 +224,93 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const scrapeData = async () => {
-        try {
-            scrapeBtn.textContent = '확인 중...';
-            scrapeBtn.disabled = true;
-            
-            const message = "데이터는 GitHub Actions를 통해 오전 11시, 오후 4시에 자동으로 갱신됩니다.\n\n" +
-                            "지금 즉시 갱신하고 싶으시면 GitHub 저장소의 'Actions' 탭에서 'Scrape Real Estate Listings' 워크플로우를 수동으로 실행해 주세요.\n\n" +
-                            "페이지 상단의 '새로고침' 버튼은 이미 저장된 최신 데이터를 다시 불러오는 기능입니다.";
-            alert(message);
-        } catch (error) {
-            console.error('Scrape error:', error);
-        } finally {
-            scrapeBtn.textContent = '데이터 갱신 안내';
-            scrapeBtn.disabled = false;
+    // --- Trend Chart Logic ---
+    let trendChartInstance = null;
+    const chartModal = document.getElementById('chart-modal');
+    const trendBtn = document.getElementById('trend-btn');
+    const closeChartBtn = document.getElementById('close-chart-btn');
+    const chartAptSelect = document.getElementById('chart-apt-select');
+
+    const renderChart = (aptName) => {
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        const stats = window.dailyStatsData || {};
+        const aptData = stats[aptName] || {};
+        
+        const labels = Object.keys(aptData).sort();
+        const totalListings = labels.map(date => aptData[date].total);
+        const doneListings = labels.map(date => aptData[date].done);
+
+        if (trendChartInstance) {
+            trendChartInstance.destroy();
         }
+
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.font.family = "'Pretendard', sans-serif";
+
+        trendChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: '전체 매물 (활성)',
+                        data: totalListings,
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        tension: 0.3,
+                        fill: true,
+                    },
+                    {
+                        label: '찐 거래 완료',
+                        data: doneListings,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        tension: 0.3,
+                        fill: true,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     };
+
+    trendBtn?.addEventListener('click', () => {
+        chartModal.style.display = 'flex';
+        // Select currently active filter if possible
+        const activeBtn = document.querySelector('.filter-btn.active');
+        if(activeBtn) {
+            chartAptSelect.value = activeBtn.dataset.apt;
+        }
+        renderChart(chartAptSelect.value);
+    });
+
+    closeChartBtn?.addEventListener('click', () => {
+        chartModal.style.display = 'none';
+    });
+
+    chartModal?.addEventListener('click', (e) => {
+        if(e.target === chartModal) chartModal.style.display = 'none';
+    });
+
+    chartAptSelect?.addEventListener('change', (e) => {
+        renderChart(e.target.value);
+    });
 
     // Setup listeners
     refreshBtn.addEventListener('click', loadData);
-    scrapeBtn.addEventListener('click', scrapeData);
     showChangesCheckbox.addEventListener('change', () => {
         const activeBtn = document.querySelector('.filter-btn.active');
         renderDashboard(activeBtn ? activeBtn.dataset.apt : '더샵동천포레스트');

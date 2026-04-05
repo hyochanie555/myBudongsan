@@ -7,7 +7,10 @@
     <title>나의 부동산 Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./index.css?v=2.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./index.css?v=2.1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -18,7 +21,7 @@
                 <p class="subtitle" id="last-update">데이터를 불러오는 중...</p>
             </div>
             <div class="actions">
-                <button id="scrape-btn" class="secondary-btn" style="margin-right: 0.5rem;">데이터 갱신 안내</button>
+                <button id="trend-btn" class="secondary-btn" style="margin-right: 0.5rem; background-color: rgba(30, 64, 175, 0.5); border-color: rgba(96, 165, 250, 0.5);">📈 매물 추이 보기</button>
                 <button id="refresh-btn" class="primary-btn">새로고침</button>
             </div>
         </header>
@@ -92,7 +95,34 @@
             </div>
         </main>
     </div>
-    <script src="./app.js?v=1.9"></script>
+
+    <!-- Trend Chart Modal -->
+    <div id="chart-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h2 id="chart-title">매물 수량 추이</h2>
+                <button id="close-chart-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="chart-filters" style="margin-bottom: 1rem;">
+                    <select id="chart-apt-select" class="glass-select">
+                        <option value="더샵동천포레스트">더샵동천포레스트</option>
+                        <option value="울산 힐스테이트 강동">울산 힐스테이트 강동</option>
+                        <option value="한강센트럴자이 1단지">한강센트럴자이 1단지</option>
+                        <option value="선암에코하이츠">선암에코하이츠</option>
+                    </select>
+                </div>
+                <div class="chart-container" style="position: relative; height:400px; width:100%">
+                    <canvas id="trendChart"></canvas>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.85rem; color: #94a3b8; text-align: center;">
+                    * '찐 거래 완료'는 등록 만료(30일 경과)를 제외한 실제 거래/삭제 건수입니다.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js?v=2.0"></script>
 </body>
 
 </html>

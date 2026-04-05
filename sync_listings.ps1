@@ -44,4 +44,3 @@ if ($LASTEXITCODE -eq 0) {
 
 Write-Host ""
 Write-Host ">>> ALL DONE!" -ForegroundColor Green
-Read-Host "Press Enter to close..."
