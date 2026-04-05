@@ -439,16 +439,14 @@ tbody tr {
 
     tbody tr {
         display: grid;
-        grid-template-areas: 
-            "top-left top-right"
-            "bot-left bot-right";
-        grid-template-columns: 1fr auto;
+        grid-template-columns: max-content max-content auto max-content;
         padding: 0.9rem 1rem;
         margin-bottom: 0.6rem;
         border-radius: 12px;
         background: rgba(255, 255, 255, 0.02);
         border: 1px solid var(--border-color);
-        gap: 0.4rem;
+        row-gap: 0.4rem;
+        align-items: center;
         position: relative;
     }
 
@@ -461,39 +459,51 @@ tbody tr {
         width: auto !important;
     }
 
-    /* Mapping grid areas */
-    .mobile-row-1-left {
-        grid-area: top-left;
-        display: flex;
-        align-items: center;
-        gap: 0.6rem; /* Spacing between Dong and Floor */
+    /* Grid layout mapping mapping */
+    td[data-label="단지명"], td[data-label="제공처"] { display: none !important; }
+
+    .dong-cell {
+        grid-column: 1; 
+        grid-row: 1;
         font-size: 1rem;
         font-weight: 500;
         color: #fff;
     }
 
-    .mobile-info-item {
+    .floor-cell {
+        grid-column: 2;
+        grid-row: 1;
         color: var(--text-secondary);
         font-size: 0.85rem;
+        padding-left: 0.6rem;
     }
 
-    .mobile-status-container {
-        grid-area: top-right;
+    .area-cell {
+        grid-column: 3;
+        grid-row: 1;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        padding-left: 0.4rem;
+    }
+
+    td[data-label="상태"] {
+        grid-column: 4;
+        grid-row: 1;
         display: flex;
         justify-content: flex-end;
-        align-items: center;
     }
 
-    .mobile-row-2-left {
-        grid-area: bot-left;
-        font-size: 0.8rem;
+    .reg-date-cell {
+        grid-column: 1 / span 3;
+        grid-row: 2;
         color: var(--text-secondary);
-        display: flex;
-        align-items: flex-end;
+        font-size: 0.8rem;
+        align-self: flex-end;
     }
 
-    .mobile-row-2-right {
-        grid-area: bot-right;
+    .price-cell {
+        grid-column: 4;
+        grid-row: 2;
         display: flex;
         justify-content: flex-end;
         align-items: center;

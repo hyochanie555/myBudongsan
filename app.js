@@ -127,11 +127,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Multi-level Sorting Logic
         filtered.sort((a, b) => {
-            // 1. Status: '거래 완료' (Completed) to the top
+            const statusOrder = {
+                '거래 완료': 1,
+                '등록 만료': 2,
+                '신규매물': 3,
+                '매물 재등록': 4,
+                '유지': 5
+            };
             const statusA = (a.status || "").trim();
             const statusB = (b.status || "").trim();
-            if (statusA === '거래 완료' && statusB !== '거래 완료') return -1;
-            if (statusA !== '거래 완료' && statusB === '거래 완료') return 1;
+            
+            const weightA = statusOrder[statusA] || 99;
+            const weightB = statusOrder[statusB] || 99;
+
+            // 1. Status Priority
+            if (weightA !== weightB) {
+                return weightA - weightB;
+            }
 
             // 2. Price: Lowest price first (price_val)
             if ((a.price_val || 0) !== (b.price_val || 0)) {
@@ -197,16 +209,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             tr.innerHTML = `
                 <td data-label="단지명"><strong>${item.complex_name}</strong></td>
-                <td data-label="상태" class="mobile-status-container"><span class="status-badge ${badgeClass}">${status}</span></td>
-                <td class="mobile-row-1-left">
+                <td data-label="상태"><span class="status-badge ${badgeClass}">${status}</span></td>
+                <td class="dong-cell">
                     <a href="${articleLink}" target="_blank" style="color: inherit; text-decoration: none;">
                         <strong>${item.dong}${countSuffix}</strong>
                     </a>
-                    <span class="mobile-info-item">${item.floor || ''}</span>
-                    <span class="mobile-info-item">${item.area || ''}</span>
                 </td>
-                <td data-label="가격" class="mobile-row-2-right"><strong>${item.price}</strong></td>
-                <td data-label="등록일" class="mobile-row-2-left">${item.reg_date || '-'}</td>
+                <td class="floor-cell">${item.floor || ''}</td>
+                <td class="area-cell">${item.area || ''}</td>
+                <td data-label="가격" class="price-cell"><strong>${item.price}</strong></td>
+                <td data-label="등록일" class="reg-date-cell">${item.reg_date || '-'}</td>
             `;
             tbody.appendChild(tr);
             renderedCount++;
