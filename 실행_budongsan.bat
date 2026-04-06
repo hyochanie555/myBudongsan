@@ -1,56 +1,65 @@
 @echo off
 chcp 65001 > nul
+setlocal
 
-REM ===============================
+REM ==============================
 REM 설정
-REM ===============================
-set PROJECT_DIR=D:\Git\myBudongsan
-set PYTHON_EXE=python
-set SCRIPT_NAME=serverless_scraper.py
+REM ==============================
+set "REPO_DIR=D:\Git\myBudongsan"
+set "PYTHON_EXE=python"
+set "SCRIPT=local_scraper.py"
 
-REM ===============================
-REM 프로젝트 폴더로 이동
-REM ===============================
-cd /d %PROJECT_DIR%
+REM Git 경로 보정 (where git 결과 반영)
+set "PATH=C:\Program Files\Git\cmd;%PATH%"
 
-echo.
-echo ==============================
-echo [1/3] Running scraper...
-echo ==============================
-%PYTHON_EXE% %SCRIPT_NAME%
-
-IF ERRORLEVEL 1 (
-    echo [ERROR] Python script failed. Aborting git push.
-    pause
-    exit /b 1
+REM ==============================
+REM 1) 저장소 폴더로 이동
+REM ==============================
+cd /d "%REPO_DIR%"
+if errorlevel 1 (
+  echo [ERROR] 폴더로 이동 실패: %REPO_DIR%
+  exit /b 1
 )
 
+REM ==============================
+REM 2) 파이썬 스크래퍼 실행
+REM ==============================
 echo.
-echo ==============================
-echo [2/3] Git add & commit...
-echo ==============================
+echo ===== Running scraper =====
+%PYTHON_EXE% "%SCRIPT%"
+if errorlevel 1 (
+  echo [ERROR] 스크래퍼 실행 실패. Push 중단.
+  exit /b 1
+)
 
-git status
-
-git add .
-git commit -m "Auto update from company PC"
-
-REM ===============================
-REM Git push
-REM ===============================
+REM ==============================
+REM 3) Git Add / Commit (변경 없으면 스킵)
+REM ==============================
 echo.
-echo ==============================
-echo [3/3] Git push...
-echo ==============================
+echo ===== Git add/commit =====
+git add -A
 
+git diff --cached --quiet
+if %errorlevel%==0 (
+  echo [INFO] 변경사항이 없어 커밋/푸시를 생략합니다.
+  exit /b 0
+)
+
+for /f %%i in ('powershell -NoProfile -Command "Get-Date -Format ''yyyy-MM-dd HH:mm:ss''"') do set "NOW=%%i"
+git commit -m "Auto update: %NOW% (company)"
+
+REM ==============================
+REM 4) Push
+REM ==============================
+echo.
+echo ===== Git push =====
 git push
-
-IF ERRORLEVEL 1 (
-    echo [ERROR] Git push failed.
-    pause
-    exit /b 1
+if errorlevel 1 (
+  echo [ERROR] git push 실패 (인증/네트워크 확인 필요)
+  exit /b 1
 )
 
 echo.
-echo ✅ ALL DONE! Successfully pushed to GitHub.
-pause
+echo ✅ DONE! GitHub로 push 완료.
+exit /b 0
+``
