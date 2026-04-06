@@ -49,52 +49,17 @@ def parse_price(p_str):
     except:
         return 0
 
-async def minimize_chrome_window(page):
-    """
-    Chromium 계열에서만: 현재 페이지가 속한 브라우저 창을 '최소화'합니다.
-    실패해도 크롤링은 계속 진행되도록 안전 처리합니다.
-    """
-    try:
-        cdp = await page.context.new_cdp_session(page)
-
-        # 1) 보통은 인자 없이도 창 ID를 얻을 수 있습니다(세션이 target에 붙어있음).
-        try:
-            win = await cdp.send("Browser.getWindowForTarget")
-        except Exception:
-            # 2) 혹시 실패하면 targetId를 명시해서 재시도
-            tinfo = await cdp.send("Target.getTargetInfo")
-            target_id = tinfo["targetInfo"]["targetId"]
-            win = await cdp.send("Browser.getWindowForTarget", {"targetId": target_id})
-
-        window_id = win["windowId"]
-
-        # 창 최소화
-        await cdp.send("Browser.setWindowBounds", {
-            "windowId": window_id,
-            "bounds": {"windowState": "minimized"}
-        })
-
-    except Exception:
-        # Chromium이 아니거나(webkit/firefox) 회사 정책/환경에 따라 실패할 수 있어요.
-        # 실패해도 동작은 계속되게 조용히 무시합니다.
-        pass
-''
-
 async def fetch_complex_listings(context, tgt):
     apt_name = tgt["name"]
     complex_id = tgt["id"]
-
+    # 🌍 브라우저 수사관(Subagent) 성공 환경 복제
     ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
-
     page = await context.new_page()
     await page.set_viewport_size({"width": 1920, "height": 1080})
     await Stealth().apply_stealth_async(page)
-
-    # ✅ 추가: 크롬 창 최소화 (Chromium에서만 동작, 실패 시 자동 무시)
-    await minimize_chrome_window(page)
-
+    
     url = f"https://fin.land.naver.com/complexes/{complex_id}?propertyType=APT&tradeType=SALE"
-
+    
     captured_data = []
 
     # 🛡️ 응답 가로채기 핸들러
