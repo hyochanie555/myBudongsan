@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-04-07 22:11",
+  "last_update": "2026-04-07 22:25",
   "summary": {
     "더샵동천포레스트": {
       "prev": 10,
@@ -7,7 +7,7 @@
     },
     "울산 힐스테이트 강동": {
       "prev": 71,
-      "today": 54
+      "today": 70
     },
     "한강센트럴자이 1단지": {
       "prev": 289,
@@ -43,8 +43,8 @@
         "done": 1
       },
       "2026-04-07": {
-        "total": 54,
-        "done": 17
+        "total": 70,
+        "done": 2
       }
     },
     "한강센트럴자이 1단지": {
@@ -95,23 +95,6 @@
       "status": "거래 완료"
     },
     {
-      "article_no": "2613159315",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "중/32",
-      "price": "2억 8,600",
-      "price_val": 286000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.10",
-      "cp_name": "",
-      "unit_hash": "NV_2613159315",
-      "count": 1,
-      "ids": [
-        "2613159315"
-      ],
-      "status": "거래 완료"
-    },
-    {
       "article_no": "2617516840",
       "complex_name": "선암에코하이츠",
       "dong": "101동",
@@ -129,108 +112,6 @@
       "status": "거래 완료"
     },
     {
-      "article_no": "2614241023",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "저/30",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.15",
-      "cp_name": "",
-      "unit_hash": "NV_2614241023",
-      "count": 1,
-      "ids": [
-        "2614241023"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2613230093",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "중/32",
-      "price": "3억 1,000",
-      "price_val": 310000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.10",
-      "cp_name": "",
-      "unit_hash": "NV_2613230093",
-      "count": 1,
-      "ids": [
-        "2613230093"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2613725934",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "저/29",
-      "price": "3억 1,000",
-      "price_val": 310000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.12",
-      "cp_name": "",
-      "unit_hash": "NV_2613725934",
-      "count": 1,
-      "ids": [
-        "2613725934"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2614242322",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.15",
-      "cp_name": "",
-      "unit_hash": "NV_2614242322",
-      "count": 1,
-      "ids": [
-        "2614242322"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2613740295",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.12",
-      "cp_name": "",
-      "unit_hash": "NV_2613740295",
-      "count": 1,
-      "ids": [
-        "2613740295"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2613980929",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "중/31",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.13",
-      "cp_name": "",
-      "unit_hash": "NV_2613980929",
-      "count": 1,
-      "ids": [
-        "2613980929"
-      ],
-      "status": "거래 완료"
-    },
-    {
       "article_no": "2616936605",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "105동",
@@ -244,142 +125,6 @@
       "count": 1,
       "ids": [
         "2616936605"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2614530696",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "중/29",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.16",
-      "cp_name": "",
-      "unit_hash": "NV_2614530696",
-      "count": 1,
-      "ids": [
-        "2614530696"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2613157994",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "6/28",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.10",
-      "cp_name": "",
-      "unit_hash": "NV_2613157994",
-      "count": 1,
-      "ids": [
-        "2613157994"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2614127621",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.14",
-      "cp_name": "",
-      "unit_hash": "NV_2614127621",
-      "count": 1,
-      "ids": [
-        "2614127621"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2614255680",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "저/32",
-      "price": "3억 4,000",
-      "price_val": 340000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.15",
-      "cp_name": "",
-      "unit_hash": "NV_2614255680",
-      "count": 1,
-      "ids": [
-        "2614255680"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2614249653",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "3억 4,500",
-      "price_val": 345000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.16",
-      "cp_name": "",
-      "unit_hash": "NV_2614249653",
-      "count": 1,
-      "ids": [
-        "2614249653"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2614242822",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.15",
-      "cp_name": "",
-      "unit_hash": "NV_2614242822",
-      "count": 1,
-      "ids": [
-        "2614242822"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2614018730",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.13",
-      "cp_name": "",
-      "unit_hash": "NV_2614018730",
-      "count": 1,
-      "ids": [
-        "2614018730"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2614517004",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "4억",
-      "price_val": 400000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.16",
-      "cp_name": "",
-      "unit_hash": "NV_2614517004",
-      "count": 1,
-      "ids": [
-        "2614517004"
       ],
       "status": "거래 완료"
     },
@@ -571,6 +316,23 @@
       "status": "유지"
     },
     {
+      "article_no": "2613159315",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "102동",
+      "floor": "중/32",
+      "price": "2억 8,600",
+      "price_val": 286000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.10",
+      "cp_name": "",
+      "unit_hash": "NV_2613159315",
+      "count": 1,
+      "ids": [
+        "2613159315"
+      ],
+      "status": "유지"
+    },
+    {
       "article_no": "2617113442",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "103동",
@@ -754,6 +516,23 @@
       "count": 1,
       "ids": [
         "2615858200"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2614241023",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "101동",
+      "floor": "저/30",
+      "price": "3억",
+      "price_val": 300000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.03.15",
+      "cp_name": "",
+      "unit_hash": "NV_2614241023",
+      "count": 1,
+      "ids": [
+        "2614241023"
       ],
       "status": "유지"
     },
@@ -1030,6 +809,23 @@
       "status": "유지"
     },
     {
+      "article_no": "2613230093",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "103동",
+      "floor": "중/32",
+      "price": "3억 1,000",
+      "price_val": 310000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.10",
+      "cp_name": "",
+      "unit_hash": "NV_2613230093",
+      "count": 1,
+      "ids": [
+        "2613230093"
+      ],
+      "status": "유지"
+    },
+    {
       "article_no": "2618698532",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "104동",
@@ -1111,6 +907,23 @@
       "count": 1,
       "ids": [
         "2618613081"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2613725934",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "105동",
+      "floor": "저/29",
+      "price": "3억 1,000",
+      "price_val": 310000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.12",
+      "cp_name": "",
+      "unit_hash": "NV_2613725934",
+      "count": 1,
+      "ids": [
+        "2613725934"
       ],
       "status": "유지"
     },
@@ -1251,6 +1064,57 @@
       "status": "유지"
     },
     {
+      "article_no": "2614242322",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "104동",
+      "floor": "고/31",
+      "price": "3억 2,000",
+      "price_val": 320000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.03.15",
+      "cp_name": "",
+      "unit_hash": "NV_2614242322",
+      "count": 1,
+      "ids": [
+        "2614242322"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2613740295",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "104동",
+      "floor": "고/31",
+      "price": "3억 2,000",
+      "price_val": 320000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.03.12",
+      "cp_name": "",
+      "unit_hash": "NV_2613740295",
+      "count": 1,
+      "ids": [
+        "2613740295"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2613980929",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "104동",
+      "floor": "중/31",
+      "price": "3억 2,000",
+      "price_val": 320000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.03.13",
+      "cp_name": "",
+      "unit_hash": "NV_2613980929",
+      "count": 1,
+      "ids": [
+        "2613980929"
+      ],
+      "status": "유지"
+    },
+    {
       "article_no": "2618478158",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "105동",
@@ -1264,6 +1128,23 @@
       "count": 1,
       "ids": [
         "2618478158"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2614261502",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "105동",
+      "floor": "저/29",
+      "price": "3억 2,000",
+      "price_val": 320000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.15",
+      "cp_name": "",
+      "unit_hash": "NV_2614261502",
+      "count": 1,
+      "ids": [
+        "2614261502"
       ],
       "status": "유지"
     },
@@ -1302,6 +1183,23 @@
       "status": "유지"
     },
     {
+      "article_no": "2614530696",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "105동",
+      "floor": "중/29",
+      "price": "3억 2,000",
+      "price_val": 320000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.16",
+      "cp_name": "",
+      "unit_hash": "NV_2614530696",
+      "count": 1,
+      "ids": [
+        "2614530696"
+      ],
+      "status": "유지"
+    },
+    {
       "article_no": "2615297735",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
@@ -1315,6 +1213,23 @@
       "count": 1,
       "ids": [
         "2615297735"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2613157994",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "106동",
+      "floor": "6/28",
+      "price": "3억 2,000",
+      "price_val": 320000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.10",
+      "cp_name": "",
+      "unit_hash": "NV_2613157994",
+      "count": 1,
+      "ids": [
+        "2613157994"
       ],
       "status": "유지"
     },
@@ -1366,6 +1281,23 @@
       "count": 1,
       "ids": [
         "2618575205"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2614127621",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "104동",
+      "floor": "고/31",
+      "price": "3억 3,000",
+      "price_val": 330000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.14",
+      "cp_name": "",
+      "unit_hash": "NV_2614127621",
+      "count": 1,
+      "ids": [
+        "2614127621"
       ],
       "status": "유지"
     },
@@ -1472,6 +1404,23 @@
       "status": "매물 재등록"
     },
     {
+      "article_no": "2614255680",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "103동",
+      "floor": "저/32",
+      "price": "3억 4,000",
+      "price_val": 340000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.15",
+      "cp_name": "",
+      "unit_hash": "NV_2614255680",
+      "count": 1,
+      "ids": [
+        "2614255680"
+      ],
+      "status": "유지"
+    },
+    {
       "article_no": "2618630269",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "101동",
@@ -1502,6 +1451,23 @@
       "count": 1,
       "ids": [
         "2618386962"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2614249653",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "106동",
+      "floor": "고/28",
+      "price": "3억 4,500",
+      "price_val": 345000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.16",
+      "cp_name": "",
+      "unit_hash": "NV_2614249653",
+      "count": 1,
+      "ids": [
+        "2614249653"
       ],
       "status": "유지"
     },
@@ -1608,6 +1574,40 @@
       "status": "유지"
     },
     {
+      "article_no": "2614242822",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "106동",
+      "floor": "고/28",
+      "price": "3억 5,000",
+      "price_val": 350000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.03.15",
+      "cp_name": "",
+      "unit_hash": "NV_2614242822",
+      "count": 1,
+      "ids": [
+        "2614242822"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2614018730",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "106동",
+      "floor": "고/28",
+      "price": "3억 5,000",
+      "price_val": 350000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.03.13",
+      "cp_name": "",
+      "unit_hash": "NV_2614018730",
+      "count": 1,
+      "ids": [
+        "2614018730"
+      ],
+      "status": "유지"
+    },
+    {
       "article_no": "2615299425",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
@@ -1672,6 +1672,23 @@
       "count": 1,
       "ids": [
         "2616049135"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2614517004",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "106동",
+      "floor": "고/28",
+      "price": "4억",
+      "price_val": 400000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.03.16",
+      "cp_name": "",
+      "unit_hash": "NV_2614517004",
+      "count": 1,
+      "ids": [
+        "2614517004"
       ],
       "status": "유지"
     },
