@@ -130,9 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusOrder = {
                 '거래 완료': 1,
                 '등록 만료': 2,
-                '신규매물': 3,
+                '신규매물': 4,
                 '매물 재등록': 4,
-                '유지': 5
+                '유지': 4
             };
             const statusA = (a.status || "").trim();
             const statusB = (b.status || "").trim();
@@ -193,10 +193,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let renderedCount = 0;
         filtered.forEach(item => {
-            const status = (item.status || "").trim();
-            if (showChangesOnly && status === '유지') {
-                return; // Hide unchanged if checked
-            }
+			const hiddenStatusesWhenChangedOnly = ['유지', '매물 재등록'];
+
+			if (
+				showChangesOnly &&
+				hiddenStatusesWhenChangedOnly.includes(status)
+			) {
+				return;
+			}
+
+
 
             const tr = document.createElement('tr');
             const badgeClass = `status-${status.replace(/\s+/g, '')}`;
