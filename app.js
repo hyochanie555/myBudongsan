@@ -192,7 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
         tbody.innerHTML = '';
 
         let renderedCount = 0;
-        filtered.forEach(item => {
+		filtered.forEach(item => {
+			const status = (item.status || "").trim();   // ✅ 이 줄이 빠졌었음
+
 			const hiddenStatusesWhenChangedOnly = ['유지', '매물 재등록'];
 
 			if (
@@ -202,10 +204,38 @@ document.addEventListener('DOMContentLoaded', () => {
 				return;
 			}
 
+			const tr = document.createElement('tr');
+			const badgeClass = `status-${status.replace(/\s+/g, '')}`;
+
+			const countSuffix = item.count > 1
+				? ` <span style="color: #94a3b8; font-size: 0.85em; font-weight: normal;">(${item.count}건)</span>`
+				: '';
+
+			const articleLink = item.article_no
+				? `https://m.land.naver.com/article/info/${item.article_no}`
+				: '#';
+
+			tr.innerHTML = `
+				<td data-label="단지명"><strong>${item.complex_name}</strong></td>
+				<td data-label="상태">
+					<span class="status-badge ${badgeClass}">${status}</span>
+				</td>
+				<td class="dong-cell">
+					<a href="${articleLink}" target="_blank" style="color: inherit; text-decoration: none;">
+						<strong>${item.dong}${countSuffix}</strong>
+					</a>
+				</td>
+				<td class="floor-cell">${item.floor || ''}</td>
+				<td class="area-cell">${item.area || ''}</td>
+				<td data-label="가격" class="price-cell"><strong>${item.price}</strong></td>
+				<td data-label="등록일" class="reg-date-cell">${item.reg_date || '-'}</td>
+			`;
+
+			tbody.appendChild(tr);
+			renderedCount++;
+		});
 
 
-            const tr = document.createElement('tr');
-            const badgeClass = `status-${status.replace(/\s+/g, '')}`;
             
             // Show grouped count if > 1
             const countSuffix = item.count > 1 ? ` <span style="color: #94a3b8; font-size: 0.85em; font-weight: normal;">(${item.count}건)</span>` : '';
