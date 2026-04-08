@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-04-08 05:00",
+  "last_update": "2026-04-08 09:03",
   "summary": {
     "더샵동천포레스트": {
       "prev": 10,
@@ -15,7 +15,7 @@
     },
     "선암에코하이츠": {
       "prev": 12,
-      "today": 12
+      "today": 11
     }
   },
   "daily_stats": {
@@ -87,12 +87,29 @@
         "done": 1
       },
       "2026-04-08": {
-        "total": 12,
-        "done": 0
+        "total": 11,
+        "done": 1
       }
     }
   },
   "listings": [
+    {
+      "article_no": "2617281245",
+      "complex_name": "선암에코하이츠",
+      "dong": "101동",
+      "floor": "고/20",
+      "price": "3억",
+      "price_val": 300000000,
+      "area": "81B / 59.91㎡",
+      "reg_date": "2026.03.30",
+      "cp_name": "",
+      "unit_hash": "NV_2617281245",
+      "count": 1,
+      "ids": [
+        "2617281245"
+      ],
+      "status": "거래 완료"
+    },
     {
       "article_no": "2614695819",
       "complex_name": "울산 힐스테이트 강동",
@@ -243,23 +260,6 @@
       "count": 1,
       "ids": [
         "2618271457"
-      ],
-      "status": "유지"
-    },
-    {
-      "article_no": "2617281245",
-      "complex_name": "선암에코하이츠",
-      "dong": "101동",
-      "floor": "고/20",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "81B / 59.91㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617281245",
-      "count": 1,
-      "ids": [
-        "2617281245"
       ],
       "status": "유지"
     },
