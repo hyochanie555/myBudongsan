@@ -459,77 +459,18 @@ tbody tr {
         width: auto !important;
     }
 
-    /* Grid layout mapping mapping */
+    /* Grid layout mapping mapping
     td[data-label="단지명"], td[data-label="제공처"] { display: none !important; }
 
-    .dong-cell {
+   /*  .dong-cell {
         grid-column: 1; 
         grid-row: 1;
         font-size: 1rem;
         font-weight: 500;
         color: #fff;
     }
-
-	/* 동(매물 링크) 파란색/visited 제거 + 노란 포인트 */
-	.dong-cell a,
-	.dong-cell a:visited {
-	  color: inherit;
-	  text-decoration: none;
-	}
-
-	.dong-cell a:hover,
-	.dong-cell a:focus {
-	  color: #ffeb3b;
-	  text-decoration: underline;
-	  text-underline-offset: 3px;
-	}
-
-	.dong-cell a:active {
-	  color: #ffd54f; /* 클릭 순간 살짝 다른 옐로우 */
-	}
-
-	/* 동(매물 링크) 항상 노란 포인트톤 + visited 파란색 방지 */
-	.dong-link,
-	.dong-link:visited {
-	  color: #ffeb3b;
-	  text-decoration: none;
-	  font-weight: 700;
-	}
-
-	.dong-link:hover,
-	.dong-link:focus {
-	  color: #ffd54f; /* hover 시 살짝 밝은 노랑 */
-	  text-decoration: underline;
-	  text-underline-offset: 3px;
-	}
-
-	.dong-link:active {
-	  color: #ffc107; /* 클릭 순간 */
-	}
-
-	/* 동(dong) 셀을 항상 노란 포인트톤으로 고정 */
-	.dong-cell,
-	.dong-cell .dong-link,
-	.dong-cell .dong-link:visited {
-	  color: #ffeb3b;
-	}
-
-	/* 링크 기본 밑줄 제거 + 보기 좋게 */
-	.dong-cell .dong-link,
-	.dong-cell .dong-link:visited {
-	  text-decoration: none;
-	  font-weight: 700;
-	}
-
-	/* 호버 시만 살짝 변주(선택) */
-	.dong-cell .dong-link:hover,
-	.dong-cell .dong-link:focus {
-	  color: #ffd54f;
-	  text-decoration: underline;
-	  text-underline-offset: 3px;
-	}
-
-
+	 */
+	
     .floor-cell {
         grid-column: 2;
         grid-row: 1;
@@ -580,4 +521,31 @@ tbody tr {
         font-size: 0.7rem;
         padding: 0.15rem 0.5rem;
     }
+	
+	/* ✅ dong-cell(동 컬럼) 항상 노란 포인트톤 고정 */
+	td.dong-cell {
+	  color: #ffeb3b;
+	}
+
+	/* ✅ 링크는 셀 색을 그대로 상속(visited 포함) */
+	td.dong-cell a.dong-link,
+	td.dong-cell a.dong-link:visited {
+	  color: inherit !important;
+	  text-decoration: none;
+	  font-weight: 700;
+	}
+
+	/* hover/focus 변주(선택) */
+	td.dong-cell a.dong-link:hover,
+	td.dong-cell a.dong-link:focus {
+	  color: #ffd54f !important;
+	  text-decoration: underline;
+	  text-underline-offset: 3px;
+	}
+
+	td.dong-cell a.dong-link:active {
+	  color: #ffc107 !important;
+	}
+		
+	
 }
