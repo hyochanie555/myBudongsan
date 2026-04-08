@@ -470,6 +470,45 @@ tbody tr {
         color: #fff;
     }
 
+	/* 동(매물 링크) 파란색/visited 제거 + 노란 포인트 */
+	.dong-cell a,
+	.dong-cell a:visited {
+	  color: inherit;
+	  text-decoration: none;
+	}
+
+	.dong-cell a:hover,
+	.dong-cell a:focus {
+	  color: #ffeb3b;
+	  text-decoration: underline;
+	  text-underline-offset: 3px;
+	}
+
+	.dong-cell a:active {
+	  color: #ffd54f; /* 클릭 순간 살짝 다른 옐로우 */
+	}
+
+	/* 동(매물 링크) 항상 노란 포인트톤 + visited 파란색 방지 */
+	.dong-link,
+	.dong-link:visited {
+	  color: #ffeb3b;
+	  text-decoration: none;
+	  font-weight: 700;
+	}
+
+	.dong-link:hover,
+	.dong-link:focus {
+	  color: #ffd54f; /* hover 시 살짝 밝은 노랑 */
+	  text-decoration: underline;
+	  text-underline-offset: 3px;
+	}
+
+	.dong-link:active {
+	  color: #ffc107; /* 클릭 순간 */
+	}
+
+
+
     .floor-cell {
         grid-column: 2;
         grid-row: 1;

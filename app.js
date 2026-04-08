@@ -218,13 +218,16 @@ document.addEventListener('DOMContentLoaded', () => {
             tr.innerHTML = `
                 <td data-label="단지명"><strong>${item.complex_name}</strong></td>
                 <td data-label="상태"><span class="status-badge ${badgeClass}">${status}</span></td>
-                <td class="dong-cell">
-                    <a href="${articleLink}" target="_blank"
-                       class="dong-link"
-                       style="color: inherit; text-decoration: none; display: inline-block;">
-                        <strong>${item.dong}${countSuffix}</strong>
-                    </a>
-                </td>
+				
+				<td class="dong-cell">
+				  <a href="${articleLink}" target="_blank"
+					 class="dong-link"
+					 style="display: inline-block;">
+					<strong>${item.dong}${countSuffix}</strong>
+				  </a>
+				</td>
+				
+				
                 <td class="floor-cell">${item.floor || ''}</td>
                 <td class="area-cell">${item.area || ''}</td>
                 <td data-label="가격" class="price-cell"><strong>${item.price}</strong></td>
