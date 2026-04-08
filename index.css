@@ -507,6 +507,27 @@ tbody tr {
 	  color: #ffc107; /* 클릭 순간 */
 	}
 
+	/* 동(dong) 셀을 항상 노란 포인트톤으로 고정 */
+	.dong-cell,
+	.dong-cell .dong-link,
+	.dong-cell .dong-link:visited {
+	  color: #ffeb3b;
+	}
+
+	/* 링크 기본 밑줄 제거 + 보기 좋게 */
+	.dong-cell .dong-link,
+	.dong-cell .dong-link:visited {
+	  text-decoration: none;
+	  font-weight: 700;
+	}
+
+	/* 호버 시만 살짝 변주(선택) */
+	.dong-cell .dong-link:hover,
+	.dong-cell .dong-link:focus {
+	  color: #ffd54f;
+	  text-decoration: underline;
+	  text-underline-offset: 3px;
+	}
 
 
     .floor-cell {
