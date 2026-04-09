@@ -318,11 +318,53 @@ def group_listings(listings_dict):
             groups[uh]['count'] += data.get('count', 1)
     return groups
 
+# 새로운 함수: 실제 크롤링 및 초기 그룹화 로직을 포함
+async def _run_and_process_listings(p, context, TARGETS, reference_listings, now_kst, history):
+    all_today_articles = {}
+    for tgt in TARGETS:
+        print(f"\n[TARGET] {tgt['name']} 크롤링 시작...")
+        
+        # 🔁 [RETRY LOOP] Try up to 3 times for each complex
+        results = {}
+        for attempt in range(1, 4):
+            results = await fetch_complex_listings(context, tgt)
+            if results and len(results) > 0:
+                break # Success!
+            
+            if attempt < 3:
+                wait_retry = attempt * 5
+                print(f"  ⚠️ Attempt {attempt} failed (0 listings). Retrying in {wait_retry}s...")
+                await asyncio.sleep(wait_retry)
+            else:
+                print(f"  ❌ Max retries reached for {tgt['name']}.")
+        
+        all_today_articles.update(results)
+        
+        wait_time = random.randint(1, 2)
+        print(f"  ☕ {wait_time}s wait...")
+        await asyncio.sleep(wait_time)
+        
+    if not all_today_articles:
+        print("\n⚠️ 수집된 데이터가 없습니다.")
+        return {}, {}, {}, {}, {} # 빈 값 반환
+
+    # Grouping
+    today_groups = group_listings(all_today_articles)
+    ref_groups = group_listings(reference_listings)
+
+    # Migration for list to dict if necessary
+    hist_hashes_raw = history.get("historical_hashes", {})
+    hist_props_raw = history.get("historical_props", {})
+    hist_hashes = {h: now_kst.strftime("%Y-%m-%d") for h in hist_hashes_raw} if isinstance(hist_hashes_raw, list) else hist_hashes_raw
+    hist_props = {p: now_kst.strftime("%Y-%m-%d") for p in hist_props_raw} if isinstance(hist_props_raw, list) else hist_props_raw
+
+    return today_groups, all_today_articles, ref_groups, hist_hashes, hist_props
+
 async def main():
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
         
-    history = {"last_day_listings": {}, "historical_articles": [], "historical_hashes": [], "last_ref_date": "", "reference_listings": {}}
+    history = {"last_day_listings": {}, "historical_articles": [], "historical_hashes": {}, "historical_props": {}, "last_ref_date": "", "reference_listings": {}}
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, "r", encoding="utf-8") as f:
             try:
@@ -330,17 +372,11 @@ async def main():
             except: pass
             
     prev_listings = history.get("last_day_listings", {})
-    hist_hashes_raw = history.get("historical_hashes", {})
-    hist_props_raw = history.get("historical_props", {})
     
     # Timezone handling (KST)
     now_kst = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)
     current_date = now_kst.strftime("%Y-%m-%d")
 
-    # Migration for list to dict if necessary
-    hist_hashes = {h: current_date for h in hist_hashes_raw} if isinstance(hist_hashes_raw, list) else hist_hashes_raw
-    hist_props = {p: current_date for p in hist_props_raw} if isinstance(hist_props_raw, list) else hist_props_raw
-    
     last_ref_date = history.get("last_ref_date", "")
     
     if current_date != last_ref_date:
@@ -351,46 +387,49 @@ async def main():
     else:
         reference_listings = history.get("reference_listings", prev_listings)
 
-    async with async_playwright() as p:
-        print("🚀 Starting scraper... (Window will be automatically minimized)")
-        browser = await p.chromium.launch(headless=False, args=["--start-minimized"])
-        context = await browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-            viewport={"width": 1920, "height": 1080}
-        )
-        
-        all_today_articles = {}
-        for tgt in TARGETS:
-            print(f"\n[TARGET] {tgt['name']} 크롤링 시작...")
+    max_overall_retries = 3
+    overall_attempt = 0
+    
+    today_groups = {}
+    all_today_articles = {}
+    ref_groups = {}
+    hist_hashes = {}
+    hist_props = {}
+
+    while overall_attempt < max_overall_retries:
+        print(f"\n--- 전체 크롤링 시도 {overall_attempt + 1}/{max_overall_retries} ---")
+        async with async_playwright() as p:
+            print("🚀 Starting scraper... (Window will be automatically minimized)")
+            browser = await p.chromium.launch(headless=False, args=["--start-minimized"])
+            context = await browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+                viewport={"width": 1920, "height": 1080}
+            )
             
-            # 🔁 [RETRY LOOP] Try up to 3 times for each complex
-            results = {}
-            for attempt in range(1, 4):
-                results = await fetch_complex_listings(context, tgt)
-                if results and len(results) > 0:
-                    break # Success!
-                
-                if attempt < 3:
-                    wait_retry = attempt * 5
-                    print(f"  ⚠️ Attempt {attempt} failed (0 listings). Retrying in {wait_retry}s...")
-                    await asyncio.sleep(wait_retry)
-                else:
-                    print(f"  ❌ Max retries reached for {tgt['name']}.")
+            today_groups, all_today_articles, ref_groups, hist_hashes, hist_props = await _run_and_process_listings(p, context, TARGETS, reference_listings, now_kst, history)
             
-            all_today_articles.update(results)
-            
-            wait_time = random.randint(1, 2)
-            print(f"  ☕ {wait_time}s wait...")
-            await asyncio.sleep(wait_time)
-            
-        await browser.close()
+            await browser.close()
+
+        prev_count = len(group_listings(reference_listings)) # reference_listings는 이전 날짜의 all_today_articles
+        today_count = len(today_groups)
+
+        if prev_count > 0 and today_count < 0.7 * prev_count:
+            print(f"  ⚠️ 오늘 수집된 매물({today_count}개)이 지난번({prev_count}개)의 70% 미만입니다. 재시도합니다...")
+            overall_attempt += 1
+            await asyncio.sleep(10) # 재시도 전 잠시 대기
+        else:
+            print(f"  ✅ 크롤링 성공 또는 재시도 조건 미달성. 매물 수: {today_count}개 (이전: {prev_count}개)")
+            break
+    
+    if overall_attempt == max_overall_retries and (prev_count > 0 and today_count < 0.7 * prev_count):
+        print("\n❌ 최대 재시도 횟수에 도달했습니다. 크롤링이 제대로 완료되지 않았을 수 있습니다.")
+        return
 
     if not all_today_articles:
         print("\n⚠️ 수집된 데이터가 없습니다.")
         return
 
     # Grouping
-    today_groups = group_listings(all_today_articles)
     ref_groups = group_listings(reference_listings)
     
     results = []

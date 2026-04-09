@@ -2,6 +2,11 @@
 chcp 65001 > nul
 setlocal
 
+if not "%minimized%"=="1" (
+    set minimized=1
+    start /min cmd /c "%~f0"
+    exit /b
+)
 REM ==============================
 REM 설정
 REM ==============================
