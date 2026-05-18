@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-05-18 15:00",
+  "last_update": "2026-05-18 18:00",
   "summary": {
     "더샵동천포레스트": {
       "prev": 3,
@@ -1586,38 +1586,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2626132530",
+      "article_no": "2627012976",
       "complex_name": "선암에코하이츠",
       "dong": "102동",
       "floor": "18/20",
       "price": "3억 2,000",
       "price_val": 320000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.05.14",
+      "reg_date": "2026.05.18",
       "cp_name": "",
-      "unit_hash": "NV_2626132530",
+      "unit_hash": "NV_2627012976",
       "count": 1,
       "ids": [
-        "2626132530"
+        "2627012976"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2626449441",
+      "article_no": "2627012058",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
       "floor": "고/20",
       "price": "3억 2,000",
       "price_val": 320000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.05.15",
+      "reg_date": "2026.05.18",
       "cp_name": "",
-      "unit_hash": "NV_2626449441",
+      "unit_hash": "NV_2627012058",
       "count": 1,
       "ids": [
-        "2626449441"
+        "2627012058"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2626275474",
@@ -6584,21 +6584,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2622039434",
+      "article_no": "2627001604",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "114동",
       "floor": "고/29",
       "price": "5억 8,000",
       "price_val": 580000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.23",
+      "reg_date": "2026.05.18",
       "cp_name": "",
-      "unit_hash": "NV_2622039434",
+      "unit_hash": "NV_2627001604",
       "count": 1,
       "ids": [
-        "2622039434"
+        "2627001604"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2626443675",
