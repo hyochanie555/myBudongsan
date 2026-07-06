@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-07-06 10:00",
+  "last_update": "2026-07-06 12:30",
   "summary": {
     "더샵동천포레스트": {
       "prev": 7,
@@ -11,7 +11,7 @@
     },
     "한강센트럴자이 1단지": {
       "prev": 275,
-      "today": 271
+      "today": 275
     },
     "선암에코하이츠": {
       "prev": 11,
@@ -1113,8 +1113,8 @@
         "done": 0
       },
       "2026-07-06": {
-        "total": 271,
-        "done": 2
+        "total": 275,
+        "done": 1
       }
     },
     "선암에코하이츠": {
@@ -1486,53 +1486,19 @@
   },
   "listings": [
     {
-      "article_no": "2636018425",
+      "article_no": "2635493530",
       "complex_name": "한강센트럴자이 1단지",
-      "dong": "103동",
-      "floor": "12/25",
-      "price": "4억 8,800",
-      "price_val": 488000000,
+      "dong": "116동",
+      "floor": "21/29",
+      "price": "4억 9,000",
+      "price_val": 490000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.02",
       "cp_name": "",
-      "unit_hash": "NV_2636018425",
+      "unit_hash": "NV_2635493530",
       "count": 1,
       "ids": [
-        "2636018425"
-      ],
-      "status": "거래 완료"
-    },
-    {
-      "article_no": "2630319074",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "118동",
-      "floor": "22/28",
-      "price": "5억 500",
-      "price_val": 505000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.06.05",
-      "cp_name": "",
-      "unit_hash": "NV_2630319074",
-      "count": 1,
-      "ids": [
-        "2630319074"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2633089923",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "101동",
-      "floor": "1/29",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.06.19",
-      "cp_name": "",
-      "unit_hash": "NV_2633089923",
-      "count": 1,
-      "ids": [
-        "2633089923"
+        "2635493530"
       ],
       "status": "거래 완료"
     },
@@ -2132,6 +2098,23 @@
       "status": "유지"
     },
     {
+      "article_no": "2632314529",
+      "complex_name": "선암에코하이츠",
+      "dong": "102동",
+      "floor": "16/20",
+      "price": "3억 2,000",
+      "price_val": 320000000,
+      "area": "81A / 59.94㎡",
+      "reg_date": "2026.06.15",
+      "cp_name": "",
+      "unit_hash": "NV_2632314529",
+      "count": 1,
+      "ids": [
+        "2632314529"
+      ],
+      "status": "유지"
+    },
+    {
       "article_no": "2632424198",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "104동",
@@ -2264,23 +2247,6 @@
       "count": 1,
       "ids": [
         "2636113003"
-      ],
-      "status": "유지"
-    },
-    {
-      "article_no": "2632314529",
-      "complex_name": "선암에코하이츠",
-      "dong": "102동",
-      "floor": "16/20",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "81A / 59.94㎡",
-      "reg_date": "2026.06.15",
-      "cp_name": "",
-      "unit_hash": "NV_2632314529",
-      "count": 1,
-      "ids": [
-        "2632314529"
       ],
       "status": "유지"
     },
@@ -2897,21 +2863,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635979077",
+      "article_no": "2636263062",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "107동",
       "floor": "15/28",
       "price": "4억 8,500",
       "price_val": 485000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635979077",
+      "unit_hash": "NV_2636263062",
       "count": 1,
       "ids": [
-        "2635979077"
+        "2636263062"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635237615",
@@ -2965,21 +2931,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2635704160",
+      "article_no": "2636227670",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "103동",
+      "floor": "12/25",
+      "price": "4억 8,800",
+      "price_val": 488000000,
+      "area": "112C / 84.97㎡",
+      "reg_date": "2026.07.06",
+      "cp_name": "",
+      "unit_hash": "NV_2636227670",
+      "count": 1,
+      "ids": [
+        "2636227670"
+      ],
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2636244591",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "112동",
       "floor": "중/28",
       "price": "4억 8,800",
       "price_val": 488000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.03",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635704160",
+      "unit_hash": "NV_2636244591",
       "count": 1,
       "ids": [
-        "2635704160"
+        "2636244591"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2632874771",
@@ -2999,21 +2982,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635981705",
+      "article_no": "2636224741",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "103동",
       "floor": "고/25",
       "price": "4억 9,000",
       "price_val": 490000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635981705",
+      "unit_hash": "NV_2636224741",
       "count": 1,
       "ids": [
-        "2635981705"
+        "2636224741"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635748879",
@@ -3084,55 +3067,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2635981909",
+      "article_no": "2636245664",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "114동",
       "floor": "17/29",
       "price": "4억 9,000",
       "price_val": 490000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635981909",
+      "unit_hash": "NV_2636245664",
       "count": 1,
       "ids": [
-        "2635981909"
+        "2636245664"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2635493530",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "116동",
-      "floor": "21/29",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.02",
-      "cp_name": "",
-      "unit_hash": "NV_2635493530",
-      "count": 1,
-      "ids": [
-        "2635493530"
-      ],
-      "status": "유지"
-    },
-    {
-      "article_no": "2635993473",
+      "article_no": "2636189881",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "119동",
       "floor": "3/29",
       "price": "4억 9,000",
       "price_val": 490000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635993473",
+      "unit_hash": "NV_2636189881",
       "count": 1,
       "ids": [
-        "2635993473"
+        "2636189881"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635279898",
@@ -3237,21 +3203,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635981237",
+      "article_no": "2636190283",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "105동",
       "floor": "2/28",
       "price": "4억 9,500",
       "price_val": 495000000,
       "area": "113D / 84.76㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635981237",
+      "unit_hash": "NV_2636190283",
       "count": 1,
       "ids": [
-        "2635981237"
+        "2636190283"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635574594",
@@ -3305,21 +3271,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635946738",
+      "article_no": "2636172550",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "122동",
       "floor": "9/29",
       "price": "4억 9,500",
       "price_val": 495000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635946738",
+      "unit_hash": "NV_2636172550",
       "count": 1,
       "ids": [
-        "2635946738"
+        "2636172550"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2632267286",
@@ -3866,21 +3832,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635703472",
+      "article_no": "2636204881",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "131동",
       "floor": "저/23",
       "price": "5억",
       "price_val": 500000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.03",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635703472",
+      "unit_hash": "NV_2636204881",
       "count": 1,
       "ids": [
-        "2635703472"
+        "2636204881"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2633291550",
@@ -3900,21 +3866,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2635983784",
+      "article_no": "2636196806",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "105동",
       "floor": "1/28",
       "price": "5억 500",
       "price_val": 505000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635983784",
+      "unit_hash": "NV_2636196806",
       "count": 1,
       "ids": [
-        "2635983784"
+        "2636196806"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2636220647",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "118동",
+      "floor": "22/28",
+      "price": "5억 500",
+      "price_val": 505000000,
+      "area": "112C / 84.97㎡",
+      "reg_date": "2026.07.06",
+      "cp_name": "",
+      "unit_hash": "NV_2636220647",
+      "count": 1,
+      "ids": [
+        "2636220647"
+      ],
+      "status": "매물 재등록"
     },
     {
       "article_no": "2631640036",
@@ -3951,38 +3934,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2635991966",
+      "article_no": "2636202132",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "106동",
       "floor": "저/29",
       "price": "5억 1,000",
       "price_val": 510000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635991966",
+      "unit_hash": "NV_2636202132",
       "count": 1,
       "ids": [
-        "2635991966"
+        "2636202132"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2635986660",
+      "article_no": "2636203151",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "107동",
       "floor": "14/28",
       "price": "5억 1,000",
       "price_val": 510000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635986660",
+      "unit_hash": "NV_2636203151",
       "count": 1,
       "ids": [
-        "2635986660"
+        "2636203151"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2636052054",
@@ -4104,21 +4087,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2630734567",
+      "article_no": "2636218398",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "121동",
       "floor": "8/29",
       "price": "5억 1,000",
       "price_val": 510000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.06.08",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2630734567",
+      "unit_hash": "NV_2636218398",
       "count": 1,
       "ids": [
-        "2630734567"
+        "2636218398"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635890514",
@@ -4359,6 +4342,23 @@
       "status": "유지"
     },
     {
+      "article_no": "2636182881",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "101동",
+      "floor": "1/29",
+      "price": "5억 2,000",
+      "price_val": 520000000,
+      "area": "112C / 84.97㎡",
+      "reg_date": "2026.07.06",
+      "cp_name": "",
+      "unit_hash": "NV_2636182881",
+      "count": 1,
+      "ids": [
+        "2636182881"
+      ],
+      "status": "매물 재등록"
+    },
+    {
       "article_no": "2632150258",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "106동",
@@ -4478,6 +4478,23 @@
       "status": "유지"
     },
     {
+      "article_no": "2636206196",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "21/29",
+      "price": "5억 2,000",
+      "price_val": 520000000,
+      "area": "112C / 84.97㎡",
+      "reg_date": "2026.07.06",
+      "cp_name": "",
+      "unit_hash": "NV_2636206196",
+      "count": 1,
+      "ids": [
+        "2636206196"
+      ],
+      "status": "신규매물"
+    },
+    {
       "article_no": "2635309343",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
@@ -4495,21 +4512,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2630738767",
+      "article_no": "2636218263",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "119동",
       "floor": "고/29",
       "price": "5억 2,000",
       "price_val": 520000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.06.08",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2630738767",
+      "unit_hash": "NV_2636218263",
       "count": 1,
       "ids": [
-        "2630738767"
+        "2636218263"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635996056",
@@ -4937,21 +4954,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635947821",
+      "article_no": "2636177011",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "111동",
       "floor": "4/27",
       "price": "5억 2,500",
       "price_val": 525000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635947821",
+      "unit_hash": "NV_2636177011",
       "count": 1,
       "ids": [
-        "2635947821"
+        "2636177011"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2632788033",
@@ -5022,38 +5039,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2636018503",
+      "article_no": "2636237239",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "104동",
       "floor": "13/26",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2636018503",
+      "unit_hash": "NV_2636237239",
       "count": 1,
       "ids": [
-        "2636018503"
+        "2636237239"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2635987712",
+      "article_no": "2636215374",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "105동",
       "floor": "13/28",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635987712",
+      "unit_hash": "NV_2636215374",
       "count": 1,
       "ids": [
-        "2635987712"
+        "2636215374"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2630623978",
@@ -5124,38 +5141,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2633264959",
+      "article_no": "2636216120",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "109동",
       "floor": "18/28",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.06.20",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2633264959",
+      "unit_hash": "NV_2636216120",
       "count": 1,
       "ids": [
-        "2633264959"
+        "2636216120"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2633955699",
+      "article_no": "2636199862",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "109동",
       "floor": "3/28",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.06.24",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2633955699",
+      "unit_hash": "NV_2636199862",
       "count": 1,
       "ids": [
-        "2633955699"
+        "2636199862"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635286755",
@@ -5243,38 +5260,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2635528211",
+      "article_no": "2636249222",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "119동",
       "floor": "3/29",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.07.02",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635528211",
+      "unit_hash": "NV_2636249222",
       "count": 1,
       "ids": [
-        "2635528211"
+        "2636249222"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2635946499",
+      "article_no": "2636211833",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "120동",
       "floor": "23/26",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635946499",
+      "unit_hash": "NV_2636211833",
       "count": 1,
       "ids": [
-        "2635946499"
+        "2636211833"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2633291329",
@@ -5379,38 +5396,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635288863",
+      "article_no": "2636201493",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "128동",
       "floor": "27/28",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.01",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635288863",
+      "unit_hash": "NV_2636201493",
       "count": 1,
       "ids": [
-        "2635288863"
+        "2636201493"
       ],
-      "status": "유지"
-    },
-    {
-      "article_no": "2635789080",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "131동",
-      "floor": "중/23",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.03",
-      "cp_name": "",
-      "unit_hash": "NV_2635789080",
-      "count": 1,
-      "ids": [
-        "2635789080"
-      ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2630979733",
@@ -5428,6 +5428,23 @@
         "2630979733"
       ],
       "status": "유지"
+    },
+    {
+      "article_no": "2636209583",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "131동",
+      "floor": "중/23",
+      "price": "5억 3,000",
+      "price_val": 530000000,
+      "area": "112A / 84.96㎡",
+      "reg_date": "2026.07.06",
+      "cp_name": "",
+      "unit_hash": "NV_2636209583",
+      "count": 1,
+      "ids": [
+        "2636209583"
+      ],
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635949345",
@@ -5566,38 +5583,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2635997259",
+      "article_no": "2636220891",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "122동",
       "floor": "26/29",
       "price": "5억 3,500",
       "price_val": 535000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635997259",
+      "unit_hash": "NV_2636220891",
       "count": 1,
       "ids": [
-        "2635997259"
+        "2636220891"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2635988642",
+      "article_no": "2636219367",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "125동",
       "floor": "21/29",
       "price": "5억 3,500",
       "price_val": 535000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635988642",
+      "unit_hash": "NV_2636219367",
       "count": 1,
       "ids": [
-        "2635988642"
+        "2636219367"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2634373492",
@@ -5702,21 +5719,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635749288",
+      "article_no": "2636214363",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "104동",
       "floor": "8/26",
       "price": "5억 3,900",
       "price_val": 539000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.03",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635749288",
+      "unit_hash": "NV_2636214363",
       "count": 1,
       "ids": [
-        "2635749288"
+        "2636214363"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2633096548",
@@ -5821,21 +5838,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635990843",
+      "article_no": "2636262998",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "119동",
       "floor": "19/29",
       "price": "5억 4,000",
       "price_val": 540000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635990843",
+      "unit_hash": "NV_2636262998",
       "count": 1,
       "ids": [
-        "2635990843"
+        "2636262998"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635882874",
@@ -6195,21 +6212,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635277776",
+      "article_no": "2636217688",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "105동",
       "floor": "4/28",
       "price": "5억 5,000",
       "price_val": 550000000,
       "area": "113D / 84.76㎡",
-      "reg_date": "2026.07.01",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635277776",
+      "unit_hash": "NV_2636217688",
       "count": 1,
       "ids": [
-        "2635277776"
+        "2636217688"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635279417",
@@ -6314,21 +6331,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2636027906",
+      "article_no": "2636203190",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "111동",
       "floor": "중/27",
       "price": "5억 5,000",
       "price_val": 550000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2636027906",
+      "unit_hash": "NV_2636203190",
       "count": 1,
       "ids": [
-        "2636027906"
+        "2636203190"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635881141",
@@ -6382,21 +6399,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2635961414",
+      "article_no": "2636194916",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "112동",
       "floor": "26/28",
       "price": "5억 5,000",
       "price_val": 550000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635961414",
+      "unit_hash": "NV_2636194916",
       "count": 1,
       "ids": [
-        "2635961414"
+        "2636194916"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635979495",
@@ -6450,38 +6467,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2635025113",
+      "article_no": "2636239852",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "116동",
       "floor": "8/29",
       "price": "5억 5,000",
       "price_val": 550000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.06.29",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635025113",
+      "unit_hash": "NV_2636239852",
       "count": 1,
       "ids": [
-        "2635025113"
+        "2636239852"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2635800454",
+      "article_no": "2636263157",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
       "floor": "27/28",
       "price": "5억 5,000",
       "price_val": 550000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.07.03",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2635800454",
+      "unit_hash": "NV_2636263157",
       "count": 1,
       "ids": [
-        "2635800454"
+        "2636263157"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635645249",
@@ -6756,23 +6773,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2634809841",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "107동",
-      "floor": "고/28",
-      "price": "5억 6,000",
-      "price_val": 560000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.06.29",
-      "cp_name": "",
-      "unit_hash": "NV_2634809841",
-      "count": 1,
-      "ids": [
-        "2634809841"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2630609673",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "107동",
@@ -6790,38 +6790,55 @@
       "status": "유지"
     },
     {
-      "article_no": "2636057774",
+      "article_no": "2636239062",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "107동",
+      "floor": "고/28",
+      "price": "5억 6,000",
+      "price_val": 560000000,
+      "area": "112A / 84.96㎡",
+      "reg_date": "2026.07.06",
+      "cp_name": "",
+      "unit_hash": "NV_2636239062",
+      "count": 1,
+      "ids": [
+        "2636239062"
+      ],
+      "status": "매물 재등록"
+    },
+    {
+      "article_no": "2636220933",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "114동",
       "floor": "18/29",
       "price": "5억 6,000",
       "price_val": 560000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2636057774",
+      "unit_hash": "NV_2636220933",
       "count": 1,
       "ids": [
-        "2636057774"
+        "2636220933"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2636066898",
+      "article_no": "2636174333",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "116동",
       "floor": "22/29",
       "price": "5억 6,000",
       "price_val": 560000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.07.04",
+      "reg_date": "2026.07.06",
       "cp_name": "",
-      "unit_hash": "NV_2636066898",
+      "unit_hash": "NV_2636174333",
       "count": 1,
       "ids": [
-        "2636066898"
+        "2636174333"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2635067539",
@@ -7094,6 +7111,23 @@
         "2634750599"
       ],
       "status": "유지"
+    },
+    {
+      "article_no": "2636237907",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "128동",
+      "floor": "9/28",
+      "price": "6억",
+      "price_val": 600000000,
+      "area": "112B / 84.96㎡",
+      "reg_date": "2026.07.06",
+      "cp_name": "",
+      "unit_hash": "NV_2636237907",
+      "count": 1,
+      "ids": [
+        "2636237907"
+      ],
+      "status": "매물 재등록"
     },
     {
       "article_no": "2634242436",
@@ -7433,7 +7467,7 @@
       "ids": [
         "2636102473"
       ],
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2634606521",
