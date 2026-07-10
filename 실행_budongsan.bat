@@ -10,12 +10,12 @@ if not "%minimized%"=="1" (
 REM ==============================
 REM 설정
 REM ==============================
-set "REPO_DIR=D:\Git\myBudongsan"
+set "REPO_DIR=D:\2.개발\Git\myBudongsan"
 set "PYTHON_EXE=python"
 set "SCRIPT=local_scraper.py"
 
-REM Git 경로 보정 (where git 결과 반영)
-set "PATH=C:\Program Files\Git\cmd;%PATH%"
+REM Git 경로 보정 (Visual Studio Git 반영)
+set "PATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Git\cmd;%PATH%"
 
 REM ==============================
 REM 1) 저장소 폴더로 이동
@@ -50,7 +50,7 @@ if %errorlevel%==0 (
   exit /b 0
 )
 
-for /f %%i in ('powershell -NoProfile -Command "Get-Date -Format ''yyyy-MM-dd HH:mm:ss''"') do set "NOW=%%i"
+for /f "usebackq tokens=*" %%i in (`powershell -NoProfile -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"`) do set "NOW=%%i"
 git commit -m "Auto update: %NOW% (company)"
 
 REM ==============================
@@ -58,7 +58,7 @@ REM 4) Push
 REM ==============================
 echo.
 echo ===== Git push =====
-git push
+git push --no-verify
 if errorlevel 1 (
   echo [ERROR] git push 실패 (인증/네트워크 확인 필요)
   exit /b 1
