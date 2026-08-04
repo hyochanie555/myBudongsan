@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-08-04 17:00",
+  "last_update": "2026-08-04 18:00",
   "summary": {
     "더샵동천포레스트": {
       "prev": 7,
@@ -2581,21 +2581,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2641023810",
+      "article_no": "2641828919",
       "complex_name": "선암에코하이츠",
       "dong": "101동",
       "floor": "7/20",
       "price": "3억 2,000",
       "price_val": 320000000,
       "area": "81B / 59.91㎡",
-      "reg_date": "2026.07.30",
+      "reg_date": "2026.08.04",
       "cp_name": "",
-      "unit_hash": "NV_2641023810",
+      "unit_hash": "NV_2641828919",
       "count": 1,
       "ids": [
-        "2641023810"
+        "2641828919"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2640931672",
@@ -2615,21 +2615,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2637269765",
+      "article_no": "2641829792",
       "complex_name": "선암에코하이츠",
       "dong": "102동",
       "floor": "16/20",
       "price": "3억 2,000",
       "price_val": 320000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.07.10",
+      "reg_date": "2026.08.04",
       "cp_name": "",
-      "unit_hash": "NV_2637269765",
+      "unit_hash": "NV_2641829792",
       "count": 1,
       "ids": [
-        "2637269765"
+        "2641829792"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2637940868",
@@ -2870,21 +2870,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2641239196",
+      "article_no": "2641829501",
       "complex_name": "선암에코하이츠",
       "dong": "102동",
       "floor": "6/20",
       "price": "3억 4,000",
       "price_val": 340000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.08.01",
+      "reg_date": "2026.08.04",
       "cp_name": "",
-      "unit_hash": "NV_2641239196",
+      "unit_hash": "NV_2641829501",
       "count": 1,
       "ids": [
-        "2641239196"
+        "2641829501"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2640081336",
