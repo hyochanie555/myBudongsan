@@ -26,10 +26,38 @@ if not SCRAPERAPI_KEY and os.path.exists(".env"):
         pass
 
 TARGETS = [
-    {"name": "더샵동천포레스트", "id": "110798", "area_min": 108, "area_max": 115},
-    {"name": "울산 힐스테이트 강동", "id": "109228", "area_min": 108, "area_max": 115},
-    {"name": "한강센트럴자이 1단지", "id": "108487", "area_min": 108, "area_max": 115},
-    {"name": "선암에코하이츠", "id": "106191", "area_min": 75, "area_max": 83}
+    {
+        "name": "더샵동천포레스트",
+        "id": "110798",
+        "area_min": 80.0,
+        "area_max": 88.0,
+        "target_pyeong_names": ["112A", "112B"],
+        "target_desc": "84㎡ (34평형)"
+    },
+    {
+        "name": "울산 힐스테이트 강동",
+        "id": "109228",
+        "area_min": 80.0,
+        "area_max": 88.0,
+        "target_pyeong_names": ["113A", "113B"],
+        "target_desc": "84㎡ (34평형)"
+    },
+    {
+        "name": "한강센트럴자이 1단지",
+        "id": "108487",
+        "area_min": 84.0,
+        "area_max": 86.0,
+        "target_pyeong_names": ["112A", "112B", "112C", "113D"],
+        "target_desc": "84㎡ (34평형)"
+    },
+    {
+        "name": "선암에코하이츠",
+        "id": "106191",
+        "area_min": 55.0,
+        "area_max": 65.0,
+        "target_pyeong_names": ["81A", "81B", "81C"],
+        "target_desc": "59㎡ (24평형)"
+    }
 ]
 
 DATA_DIR = "data"

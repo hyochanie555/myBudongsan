@@ -14,10 +14,38 @@ if sys.stdout.encoding != 'utf-8':
 
 # --- Configuration ---
 TARGETS = [
-    {"name": "더샵동천포레스트", "id": "110798", "area_min": 80, "area_max": 88}, 
-    {"name": "울산 힐스테이트 강동", "id": "109228", "area_min": 80, "area_max": 88}, 
-    {"name": "한강센트럴자이 1단지", "id": "108487", "area_min": 84.0, "area_max": 85.5}, # 290건 타겟 정교화
-    {"name": "선암에코하이츠", "id": "106191", "area_min": 55, "area_max": 65} 
+    {
+        "name": "더샵동천포레스트",
+        "id": "110798",
+        "area_min": 80.0,
+        "area_max": 88.0,
+        "target_pyeong_names": ["112A", "112B"],
+        "target_desc": "84㎡ (34평형)"
+    },
+    {
+        "name": "울산 힐스테이트 강동",
+        "id": "109228",
+        "area_min": 80.0,
+        "area_max": 88.0,
+        "target_pyeong_names": ["113A", "113B"],
+        "target_desc": "84㎡ (34평형)"
+    },
+    {
+        "name": "한강센트럴자이 1단지",
+        "id": "108487",
+        "area_min": 84.0,
+        "area_max": 86.0,
+        "target_pyeong_names": ["112A", "112B", "112C", "113D"],
+        "target_desc": "84㎡ (34평형)"
+    },
+    {
+        "name": "선암에코하이츠",
+        "id": "106191",
+        "area_min": 55.0,
+        "area_max": 65.0,
+        "target_pyeong_names": ["81A", "81B", "81C"],
+        "target_desc": "59㎡ (24평형)"
+    }
 ]
 
 DATA_DIR = "data"
@@ -71,8 +99,9 @@ async def minimize_chrome_window(page):
 async def fetch_complex_listings(page, tgt):
     apt_name = tgt["name"]
     complex_id = int(tgt["id"])
+    target_desc = tgt.get("target_desc", "")
 
-    print(f"  📡 Fetching listings for {apt_name} (ID: {complex_id})...")
+    print(f"  📡 Fetching listings for {apt_name} (ID: {complex_id}, 타겟: {target_desc})...")
 
     # 브라우저 컨텍스트 내에서 네이버 부동산 신규 POST API를 커서 페이징 방식으로 호출
     api_result = await page.evaluate("""
@@ -137,20 +166,24 @@ async def fetch_complex_listings(page, tgt):
     print(f"    ✅ Captured {len(captured_data)} raw items from API.")
 
     listings = {}
+    pyeong_stats = {}
+
+    target_pyeong_names = tgt.get("target_pyeong_names", [])
+    area_min = tgt.get("area_min", 0)
+    area_max = tgt.get("area_max", 9999)
+
     for item in captured_data:
         try:
             info = item.get("representativeArticleInfo", {})
             article_no = str(info.get("articleNumber"))
             if not article_no: continue
             
-            # [Grouping] Use Naver's native count (duplicatedArticleInfo realtorCount or articleCount)
             dup_info = item.get("duplicatedArticleInfo", {})
             group_count = dup_info.get("realtorCount") or dup_info.get("articleCount") or len(dup_info.get("articleInfoList", [])) or 1
             
             dong = info.get("dongName") or ""
             if not dong.endswith("동") and dong: dong += "동"
             
-            # 🏷️ [ROBUST PRICE] Use raw numeric dealPrice for 100% accuracy
             v_info = info.get("verificationInfo", {})
             price_info = info.get("priceInfo", {})
             dp = int(price_info.get("dealPrice") or 0)
@@ -161,34 +194,62 @@ async def fetch_complex_listings(page, tgt):
             else: 
                 price_val = parse_price(price_info.get("formattedPrice"))
             
-            # 🏷️ [DISPLAY] Format to "X억 Y,ZZZ"
             if price_val > 0:
                 price_text = f"{price_val // 100000000}억"
                 rem = (price_val % 100000000) // 10000
                 if rem > 0: price_text += f" {rem:,}"
-            else:
+            else: 
                 continue
             
             space = info.get("spaceInfo", {})
-            area1, area2 = float(space.get("supplySpace") or 0), float(space.get("exclusiveSpace") or 0)
+            area1 = float(space.get("supplySpace") or 0)
+            area2 = float(space.get("exclusiveSpace") or 0)
             area_type = space.get("supplySpaceName") or ""
             
             floor = info.get("articleDetail", {}).get("floorInfo") or ""
-
             cp_name = info.get("cpName") or ""
             broker_info = info.get("brokerInfo", {})
             brokerage_name = broker_info.get("brokerageName") or ""
             cp_id = broker_info.get("cpId") or ""
-            
-            # 🏷️ [EXTRA FILTER] Check for Association (KAR) via cpId or verification flag
             is_assoc = v_info.get("isAssociationArticle") == True
             
-            # 🚫 [UPDATE] 공인중개사협회 (cpId: "kar") 매물 제외 
-            if "공인중개사협회" in cp_name or "공인중개사협회" in brokerage_name or cp_id == "kar" or is_assoc:
-                continue
+            # 🏢 [공인중개사협회 (KAR) 매물 식별]
+            is_kar = ("공인중개사협회" in cp_name or "공인중개사협회" in brokerage_name or cp_id == "kar" or is_assoc)
 
-            # 📏 [STRICT FILTER] Use Exclusive Area (area2) as the anchor (Standard 84㎡ or 59㎡)
-            if tgt["area_min"] <= area2 <= tgt["area_max"]:
+            # 📏 [평수/면적 일치 판정]
+            # 1순위: 지정된 평형명(예: 112A, 112B 등)과 일치 여부
+            # 2순위: 전용면적(exclusiveSpace) 범위(area_min ~ area_max) 일치 여부
+            is_target_pyeong = False
+            if target_pyeong_names:
+                if area_type in target_pyeong_names or (area_min <= area2 <= area_max):
+                    is_target_pyeong = True
+            else:
+                if area_min <= area2 <= area_max:
+                    is_target_pyeong = True
+
+            # 평형별 수집 통계 집계
+            p_key = f"{area_type} (공급 {area1}㎡ / 전용 {area2}㎡)"
+            if p_key not in pyeong_stats:
+                pyeong_stats[p_key] = {
+                    "area_type": area_type,
+                    "supply": area1,
+                    "exclusive": area2,
+                    "total": 0,
+                    "kar": 0,
+                    "non_kar": 0,
+                    "is_target": is_target_pyeong
+                }
+            pyeong_stats[p_key]["total"] += 1
+            if is_kar:
+                pyeong_stats[p_key]["kar"] += 1
+            else:
+                pyeong_stats[p_key]["non_kar"] += 1
+
+            # 🎯 타겟 평수이고 공인중개사협회(KAR) 매물이 아닌 건만 수집
+            if is_target_pyeong:
+                if is_kar:
+                    continue
+
                 raw_date = v_info.get("articleConfirmDate") or info.get("confirmDate") or info.get("registerDate") or "최근"
                 if "-" in raw_date:
                     raw_date = raw_date.replace("-", ".")
@@ -208,9 +269,16 @@ async def fetch_complex_listings(page, tgt):
                     'unit_hash': unit_hash,
                     'count': group_count
                 }
-        except: continue
+        except: 
+            continue
             
-    print(f"    📊 Filtered: {len(listings)} target listings for {apt_name}.")
+    print(f"    📐 [평형별 수집 및 필터 상세]:")
+    for pk, pdata in sorted(pyeong_stats.items(), key=lambda x: x[1]["supply"]):
+        tag = "✅ 타겟 포함" if pdata["is_target"] else "❌ 비타겟 제외"
+        adopted = f"-> {pdata['non_kar']}개 채택" if pdata["is_target"] else ""
+        print(f"       • {pk}: 원본 {pdata['total']}개 (일반 {pdata['non_kar']}, 협회KAR {pdata['kar']}) | {tag} {adopted}")
+
+    print(f"    📊 최종 필터링: {apt_name} ({target_desc}) 총 {len(listings)}개 매물 수집 완료.")
     return listings
 
 def get_prop_hash(data):
