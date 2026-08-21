@@ -28,12 +28,10 @@ def parse_price(p_str):
     """Parses various Korean price strings to Won units."""
     if not p_str or "협의" in p_str: return 0
     try:
-        # Handle range format "4억 8,000 ~ 4억 9,000" by taking the lower bound
         if "~" in p_str:
             p_str = p_str.split("~")[0].strip()
             
         p_str = p_str.replace(",", "").replace(" ", "").replace("매매", "")
-        # If the string contains '억'
         if '억' in p_str:
             parts = p_str.split('억')
             total = int(parts[0] or 0) * 10000
@@ -42,7 +40,6 @@ def parse_price(p_str):
                 if rem_str: total += int(rem_str)
             return total * 10000
         else:
-            # Just numbers likely
             num_str = "".join(filter(str.isdigit, p_str))
             if num_str: return int(num_str) * 10000 
             return 0
@@ -56,246 +53,164 @@ async def minimize_chrome_window(page):
     """
     try:
         cdp = await page.context.new_cdp_session(page)
-
-        # 1) 보통은 인자 없이도 창 ID를 얻을 수 있습니다(세션이 target에 붙어있음).
         try:
             win = await cdp.send("Browser.getWindowForTarget")
         except Exception:
-            # 2) 혹시 실패하면 targetId를 명시해서 재시도
             tinfo = await cdp.send("Target.getTargetInfo")
             target_id = tinfo["targetInfo"]["targetId"]
             win = await cdp.send("Browser.getWindowForTarget", {"targetId": target_id})
 
         window_id = win["windowId"]
-
-        # 창 최소화
         await cdp.send("Browser.setWindowBounds", {
             "windowId": window_id,
             "bounds": {"windowState": "minimized"}
         })
-
     except Exception:
-        # Chromium이 아니거나(webkit/firefox) 회사 정책/환경에 따라 실패할 수 있어요.
-        # 실패해도 동작은 계속되게 조용히 무시합니다.
         pass
-''
 
-async def fetch_complex_listings(context, tgt):
+async def fetch_complex_listings(page, tgt):
     apt_name = tgt["name"]
-    complex_id = tgt["id"]
+    complex_id = int(tgt["id"])
 
-    ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+    print(f"  📡 Fetching listings for {apt_name} (ID: {complex_id})...")
 
-    page = await context.new_page()
-    await page.set_viewport_size({"width": 1920, "height": 1080})
-    await Stealth().apply_stealth_async(page)
+    # 브라우저 컨텍스트 내에서 네이버 부동산 신규 POST API를 커서 페이징 방식으로 호출
+    api_result = await page.evaluate("""
+        async (complexId) => {
+            let allItems = [];
+            let lastInfo = [];
+            let hasNext = true;
+            let pageCount = 0;
 
-    # ✅ 추가: 크롬 창 최소화 (Chromium에서만 동작, 실패 시 자동 무시)
-    await minimize_chrome_window(page)
+            while (hasNext && pageCount < 30) {
+                pageCount++;
+                const payload = {
+                    size: 30,
+                    complexNumber: complexId,
+                    tradeTypes: ["A1"], // 매매
+                    pyeongTypes: [],
+                    dongNumbers: [],
+                    userChannelType: "PC",
+                    articleSortType: "RANKING_DESC",
+                    lastInfo: lastInfo
+                };
 
-    url = f"https://fin.land.naver.com/complexes/{complex_id}?propertyType=APT&tradeType=SALE"
+                try {
+                    const resp = await fetch('/front-api/v1/complex/article/list', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json, text/plain, */*'
+                        },
+                        body: JSON.stringify(payload)
+                    });
 
-    captured_data = []
-
-    # 🛡️ 응답 가로채기 핸들러
-    async def handle_response(response):
-        if "/front-api/v1/complex/article/list" in response.url:
-            if response.status == 200:
-                try:
-                    json_data = await response.json()
-                    items = json_data.get("result", {}).get("list", [])
-                    if items:
-                        captured_data.extend(items)
-                        print(f"    ✅ Captured {len(items)} items from API.")
-                except: pass
-
-    page.on("response", handle_response)
-    
-    listings = {}
-    try:
-        print(f"  🌐 Navigating to {url}...")
-        await page.goto(url, wait_until="domcontentloaded", timeout=60000)
-        
-        # 📶 [STABILITY FIX] Wait for network/UI initialization (important for slow/wireless)
-        print("  ⏳ Waiting for page stabilization (5s)...")
-        await asyncio.sleep(5)
-        
-        # Human-like scrolling
-        print("  🖱️ Scrolling to mimic human behavior...")
-        for _ in range(random.randint(2, 4)):
-            await page.mouse.wheel(0, random.randint(300, 600))
-            await asyncio.sleep(random.uniform(0.5, 1.5))
-        
-        await asyncio.sleep(2)
-        
-        # '매물' 탭 클릭 (JS 강제 클릭 포함)
-        tab_selector = 'button[class*="LineTab-module_link"]:has-text("매물")'
-        try:
-            # 1. 일반 클릭 시도
-            await page.wait_for_selector(tab_selector, timeout=8000)
-            await asyncio.sleep(random.uniform(1, 2))
-            await page.click(tab_selector)
-            print("  ✅ Clicked '매물' tab.")
-        except:
-            # 2. 자바스크립트 강제 클릭 (더 강력함)
-            print("  ⚠️ Standard click failed, attempting JS click...")
-            await page.evaluate("""
-                const btn = Array.from(document.querySelectorAll('button')).find(b => b.innerText.includes('매물'));
-                if (btn) btn.click();
-            """)
-            print("  ✅ Executed JS click on '매물' tab.")
-
-        # ⏳ [ADD] Wait for the first API response before starting scroll
-        print("  ⏳ Waiting for initial API response (up to 15s)...")
-        for _ in range(15):
-            if captured_data: break
-            await asyncio.sleep(1)
-        
-        # [Fallback] If nothing captured, try Tab-Toggling (click another tab, then back to '매물')
-        if not captured_data:
-            print("  🔄 No API response yet. Attempting Tab-Toggle...")
-            await page.evaluate("""
-                const tabs = Array.from(document.querySelectorAll('a[role="tab"]'));
-                const otherTab = tabs.find(t => !t.innerText.includes('매물'));
-                if (otherTab) otherTab.click();
-            """)
-            await asyncio.sleep(2)
-            await page.evaluate("""
-                const tabs = Array.from(document.querySelectorAll('a[role="tab"]'));
-                const salesTab = tabs.find(t => t.innerText.includes('매물'));
-                if (salesTab) salesTab.click();
-            """)
-            await asyncio.sleep(5)
-
-        # Speed-optimized Deep Scrolling
-        print("  🖱️ Scrolling to load articles...")
-        last_count = 0
-        scroll_attempts = 0
-        max_scrolls = 20 # Deeper scroll
-        
-        while scroll_attempts < max_scrolls:
-            await page.keyboard.press("End")
-            await asyncio.sleep(0.6) # Extreme speed scroll
-            
-            current_count = len(captured_data)
-            if current_count == last_count:
-                # If we already found some items and it's been 3 attempts with no new items, we're likely done
-                if current_count > 0 and scroll_attempts >= 3:
-                    break
-                
-                await page.mouse.move(250, 400)
-                await page.mouse.wheel(0, 800)
-                await asyncio.sleep(0.4)
-                scroll_attempts += 1
-            else:
-                print(f"    📊 Articles: {current_count}...")
-                last_count = current_count
-                scroll_attempts = 0 
-            
-            if current_count >= 500: break 
-
-        if not captured_data:
-            # Final attempt: Check if we can wait 5 more seconds
-            print("  ⏳ Final wait for API (5s)...")
-            await asyncio.sleep(5)
-            current_count = len(captured_data)
-
-        if not captured_data:
-            print(f"  ❌ No API response for {apt_name}.")
-            await page.close()
-            return {}
-
-        for item in captured_data:
-            try:
-                info = item.get("representativeArticleInfo", {})
-                article_no = str(info.get("articleNumber"))
-                if not article_no: continue
-                
-                # [Grouping] Use Naver's native count (duplicatedArticleInfo.articleCount)
-                # This is the most accurate source for the "중개사 X곳" number.
-                group_count = item.get("duplicatedArticleInfo", {}).get("articleCount") or 1
-                
-                dong = info.get("dongName") or ""
-                if not dong.endswith("동") and dong: dong += "동"
-                
-                # 🏷️ [ROBUST PRICE] Use raw numeric dealPrice for 100% accuracy
-                v_info = info.get("verificationInfo", {})
-                price_info = info.get("priceInfo", {})
-                dp = int(price_info.get("dealPrice") or 0)
-                
-                # Use raw numeric dealPrice if available (standard for Naver)
-                if dp > 0:
-                    # Naver dealPrice is 10000 based in some versions, or raw Won in others.
-                    # Heuristic: If it's like 93000, it's 9억 3000 (Man-won). If it's like 930,000,000 it's Won.
-                    if dp < 5000000: price_val = dp * 10000
-                    else: price_val = dp
-                else: 
-                    # Fallback to string parsing if dealPrice is 0
-                    price_val = parse_price(price_info.get("formattedPrice"))
-                
-                # 🏷️ [DISPLAY] Format to "X억 Y,ZZZ"
-                if price_val > 0:
-                    price_text = f"{price_val // 100000000}억"
-                    rem = (price_val % 100000000) // 10000
-                    if rem > 0: price_text += f" {rem:,}"
-                else:
-                    # 🚫 [UPDATE] Skip items with no price (solves 0-price and count mismatch issues)
-                    continue
-                
-                space = info.get("spaceInfo", {})
-                area1, area2 = float(space.get("supplySpace") or 0), float(space.get("exclusiveSpace") or 0)
-                # 🏷️ [TYPE FIX] Get supplySpaceName (e.g., 112A)
-                area_type = space.get("supplySpaceName") or ""
-                
-                floor = info.get("articleDetail", {}).get("floorInfo") or ""
-
-                cp_name = info.get("cpName") or ""
-                broker_info = info.get("brokerInfo", {})
-                brokerage_name = broker_info.get("brokerageName") or ""
-                cp_id = broker_info.get("cpId") or ""
-                
-                # 🏷️ [EXTRA FILTER] Check for Association (KAR) via cpId or verification flag
-                v_info = info.get("verificationInfo", {})
-                is_assoc = v_info.get("isAssociationArticle") == True
-                
-                # 🚫 [UPDATE] 공인중개사협회 (cpId: "kar") 매물 제외 
-                # These are often duplicates that Naver fails to cluster properly.
-                if "공인중개사협회" in cp_name or "공인중개사협회" in brokerage_name or cp_id == "kar" or is_assoc:
-                    continue
-
-                # 📏 [STRICT FILTER] Use Exclusive Area (area2) as the anchor (Standard 84㎡ or 59㎡)
-                if tgt["area_min"] <= area2 <= tgt["area_max"]:
-                    # 🗓️ [DATE FIX] Use articleConfirmDate for precise registration (YYYY.MM.DD)
-                    # This is the "확인매물 2026.04.04" date user requested.
-                    raw_date = v_info.get("articleConfirmDate") or info.get("confirmDate") or info.get("registerDate") or "최근"
-                    if "-" in raw_date:
-                        # Convert YYYY-MM-DD to YYYY.MM.DD
-                        raw_date = raw_date.replace("-", ".")
-
-                    # [Hash] Use Naver's clustering logic (Article No is unique for the card/group)
-                    # This fulfills "Don't organize it yourself" requirement.
-                    unit_hash = f"NV_{article_no}" 
-                    
-                    listings[article_no] = {
-                        'article_no': article_no,
-                        'complex_name': apt_name,
-                        'dong': dong,
-                        'floor': floor,
-                        'price': price_text, # (매매) 텍스트 삭제
-                        'price_val': price_val, 
-                        'area': f"{area_type} / {area2}㎡",
-                        'reg_date': raw_date,
-                        'cp_name': cp_name,
-                        'unit_hash': unit_hash,
-                        'count': group_count
+                    if (!resp.ok) {
+                        return { success: false, error: `HTTP ${resp.status}`, items: allItems };
                     }
-            except: continue
+
+                    const data = await resp.json();
+                    if (!data.isSuccess || !data.result) {
+                        return { success: false, error: 'API response unsuccessful', items: allItems };
+                    }
+
+                    const list = data.result.list || [];
+                    allItems.push(...list);
+                    hasNext = data.result.hasNextPage === true;
+                    lastInfo = data.result.lastInfo || [];
+
+                    if (list.length === 0) break;
+                } catch (err) {
+                    return { success: false, error: err.toString(), items: allItems };
+                }
+            }
+
+            return { success: true, count: allItems.length, items: allItems };
+        }
+    """, complex_id)
+
+    if not api_result.get("success") and not api_result.get("items"):
+        print(f"  ❌ Failed to fetch {apt_name}: {api_result.get('error')}")
+        return {}
+
+    captured_data = api_result.get("items", [])
+    print(f"    ✅ Captured {len(captured_data)} raw items from API.")
+
+    listings = {}
+    for item in captured_data:
+        try:
+            info = item.get("representativeArticleInfo", {})
+            article_no = str(info.get("articleNumber"))
+            if not article_no: continue
+            
+            # [Grouping] Use Naver's native count (duplicatedArticleInfo realtorCount or articleCount)
+            dup_info = item.get("duplicatedArticleInfo", {})
+            group_count = dup_info.get("realtorCount") or dup_info.get("articleCount") or len(dup_info.get("articleInfoList", [])) or 1
+            
+            dong = info.get("dongName") or ""
+            if not dong.endswith("동") and dong: dong += "동"
+            
+            # 🏷️ [ROBUST PRICE] Use raw numeric dealPrice for 100% accuracy
+            v_info = info.get("verificationInfo", {})
+            price_info = info.get("priceInfo", {})
+            dp = int(price_info.get("dealPrice") or 0)
+            
+            if dp > 0:
+                if dp < 5000000: price_val = dp * 10000
+                else: price_val = dp
+            else: 
+                price_val = parse_price(price_info.get("formattedPrice"))
+            
+            # 🏷️ [DISPLAY] Format to "X억 Y,ZZZ"
+            if price_val > 0:
+                price_text = f"{price_val // 100000000}억"
+                rem = (price_val % 100000000) // 10000
+                if rem > 0: price_text += f" {rem:,}"
+            else:
+                continue
+            
+            space = info.get("spaceInfo", {})
+            area1, area2 = float(space.get("supplySpace") or 0), float(space.get("exclusiveSpace") or 0)
+            area_type = space.get("supplySpaceName") or ""
+            
+            floor = info.get("articleDetail", {}).get("floorInfo") or ""
+
+            cp_name = info.get("cpName") or ""
+            broker_info = info.get("brokerInfo", {})
+            brokerage_name = broker_info.get("brokerageName") or ""
+            cp_id = broker_info.get("cpId") or ""
+            
+            # 🏷️ [EXTRA FILTER] Check for Association (KAR) via cpId or verification flag
+            is_assoc = v_info.get("isAssociationArticle") == True
+            
+            # 🚫 [UPDATE] 공인중개사협회 (cpId: "kar") 매물 제외 
+            if "공인중개사협회" in cp_name or "공인중개사협회" in brokerage_name or cp_id == "kar" or is_assoc:
+                continue
+
+            # 📏 [STRICT FILTER] Use Exclusive Area (area2) as the anchor (Standard 84㎡ or 59㎡)
+            if tgt["area_min"] <= area2 <= tgt["area_max"]:
+                raw_date = v_info.get("articleConfirmDate") or info.get("confirmDate") or info.get("registerDate") or "최근"
+                if "-" in raw_date:
+                    raw_date = raw_date.replace("-", ".")
+
+                unit_hash = f"NV_{article_no}" 
                 
-    except Exception as e:
-        print(f"  Error: {e}")
-    finally:
-        await page.close()
-        
+                listings[article_no] = {
+                    'article_no': article_no,
+                    'complex_name': apt_name,
+                    'dong': dong,
+                    'floor': floor,
+                    'price': price_text,
+                    'price_val': price_val, 
+                    'area': f"{area_type} / {area2}㎡",
+                    'reg_date': raw_date,
+                    'cp_name': cp_name or broker_info.get("brokerName") or "",
+                    'unit_hash': unit_hash,
+                    'count': group_count
+                }
+        except: continue
+            
+    print(f"    📊 Filtered: {len(listings)} target listings for {apt_name}.")
     return listings
 
 def get_prop_hash(data):
@@ -310,16 +225,13 @@ def group_listings(listings_dict):
         if uh not in groups:
             groups[uh] = data.copy()
             groups[uh]['ids'] = [no]
-            # [Grouping] Use Naver's defined count if available
             groups[uh]['count'] = data.get('count', 1)
         else:
             groups[uh]['ids'].append(no)
-            # Sum counts if somehow they match
             groups[uh]['count'] += data.get('count', 1)
     return groups
 
-# 새로운 함수: 실제 크롤링 및 초기 그룹화 로직을 포함
-async def _run_and_process_listings(p, context, TARGETS, reference_listings, now_kst, history):
+async def _run_and_process_listings(page, TARGETS, reference_listings, now_kst, history):
     all_today_articles = {}
     for tgt in TARGETS:
         print(f"\n[TARGET] {tgt['name']} 크롤링 시작...")
@@ -327,12 +239,12 @@ async def _run_and_process_listings(p, context, TARGETS, reference_listings, now
         # 🔁 [RETRY LOOP] Try up to 3 times for each complex
         results = {}
         for attempt in range(1, 4):
-            results = await fetch_complex_listings(context, tgt)
+            results = await fetch_complex_listings(page, tgt)
             if results and len(results) > 0:
-                break # Success!
+                break
             
             if attempt < 3:
-                wait_retry = attempt * 5
+                wait_retry = attempt * 3
                 print(f"  ⚠️ Attempt {attempt} failed (0 listings). Retrying in {wait_retry}s...")
                 await asyncio.sleep(wait_retry)
             else:
@@ -340,13 +252,12 @@ async def _run_and_process_listings(p, context, TARGETS, reference_listings, now
         
         all_today_articles.update(results)
         
-        wait_time = random.randint(1, 2)
-        print(f"  ☕ {wait_time}s wait...")
+        wait_time = random.uniform(0.5, 1.2)
         await asyncio.sleep(wait_time)
         
     if not all_today_articles:
         print("\n⚠️ 수집된 데이터가 없습니다.")
-        return {}, {}, {}, {}, {} # 빈 값 반환
+        return {}, {}, {}, {}, {}
 
     # Grouping
     today_groups = group_listings(all_today_articles)
@@ -402,21 +313,28 @@ async def main():
             print("🚀 Starting scraper... (Window will be automatically minimized)")
             browser = await p.chromium.launch(headless=False, args=["--start-minimized"])
             context = await browser.new_context(
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
                 viewport={"width": 1920, "height": 1080}
             )
+            page = await context.new_page()
+            await Stealth().apply_stealth_async(page)
+            await minimize_chrome_window(page)
+
+            print("  🌐 Initializing session on https://fin.land.naver.com...")
+            await page.goto("https://fin.land.naver.com", wait_until="domcontentloaded", timeout=60000)
+            await asyncio.sleep(2)
             
-            today_groups, all_today_articles, ref_groups, hist_hashes, hist_props = await _run_and_process_listings(p, context, TARGETS, reference_listings, now_kst, history)
+            today_groups, all_today_articles, ref_groups, hist_hashes, hist_props = await _run_and_process_listings(page, TARGETS, reference_listings, now_kst, history)
             
             await browser.close()
 
-        prev_count = len(group_listings(reference_listings)) # reference_listings는 이전 날짜의 all_today_articles
+        prev_count = len(group_listings(reference_listings))
         today_count = len(today_groups)
 
         if prev_count > 0 and today_count < 0.7 * prev_count:
             print(f"  ⚠️ 오늘 수집된 매물({today_count}개)이 지난번({prev_count}개)의 70% 미만입니다. 재시도합니다...")
             overall_attempt += 1
-            await asyncio.sleep(10) # 재시도 전 잠시 대기
+            await asyncio.sleep(10)
         else:
             print(f"  ✅ 크롤링 성공 또는 재시도 조건 미달성. 매물 수: {today_count}개 (이전: {prev_count}개)")
             break
@@ -499,12 +417,15 @@ async def main():
                     if (n_date - r_date).days >= 30:
                         status = "등록 만료"
                         expire_count += 1
-                except: pass
+                    else:
+                        del_count += 1
+                except:
+                    del_count += 1
+            else:
+                del_count += 1
             
             data['status'] = status
             results.append(data)
-            if status == "거래 완료":
-                del_count += 1
 
     print(f"\n📊 Summary (Properties): New: {new_count}, Re-reg: {re_count}, Completed: {del_count}, Expired: {expire_count}")
 
@@ -542,4 +463,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
