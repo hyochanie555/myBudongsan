@@ -100,77 +100,138 @@ async def fetch_complex_listings(page, tgt):
     apt_name = tgt["name"]
     complex_id = int(tgt["id"])
     target_desc = tgt.get("target_desc", "")
+    target_pyeong_names = tgt.get("target_pyeong_names", [])
+    area_min = tgt.get("area_min", 0)
+    area_max = tgt.get("area_max", 9999)
 
     print(f"  📡 Fetching listings for {apt_name} (ID: {complex_id}, 타겟: {target_desc})...")
 
-    # 브라우저 컨텍스트 내에서 네이버 부동산 신규 POST API를 커서 페이징 방식으로 호출
+    # 브라우저 컨텍스트 내에서 단지 내 모든 평형 타입을 검색한 후 평형별로 전수 수집
     api_result = await page.evaluate("""
-        async (complexId) => {
-            let allItems = [];
-            let lastInfo = [];
-            let hasNext = true;
-            let pageCount = 0;
+        async (args) => {
+            const { complexId, tpnames, amin, amax } = args;
 
-            while (hasNext && pageCount < 30) {
-                pageCount++;
-                const payload = {
-                    size: 30,
-                    complexNumber: complexId,
-                    tradeTypes: ["A1"], // 매매
-                    pyeongTypes: [],
-                    dongNumbers: [],
-                    userChannelType: "PC",
-                    articleSortType: "RANKING_DESC",
-                    lastInfo: lastInfo
-                };
-
+            // 1. 단지 내 등록된 평형 타입 목록 자동 감지
+            let pyeongMeta = {};
+            for (let pt = 1; pt <= 15; pt++) {
                 try {
                     const resp = await fetch('/front-api/v1/complex/article/list', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json, text/plain, */*'
-                        },
-                        body: JSON.stringify(payload)
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            size: 1,
+                            complexNumber: complexId,
+                            tradeTypes: ['A1'],
+                            pyeongTypes: [String(pt)],
+                            dongNumbers: [],
+                            userChannelType: 'PC',
+                            articleSortType: 'RANKING_DESC',
+                            lastInfo: []
+                        })
                     });
-
-                    if (!resp.ok) {
-                        return { success: false, error: `HTTP ${resp.status}`, items: allItems };
+                    const d = await resp.json();
+                    if (d.isSuccess && d.result && d.result.totalCount > 0) {
+                        const first = d.result.list?.[0];
+                        const space = first?.representativeArticleInfo?.spaceInfo;
+                        const sname = space?.supplySpaceName || '';
+                        const excl = parseFloat(space?.exclusiveSpace || 0);
+                        const supply = parseFloat(space?.supplySpace || 0);
+                        
+                        const isTarget = (tpnames.length > 0 && tpnames.includes(sname)) || (amin <= excl && excl <= amax);
+                        pyeongMeta[String(pt)] = {
+                            ptId: String(pt),
+                            name: sname,
+                            supply: supply,
+                            exclusive: excl,
+                            totalCount: d.result.totalCount,
+                            isTarget: isTarget
+                        };
                     }
-
-                    const data = await resp.json();
-                    if (!data.isSuccess || !data.result) {
-                        return { success: false, error: 'API response unsuccessful', items: allItems };
-                    }
-
-                    const list = data.result.list || [];
-                    allItems.push(...list);
-                    hasNext = data.result.hasNextPage === true;
-                    lastInfo = data.result.lastInfo || [];
-
-                    if (list.length === 0) break;
-                } catch (err) {
-                    return { success: false, error: err.toString(), items: allItems };
-                }
+                } catch(e) {}
             }
 
-            return { success: true, count: allItems.length, items: allItems };
+            // 2. 평형별로 페이지네이션을 순회하여 매물 누락 0건으로 수집
+            let allItems = [];
+            let seen = new Set();
+            let pyeongStats = {};
+
+            for (const [ptId, meta] of Object.entries(pyeongMeta)) {
+                let lastInfo = [];
+                let hasNext = true;
+                let pageCount = 0;
+                let ptItems = [];
+                let karCount = 0;
+
+                while (hasNext && pageCount < 20) {
+                    pageCount++;
+                    const payload = {
+                        size: 30,
+                        complexNumber: complexId,
+                        tradeTypes: ['A1'],
+                        pyeongTypes: [ptId],
+                        dongNumbers: [],
+                        userChannelType: 'PC',
+                        articleSortType: 'RANKING_DESC',
+                        lastInfo: lastInfo
+                    };
+                    const resp = await fetch('/front-api/v1/complex/article/list', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(payload)
+                    });
+                    const d = await resp.json();
+                    if (!d.isSuccess || !d.result) break;
+                    const list = d.result.list || [];
+                    for (const it of list) {
+                        const id = String(it.representativeArticleInfo?.articleNumber || '');
+                        if (id && !seen.has(id)) {
+                            seen.add(id);
+                            ptItems.push(it);
+                            allItems.push(it);
+
+                            const info = it.representativeArticleInfo || {};
+                            const v_info = info.verificationInfo || {};
+                            const broker_info = info.brokerInfo || {};
+                            const cp_name = info.cpName || '';
+                            const brokerage_name = broker_info.brokerageName || '';
+                            const cp_id = broker_info.cpId || '';
+                            const is_assoc = v_info.isAssociationArticle === true;
+                            if (cp_name.includes('공인중개사협회') || brokerage_name.includes('공인중개사협회') || cp_id === 'kar' || is_assoc) {
+                                karCount++;
+                            }
+                        }
+                    }
+                    hasNext = d.result.hasNextPage === true;
+                    lastInfo = d.result.lastInfo || [];
+                    if (list.length === 0) break;
+                }
+
+                const pKey = `${meta.name} (공급 ${meta.supply}㎡ / 전용 ${meta.exclusive}㎡)`;
+                pyeongStats[pKey] = {
+                    ptId: ptId,
+                    name: meta.name,
+                    supply: meta.supply,
+                    exclusive: meta.exclusive,
+                    total: ptItems.length,
+                    kar: karCount,
+                    non_kar: ptItems.length - karCount,
+                    isTarget: meta.isTarget
+                };
+            }
+
+            return { success: true, count: allItems.length, items: allItems, pyeongStats: pyeongStats };
         }
-    """, complex_id)
+    """, {'complexId': complex_id, 'tpnames': target_pyeong_names, 'amin': area_min, 'amax': area_max})
 
     if not api_result.get("success") and not api_result.get("items"):
         print(f"  ❌ Failed to fetch {apt_name}: {api_result.get('error')}")
         return {}
 
     captured_data = api_result.get("items", [])
+    pyeong_stats = api_result.get("pyeongStats", {})
     print(f"    ✅ Captured {len(captured_data)} raw items from API.")
 
     listings = {}
-    pyeong_stats = {}
-
-    target_pyeong_names = tgt.get("target_pyeong_names", [])
-    area_min = tgt.get("area_min", 0)
-    area_max = tgt.get("area_max", 9999)
 
     for item in captured_data:
         try:
@@ -217,8 +278,6 @@ async def fetch_complex_listings(page, tgt):
             is_kar = ("공인중개사협회" in cp_name or "공인중개사협회" in brokerage_name or cp_id == "kar" or is_assoc)
 
             # 📏 [평수/면적 일치 판정]
-            # 1순위: 지정된 평형명(예: 112A, 112B 등)과 일치 여부
-            # 2순위: 전용면적(exclusiveSpace) 범위(area_min ~ area_max) 일치 여부
             is_target_pyeong = False
             if target_pyeong_names:
                 if area_type in target_pyeong_names or (area_min <= area2 <= area_max):
@@ -226,24 +285,6 @@ async def fetch_complex_listings(page, tgt):
             else:
                 if area_min <= area2 <= area_max:
                     is_target_pyeong = True
-
-            # 평형별 수집 통계 집계
-            p_key = f"{area_type} (공급 {area1}㎡ / 전용 {area2}㎡)"
-            if p_key not in pyeong_stats:
-                pyeong_stats[p_key] = {
-                    "area_type": area_type,
-                    "supply": area1,
-                    "exclusive": area2,
-                    "total": 0,
-                    "kar": 0,
-                    "non_kar": 0,
-                    "is_target": is_target_pyeong
-                }
-            pyeong_stats[p_key]["total"] += 1
-            if is_kar:
-                pyeong_stats[p_key]["kar"] += 1
-            else:
-                pyeong_stats[p_key]["non_kar"] += 1
 
             # 🎯 타겟 평수이고 공인중개사협회(KAR) 매물이 아닌 건만 수집
             if is_target_pyeong:
@@ -274,8 +315,8 @@ async def fetch_complex_listings(page, tgt):
             
     print(f"    📐 [평형별 수집 및 필터 상세]:")
     for pk, pdata in sorted(pyeong_stats.items(), key=lambda x: x[1]["supply"]):
-        tag = "✅ 타겟 포함" if pdata["is_target"] else "❌ 비타겟 제외"
-        adopted = f"-> {pdata['non_kar']}개 채택" if pdata["is_target"] else ""
+        tag = "✅ 타겟 포함" if pdata["isTarget"] else "❌ 비타겟 제외"
+        adopted = f"-> {pdata['non_kar']}개 채택" if pdata["isTarget"] else ""
         print(f"       • {pk}: 원본 {pdata['total']}개 (일반 {pdata['non_kar']}, 협회KAR {pdata['kar']}) | {tag} {adopted}")
 
     print(f"    📊 최종 필터링: {apt_name} ({target_desc}) 총 {len(listings)}개 매물 수집 완료.")
