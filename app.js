@@ -44,8 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (runRes.ok) {
                     const runText = (await runRes.text()).trim();
                     if (runText && lastUpdateEl) {
-                        const timeStr = runText.replace('Last Run (KST): ', '').trim();
-                        lastUpdateEl.textContent = `최근 서버 배치 실행: ${timeStr} (KST)`;
+                        let timeStr = runText.replace('Last Run (KST): ', '').trim();
+                        // 초(:SS) 제거: YYYY-MM-DD HH:MM 형식으로 자르기
+                        if (timeStr.length >= 16) {
+                            timeStr = timeStr.substring(0, 16);
+                        }
+                        lastUpdateEl.textContent = `최근 갱신: ${timeStr}`;
                     }
                 }
             } catch (e) {
