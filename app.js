@@ -33,18 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
             window.dailyStatsData = responseData.daily_stats || {};
 
             // Show Last Update Time with Stale Warning
-            if (responseData.last_update) {
-                const lastUpdateEl = document.getElementById('last-update');
-                const updateTime = new Date(responseData.last_update.replace(/-/g, '/')); // Compatibility
-                const now = new Date();
-                const diffHours = (now - updateTime) / (1000 * 60 * 60);
+            const lastUpdateEl = document.getElementById('last-update');
+            if (responseData.last_update && lastUpdateEl) {
+                lastUpdateEl.textContent = `최근 갱신: ${responseData.last_update}`;
+            }
 
-                if (lastUpdateEl) {
-                    lastUpdateEl.textContent = `최근 갱신: ${responseData.last_update}`;
-                    if (diffHours > 24) {
-                        lastUpdateEl.innerHTML += ` <span style="color: #f87171; font-weight: bold; margin-left: 10px;">⚠️ 데이터가 하루 이상 지났습니다. (크롤러 확인 필요)</span>`;
+            // Fetch exact server run timestamp from last_run.txt
+            try {
+                const runRes = await fetch(`./data/last_run.txt?t=${new Date().getTime()}`);
+                if (runRes.ok) {
+                    const runText = (await runRes.text()).trim();
+                    if (runText && lastUpdateEl) {
+                        const timeStr = runText.replace('Last Run (KST): ', '').trim();
+                        lastUpdateEl.textContent = `최근 서버 배치 실행: ${timeStr} (KST)`;
                     }
                 }
+            } catch (e) {
+                console.log("last_run.txt fetch skipped:", e);
             }
 
             // Update Filter Button Texts (Aesthetics Restoration)
