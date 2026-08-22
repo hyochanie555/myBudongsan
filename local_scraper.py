@@ -112,9 +112,12 @@ async def fetch_complex_listings(page, tgt):
                     },
                     body: JSON.stringify(p)
                 });
+                if (!res.ok) {
+                    return { isSuccess: false, error: `HTTP ${res.status}` };
+                }
                 return await res.json();
             } catch (err) {
-                return { error: err.toString() };
+                return { isSuccess: false, error: err.toString() };
             }
         }""", payload)
 
@@ -142,7 +145,7 @@ async def fetch_complex_listings(page, tgt):
         if not last_info or len(page_list) < 30 or (is_more is False) or (has_next is False):
             break
 
-        await asyncio.sleep(0.2)
+        await asyncio.sleep(random.uniform(0.5, 0.8))
 
     print(f"  ✅ 원시 데이터 {len(all_raw_items)}개 수집 완료. 필터링 및 파싱 진행 중...", flush=True)
 
@@ -294,7 +297,7 @@ async def main():
         if is_windows:
             await minimize_chrome_window(page)
 
-        # 세션/쿠키 초기화를 위한 네이버 부동산 페이지 접속
+        # 세션/쿠키 초기화를 위한 네이버 부동산 단지 페이지 접속
         init_url = f"https://fin.land.naver.com/complexes/{TARGETS[0]['id']}?propertyType=APT&tradeType=SALE"
         print(f"🌐 세션 초기화 접속: {init_url}", flush=True)
         try:
