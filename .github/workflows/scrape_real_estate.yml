@@ -8,8 +8,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '.github/workflows/scrape_real_estate.yml'
+    paths-ignore:
+      - 'data/**'
+      - 'README.md'
 
 jobs:
   scrape:
