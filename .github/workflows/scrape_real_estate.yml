@@ -58,7 +58,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Auto-update listings (GitHub Actions): $(date +'%Y-%m-%d %H:%M KST')"
+            git commit -m "Auto-update listings (GitHub Actions): $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M KST')"
             git pull --rebase origin main
             git push origin main
           fi

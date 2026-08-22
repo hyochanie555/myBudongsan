@@ -104,7 +104,7 @@ async def fetch_complex_listings(page, tgt):
 
         res_data = await page.evaluate("""async (p) => {
             try {
-                const res = await fetch('https://fin.land.naver.com/front-api/v1/complex/article/list', {
+                const res = await fetch('/front-api/v1/complex/article/list', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -112,12 +112,9 @@ async def fetch_complex_listings(page, tgt):
                     },
                     body: JSON.stringify(p)
                 });
-                if (!res.ok) {
-                    return { isSuccess: false, error: `HTTP ${res.status}` };
-                }
                 return await res.json();
             } catch (err) {
-                return { isSuccess: false, error: err.toString() };
+                return { error: err.toString() };
             }
         }""", payload)
 
@@ -145,7 +142,7 @@ async def fetch_complex_listings(page, tgt):
         if not last_info or len(page_list) < 30 or (is_more is False) or (has_next is False):
             break
 
-        await asyncio.sleep(random.uniform(0.5, 0.8))
+        await asyncio.sleep(0.2)
 
     print(f"  ✅ 원시 데이터 {len(all_raw_items)}개 수집 완료. 필터링 및 파싱 진행 중...", flush=True)
 
@@ -278,14 +275,9 @@ async def main():
     else:
         reference_listings = history.get("reference_listings", prev_listings)
 
-    launch_args = ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
-    is_windows = sys.platform == "win32"
-    if is_windows:
-        launch_args.append("--start-minimized")
-
     async with async_playwright() as p:
-        print("🚀 Starting scraper...", flush=True)
-        browser = await p.chromium.launch(headless=False, args=launch_args)
+        print("🚀 Starting scraper... (Window will be automatically minimized)", flush=True)
+        browser = await p.chromium.launch(headless=False, args=["--start-minimized"])
         context = await browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
             viewport={"width": 1920, "height": 1080}
@@ -293,11 +285,10 @@ async def main():
         page = await context.new_page()
         await Stealth().apply_stealth_async(page)
 
-        # 브라우저 창 최소화 (Windows 로컬 실행 시)
-        if is_windows:
-            await minimize_chrome_window(page)
+        # 브라우저 창 최소화
+        await minimize_chrome_window(page)
 
-        # 세션/쿠키 초기화를 위한 네이버 부동산 단지 페이지 접속
+        # 세션/쿠키 초기화를 위한 네이버 부동산 페이지 접속
         init_url = f"https://fin.land.naver.com/complexes/{TARGETS[0]['id']}?propertyType=APT&tradeType=SALE"
         print(f"🌐 세션 초기화 접속: {init_url}", flush=True)
         try:
@@ -330,8 +321,8 @@ async def main():
         await browser.close()
 
     if not all_today_articles:
-        print("\n❌ 수집된 데이터가 없습니다. 스크래퍼 비정상 종료.", flush=True)
-        sys.exit(1)
+        print("\n⚠️ 수집된 데이터가 없습니다.")
+        return
 
     # Grouping
     today_groups = group_listings(all_today_articles)
