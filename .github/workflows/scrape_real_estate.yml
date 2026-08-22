@@ -1,9 +1,15 @@
 name: Scrape Real Estate Listings
 
 on:
-  # schedule:
-  #   - cron: '0 3 * * 1-6' # 매일 낮 12시 KST, 월~토 (일요일 제외) - 로컬 동기화 권장으로 비활성화
-  workflow_dispatch: # 수동 실행 버튼 허용
+  schedule:
+    # 하루 5회 자동 실행 (KST 06:00, 11:00, 14:00, 17:00, 21:00 -> UTC 21:00, 02:00, 05:00, 08:00, 12:00)
+    - cron: '0 2,5,8,12,21 * * *'
+  workflow_dispatch: # GitHub 웹 UI에서 언제든 수동 실행 가능
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/scrape_real_estate.yml'
 
 jobs:
   scrape:
@@ -18,18 +24,20 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'pip'
 
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install playwright playwright-stealth
+
+      - name: Install Playwright Browsers & OS Dependencies
+        run: |
+          playwright install --with-deps chromium
 
       - name: Run Scraper
-        env:
-          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
         run: |
-          # Use ScraperAPI proxy for South Korean residential IPs
-          python serverless_scraper.py
+          xvfb-run --auto-servernum python local_scraper.py
 
       - name: Validate Update
         run: |
@@ -41,16 +49,13 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Create data directory if it somehow doesn't exist to prevent git error
           mkdir -p data
+          git add data/
           
-          # Add all files in data directory and ignore missing ones
-          git add data/ || true
-          
-          # Only commit if there are changes to avoid error on empty commit
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Auto-update listings: $(date +'%Y-%m-%d %H:%M')"
-            git push
+            git commit -m "Auto-update listings (GitHub Actions): $(date +'%Y-%m-%d %H:%M KST')"
+            git pull --rebase origin main
+            git push origin main
           fi
