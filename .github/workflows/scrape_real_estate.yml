@@ -43,6 +43,8 @@ jobs:
         run: |
           echo "==== Scrape Results Summary ===="
           [ -f data/results.json ] && python -c "import json; d=json.load(open('data/results.json', encoding='utf-8')); print('Last Update:', d.get('last_update')); print('Total Listings:', len(d.get('listings', []))); print('Summary:', d.get('summary'))" || echo "results.json missing"
+          mkdir -p data
+          echo "Last Run (KST): $(TZ='Asia/Seoul' date +'%Y-%m-%d %H:%M:%S')" > data/last_run.txt
 
       - name: Commit and Push Changes
         run: |
