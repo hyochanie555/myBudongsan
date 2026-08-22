@@ -1,7 +1,7 @@
 # Windows Task Scheduler Setup for real estate scraper
 $taskName = "MyBudongsan_Scraper_Auto"
-$batchPath = "d:\8. Antigravity\myBudongsan\run_local_sync.bat"
-$workingDir = "d:\8. Antigravity\myBudongsan"
+$batchPath = Join-Path $PSScriptRoot "실행_budongsan.bat"
+$workingDir = $PSScriptRoot
 
 # 1. Define Triggers (6:00, 11:00, 14:00, 17:00, 21:00)
 $times = @("06:00", "11:00", "14:00", "17:00", "21:00")

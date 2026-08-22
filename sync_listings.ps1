@@ -33,7 +33,7 @@ $currentTime = Get-Date -Format "yyyy-MM-dd HH:mm"
 git commit -m "Auto-update listings: $currentTime (Local Run)"
 
 # 3. Push to GitHub
-git push --no-verify
+git push
 
 # Check for push success
 if ($LASTEXITCODE -eq 0) {

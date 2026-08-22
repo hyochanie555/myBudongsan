@@ -127,15 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Multi-level Sorting Logic
         filtered.sort((a, b) => {
-            // ✅ PATCH 1: '매물 재등록' + '유지'를 같은 그룹으로 정렬
             const statusOrder = {
                 '거래 완료': 1,
                 '등록 만료': 2,
-                '신규매물': 4,
+                '신규매물': 3,
                 '매물 재등록': 4,
-                '유지': 4
+                '유지': 5
             };
-
             const statusA = (a.status || "").trim();
             const statusB = (b.status || "").trim();
             
@@ -196,44 +194,32 @@ document.addEventListener('DOMContentLoaded', () => {
         let renderedCount = 0;
         filtered.forEach(item => {
             const status = (item.status || "").trim();
-
-            // ✅ PATCH 2: '유지' 뿐 아니라 '매물 재등록'도 숨기기 옵션에 포함
-            if (showChangesOnly && ['유지', '매물 재등록'].includes(status)) {
-                return; // Hide unchanged & relisted if checked
+            if (showChangesOnly && status === '유지') {
+                return; // Hide unchanged if checked
             }
 
             const tr = document.createElement('tr');
             const badgeClass = `status-${status.replace(/\s+/g, '')}`;
             
             // Show grouped count if > 1
-            const countSuffix = item.count > 1
-                ? ` <span style="color: #94a3b8; font-size: 0.85em; font-weight: normal;">(${item.count}건)</span>`
-                : '';
+            const countSuffix = item.count > 1 ? ` <span style="color: #94a3b8; font-size: 0.85em; font-weight: normal;">(${item.count}건)</span>` : '';
             
-            // Link to the first article if available (매물 보기 기능 유지)
-            const articleLink = item.article_no
-                ? `https://m.land.naver.com/article/info/${item.article_no}`
-                : '#';
+            // Link to the first article if available
+            const articleLink = item.article_no ? `https://m.land.naver.com/article/info/${item.article_no}` : '#';
 
             tr.innerHTML = `
                 <td data-label="단지명"><strong>${item.complex_name}</strong></td>
                 <td data-label="상태"><span class="status-badge ${badgeClass}">${status}</span></td>
-				
-				<td class="dong-cell">
-				  <a href="${articleLink}" target="_blank"
-					 class="dong-link"
-					 style="display: inline-block;">
-					<strong>${item.dong}${countSuffix}</strong>
-				  </a>
-				</td>
-				
-				
+                <td class="dong-cell">
+                    <a href="${articleLink}" target="_blank" style="color: inherit; text-decoration: none;">
+                        <strong>${item.dong}${countSuffix}</strong>
+                    </a>
+                </td>
                 <td class="floor-cell">${item.floor || ''}</td>
                 <td class="area-cell">${item.area || ''}</td>
                 <td data-label="가격" class="price-cell"><strong>${item.price}</strong></td>
                 <td data-label="등록일" class="reg-date-cell">${item.reg_date || '-'}</td>
             `;
-
             tbody.appendChild(tr);
             renderedCount++;
         });
@@ -317,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chartModal.style.display = 'flex';
         // Select currently active filter if possible
         const activeBtn = document.querySelector('.filter-btn.active');
-        if (activeBtn) {
+        if(activeBtn) {
             chartAptSelect.value = activeBtn.dataset.apt;
         }
         renderChart(chartAptSelect.value);
@@ -328,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     chartModal?.addEventListener('click', (e) => {
-        if (e.target === chartModal) chartModal.style.display = 'none';
+        if(e.target === chartModal) chartModal.style.display = 'none';
     });
 
     chartAptSelect?.addEventListener('change', (e) => {

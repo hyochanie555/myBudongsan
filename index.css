@@ -459,18 +459,17 @@ tbody tr {
         width: auto !important;
     }
 
-    /* Grid layout mapping mapping
+    /* Grid layout mapping mapping */
     td[data-label="단지명"], td[data-label="제공처"] { display: none !important; }
 
-   /*  .dong-cell {
+    .dong-cell {
         grid-column: 1; 
         grid-row: 1;
         font-size: 1rem;
         font-weight: 500;
         color: #fff;
     }
-	 */
-	
+
     .floor-cell {
         grid-column: 2;
         grid-row: 1;
@@ -521,31 +520,4 @@ tbody tr {
         font-size: 0.7rem;
         padding: 0.15rem 0.5rem;
     }
-	
-	/* ✅ dong-cell(동 컬럼) 항상 노란 포인트톤 고정 */
-	td.dong-cell {
-	  color: #ffeb3b;
-	}
-
-	/* ✅ 링크는 셀 색을 그대로 상속(visited 포함) */
-	td.dong-cell a.dong-link,
-	td.dong-cell a.dong-link:visited {
-	  color: inherit !important;
-	  text-decoration: none;
-	  font-weight: 700;
-	}
-
-	/* hover/focus 변주(선택) */
-	td.dong-cell a.dong-link:hover,
-	td.dong-cell a.dong-link:focus {
-	  color: #ffd54f !important;
-	  text-decoration: underline;
-	  text-underline-offset: 3px;
-	}
-
-	td.dong-cell a.dong-link:active {
-	  color: #ffc107 !important;
-	}
-		
-	
 }
