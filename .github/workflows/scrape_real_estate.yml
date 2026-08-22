@@ -41,8 +41,8 @@ jobs:
 
       - name: Validate Update
         run: |
-          echo "Last Update in results.json:"
-          [ -f data/results.json ] && grep "last_update" data/results.json || echo "results.json missing"
+          echo "==== Scrape Results Summary ===="
+          [ -f data/results.json ] && python -c "import json; d=json.load(open('data/results.json', encoding='utf-8')); print('Last Update:', d.get('last_update')); print('Total Listings:', len(d.get('listings', []))); print('Summary:', d.get('summary'))" || echo "results.json missing"
 
       - name: Commit and Push Changes
         run: |
