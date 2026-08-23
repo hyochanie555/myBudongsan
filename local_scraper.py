@@ -277,8 +277,15 @@ async def main():
         reference_listings = history.get("reference_listings", prev_listings)
 
     async with async_playwright() as p:
-        print("🚀 Starting scraper... (Window will be automatically minimized)", flush=True)
-        browser = await p.chromium.launch(headless=False, args=["--start-minimized"])
+        browser_args = [
+            "--disable-blink-features=AutomationControlled",
+            "--no-sandbox",
+            "--disable-dev-shm-usage"
+        ]
+        if sys.platform == "win32":
+            browser_args.append("--start-minimized")
+
+        browser = await p.chromium.launch(headless=False, args=browser_args)
         context = await browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
             viewport={"width": 1920, "height": 1080}
@@ -286,8 +293,9 @@ async def main():
         page = await context.new_page()
         await Stealth().apply_stealth_async(page)
 
-        # 브라우저 창 최소화
-        await minimize_chrome_window(page)
+        # 브라우저 창 최소화 (Windows)
+        if sys.platform == "win32":
+            await minimize_chrome_window(page)
 
         # 세션/쿠키 초기화를 위한 네이버 부동산 페이지 접속
         init_url = f"https://fin.land.naver.com/complexes/{TARGETS[0]['id']}?propertyType=APT&tradeType=SALE"
