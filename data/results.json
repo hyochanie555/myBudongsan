@@ -1,20 +1,20 @@
 {
-  "last_update": "2026-08-22 15:55",
+  "last_update": "2026-08-24 08:13",
   "summary": {
     "더샵동천포레스트": {
-      "prev": 10,
+      "prev": 5,
       "today": 5
     },
     "울산 힐스테이트 강동": {
-      "prev": 70,
+      "prev": 65,
       "today": 65
     },
     "한강센트럴자이 1단지": {
-      "prev": 287,
-      "today": 279
+      "prev": 279,
+      "today": 275
     },
     "선암에코하이츠": {
-      "prev": 12,
+      "prev": 14,
       "today": 14
     }
   },
@@ -35,6 +35,10 @@
       "2026-08-22": {
         "total": 5,
         "done": 0
+      },
+      "2026-08-24": {
+        "total": 5,
+        "done": 0
       }
     },
     "울산 힐스테이트 강동": {
@@ -53,6 +57,10 @@
       "2026-08-22": {
         "total": 65,
         "done": 0
+      },
+      "2026-08-24": {
+        "total": 65,
+        "done": 1
       }
     },
     "한강센트럴자이 1단지": {
@@ -70,6 +78,10 @@
       },
       "2026-08-22": {
         "total": 279,
+        "done": 0
+      },
+      "2026-08-24": {
+        "total": 275,
         "done": 0
       }
     },
@@ -89,2812 +101,96 @@
       "2026-08-22": {
         "total": 14,
         "done": 0
+      },
+      "2026-08-24": {
+        "total": 14,
+        "done": 0
       }
     }
   },
   "listings": [
     {
-      "article_no": "2614695819",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "28/32",
-      "price": "2억 8,500",
-      "price_val": 285000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.17",
-      "cp_name": "",
-      "unit_hash": "NV_2614695819",
-      "count": 1,
-      "ids": [
-        "2614695819"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2613159315",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "중/32",
-      "price": "2억 8,600",
-      "price_val": 286000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.10",
-      "cp_name": "",
-      "unit_hash": "NV_2613159315",
-      "count": 1,
-      "ids": [
-        "2613159315"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617113442",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "고/32",
-      "price": "2억 8,700",
-      "price_val": 287000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617113442",
-      "count": 1,
-      "ids": [
-        "2617113442"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618989046",
-      "complex_name": "선암에코하이츠",
-      "dong": "101동",
-      "floor": "3/20",
-      "price": "2억 9,000",
-      "price_val": 290000000,
-      "area": "81C / 59.99㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618989046",
-      "count": 1,
-      "ids": [
-        "2618989046"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617098926",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "2억 9,500",
-      "price_val": 295000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617098926",
-      "count": 1,
-      "ids": [
-        "2617098926"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2619049091",
-      "complex_name": "선암에코하이츠",
-      "dong": "101동",
-      "floor": "6/20",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "81B / 59.91㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2619049091",
-      "count": 1,
-      "ids": [
-        "2619049091"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618271457",
-      "complex_name": "선암에코하이츠",
-      "dong": "101동",
-      "floor": "고/20",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "81C / 59.99㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618271457",
-      "count": 1,
-      "ids": [
-        "2618271457"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617281245",
-      "complex_name": "선암에코하이츠",
-      "dong": "101동",
-      "floor": "고/20",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "81B / 59.91㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617281245",
-      "count": 1,
-      "ids": [
-        "2617281245"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2619038399",
-      "complex_name": "선암에코하이츠",
-      "dong": "101동",
-      "floor": "저/20",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "81C / 59.99㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2619038399",
-      "count": 1,
-      "ids": [
-        "2619038399"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615858200",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "저/30",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615858200",
-      "count": 1,
-      "ids": [
-        "2615858200"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618284057",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "고/32",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618284057",
-      "count": 1,
-      "ids": [
-        "2618284057"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617965700",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "고/32",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.04.02",
-      "cp_name": "",
-      "unit_hash": "NV_2617965700",
-      "count": 1,
-      "ids": [
-        "2617965700"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617744599",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "저/31",
-      "price": "3억",
-      "price_val": 300000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.01",
-      "cp_name": "",
-      "unit_hash": "NV_2617744599",
-      "count": 1,
-      "ids": [
-        "2617744599"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616767738",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "102동",
-      "floor": "중/32",
-      "price": "3억 1,000",
-      "price_val": 310000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.27",
-      "cp_name": "",
-      "unit_hash": "NV_2616767738",
-      "count": 1,
-      "ids": [
-        "2616767738"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618698532",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 1,000",
-      "price_val": 310000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618698532",
-      "count": 1,
-      "ids": [
-        "2618698532"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618613081",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "저/29",
-      "price": "3억 1,000",
-      "price_val": 310000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618613081",
-      "count": 1,
-      "ids": [
-        "2618613081"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615494290",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "중/30",
-      "price": "3억 1,500",
-      "price_val": 315000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.21",
-      "cp_name": "",
-      "unit_hash": "NV_2615494290",
-      "count": 1,
-      "ids": [
-        "2615494290"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618827310",
-      "complex_name": "선암에코하이츠",
-      "dong": "103동",
-      "floor": "6/20",
-      "price": "3억 1,500",
-      "price_val": 315000000,
-      "area": "81A / 59.94㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618827310",
-      "count": 1,
-      "ids": [
-        "2618827310"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618820799",
-      "complex_name": "선암에코하이츠",
-      "dong": "103동",
-      "floor": "6/20",
-      "price": "3억 1,500",
-      "price_val": 315000000,
-      "area": "81B / 59.91㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618820799",
-      "count": 1,
-      "ids": [
-        "2618820799"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2619050191",
-      "complex_name": "선암에코하이츠",
-      "dong": "106동",
-      "floor": "5/20",
-      "price": "3억 1,500",
-      "price_val": 315000000,
-      "area": "81A / 59.94㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2619050191",
-      "count": 1,
-      "ids": [
-        "2619050191"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618827243",
-      "complex_name": "선암에코하이츠",
-      "dong": "101동",
-      "floor": "중/20",
-      "price": "3억 1,800",
-      "price_val": 318000000,
-      "area": "81A / 59.94㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618827243",
-      "count": 1,
-      "ids": [
-        "2618827243"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618768426",
-      "complex_name": "선암에코하이츠",
-      "dong": "103동",
-      "floor": "고/20",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "81A / 59.94㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618768426",
-      "count": 1,
-      "ids": [
-        "2618768426"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614242322",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.15",
-      "cp_name": "",
-      "unit_hash": "NV_2614242322",
-      "count": 1,
-      "ids": [
-        "2614242322"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618478158",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "고/29",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.05",
-      "cp_name": "",
-      "unit_hash": "NV_2618478158",
-      "count": 1,
-      "ids": [
-        "2618478158"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618805674",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "저/29",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618805674",
-      "count": 1,
-      "ids": [
-        "2618805674"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617571082",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "중/29",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.31",
-      "cp_name": "",
-      "unit_hash": "NV_2617571082",
-      "count": 1,
-      "ids": [
-        "2617571082"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614530696",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "중/29",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.16",
-      "cp_name": "",
-      "unit_hash": "NV_2614530696",
-      "count": 1,
-      "ids": [
-        "2614530696"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615297735",
+      "article_no": "2645076252",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
-      "floor": "2/28",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.20",
-      "cp_name": "",
-      "unit_hash": "NV_2615297735",
-      "count": 1,
-      "ids": [
-        "2615297735"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2613157994",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "6/28",
-      "price": "3억 2,000",
-      "price_val": 320000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.10",
-      "cp_name": "",
-      "unit_hash": "NV_2613157994",
-      "count": 1,
-      "ids": [
-        "2613157994"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618699718",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "고/30",
-      "price": "3억 2,500",
-      "price_val": 325000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618699718",
-      "count": 1,
-      "ids": [
-        "2618699718"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618575205",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "고/32",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618575205",
-      "count": 1,
-      "ids": [
-        "2618575205"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618174204",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "고/29",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618174204",
-      "count": 1,
-      "ids": [
-        "2618174204"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617744600",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "6/30",
-      "price": "3억 3,500",
-      "price_val": 335000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.04.01",
-      "cp_name": "",
-      "unit_hash": "NV_2617744600",
-      "count": 1,
-      "ids": [
-        "2617744600"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618630269",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "중/30",
-      "price": "3억 4,500",
-      "price_val": 345000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618630269",
-      "count": 1,
-      "ids": [
-        "2618630269"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615858467",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "고/30",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615858467",
-      "count": 1,
-      "ids": [
-        "2615858467"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616442020",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "중/30",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.26",
-      "cp_name": "",
-      "unit_hash": "NV_2616442020",
-      "count": 1,
-      "ids": [
-        "2616442020"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615090663",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "중/31",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.19",
-      "cp_name": "",
-      "unit_hash": "NV_2615090663",
-      "count": 1,
-      "ids": [
-        "2615090663"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614018730",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.03.13",
-      "cp_name": "",
-      "unit_hash": "NV_2614018730",
-      "count": 1,
-      "ids": [
-        "2614018730"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618806206",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "중/28",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618806206",
-      "count": 1,
-      "ids": [
-        "2618806206"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618984198",
-      "complex_name": "선암에코하이츠",
-      "dong": "106동",
-      "floor": "중/20",
-      "price": "3억 6,000",
-      "price_val": 360000000,
-      "area": "81A / 59.94㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618984198",
-      "count": 1,
-      "ids": [
-        "2618984198"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618807507",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "135동",
-      "floor": "2/17",
-      "price": "4억 7,000",
-      "price_val": 470000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618807507",
-      "count": 1,
-      "ids": [
-        "2618807507"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618985602",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "103동",
-      "floor": "4/25",
-      "price": "4억 7,500",
-      "price_val": 475000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618985602",
-      "count": 1,
-      "ids": [
-        "2618985602"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618660222",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "103동",
-      "floor": "5/25",
-      "price": "4억 8,000",
-      "price_val": 480000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618660222",
-      "count": 1,
-      "ids": [
-        "2618660222"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618920259",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "107동",
-      "floor": "15/28",
-      "price": "4억 8,500",
-      "price_val": 485000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618920259",
-      "count": 1,
-      "ids": [
-        "2618920259"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615735350",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "127동",
-      "floor": "저/29",
-      "price": "4억 8,500",
-      "price_val": 485000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615735350",
-      "count": 1,
-      "ids": [
-        "2615735350"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618766196",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
       "floor": "저/28",
-      "price": "4억 8,500",
-      "price_val": 485000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618766196",
+      "price": "3억 2,000",
+      "price_val": 320000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.08.21",
+      "cp_name": "바른공인중개사",
+      "unit_hash": "NV_2645076252",
       "count": 1,
       "ids": [
-        "2618766196"
+        "2645076252"
       ],
-      "status": "등록 만료"
+      "status": "거래 완료"
     },
     {
-      "article_no": "2618848913",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "132동",
-      "floor": "26/28",
-      "price": "4억 8,500",
-      "price_val": 485000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618848913",
-      "count": 1,
-      "ids": [
-        "2618848913"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616056610",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "103동",
-      "floor": "중/25",
-      "price": "4억 8,800",
-      "price_val": 488000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.24",
-      "cp_name": "",
-      "unit_hash": "NV_2616056610",
-      "count": 1,
-      "ids": [
-        "2616056610"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618848579",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "107동",
-      "floor": "10/28",
-      "price": "4억 8,800",
-      "price_val": 488000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618848579",
-      "count": 1,
-      "ids": [
-        "2618848579"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615221477",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
-      "floor": "9/28",
-      "price": "4억 8,900",
-      "price_val": 489000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.20",
-      "cp_name": "",
-      "unit_hash": "NV_2615221477",
-      "count": 1,
-      "ids": [
-        "2615221477"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618554849",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "107동",
-      "floor": "26/28",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618554849",
-      "count": 1,
-      "ids": [
-        "2618554849"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618578174",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "6/29",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618578174",
-      "count": 1,
-      "ids": [
-        "2618578174"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618882376",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "중/29",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618882376",
-      "count": 1,
-      "ids": [
-        "2618882376"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617444096",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "127동",
-      "floor": "11/29",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.31",
-      "cp_name": "",
-      "unit_hash": "NV_2617444096",
-      "count": 1,
-      "ids": [
-        "2617444096"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618863917",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
-      "floor": "15/28",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618863917",
-      "count": 1,
-      "ids": [
-        "2618863917"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618896071",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "130동",
-      "floor": "13/29",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618896071",
-      "count": 1,
-      "ids": [
-        "2618896071"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616915462",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "130동",
-      "floor": "2/29",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.28",
-      "cp_name": "",
-      "unit_hash": "NV_2616915462",
-      "count": 1,
-      "ids": [
-        "2616915462"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618916433",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "132동",
-      "floor": "중/28",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618916433",
-      "count": 1,
-      "ids": [
-        "2618916433"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616743953",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "112동",
-      "floor": "저/28",
-      "price": "4억 9,500",
-      "price_val": 495000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.27",
-      "cp_name": "",
-      "unit_hash": "NV_2616743953",
-      "count": 1,
-      "ids": [
-        "2616743953"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617433931",
+      "article_no": "2639662818",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "114동",
       "floor": "저/29",
-      "price": "4억 9,500",
-      "price_val": 495000000,
+      "price": "4억 8,500",
+      "price_val": 485000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.31",
-      "cp_name": "",
-      "unit_hash": "NV_2617433931",
+      "reg_date": "2026.07.23",
+      "cp_name": "행복한자이공인중개사사무소",
+      "unit_hash": "NV_2639662818",
       "count": 1,
       "ids": [
-        "2617433931"
+        "2639662818"
       ],
       "status": "등록 만료"
     },
     {
-      "article_no": "2618870617",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "132동",
-      "floor": "고/28",
-      "price": "4억 9,500",
-      "price_val": 495000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618870617",
-      "count": 1,
-      "ids": [
-        "2618870617"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618805624",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "109동",
-      "floor": "고/28",
-      "price": "4억 9,800",
-      "price_val": 498000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618805624",
-      "count": 1,
-      "ids": [
-        "2618805624"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617152519",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "111동",
-      "floor": "저/27",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617152519",
-      "count": 1,
-      "ids": [
-        "2617152519"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618881457",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "114동",
-      "floor": "중/29",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618881457",
-      "count": 1,
-      "ids": [
-        "2618881457"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618292261",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "116동",
-      "floor": "21/29",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618292261",
-      "count": 1,
-      "ids": [
-        "2618292261"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618880625",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "116동",
-      "floor": "27/29",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618880625",
-      "count": 1,
-      "ids": [
-        "2618880625"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616944345",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "119동",
-      "floor": "고/29",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.28",
-      "cp_name": "",
-      "unit_hash": "NV_2616944345",
-      "count": 1,
-      "ids": [
-        "2616944345"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618853702",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "120동",
-      "floor": "고/26",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618853702",
-      "count": 1,
-      "ids": [
-        "2618853702"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618361536",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "130동",
-      "floor": "고/29",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618361536",
-      "count": 1,
-      "ids": [
-        "2618361536"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615631507",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "130동",
-      "floor": "저/29",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615631507",
-      "count": 1,
-      "ids": [
-        "2615631507"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2613378886",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "131동",
-      "floor": "저/23",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.10",
-      "cp_name": "",
-      "unit_hash": "NV_2613378886",
-      "count": 1,
-      "ids": [
-        "2613378886"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617750214",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "135동",
-      "floor": "고/17",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.01",
-      "cp_name": "",
-      "unit_hash": "NV_2617750214",
-      "count": 1,
-      "ids": [
-        "2617750214"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618895255",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "133동",
-      "floor": "저/21",
-      "price": "5억 500",
-      "price_val": 505000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618895255",
-      "count": 1,
-      "ids": [
-        "2618895255"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618968495",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "106동",
-      "floor": "5/29",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "113D / 84.76㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618968495",
-      "count": 1,
-      "ids": [
-        "2618968495"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618806613",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "107동",
-      "floor": "14/28",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618806613",
-      "count": 1,
-      "ids": [
-        "2618806613"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617832899",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "112동",
-      "floor": "저/28",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.02",
-      "cp_name": "",
-      "unit_hash": "NV_2617832899",
-      "count": 1,
-      "ids": [
-        "2617832899"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617038296",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "112동",
-      "floor": "중/28",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.29",
-      "cp_name": "",
-      "unit_hash": "NV_2617038296",
-      "count": 1,
-      "ids": [
-        "2617038296"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616550520",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "120동",
-      "floor": "중/26",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.26",
-      "cp_name": "",
-      "unit_hash": "NV_2616550520",
-      "count": 1,
-      "ids": [
-        "2616550520"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618327891",
+      "article_no": "2639745105",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "122동",
-      "floor": "고/29",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618327891",
-      "count": 1,
-      "ids": [
-        "2618327891"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617491141",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "124동",
-      "floor": "7/22",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.31",
-      "cp_name": "",
-      "unit_hash": "NV_2617491141",
-      "count": 1,
-      "ids": [
-        "2617491141"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618483925",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "125동",
-      "floor": "3/29",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.05",
-      "cp_name": "",
-      "unit_hash": "NV_2618483925",
-      "count": 1,
-      "ids": [
-        "2618483925"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614393976",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "125동",
-      "floor": "고/29",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.16",
-      "cp_name": "",
-      "unit_hash": "NV_2614393976",
-      "count": 1,
-      "ids": [
-        "2614393976"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618853729",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "127동",
-      "floor": "5/29",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618853729",
-      "count": 1,
-      "ids": [
-        "2618853729"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615960530",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
-      "floor": "중/28",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.24",
-      "cp_name": "",
-      "unit_hash": "NV_2615960530",
-      "count": 1,
-      "ids": [
-        "2615960530"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618385792",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "130동",
       "floor": "저/29",
-      "price": "5억 1,000",
-      "price_val": 510000000,
+      "price": "4억 9,000",
+      "price_val": 490000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618385792",
+      "reg_date": "2026.07.24",
+      "cp_name": "최강자이공인중개사사무소",
+      "unit_hash": "NV_2639745105",
       "count": 1,
       "ids": [
-        "2618385792"
+        "2639745105"
       ],
       "status": "등록 만료"
     },
     {
-      "article_no": "2618890184",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "130동",
-      "floor": "중/29",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618890184",
-      "count": 1,
-      "ids": [
-        "2618890184"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614397694",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "135동",
-      "floor": "저/17",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.16",
-      "cp_name": "",
-      "unit_hash": "NV_2614397694",
-      "count": 1,
-      "ids": [
-        "2614397694"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615878972",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "103동",
-      "floor": "저/25",
-      "price": "5억 1,500",
-      "price_val": 515000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615878972",
-      "count": 1,
-      "ids": [
-        "2615878972"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618806778",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "120동",
-      "floor": "13/26",
-      "price": "5억 1,500",
-      "price_val": 515000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618806778",
-      "count": 1,
-      "ids": [
-        "2618806778"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614849366",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "133동",
-      "floor": "중/21",
-      "price": "5억 1,500",
-      "price_val": 515000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.18",
-      "cp_name": "",
-      "unit_hash": "NV_2614849366",
-      "count": 1,
-      "ids": [
-        "2614849366"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617972463",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "112동",
-      "floor": "고/28",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.02",
-      "cp_name": "",
-      "unit_hash": "NV_2617972463",
-      "count": 1,
-      "ids": [
-        "2617972463"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617846892",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "116동",
-      "floor": "저/29",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.02",
-      "cp_name": "",
-      "unit_hash": "NV_2617846892",
-      "count": 1,
-      "ids": [
-        "2617846892"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617557064",
+      "article_no": "2639811623",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
-      "floor": "16/28",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.31",
-      "cp_name": "",
-      "unit_hash": "NV_2617557064",
-      "count": 1,
-      "ids": [
-        "2617557064"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617036219",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "118동",
-      "floor": "17/28",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.29",
-      "cp_name": "",
-      "unit_hash": "NV_2617036219",
-      "count": 1,
-      "ids": [
-        "2617036219"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618862614",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "127동",
-      "floor": "중/29",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618862614",
-      "count": 1,
-      "ids": [
-        "2618862614"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616768688",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "127동",
-      "floor": "중/29",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.27",
-      "cp_name": "",
-      "unit_hash": "NV_2616768688",
-      "count": 1,
-      "ids": [
-        "2616768688"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616875598",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "131동",
-      "floor": "저/23",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.28",
-      "cp_name": "",
-      "unit_hash": "NV_2616875598",
-      "count": 1,
-      "ids": [
-        "2616875598"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616875340",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "135동",
-      "floor": "중/17",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.28",
-      "cp_name": "",
-      "unit_hash": "NV_2616875340",
-      "count": 1,
-      "ids": [
-        "2616875340"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616479822",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "104동",
-      "floor": "7/26",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.26",
-      "cp_name": "",
-      "unit_hash": "NV_2616479822",
-      "count": 1,
-      "ids": [
-        "2616479822"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618921777",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "107동",
-      "floor": "25/28",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618921777",
-      "count": 1,
-      "ids": [
-        "2618921777"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617854803",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "109동",
-      "floor": "18/28",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.02",
-      "cp_name": "",
-      "unit_hash": "NV_2617854803",
-      "count": 1,
-      "ids": [
-        "2617854803"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618566663",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "114동",
-      "floor": "19/29",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618566663",
-      "count": 1,
-      "ids": [
-        "2618566663"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618859320",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "114동",
-      "floor": "28/29",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618859320",
-      "count": 1,
-      "ids": [
-        "2618859320"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616547558",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "121동",
-      "floor": "저/29",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.26",
-      "cp_name": "",
-      "unit_hash": "NV_2616547558",
-      "count": 1,
-      "ids": [
-        "2616547558"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2613647790",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "121동",
-      "floor": "저/29",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.12",
-      "cp_name": "",
-      "unit_hash": "NV_2613647790",
-      "count": 1,
-      "ids": [
-        "2613647790"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618059653",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "저/29",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618059653",
-      "count": 1,
-      "ids": [
-        "2618059653"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618073638",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "131동",
-      "floor": "중/23",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618073638",
-      "count": 1,
-      "ids": [
-        "2618073638"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618566879",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "119동",
-      "floor": "2/29",
-      "price": "5억 3,900",
-      "price_val": 539000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618566879",
-      "count": 1,
-      "ids": [
-        "2618566879"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617105103",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "103동",
-      "floor": "저/25",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617105103",
-      "count": 1,
-      "ids": [
-        "2617105103"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615663629",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "112동",
-      "floor": "저/28",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615663629",
-      "count": 1,
-      "ids": [
-        "2615663629"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618865859",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "26/29",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618865859",
-      "count": 1,
-      "ids": [
-        "2618865859"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617146048",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "저/29",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617146048",
-      "count": 1,
-      "ids": [
-        "2617146048"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617168331",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "127동",
-      "floor": "20/29",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617168331",
-      "count": 1,
-      "ids": [
-        "2617168331"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618068152",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
-      "floor": "저/28",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618068152",
-      "count": 1,
-      "ids": [
-        "2618068152"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616883205",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
-      "floor": "저/28",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.28",
-      "cp_name": "",
-      "unit_hash": "NV_2616883205",
-      "count": 1,
-      "ids": [
-        "2616883205"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617095026",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
-      "floor": "중/28",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617095026",
-      "count": 1,
-      "ids": [
-        "2617095026"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615412914",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "133동",
-      "floor": "16/21",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.21",
-      "cp_name": "",
-      "unit_hash": "NV_2615412914",
-      "count": 1,
-      "ids": [
-        "2615412914"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618864371",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "134동",
-      "floor": "고/17",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618864371",
-      "count": 1,
-      "ids": [
-        "2618864371"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618204630",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "135동",
-      "floor": "16/17",
-      "price": "5억 4,000",
-      "price_val": 540000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618204630",
-      "count": 1,
-      "ids": [
-        "2618204630"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617602255",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "124동",
-      "floor": "11/22",
-      "price": "5억 4,500",
-      "price_val": 545000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.01",
-      "cp_name": "",
-      "unit_hash": "NV_2617602255",
-      "count": 1,
-      "ids": [
-        "2617602255"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617600251",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "103동",
-      "floor": "23/25",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.01",
-      "cp_name": "",
-      "unit_hash": "NV_2617600251",
-      "count": 1,
-      "ids": [
-        "2617600251"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618580298",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "104동",
-      "floor": "중/26",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618580298",
-      "count": 1,
-      "ids": [
-        "2618580298"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617842404",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "105동",
-      "floor": "4/28",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.02",
-      "cp_name": "",
-      "unit_hash": "NV_2617842404",
-      "count": 1,
-      "ids": [
-        "2617842404"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615612506",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "105동",
-      "floor": "저/28",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615612506",
-      "count": 1,
-      "ids": [
-        "2615612506"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618336509",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "107동",
-      "floor": "12/28",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618336509",
-      "count": 1,
-      "ids": [
-        "2618336509"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618865854",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "109동",
-      "floor": "15/28",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618865854",
-      "count": 1,
-      "ids": [
-        "2618865854"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618716547",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "109동",
-      "floor": "중/28",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618716547",
-      "count": 1,
-      "ids": [
-        "2618716547"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618859280",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "111동",
-      "floor": "27/27",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618859280",
-      "count": 1,
-      "ids": [
-        "2618859280"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614059957",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "120동",
-      "floor": "고/26",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.14",
-      "cp_name": "",
-      "unit_hash": "NV_2614059957",
-      "count": 1,
-      "ids": [
-        "2614059957"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618731690",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "121동",
-      "floor": "22/29",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618731690",
-      "count": 1,
-      "ids": [
-        "2618731690"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618483953",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "121동",
-      "floor": "중/29",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.04.05",
-      "cp_name": "",
-      "unit_hash": "NV_2618483953",
-      "count": 1,
-      "ids": [
-        "2618483953"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618873599",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "19/29",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618873599",
-      "count": 1,
-      "ids": [
-        "2618873599"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617831317",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "저/29",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.02",
-      "cp_name": "",
-      "unit_hash": "NV_2617831317",
-      "count": 1,
-      "ids": [
-        "2617831317"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614628387",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "저/29",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.17",
-      "cp_name": "",
-      "unit_hash": "NV_2614628387",
-      "count": 1,
-      "ids": [
-        "2614628387"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614884941",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "중/29",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.18",
-      "cp_name": "",
-      "unit_hash": "NV_2614884941",
-      "count": 1,
-      "ids": [
-        "2614884941"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615613598",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "125동",
-      "floor": "중/29",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615613598",
-      "count": 1,
-      "ids": [
-        "2615613598"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618901867",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
       "floor": "고/28",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618901867",
-      "count": 1,
-      "ids": [
-        "2618901867"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616682507",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "131동",
-      "floor": "저/23",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.27",
-      "cp_name": "",
-      "unit_hash": "NV_2616682507",
-      "count": 1,
-      "ids": [
-        "2616682507"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617146510",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "104동",
-      "floor": "9/26",
-      "price": "5억 6,000",
-      "price_val": 560000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617146510",
-      "count": 1,
-      "ids": [
-        "2617146510"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618154425",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "111동",
-      "floor": "고/27",
-      "price": "5억 6,000",
-      "price_val": 560000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618154425",
-      "count": 1,
-      "ids": [
-        "2618154425"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614409587",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "111동",
-      "floor": "중/27",
-      "price": "5억 6,000",
-      "price_val": 560000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.16",
-      "cp_name": "",
-      "unit_hash": "NV_2614409587",
-      "count": 1,
-      "ids": [
-        "2614409587"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618923651",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "112동",
-      "floor": "26/28",
-      "price": "5억 6,000",
-      "price_val": 560000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618923651",
-      "count": 1,
-      "ids": [
-        "2618923651"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616190691",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "116동",
-      "floor": "24/29",
-      "price": "5억 6,000",
-      "price_val": 560000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.25",
-      "cp_name": "",
-      "unit_hash": "NV_2616190691",
-      "count": 1,
-      "ids": [
-        "2616190691"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615957343",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "124동",
-      "floor": "고/22",
-      "price": "5억 6,000",
-      "price_val": 560000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.24",
-      "cp_name": "",
-      "unit_hash": "NV_2615957343",
-      "count": 1,
-      "ids": [
-        "2615957343"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614948548",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "125동",
-      "floor": "고/29",
-      "price": "5억 6,000",
-      "price_val": 560000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.18",
-      "cp_name": "",
-      "unit_hash": "NV_2614948548",
-      "count": 1,
-      "ids": [
-        "2614948548"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2619032712",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "118동",
-      "floor": "27/28",
-      "price": "5억 7,000",
-      "price_val": 570000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2619032712",
-      "count": 1,
-      "ids": [
-        "2619032712"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617170632",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "131동",
-      "floor": "20/23",
-      "price": "5억 7,000",
-      "price_val": 570000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617170632",
-      "count": 1,
-      "ids": [
-        "2617170632"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617118004",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "107동",
-      "floor": "중/28",
-      "price": "5억 8,000",
-      "price_val": 580000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617118004",
-      "count": 1,
-      "ids": [
-        "2617118004"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615652255",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "114동",
-      "floor": "고/29",
-      "price": "5억 8,000",
-      "price_val": 580000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.03.23",
-      "cp_name": "",
-      "unit_hash": "NV_2615652255",
-      "count": 1,
-      "ids": [
-        "2615652255"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618570101",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "119동",
-      "floor": "중/29",
-      "price": "5억 8,000",
-      "price_val": 580000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.06",
-      "cp_name": "",
-      "unit_hash": "NV_2618570101",
-      "count": 1,
-      "ids": [
-        "2618570101"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2615383395",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "128동",
-      "floor": "24/28",
-      "price": "6억",
-      "price_val": 600000000,
+      "price": "5억 3,000",
+      "price_val": 530000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.21",
-      "cp_name": "",
-      "unit_hash": "NV_2615383395",
+      "reg_date": "2026.07.24",
+      "cp_name": "금빛자이(989-2017)공인중개사사무소",
+      "unit_hash": "NV_2639811623",
       "count": 1,
       "ids": [
-        "2615383395"
+        "2639811623"
       ],
       "status": "등록 만료"
     },
     {
-      "article_no": "2614948245",
+      "article_no": "2639777205",
       "complex_name": "한강센트럴자이 1단지",
-      "dong": "135동",
-      "floor": "고/17",
-      "price": "6억",
-      "price_val": 600000000,
+      "dong": "132동",
+      "floor": "저/28",
+      "price": "5억 3,500",
+      "price_val": 535000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.18",
-      "cp_name": "",
-      "unit_hash": "NV_2614948245",
+      "reg_date": "2026.07.24",
+      "cp_name": "착한부동산공인중개사사무소",
+      "unit_hash": "NV_2639777205",
       "count": 1,
       "ids": [
-        "2614948245"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617117138",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "104동",
-      "floor": "18/26",
-      "price": "6억 2,000",
-      "price_val": 620000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617117138",
-      "count": 1,
-      "ids": [
-        "2617117138"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618216255",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "105동",
-      "floor": "25/28",
-      "price": "6억 8,000",
-      "price_val": 680000000,
-      "area": "112B / 84.96㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618216255",
-      "count": 1,
-      "ids": [
-        "2618216255"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2617279883",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "중/29",
-      "price": "7억 2,000",
-      "price_val": 720000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.03.30",
-      "cp_name": "",
-      "unit_hash": "NV_2617279883",
-      "count": 1,
-      "ids": [
-        "2617279883"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618870088",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "104동",
-      "floor": "25/26",
-      "price": "7억 5,000",
-      "price_val": 750000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618870088",
-      "count": 1,
-      "ids": [
-        "2618870088"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618438835",
-      "complex_name": "더샵동천포레스트",
-      "dong": "101동",
-      "floor": "저/21",
-      "price": "8억 9,500",
-      "price_val": 895000000,
-      "area": "112B / 84.86㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618438835",
-      "count": 1,
-      "ids": [
-        "2618438835"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618398755",
-      "complex_name": "더샵동천포레스트",
-      "dong": "103동",
-      "floor": "저/17",
-      "price": "9억 2,000",
-      "price_val": 920000000,
-      "area": "112A / 84.86㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618398755",
-      "count": 1,
-      "ids": [
-        "2618398755"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618915762",
-      "complex_name": "더샵동천포레스트",
-      "dong": "101동",
-      "floor": "고/21",
-      "price": "9억 3,000",
-      "price_val": 930000000,
-      "area": "112B / 84.86㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618915762",
-      "count": 1,
-      "ids": [
-        "2618915762"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618153542",
-      "complex_name": "더샵동천포레스트",
-      "dong": "102동",
-      "floor": "7/21",
-      "price": "9억 3,000",
-      "price_val": 930000000,
-      "area": "112A / 84.86㎡",
-      "reg_date": "2026.04.03",
-      "cp_name": "",
-      "unit_hash": "NV_2618153542",
-      "count": 1,
-      "ids": [
-        "2618153542"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618881888",
-      "complex_name": "더샵동천포레스트",
-      "dong": "102동",
-      "floor": "저/21",
-      "price": "9억 3,000",
-      "price_val": 930000000,
-      "area": "112A / 84.86㎡",
-      "reg_date": "2026.04.07",
-      "cp_name": "",
-      "unit_hash": "NV_2618881888",
-      "count": 1,
-      "ids": [
-        "2618881888"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2618309125",
-      "complex_name": "더샵동천포레스트",
-      "dong": "101동",
-      "floor": "중/21",
-      "price": "9억 5,000",
-      "price_val": 950000000,
-      "area": "112B / 84.86㎡",
-      "reg_date": "2026.04.04",
-      "cp_name": "",
-      "unit_hash": "NV_2618309125",
-      "count": 1,
-      "ids": [
-        "2618309125"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2616870912",
-      "complex_name": "더샵동천포레스트",
-      "dong": "103동",
-      "floor": "16/17",
-      "price": "9억 5,000",
-      "price_val": 950000000,
-      "area": "112A / 84.86㎡",
-      "reg_date": "2026.03.28",
-      "cp_name": "",
-      "unit_hash": "NV_2616870912",
-      "count": 1,
-      "ids": [
-        "2616870912"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614116762",
-      "complex_name": "더샵동천포레스트",
-      "dong": "104동",
-      "floor": "15/21",
-      "price": "9억 5,000",
-      "price_val": 950000000,
-      "area": "112A / 84.86㎡",
-      "reg_date": "2026.03.14",
-      "cp_name": "",
-      "unit_hash": "NV_2614116762",
-      "count": 1,
-      "ids": [
-        "2614116762"
-      ],
-      "status": "등록 만료"
-    },
-    {
-      "article_no": "2614160299",
-      "complex_name": "더샵동천포레스트",
-      "dong": "104동",
-      "floor": "중/21",
-      "price": "10억 2,000",
-      "price_val": 1020000000,
-      "area": "112A / 84.86㎡",
-      "reg_date": "2026.03.14",
-      "cp_name": "",
-      "unit_hash": "NV_2614160299",
-      "count": 1,
-      "ids": [
-        "2614160299"
+        "2639777205"
       ],
       "status": "등록 만료"
     },
@@ -2913,7 +209,7 @@
       "ids": [
         "2640498449"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642395669",
@@ -2930,7 +226,7 @@
       "ids": [
         "2642395669"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641871035",
@@ -2947,7 +243,7 @@
       "ids": [
         "2641871035"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644937186",
@@ -2964,7 +260,7 @@
       "ids": [
         "2644937186"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644756945",
@@ -2981,7 +277,7 @@
       "ids": [
         "2644756945"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643797337",
@@ -2998,7 +294,7 @@
       "ids": [
         "2643797337"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644068114",
@@ -3015,7 +311,7 @@
       "ids": [
         "2644068114"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643796156",
@@ -3032,7 +328,7 @@
       "ids": [
         "2643796156"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642655988",
@@ -3049,7 +345,7 @@
       "ids": [
         "2642655988"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641868677",
@@ -3066,7 +362,7 @@
       "ids": [
         "2641868677"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645261316",
@@ -3083,7 +379,7 @@
       "ids": [
         "2645261316"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640327843",
@@ -3100,7 +396,7 @@
       "ids": [
         "2640327843"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641765842",
@@ -3117,7 +413,7 @@
       "ids": [
         "2641765842"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645254214",
@@ -3134,7 +430,7 @@
       "ids": [
         "2645254214"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645260120",
@@ -3151,7 +447,7 @@
       "ids": [
         "2645260120"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643941079",
@@ -3168,7 +464,7 @@
       "ids": [
         "2643941079"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643393836",
@@ -3185,7 +481,7 @@
       "ids": [
         "2643393836"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644013221",
@@ -3202,7 +498,7 @@
       "ids": [
         "2644013221"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645184576",
@@ -3219,7 +515,7 @@
       "ids": [
         "2645184576"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644655505",
@@ -3236,7 +532,7 @@
       "ids": [
         "2644655505"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643342810",
@@ -3253,7 +549,7 @@
       "ids": [
         "2643342810"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643168196",
@@ -3270,7 +566,7 @@
       "ids": [
         "2643168196"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641092239",
@@ -3287,7 +583,7 @@
       "ids": [
         "2641092239"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641397700",
@@ -3304,7 +600,7 @@
       "ids": [
         "2641397700"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641864325",
@@ -3321,7 +617,7 @@
       "ids": [
         "2641864325"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645053834",
@@ -3338,7 +634,7 @@
       "ids": [
         "2645053834"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642531863",
@@ -3355,7 +651,7 @@
       "ids": [
         "2642531863"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642353189",
@@ -3372,22 +668,22 @@
       "ids": [
         "2642353189"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
-      "article_no": "2644921563",
+      "article_no": "2645308906",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "104동",
       "floor": "24/31",
       "price": "3억 1,000",
       "price_val": 310000000,
       "area": "113A / 84.76㎡",
-      "reg_date": "2026.08.21",
-      "cp_name": "자이단지내부동산공인중개사사무소",
-      "unit_hash": "NV_2644921563",
+      "reg_date": "2026.08.23",
+      "cp_name": "더원부동산공인중개사사무소",
+      "unit_hash": "NV_2645308906",
       "count": 1,
       "ids": [
-        "2644921563"
+        "2645308906"
       ],
       "status": "매물 재등록"
     },
@@ -3406,7 +702,7 @@
       "ids": [
         "2643848550"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643321553",
@@ -3423,7 +719,7 @@
       "ids": [
         "2643321553"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643788989",
@@ -3440,7 +736,7 @@
       "ids": [
         "2643788989"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643441375",
@@ -3457,7 +753,7 @@
       "ids": [
         "2643441375"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643692278",
@@ -3474,24 +770,7 @@
       "ids": [
         "2643692278"
       ],
-      "status": "매물 재등록"
-    },
-    {
-      "article_no": "2645155746",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "중/29",
-      "price": "3억 1,000",
-      "price_val": 310000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.08.22",
-      "cp_name": "블루마kcc공인중개사사무소",
-      "unit_hash": "NV_2645155746",
-      "count": 1,
-      "ids": [
-        "2645155746"
-      ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642352107",
@@ -3507,6 +786,23 @@
       "count": 1,
       "ids": [
         "2642352107"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2645334208",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "105동",
+      "floor": "중/29",
+      "price": "3억 1,000",
+      "price_val": 310000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.08.24",
+      "cp_name": "블루마kcc공인중개사사무소",
+      "unit_hash": "NV_2645334208",
+      "count": 1,
+      "ids": [
+        "2645334208"
       ],
       "status": "매물 재등록"
     },
@@ -3525,7 +821,7 @@
       "ids": [
         "2645054142"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642941881",
@@ -3542,22 +838,22 @@
       "ids": [
         "2642941881"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
-      "article_no": "2645220922",
+      "article_no": "2645334479",
       "complex_name": "선암에코하이츠",
       "dong": "101동",
       "floor": "18/20",
       "price": "3억 2,000",
       "price_val": 320000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.08.22",
+      "reg_date": "2026.08.24",
       "cp_name": "그랑라크에코사랑공인중개사사무소",
-      "unit_hash": "NV_2645220922",
+      "unit_hash": "NV_2645334479",
       "count": 1,
       "ids": [
-        "2645220922"
+        "2645334479"
       ],
       "status": "매물 재등록"
     },
@@ -3576,7 +872,7 @@
       "ids": [
         "2645221201"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643252184",
@@ -3593,7 +889,7 @@
       "ids": [
         "2643252184"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641829792",
@@ -3610,7 +906,7 @@
       "ids": [
         "2641829792"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643424593",
@@ -3627,7 +923,7 @@
       "ids": [
         "2643424593"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643797782",
@@ -3644,7 +940,7 @@
       "ids": [
         "2643797782"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643797655",
@@ -3661,7 +957,7 @@
       "ids": [
         "2643797655"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641387478",
@@ -3678,24 +974,24 @@
       "ids": [
         "2641387478"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
-      "article_no": "2645076252",
+      "article_no": "2645282834",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
-      "floor": "저/28",
+      "floor": "6/28",
       "price": "3억 2,000",
       "price_val": 320000000,
       "area": "113A / 84.76㎡",
-      "reg_date": "2026.08.21",
-      "cp_name": "바른공인중개사",
-      "unit_hash": "NV_2645076252",
+      "reg_date": "2026.08.22",
+      "cp_name": "강동힐스테이트부동산공인중개사사무소",
+      "unit_hash": "NV_2645282834",
       "count": 1,
       "ids": [
-        "2645076252"
+        "2645282834"
       ],
-      "status": "매물 재등록"
+      "status": "신규매물"
     },
     {
       "article_no": "2644076231",
@@ -3712,22 +1008,22 @@
       "ids": [
         "2644076231"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
-      "article_no": "2643343164",
+      "article_no": "2645312273",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "104동",
       "floor": "고/31",
       "price": "3억 3,000",
       "price_val": 330000000,
       "area": "113A / 84.76㎡",
-      "reg_date": "2026.08.12",
-      "cp_name": "강동스타힐스부동산공인중개사사무소",
-      "unit_hash": "NV_2643343164",
+      "reg_date": "2026.08.23",
+      "cp_name": "서희부동산중개사무소",
+      "unit_hash": "NV_2645312273",
       "count": 1,
       "ids": [
-        "2643343164"
+        "2645312273"
       ],
       "status": "매물 재등록"
     },
@@ -3746,7 +1042,7 @@
       "ids": [
         "2645262202"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641389541",
@@ -3763,7 +1059,7 @@
       "ids": [
         "2641389541"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643406465",
@@ -3780,7 +1076,7 @@
       "ids": [
         "2643406465"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644000459",
@@ -3797,7 +1093,7 @@
       "ids": [
         "2644000459"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645196220",
@@ -3814,7 +1110,7 @@
       "ids": [
         "2645196220"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644509460",
@@ -3831,7 +1127,7 @@
       "ids": [
         "2644509460"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644017101",
@@ -3848,7 +1144,7 @@
       "ids": [
         "2644017101"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644425340",
@@ -3865,22 +1161,22 @@
       "ids": [
         "2644425340"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
-      "article_no": "2645051536",
+      "article_no": "2645330603",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
       "floor": "16/20",
       "price": "3억 4,000",
       "price_val": 340000000,
       "area": "81B / 59.91㎡",
-      "reg_date": "2026.08.21",
-      "cp_name": "그랑라크에코사랑공인중개사사무소",
-      "unit_hash": "NV_2645051536",
+      "reg_date": "2026.08.24",
+      "cp_name": "에코공인중개사사무소",
+      "unit_hash": "NV_2645330603",
       "count": 1,
       "ids": [
-        "2645051536"
+        "2645330603"
       ],
       "status": "매물 재등록"
     },
@@ -3899,7 +1195,7 @@
       "ids": [
         "2644075780"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642161880",
@@ -3916,7 +1212,7 @@
       "ids": [
         "2642161880"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645024262",
@@ -3933,7 +1229,7 @@
       "ids": [
         "2645024262"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643535784",
@@ -3950,7 +1246,7 @@
       "ids": [
         "2643535784"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642457824",
@@ -3967,7 +1263,7 @@
       "ids": [
         "2642457824"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643789313",
@@ -3984,7 +1280,7 @@
       "ids": [
         "2643789313"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645028054",
@@ -4001,7 +1297,7 @@
       "ids": [
         "2645028054"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2639949821",
@@ -4018,22 +1314,22 @@
       "ids": [
         "2639949821"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
-      "article_no": "2645133172",
+      "article_no": "2645298485",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
       "floor": "20/20",
       "price": "3억 5,000",
       "price_val": 350000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.08.21",
-      "cp_name": "그랑라크에코사랑공인중개사사무소",
-      "unit_hash": "NV_2645133172",
+      "reg_date": "2026.08.22",
+      "cp_name": "한아름공인중개사사무소",
+      "unit_hash": "NV_2645298485",
       "count": 1,
       "ids": [
-        "2645133172"
+        "2645298485"
       ],
       "status": "매물 재등록"
     },
@@ -4052,7 +1348,7 @@
       "ids": [
         "2643941970"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641390072",
@@ -4069,7 +1365,7 @@
       "ids": [
         "2641390072"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643535372",
@@ -4086,7 +1382,7 @@
       "ids": [
         "2643535372"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640627565",
@@ -4103,7 +1399,7 @@
       "ids": [
         "2640627565"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640611340",
@@ -4120,7 +1416,7 @@
       "ids": [
         "2640611340"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645196727",
@@ -4137,7 +1433,7 @@
       "ids": [
         "2645196727"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641756947",
@@ -4154,7 +1450,7 @@
       "ids": [
         "2641756947"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641501230",
@@ -4171,7 +1467,7 @@
       "ids": [
         "2641501230"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640500401",
@@ -4188,7 +1484,7 @@
       "ids": [
         "2640500401"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643343099",
@@ -4205,7 +1501,7 @@
       "ids": [
         "2643343099"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643621635",
@@ -4222,7 +1518,7 @@
       "ids": [
         "2643621635"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644173344",
@@ -4239,7 +1535,7 @@
       "ids": [
         "2644173344"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643946530",
@@ -4256,7 +1552,7 @@
       "ids": [
         "2643946530"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644708911",
@@ -4273,7 +1569,7 @@
       "ids": [
         "2644708911"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642893877",
@@ -4290,7 +1586,7 @@
       "ids": [
         "2642893877"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645212683",
@@ -4307,7 +1603,7 @@
       "ids": [
         "2645212683"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645144344",
@@ -4324,7 +1620,7 @@
       "ids": [
         "2645144344"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644460055",
@@ -4341,7 +1637,7 @@
       "ids": [
         "2644460055"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644059290",
@@ -4358,24 +1654,7 @@
       "ids": [
         "2644059290"
       ],
-      "status": "매물 재등록"
-    },
-    {
-      "article_no": "2639662818",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "114동",
-      "floor": "저/29",
-      "price": "4억 8,500",
-      "price_val": 485000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.23",
-      "cp_name": "행복한자이공인중개사사무소",
-      "unit_hash": "NV_2639662818",
-      "count": 1,
-      "ids": [
-        "2639662818"
-      ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644907263",
@@ -4392,7 +1671,7 @@
       "ids": [
         "2644907263"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644069675",
@@ -4409,7 +1688,7 @@
       "ids": [
         "2644069675"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645178483",
@@ -4426,7 +1705,7 @@
       "ids": [
         "2645178483"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645078057",
@@ -4443,7 +1722,7 @@
       "ids": [
         "2645078057"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641498744",
@@ -4460,7 +1739,7 @@
       "ids": [
         "2641498744"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644696094",
@@ -4477,7 +1756,7 @@
       "ids": [
         "2644696094"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644788540",
@@ -4494,7 +1773,7 @@
       "ids": [
         "2644788540"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645175370",
@@ -4511,7 +1790,7 @@
       "ids": [
         "2645175370"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644060441",
@@ -4528,7 +1807,7 @@
       "ids": [
         "2644060441"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645171440",
@@ -4545,7 +1824,7 @@
       "ids": [
         "2645171440"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644905817",
@@ -4562,7 +1841,7 @@
       "ids": [
         "2644905817"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645205778",
@@ -4579,7 +1858,7 @@
       "ids": [
         "2645205778"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641062204",
@@ -4596,7 +1875,7 @@
       "ids": [
         "2641062204"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642717162",
@@ -4613,24 +1892,7 @@
       "ids": [
         "2642717162"
       ],
-      "status": "매물 재등록"
-    },
-    {
-      "article_no": "2639745105",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "122동",
-      "floor": "저/29",
-      "price": "4억 9,000",
-      "price_val": 490000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.24",
-      "cp_name": "최강자이공인중개사사무소",
-      "unit_hash": "NV_2639745105",
-      "count": 1,
-      "ids": [
-        "2639745105"
-      ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645171774",
@@ -4647,7 +1909,7 @@
       "ids": [
         "2645171774"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644000809",
@@ -4664,7 +1926,7 @@
       "ids": [
         "2644000809"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644705070",
@@ -4681,7 +1943,7 @@
       "ids": [
         "2644705070"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642170990",
@@ -4698,7 +1960,7 @@
       "ids": [
         "2642170990"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645140022",
@@ -4715,7 +1977,7 @@
       "ids": [
         "2645140022"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643755091",
@@ -4732,7 +1994,7 @@
       "ids": [
         "2643755091"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643902995",
@@ -4749,7 +2011,7 @@
       "ids": [
         "2643902995"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644477140",
@@ -4766,7 +2028,7 @@
       "ids": [
         "2644477140"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644069998",
@@ -4783,7 +2045,7 @@
       "ids": [
         "2644069998"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643566029",
@@ -4800,7 +2062,7 @@
       "ids": [
         "2643566029"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645140282",
@@ -4817,7 +2079,7 @@
       "ids": [
         "2645140282"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644140906",
@@ -4834,7 +2096,7 @@
       "ids": [
         "2644140906"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643971757",
@@ -4851,7 +2113,7 @@
       "ids": [
         "2643971757"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645172608",
@@ -4868,7 +2130,7 @@
       "ids": [
         "2645172608"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645172082",
@@ -4885,7 +2147,7 @@
       "ids": [
         "2645172082"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644959317",
@@ -4902,7 +2164,7 @@
       "ids": [
         "2644959317"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644687417",
@@ -4919,7 +2181,7 @@
       "ids": [
         "2644687417"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644364060",
@@ -4936,7 +2198,7 @@
       "ids": [
         "2644364060"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645197437",
@@ -4953,7 +2215,7 @@
       "ids": [
         "2645197437"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642111862",
@@ -4970,7 +2232,7 @@
       "ids": [
         "2642111862"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641704520",
@@ -4987,7 +2249,7 @@
       "ids": [
         "2641704520"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644199178",
@@ -5004,7 +2266,7 @@
       "ids": [
         "2644199178"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644473036",
@@ -5021,7 +2283,7 @@
       "ids": [
         "2644473036"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644480392",
@@ -5038,7 +2300,7 @@
       "ids": [
         "2644480392"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645173610",
@@ -5055,7 +2317,7 @@
       "ids": [
         "2645173610"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643053748",
@@ -5072,7 +2334,7 @@
       "ids": [
         "2643053748"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640392400",
@@ -5089,7 +2351,7 @@
       "ids": [
         "2640392400"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644952740",
@@ -5106,7 +2368,7 @@
       "ids": [
         "2644952740"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641060103",
@@ -5123,7 +2385,7 @@
       "ids": [
         "2641060103"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641336725",
@@ -5140,7 +2402,7 @@
       "ids": [
         "2641336725"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645173796",
@@ -5157,7 +2419,7 @@
       "ids": [
         "2645173796"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645200615",
@@ -5174,7 +2436,7 @@
       "ids": [
         "2645200615"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643454988",
@@ -5191,7 +2453,7 @@
       "ids": [
         "2643454988"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640854094",
@@ -5208,7 +2470,7 @@
       "ids": [
         "2640854094"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644986467",
@@ -5225,7 +2487,7 @@
       "ids": [
         "2644986467"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642236139",
@@ -5242,7 +2504,7 @@
       "ids": [
         "2642236139"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644226588",
@@ -5259,7 +2521,7 @@
       "ids": [
         "2644226588"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644480479",
@@ -5276,7 +2538,7 @@
       "ids": [
         "2644480479"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642584260",
@@ -5293,7 +2555,7 @@
       "ids": [
         "2642584260"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640861731",
@@ -5310,7 +2572,7 @@
       "ids": [
         "2640861731"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644993269",
@@ -5327,7 +2589,7 @@
       "ids": [
         "2644993269"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2639623818",
@@ -5344,7 +2606,7 @@
       "ids": [
         "2639623818"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645187986",
@@ -5361,7 +2623,7 @@
       "ids": [
         "2645187986"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644519809",
@@ -5378,7 +2640,7 @@
       "ids": [
         "2644519809"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645259127",
@@ -5395,7 +2657,7 @@
       "ids": [
         "2645259127"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643429894",
@@ -5412,7 +2674,7 @@
       "ids": [
         "2643429894"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645174414",
@@ -5429,7 +2691,7 @@
       "ids": [
         "2645174414"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642298555",
@@ -5446,7 +2708,7 @@
       "ids": [
         "2642298555"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644947855",
@@ -5463,7 +2725,7 @@
       "ids": [
         "2644947855"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644270865",
@@ -5480,7 +2742,7 @@
       "ids": [
         "2644270865"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644955045",
@@ -5497,7 +2759,7 @@
       "ids": [
         "2644955045"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643389099",
@@ -5514,7 +2776,7 @@
       "ids": [
         "2643389099"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644428526",
@@ -5531,7 +2793,7 @@
       "ids": [
         "2644428526"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644146598",
@@ -5548,7 +2810,7 @@
       "ids": [
         "2644146598"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643703946",
@@ -5565,7 +2827,7 @@
       "ids": [
         "2643703946"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644947977",
@@ -5582,7 +2844,7 @@
       "ids": [
         "2644947977"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645175708",
@@ -5599,7 +2861,7 @@
       "ids": [
         "2645175708"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645175197",
@@ -5616,7 +2878,7 @@
       "ids": [
         "2645175197"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643993082",
@@ -5633,7 +2895,7 @@
       "ids": [
         "2643993082"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643922705",
@@ -5650,7 +2912,7 @@
       "ids": [
         "2643922705"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642299628",
@@ -5667,7 +2929,7 @@
       "ids": [
         "2642299628"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645188995",
@@ -5684,7 +2946,7 @@
       "ids": [
         "2645188995"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641725010",
@@ -5701,7 +2963,7 @@
       "ids": [
         "2641725010"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644439058",
@@ -5718,7 +2980,7 @@
       "ids": [
         "2644439058"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641725785",
@@ -5735,7 +2997,7 @@
       "ids": [
         "2641725785"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640386392",
@@ -5752,7 +3014,7 @@
       "ids": [
         "2640386392"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643460154",
@@ -5769,7 +3031,7 @@
       "ids": [
         "2643460154"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641949864",
@@ -5786,7 +3048,7 @@
       "ids": [
         "2641949864"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644528912",
@@ -5803,7 +3065,7 @@
       "ids": [
         "2644528912"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644213970",
@@ -5820,7 +3082,7 @@
       "ids": [
         "2644213970"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645176873",
@@ -5837,7 +3099,7 @@
       "ids": [
         "2645176873"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643399427",
@@ -5854,7 +3116,7 @@
       "ids": [
         "2643399427"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644429294",
@@ -5871,7 +3133,7 @@
       "ids": [
         "2644429294"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643697941",
@@ -5888,7 +3150,7 @@
       "ids": [
         "2643697941"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643923950",
@@ -5905,7 +3167,7 @@
       "ids": [
         "2643923950"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644114849",
@@ -5922,7 +3184,7 @@
       "ids": [
         "2644114849"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644059245",
@@ -5939,7 +3201,7 @@
       "ids": [
         "2644059245"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643904097",
@@ -5956,7 +3218,7 @@
       "ids": [
         "2643904097"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642195640",
@@ -5973,7 +3235,7 @@
       "ids": [
         "2642195640"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645141797",
@@ -5990,7 +3252,7 @@
       "ids": [
         "2645141797"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644938634",
@@ -6007,7 +3269,7 @@
       "ids": [
         "2644938634"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642302557",
@@ -6024,7 +3286,7 @@
       "ids": [
         "2642302557"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643035284",
@@ -6041,7 +3303,7 @@
       "ids": [
         "2643035284"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642064288",
@@ -6058,7 +3320,7 @@
       "ids": [
         "2642064288"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645004792",
@@ -6075,7 +3337,7 @@
       "ids": [
         "2645004792"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644192308",
@@ -6092,7 +3354,7 @@
       "ids": [
         "2644192308"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645209440",
@@ -6109,7 +3371,7 @@
       "ids": [
         "2645209440"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645252838",
@@ -6126,7 +3388,7 @@
       "ids": [
         "2645252838"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640026541",
@@ -6143,7 +3405,7 @@
       "ids": [
         "2640026541"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644643319",
@@ -6160,7 +3422,7 @@
       "ids": [
         "2644643319"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643923947",
@@ -6177,7 +3439,7 @@
       "ids": [
         "2643923947"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641175781",
@@ -6194,7 +3456,7 @@
       "ids": [
         "2641175781"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641331428",
@@ -6211,7 +3473,7 @@
       "ids": [
         "2641331428"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645143721",
@@ -6228,7 +3490,7 @@
       "ids": [
         "2645143721"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645140227",
@@ -6245,7 +3507,7 @@
       "ids": [
         "2645140227"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644360564",
@@ -6262,7 +3524,7 @@
       "ids": [
         "2644360564"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643906844",
@@ -6279,7 +3541,7 @@
       "ids": [
         "2643906844"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644966084",
@@ -6296,7 +3558,7 @@
       "ids": [
         "2644966084"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640026533",
@@ -6313,7 +3575,7 @@
       "ids": [
         "2640026533"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645174117",
@@ -6330,7 +3592,7 @@
       "ids": [
         "2645174117"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645172750",
@@ -6347,7 +3609,7 @@
       "ids": [
         "2645172750"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645225862",
@@ -6364,7 +3626,7 @@
       "ids": [
         "2645225862"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645227152",
@@ -6381,7 +3643,7 @@
       "ids": [
         "2645227152"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645180029",
@@ -6398,7 +3660,7 @@
       "ids": [
         "2645180029"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644708362",
@@ -6415,7 +3677,7 @@
       "ids": [
         "2644708362"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644889054",
@@ -6432,7 +3694,7 @@
       "ids": [
         "2644889054"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640329904",
@@ -6449,7 +3711,7 @@
       "ids": [
         "2640329904"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644959186",
@@ -6466,7 +3728,7 @@
       "ids": [
         "2644959186"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644216848",
@@ -6483,7 +3745,7 @@
       "ids": [
         "2644216848"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640838376",
@@ -6500,7 +3762,7 @@
       "ids": [
         "2640838376"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644694698",
@@ -6517,7 +3779,7 @@
       "ids": [
         "2644694698"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645180275",
@@ -6534,7 +3796,7 @@
       "ids": [
         "2645180275"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644433171",
@@ -6551,7 +3813,7 @@
       "ids": [
         "2644433171"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643904360",
@@ -6568,7 +3830,7 @@
       "ids": [
         "2643904360"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645197842",
@@ -6585,7 +3847,7 @@
       "ids": [
         "2645197842"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645228395",
@@ -6602,7 +3864,7 @@
       "ids": [
         "2645228395"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644992179",
@@ -6619,7 +3881,7 @@
       "ids": [
         "2644992179"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645180293",
@@ -6636,7 +3898,7 @@
       "ids": [
         "2645180293"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643397036",
@@ -6653,7 +3915,7 @@
       "ids": [
         "2643397036"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645192073",
@@ -6670,7 +3932,7 @@
       "ids": [
         "2645192073"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641170949",
@@ -6687,7 +3949,7 @@
       "ids": [
         "2641170949"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645050161",
@@ -6704,7 +3966,7 @@
       "ids": [
         "2645050161"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645050577",
@@ -6721,7 +3983,7 @@
       "ids": [
         "2645050577"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644889111",
@@ -6738,7 +4000,7 @@
       "ids": [
         "2644889111"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642137300",
@@ -6755,7 +4017,7 @@
       "ids": [
         "2642137300"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644070395",
@@ -6772,7 +4034,7 @@
       "ids": [
         "2644070395"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644710220",
@@ -6789,7 +4051,7 @@
       "ids": [
         "2644710220"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644154918",
@@ -6806,7 +4068,7 @@
       "ids": [
         "2644154918"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644906674",
@@ -6823,24 +4085,7 @@
       "ids": [
         "2644906674"
       ],
-      "status": "매물 재등록"
-    },
-    {
-      "article_no": "2639811623",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "118동",
-      "floor": "고/28",
-      "price": "5억 3,000",
-      "price_val": 530000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.07.24",
-      "cp_name": "금빛자이(989-2017)공인중개사사무소",
-      "unit_hash": "NV_2639811623",
-      "count": 1,
-      "ids": [
-        "2639811623"
-      ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644968536",
@@ -6857,7 +4102,7 @@
       "ids": [
         "2644968536"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645205103",
@@ -6874,7 +4119,7 @@
       "ids": [
         "2645205103"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642306840",
@@ -6891,7 +4136,7 @@
       "ids": [
         "2642306840"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645179532",
@@ -6908,7 +4153,7 @@
       "ids": [
         "2645179532"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642221642",
@@ -6925,7 +4170,7 @@
       "ids": [
         "2642221642"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645142440",
@@ -6942,7 +4187,7 @@
       "ids": [
         "2645142440"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642516277",
@@ -6959,7 +4204,7 @@
       "ids": [
         "2642516277"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645142597",
@@ -6976,7 +4221,7 @@
       "ids": [
         "2645142597"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645253540",
@@ -6993,7 +4238,7 @@
       "ids": [
         "2645253540"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642004108",
@@ -7010,7 +4255,7 @@
       "ids": [
         "2642004108"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642512215",
@@ -7027,7 +4272,7 @@
       "ids": [
         "2642512215"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644433766",
@@ -7044,7 +4289,7 @@
       "ids": [
         "2644433766"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642086273",
@@ -7061,7 +4306,7 @@
       "ids": [
         "2642086273"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645143504",
@@ -7078,7 +4323,7 @@
       "ids": [
         "2645143504"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644772088",
@@ -7095,7 +4340,7 @@
       "ids": [
         "2644772088"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643449182",
@@ -7112,7 +4357,7 @@
       "ids": [
         "2643449182"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644158798",
@@ -7129,7 +4374,7 @@
       "ids": [
         "2644158798"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643015828",
@@ -7146,7 +4391,7 @@
       "ids": [
         "2643015828"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641737740",
@@ -7163,7 +4408,7 @@
       "ids": [
         "2641737740"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643948823",
@@ -7180,7 +4425,7 @@
       "ids": [
         "2643948823"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645139932",
@@ -7197,7 +4442,7 @@
       "ids": [
         "2645139932"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645180861",
@@ -7214,7 +4459,7 @@
       "ids": [
         "2645180861"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645143020",
@@ -7231,7 +4476,7 @@
       "ids": [
         "2645143020"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643498627",
@@ -7248,7 +4493,7 @@
       "ids": [
         "2643498627"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645117418",
@@ -7265,7 +4510,7 @@
       "ids": [
         "2645117418"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642540256",
@@ -7282,24 +4527,7 @@
       "ids": [
         "2642540256"
       ],
-      "status": "매물 재등록"
-    },
-    {
-      "article_no": "2639777205",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "132동",
-      "floor": "저/28",
-      "price": "5억 3,500",
-      "price_val": 535000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.07.24",
-      "cp_name": "착한부동산공인중개사사무소",
-      "unit_hash": "NV_2639777205",
-      "count": 1,
-      "ids": [
-        "2639777205"
-      ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644229054",
@@ -7316,7 +4544,7 @@
       "ids": [
         "2644229054"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645253332",
@@ -7333,7 +4561,7 @@
       "ids": [
         "2645253332"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644964385",
@@ -7350,7 +4578,7 @@
       "ids": [
         "2644964385"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645223308",
@@ -7367,7 +4595,7 @@
       "ids": [
         "2645223308"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644689520",
@@ -7384,7 +4612,7 @@
       "ids": [
         "2644689520"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644969904",
@@ -7401,7 +4629,7 @@
       "ids": [
         "2644969904"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644491674",
@@ -7418,7 +4646,7 @@
       "ids": [
         "2644491674"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641170121",
@@ -7435,7 +4663,7 @@
       "ids": [
         "2641170121"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643021377",
@@ -7452,7 +4680,7 @@
       "ids": [
         "2643021377"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643904885",
@@ -7469,7 +4697,7 @@
       "ids": [
         "2643904885"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644489835",
@@ -7486,7 +4714,7 @@
       "ids": [
         "2644489835"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645174134",
@@ -7503,7 +4731,7 @@
       "ids": [
         "2645174134"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644561502",
@@ -7520,7 +4748,7 @@
       "ids": [
         "2644561502"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645181368",
@@ -7537,7 +4765,7 @@
       "ids": [
         "2645181368"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645174124",
@@ -7554,7 +4782,7 @@
       "ids": [
         "2645174124"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644714639",
@@ -7571,7 +4799,7 @@
       "ids": [
         "2644714639"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645017671",
@@ -7588,7 +4816,7 @@
       "ids": [
         "2645017671"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642093463",
@@ -7605,7 +4833,7 @@
       "ids": [
         "2642093463"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643202628",
@@ -7622,7 +4850,7 @@
       "ids": [
         "2643202628"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644471595",
@@ -7639,7 +4867,7 @@
       "ids": [
         "2644471595"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645256980",
@@ -7656,7 +4884,7 @@
       "ids": [
         "2645256980"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643228873",
@@ -7673,7 +4901,7 @@
       "ids": [
         "2643228873"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642094118",
@@ -7690,7 +4918,7 @@
       "ids": [
         "2642094118"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640206659",
@@ -7707,7 +4935,7 @@
       "ids": [
         "2640206659"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644069193",
@@ -7724,7 +4952,7 @@
       "ids": [
         "2644069193"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643471592",
@@ -7741,7 +4969,7 @@
       "ids": [
         "2643471592"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644560732",
@@ -7758,7 +4986,7 @@
       "ids": [
         "2644560732"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640146567",
@@ -7775,7 +5003,7 @@
       "ids": [
         "2640146567"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645233035",
@@ -7792,7 +5020,7 @@
       "ids": [
         "2645233035"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643794492",
@@ -7809,7 +5037,7 @@
       "ids": [
         "2643794492"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645190004",
@@ -7826,7 +5054,7 @@
       "ids": [
         "2645190004"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642116854",
@@ -7843,7 +5071,7 @@
       "ids": [
         "2642116854"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643002989",
@@ -7860,7 +5088,7 @@
       "ids": [
         "2643002989"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645174112",
@@ -7877,7 +5105,7 @@
       "ids": [
         "2645174112"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640876180",
@@ -7894,7 +5122,7 @@
       "ids": [
         "2640876180"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643469841",
@@ -7911,7 +5139,7 @@
       "ids": [
         "2643469841"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644716342",
@@ -7928,7 +5156,7 @@
       "ids": [
         "2644716342"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644070781",
@@ -7945,7 +5173,7 @@
       "ids": [
         "2644070781"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644713358",
@@ -7962,7 +5190,7 @@
       "ids": [
         "2644713358"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644074781",
@@ -7979,7 +5207,7 @@
       "ids": [
         "2644074781"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642508604",
@@ -7996,7 +5224,7 @@
       "ids": [
         "2642508604"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645198750",
@@ -8013,7 +5241,7 @@
       "ids": [
         "2645198750"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644710205",
@@ -8030,7 +5258,7 @@
       "ids": [
         "2644710205"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643256878",
@@ -8047,7 +5275,7 @@
       "ids": [
         "2643256878"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640212552",
@@ -8064,7 +5292,7 @@
       "ids": [
         "2640212552"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642096574",
@@ -8081,7 +5309,7 @@
       "ids": [
         "2642096574"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645203459",
@@ -8098,7 +5326,7 @@
       "ids": [
         "2645203459"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641736819",
@@ -8115,7 +5343,7 @@
       "ids": [
         "2641736819"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643475272",
@@ -8132,7 +5360,7 @@
       "ids": [
         "2643475272"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642538684",
@@ -8149,7 +5377,7 @@
       "ids": [
         "2642538684"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644474051",
@@ -8166,7 +5394,7 @@
       "ids": [
         "2644474051"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643719154",
@@ -8183,7 +5411,7 @@
       "ids": [
         "2643719154"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643999120",
@@ -8200,7 +5428,7 @@
       "ids": [
         "2643999120"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645208428",
@@ -8217,7 +5445,7 @@
       "ids": [
         "2645208428"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644186780",
@@ -8234,7 +5462,7 @@
       "ids": [
         "2644186780"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644058177",
@@ -8251,7 +5479,7 @@
       "ids": [
         "2644058177"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641736888",
@@ -8268,7 +5496,7 @@
       "ids": [
         "2641736888"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645258320",
@@ -8285,7 +5513,7 @@
       "ids": [
         "2645258320"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641331392",
@@ -8302,7 +5530,7 @@
       "ids": [
         "2641331392"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640047282",
@@ -8319,7 +5547,7 @@
       "ids": [
         "2640047282"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642074187",
@@ -8336,7 +5564,7 @@
       "ids": [
         "2642074187"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644774726",
@@ -8353,7 +5581,7 @@
       "ids": [
         "2644774726"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642075403",
@@ -8370,7 +5598,7 @@
       "ids": [
         "2642075403"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640874309",
@@ -8387,7 +5615,7 @@
       "ids": [
         "2640874309"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645174108",
@@ -8404,7 +5632,7 @@
       "ids": [
         "2645174108"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644684783",
@@ -8421,7 +5649,7 @@
       "ids": [
         "2644684783"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644429745",
@@ -8438,7 +5666,7 @@
       "ids": [
         "2644429745"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642145222",
@@ -8455,7 +5683,7 @@
       "ids": [
         "2642145222"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644945499",
@@ -8472,7 +5700,7 @@
       "ids": [
         "2644945499"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645174098",
@@ -8489,7 +5717,7 @@
       "ids": [
         "2645174098"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644059022",
@@ -8506,7 +5734,7 @@
       "ids": [
         "2644059022"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640802513",
@@ -8523,7 +5751,7 @@
       "ids": [
         "2640802513"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644683718",
@@ -8540,7 +5768,7 @@
       "ids": [
         "2644683718"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644745021",
@@ -8557,7 +5785,7 @@
       "ids": [
         "2644745021"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645174088",
@@ -8574,7 +5802,7 @@
       "ids": [
         "2645174088"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642079097",
@@ -8591,7 +5819,7 @@
       "ids": [
         "2642079097"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642584249",
@@ -8608,7 +5836,7 @@
       "ids": [
         "2642584249"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644884568",
@@ -8625,7 +5853,7 @@
       "ids": [
         "2644884568"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642076082",
@@ -8642,7 +5870,7 @@
       "ids": [
         "2642076082"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644551029",
@@ -8659,7 +5887,7 @@
       "ids": [
         "2644551029"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640269151",
@@ -8676,7 +5904,7 @@
       "ids": [
         "2640269151"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641503282",
@@ -8693,7 +5921,7 @@
       "ids": [
         "2641503282"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645001750",
@@ -8710,7 +5938,7 @@
       "ids": [
         "2645001750"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640269616",
@@ -8727,7 +5955,7 @@
       "ids": [
         "2640269616"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642080468",
@@ -8744,7 +5972,7 @@
       "ids": [
         "2642080468"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641183568",
@@ -8761,7 +5989,7 @@
       "ids": [
         "2641183568"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644492233",
@@ -8778,7 +6006,7 @@
       "ids": [
         "2644492233"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643906734",
@@ -8795,7 +6023,7 @@
       "ids": [
         "2643906734"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2641183549",
@@ -8812,7 +6040,7 @@
       "ids": [
         "2641183549"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644726125",
@@ -8829,7 +6057,7 @@
       "ids": [
         "2644726125"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640175181",
@@ -8846,7 +6074,7 @@
       "ids": [
         "2640175181"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642262587",
@@ -8863,7 +6091,7 @@
       "ids": [
         "2642262587"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642082693",
@@ -8880,7 +6108,7 @@
       "ids": [
         "2642082693"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2643079925",
@@ -8897,7 +6125,7 @@
       "ids": [
         "2643079925"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642084352",
@@ -8914,7 +6142,7 @@
       "ids": [
         "2642084352"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2642892468",
@@ -8931,7 +6159,7 @@
       "ids": [
         "2642892468"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645257213",
@@ -8948,7 +6176,7 @@
       "ids": [
         "2645257213"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640188028",
@@ -8965,7 +6193,7 @@
       "ids": [
         "2640188028"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640273396",
@@ -8982,7 +6210,7 @@
       "ids": [
         "2640273396"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645236431",
@@ -8999,7 +6227,7 @@
       "ids": [
         "2645236431"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645158711",
@@ -9016,7 +6244,7 @@
       "ids": [
         "2645158711"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2644051853",
@@ -9033,7 +6261,7 @@
       "ids": [
         "2644051853"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2645235318",
@@ -9050,7 +6278,7 @@
       "ids": [
         "2645235318"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     },
     {
       "article_no": "2640844686",
@@ -9067,7 +6295,7 @@
       "ids": [
         "2640844686"
       ],
-      "status": "매물 재등록"
+      "status": "유지"
     }
   ]
 }
