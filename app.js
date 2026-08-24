@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '등록 만료': 2,
                 '신규매물': 3,
                 '매물 재등록': 4,
-                '유지': 5
+                '유지': 4
             };
             const statusA = (a.status || "").trim();
             const statusB = (b.status || "").trim();
