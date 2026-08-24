@@ -6,13 +6,12 @@ GitHub Actions 서버에서 정해진 시간에 자동으로 스크래핑을 수
 
 ## 1. ⚙️ GitHub Actions 자동 실행 (서버 자동화)
 
-GitHub Actions 워크플로([.github/workflows/scrape_real_estate.yml](file:///D:/2.%EA%B0%9C%EB%B0%9C/Git/myBudongsan/.github/workflows/scrape_real_estate.yml))가 **하루 7회(한국 시간 기준 05:07, 09:07, 11:07, 13:07, 15:07, 18:07, 21:07)** 자동으로 실행됩니다.
+GitHub Actions 워크플로([.github/workflows/scrape_real_estate.yml](file:///D:/2.%EA%B0%9C%EB%B0%9C/Git/myBudongsan/.github/workflows/scrape_real_estate.yml))가 **하루 6회(한국 시간 기준 05:07, 09:07, 11:07, 15:07, 18:07, 21:07)** 자동으로 실행됩니다.
 
 - **스케줄 주기 (KST 기준, 대기열 부하 최소화 및 10분경 갱신 완료)**:
   - 05:07 (오전 5시 7분)
   - 09:07 (오전 9시 7분)
   - 11:07 (오전 11시 7분)
-  - 13:07 (오후 1시 7분)
   - 15:07 (오후 3시 7분)
   - 18:07 (오후 6시 7분)
   - 21:07 (오후 9시 7분)
