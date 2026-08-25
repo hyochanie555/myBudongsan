@@ -185,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let renderedCount = 0;
         filtered.forEach(item => {
             const status = (item.status || "").trim();
-            if (showChangesOnly && status === '유지') {
-                return; // Hide unchanged if checked
+            if (showChangesOnly && (status === '유지' || status === '매물 재등록')) {
+                return; // Hide unchanged and re-registered if checked
             }
 
             const tr = document.createElement('tr');
