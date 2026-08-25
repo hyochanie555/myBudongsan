@@ -8,7 +8,7 @@ try {
     powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 1 2>$null
     powercfg /setdcvalueindex SCHEME_CURRENT SUB_SLEEP bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 1 2>$null
     powercfg /setactive SCHEME_CURRENT 2>$null
-    Write-Host "[INFO] Windows 절전 모드 해제 타이머(Wake Timers) 활성화 확인 완료" -ForegroundColor Cyan
+    Write-Host "[INFO] Windows 절전 모드 해제 타이머(Wake Timers) 활성화 완료" -ForegroundColor Cyan
 } catch {
     # 무시
 }
@@ -22,17 +22,23 @@ $triggers = foreach ($time in $times) {
 # 2. 실행 동작 정의
 $action = New-ScheduledTaskAction -Execute $batchPath -WorkingDirectory $workingDir
 
-# 3. 상세 설정 정의
+# 3. 상세 설정 정의 (절전모드/화면꺼짐/배터리 상태에서도 백그라운드 즉시 실행)
 $settings = New-ScheduledTaskSettingsSet `
     -WakeToRun `
     -AllowStartIfOnBatteries `
     -DontStopIfGoingOnBatteries `
     -StartWhenAvailable `
+    -Priority 4 `
+    -ExecutionTimeLimit (New-TimeSpan -Hours 1) `
     -MultipleInstances IgnoreNew
 
-# 4. 작업 등록
+# 4. 실행 주체 설정 (사용자 로그인 및 화면 꺼짐 상태에서도 실행되도록 S4U 모드 지원)
+# S4U는 비밀번호 저장 없이도 잠금 화면/절전 상태에서 백그라운드로 안전하게 동작합니다.
+$principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType S4U -RunLevel Highest
+
+# 5. 작업 등록
 try {
-    # 기존 작업이 있으면 제거 후 등록
+    # 기존 작업 제거 후 등록
     Unregister-ScheduledTask -TaskName $taskName -Confirm:$false -ErrorAction SilentlyContinue
 
     Register-ScheduledTask `
@@ -40,6 +46,7 @@ try {
         -Trigger $triggers `
         -Action $action `
         -Settings $settings `
+        -Principal $principal `
         -Description "myBudongsan Real Estate Auto Scraper (Daily 5 times: 07:00, 11:00, 15:00, 18:00, 21:00)" `
         -Force `
         -ErrorAction Stop | Out-Null
@@ -49,8 +56,27 @@ try {
     Write-Host " [SUCCESS] 스케줄러 등록이 성공적으로 완료되었습니다!" -ForegroundColor Green
     Write-Host " 작업 이름 : $taskName" -ForegroundColor Green
     Write-Host " 실행 시간 : $($times -join ', ') (하루 5회)" -ForegroundColor Green
-    Write-Host " 절전 모드 : 절전 모드에서 컴퓨터 깨우기(WakeToRun) 활성화됨" -ForegroundColor Green
+    Write-Host " 절전 모드 : 화면 꺼짐/절전 모드에서도 백그라운드 실행(S4U/WakeToRun)" -ForegroundColor Green
     Write-Host "==========================================================" -ForegroundColor Green
 } catch {
-    Write-Host "[ERROR] 작업 등록 실패: $($_.Exception.Message)" -ForegroundColor Red
+    # 관리자 권한 없는 경우 기본 Principal로 재시도
+    try {
+        Register-ScheduledTask `
+            -TaskName $taskName `
+            -Trigger $triggers `
+            -Action $action `
+            -Settings $settings `
+            -Description "myBudongsan Real Estate Auto Scraper (Daily 5 times: 07:00, 11:00, 15:00, 18:00, 21:00)" `
+            -Force `
+            -ErrorAction Stop | Out-Null
+
+        Write-Host ""
+        Write-Host "==========================================================" -ForegroundColor Green
+        Write-Host " [SUCCESS] 스케줄러 등록이 완료되었습니다 (기본 모드)!" -ForegroundColor Green
+        Write-Host " 작업 이름 : $taskName" -ForegroundColor Green
+        Write-Host " 실행 시간 : $($times -join ', ') (하루 5회)" -ForegroundColor Green
+        Write-Host "==========================================================" -ForegroundColor Green
+    } catch {
+        Write-Host "[ERROR] 작업 등록 실패: $($_.Exception.Message)" -ForegroundColor Red
+    }
 }

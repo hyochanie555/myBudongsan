@@ -24,6 +24,7 @@ TARGETS = [
 DATA_DIR = "data"
 HISTORY_FILE = os.path.join(DATA_DIR, "history.json")
 RESULTS_FILE = os.path.join(DATA_DIR, "results.json")
+LAST_RUN_FILE = os.path.join(DATA_DIR, "last_run.txt")
 
 def parse_price(p_str):
     """Parses various Korean price strings to Won units."""
@@ -442,6 +443,9 @@ async def main():
     history["historical_props"] = hist_props
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(history, f, ensure_ascii=False, indent=2)
+
+    with open(LAST_RUN_FILE, "w", encoding="utf-8") as f:
+        f.write(f"Last Run (KST): {now_kst.strftime('%Y-%m-%d %H:%M:%S')}\n")
         
     print(f"✅ 완료! {len(today_groups)}개 고유 매물 저장됨.")
 

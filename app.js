@@ -32,28 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryData = responseData.summary || {};
             window.dailyStatsData = responseData.daily_stats || {};
 
-            // Show Last Update Time with Stale Warning
+            // Show Last Update Time
             const lastUpdateEl = document.getElementById('last-update');
             if (responseData.last_update && lastUpdateEl) {
                 lastUpdateEl.textContent = `최근 갱신: ${responseData.last_update}`;
-            }
-
-            // Fetch exact server run timestamp from last_run.txt
-            try {
-                const runRes = await fetch(`./data/last_run.txt?t=${new Date().getTime()}`);
-                if (runRes.ok) {
-                    const runText = (await runRes.text()).trim();
-                    if (runText && lastUpdateEl) {
-                        let timeStr = runText.replace('Last Run (KST): ', '').trim();
-                        // 초(:SS) 제거: YYYY-MM-DD HH:MM 형식으로 자르기
-                        if (timeStr.length >= 16) {
-                            timeStr = timeStr.substring(0, 16);
-                        }
-                        lastUpdateEl.textContent = `최근 갱신: ${timeStr}`;
-                    }
-                }
-            } catch (e) {
-                console.log("last_run.txt fetch skipped:", e);
             }
 
             // Update Filter Button Texts (Aesthetics Restoration)
