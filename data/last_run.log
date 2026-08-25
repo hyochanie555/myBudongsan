@@ -103,3 +103,12 @@ To add an exception for this directory, call:
 
 📊 Summary (Properties): New: 0, Re-reg: 110, Completed: 15, Expired: 0
 ✅ 완료! 364개 고유 매물 저장됨.
+warning: in the working copy of 'data/last_run.log', LF will be replaced by CRLF the next time Git touches it
+[main 6878602] Auto-update listings: 2026-08-25 21:26:45 (Local Scraper)
+ 3 files changed, 1973 insertions(+), 1794 deletions(-)
+ create mode 100644 data/last_run.log
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+To https://github.com/hyochanie555/myBudongsan.git
+   737b7c2..6878602  main -> main
+[SUCCESS] Scraping and GitHub sync finished at 2026-08-25 21:26:45 
