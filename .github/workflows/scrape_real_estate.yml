@@ -1,22 +1,17 @@
 name: Scrape Real Estate Listings
 
+# on:
+#   schedule:
+#     # 네이버 해외 IP 차단 정책으로 인해 로컬 윈도우 스케줄러 실행 권장
+#     - cron: '7 20 * * *'
+#     - cron: '7 0 * * *'
+#     - cron: '7 2 * * *'
+#     - cron: '7 4 * * *'
+#     - cron: '7 6 * * *'
+#     - cron: '7 9 * * *'
+#     - cron: '7 12 * * *'
 on:
-  schedule:
-    # 하루 7회 자동 실행 (KST 05:07, 09:07, 11:07, 13:07, 15:07, 18:07, 21:07)
-    - cron: '7 20 * * *' # 05:07 KST (전날 20:07 UTC)
-    - cron: '7 0 * * *'  # 09:07 KST (당일 00:07 UTC)
-    - cron: '7 2 * * *'  # 11:07 KST (당일 02:07 UTC)
-    - cron: '7 4 * * *'  # 13:07 KST (당일 04:07 UTC)
-    - cron: '7 6 * * *'  # 15:07 KST (당일 06:07 UTC)
-    - cron: '7 9 * * *'  # 18:07 KST (당일 09:07 UTC)
-    - cron: '7 12 * * *' # 21:07 KST (당일 12:07 UTC)
-  workflow_dispatch: # GitHub 웹 UI에서 언제든 수동 실행 가능
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'data/**'
-      - 'README.md'
+  workflow_dispatch: # GitHub 웹 UI에서 수동 테스트 시에만 사용 가능
 
 jobs:
   scrape:

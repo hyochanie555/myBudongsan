@@ -3,8 +3,8 @@ $taskName = "MyBudongsan_Scraper_Auto"
 $batchPath = Join-Path $PSScriptRoot "실행_budongsan.bat"
 $workingDir = $PSScriptRoot
 
-# 1. Define Triggers (05:00, 09:00, 11:00, 13:00, 15:00, 17:00, 19:00, 21:00)
-$times = @("05:00", "09:00", "11:00", "13:00", "15:00", "17:00", "19:00", "21:00")
+# 1. Define Triggers (05:07, 09:07, 11:07, 13:07, 15:07, 18:07, 21:07)
+$times = @("05:07", "09:07", "11:07", "13:07", "15:07", "18:07", "21:07")
 $triggers = foreach ($time in $times) {
     New-ScheduledTaskTrigger -Daily -At $time
 }
