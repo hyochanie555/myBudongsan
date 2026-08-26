@@ -119,11 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Multi-level Sorting Logic
         filtered.sort((a, b) => {
             const statusOrder = {
-                '거래 완료': 1,
-                '등록 만료': 2,
-                '신규매물': 3,
-                '매물 재등록': 4,
-                '유지': 4
+                '신규매물': 1,
+                '가격 인하': 2,
+                '거래 완료': 3,
+                '가격 인상': 4,
+                '매물 재등록': 5,
+                '유지': 6,
+                '등록 만료': 7
             };
             const statusA = (a.status || "").trim();
             const statusB = (b.status || "").trim();
@@ -152,12 +154,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update cards with safety
         try {
-            let countNew = 0, countRe = 0, countActive = 0, countDone = 0;
+            let countNew = 0, countPriceDown = 0, countRe = 0, countActive = 0, countDone = 0;
 
             filtered.forEach(item => {
                 const status = (item.status || "").trim();
                 if (status === '신규매물') {
                     countNew++;
+                    countActive++;
+                } else if (status === '가격 인하') {
+                    countPriceDown++;
+                    countActive++;
+                } else if (status === '가격 인상') {
                     countActive++;
                 } else if (status === '매물 재등록') {
                     countRe++;
@@ -170,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (document.getElementById('count-new')) document.getElementById('count-new').textContent = countNew;
+            if (document.getElementById('count-price-down')) document.getElementById('count-price-down').textContent = countPriceDown;
             if (document.getElementById('count-re')) document.getElementById('count-re').textContent = countRe;
             if (document.getElementById('count-done')) document.getElementById('count-done').textContent = countDone;
             if (document.getElementById('count-active')) document.getElementById('count-active').textContent = countActive;
@@ -198,6 +206,28 @@ document.addEventListener('DOMContentLoaded', () => {
             // Link to the first article if available
             const articleLink = item.article_no ? `https://m.land.naver.com/article/info/${item.article_no}` : '#';
 
+            // Price display logic (handles price drops/raises)
+            let priceHtml = `<strong>${item.price}</strong>`;
+            if (item.prev_price && status === '가격 인하') {
+                const diffMan = item.price_diff ? Math.abs(Math.round(item.price_diff / 10000)).toLocaleString() : '';
+                priceHtml = `
+                    <div style="font-size:0.82em; color:#94a3b8; text-decoration:line-through;">${item.prev_price}</div>
+                    <div style="display:flex; align-items:center; gap:4px;">
+                        <strong style="color:#fb7185;">${item.price}</strong>
+                        <span style="color:#f43f5e; font-size:0.8em; font-weight:bold;">(-${diffMan}만 🔻)</span>
+                    </div>
+                `;
+            } else if (item.prev_price && status === '가격 인상') {
+                const diffMan = item.price_diff ? Math.round(item.price_diff / 10000).toLocaleString() : '';
+                priceHtml = `
+                    <div style="font-size:0.82em; color:#94a3b8; text-decoration:line-through;">${item.prev_price}</div>
+                    <div style="display:flex; align-items:center; gap:4px;">
+                        <strong style="color:#a78bfa;">${item.price}</strong>
+                        <span style="color:#8b5cf6; font-size:0.8em; font-weight:bold;">(+${diffMan}만 🔺)</span>
+                    </div>
+                `;
+            }
+
             tr.innerHTML = `
                 <td data-label="단지명"><strong>${item.complex_name}</strong></td>
                 <td data-label="상태"><span class="status-badge ${badgeClass}">${status}</span></td>
@@ -208,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </td>
                 <td class="floor-cell">${item.floor || ''}</td>
                 <td class="area-cell">${item.area || ''}</td>
-                <td data-label="가격" class="price-cell"><strong>${item.price}</strong></td>
+                <td data-label="가격" class="price-cell">${priceHtml}</td>
                 <td data-label="등록일" class="reg-date-cell">${item.reg_date || '-'}</td>
             `;
             tbody.appendChild(tr);

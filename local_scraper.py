@@ -476,7 +476,7 @@ async def main():
     ref_groups = group_listings(reference_listings)
     
     results = []
-    new_count, re_count, del_count = 0, 0, 0
+    new_count, re_count, down_count, up_count, del_count = 0, 0, 0, 0, 0
     
     processed_today = set()
     replaced_ref_uhs = set()
@@ -493,51 +493,90 @@ async def main():
     ref_prop_map = {get_prop_hash(data): uh for uh, data in ref_leftovers.items()}
     ref_fuzzy_map = {get_fuzzy_prop_hash(data): uh for uh, data in ref_leftovers.items()}
     
-    # Pass 2: remaining in today_groups (신규 or 재등록 판정)
+    # Pass 2: remaining in today_groups (신규, 가격인하, 가격인상, 재등록 판정)
     for uh, data in today_groups.items():
         if uh in processed_today: continue
         
         prop_hash = get_prop_hash(data)
         fuzzy_hash = get_fuzzy_prop_hash(data)
         
-        is_re_reg = False
+        is_matched = False
 
         # Case 1: 어제 기준선(ref_groups)에서 삭제되었다가 물리적 조건(단지/동/층/가격/면적) 완벽 일치로 다시 올라온 경우
-        if prop_hash in ref_prop_map:
+        if prop_hash in ref_prop_map and ref_prop_map[prop_hash] not in replaced_ref_uhs:
             old_uh = ref_prop_map[prop_hash]
             replaced_ref_uhs.add(old_uh) # 이전 매물은 거래완료 목록에서 제거
-            is_re_reg = True
+            data['status'] = "매물 재등록"
+            re_count += 1
+            is_matched = True
             
-        # Case 2: 층수 표기 변경 (예: 2층 -> 저층, 고층 -> 29층 등)
-        # 동일 단지, 동일 동, 동일 가격, 동일 면적이고 층수 호환 관계인 경우
-        elif fuzzy_hash in ref_fuzzy_map:
+        # Case 2: 층수 표기 변경 (가격 동일) (예: 2층 -> 저층, 고층 -> 29층 등)
+        elif fuzzy_hash in ref_fuzzy_map and ref_fuzzy_map[fuzzy_hash] not in replaced_ref_uhs:
             old_uh = ref_fuzzy_map[fuzzy_hash]
             old_data = ref_leftovers[old_uh]
             if is_floor_compatible(data.get('floor'), old_data.get('floor')):
                 replaced_ref_uhs.add(old_uh) # 이전 층수 매물은 거래완료 목록에서 제거
-                is_re_reg = True
+                data['status'] = "매물 재등록"
+                re_count += 1
+                is_matched = True
                 print(f"  🔄 [층수 표기 변경 감지] {data.get('complex_name')} {data.get('dong')}: {old_data.get('floor')} ➔ {data.get('floor')} (재등록 처리)", flush=True)
 
-        # Case 3: 과거(어제 이전) 7일 이내에 등록된 적이 있던 매물인지 확인
-        # ★ 중요: 오늘(current_date) 등록된 신규 매물끼리는 대조하지 않고, 어제 이전(old_date < today_date) 기록과만 대조!
-        if not is_re_reg:
+        # Case 3: ★ 가격 변동 (가격 인하 / 가격 인상) 감지!
+        # 동일 단지, 동일 동, 동일 면적, 호환 가능한 층수이지만 가격이 변경된 경우
+        if not is_matched:
+            for old_uh, old_data in ref_leftovers.items():
+                if old_uh in replaced_ref_uhs: continue
+                
+                # 단지, 동, 면적이 일치하는지 확인
+                if (data.get('complex_name') == old_data.get('complex_name') and
+                    data.get('dong') == old_data.get('dong') and
+                    data.get('area') == old_data.get('area') and
+                    is_floor_compatible(data.get('floor'), old_data.get('floor'))):
+                    
+                    old_price_val = int(old_data.get('price_val') or 0)
+                    curr_price_val = int(data.get('price_val') or 0)
+                    
+                    if old_price_val > 0 and curr_price_val > 0 and old_price_val != curr_price_val:
+                        diff_won = curr_price_val - old_price_val
+                        replaced_ref_uhs.add(old_uh) # 이전 가격 매물은 거래완료 목록에서 제거!
+                        data['prev_price'] = old_data.get('price')
+                        data['price_diff'] = diff_won
+                        
+                        if diff_won < 0:
+                            # 가격 인하
+                            data['status'] = "가격 인하"
+                            down_count += 1
+                            diff_man = abs(diff_won) // 10000
+                            print(f"  🔻 [가격 인하 감지] {data.get('complex_name')} {data.get('dong')} {data.get('floor')}: {old_data.get('price')} ➔ {data.get('price')} (-{diff_man:,}만)", flush=True)
+                        else:
+                            # 가격 인상
+                            data['status'] = "가격 인상"
+                            up_count += 1
+                            diff_man = diff_won // 10000
+                            print(f"  🔺 [가격 인상 감지] {data.get('complex_name')} {data.get('dong')} {data.get('floor')}: {old_data.get('price')} ➔ {data.get('price')} (+{diff_man:,}만)", flush=True)
+                            
+                        is_matched = True
+                        break
+
+        # Case 4: 과거(어제 이전) 7일 이내에 등록된 적이 있던 매물인지 확인
+        if not is_matched:
+            is_re_reg = False
             for check_dict, key in [(hist_hashes, uh), (hist_props, prop_hash)]:
                 if key in check_dict:
                     try:
                         old_date_str = check_dict[key]
                         old_date = datetime.datetime.strptime(old_date_str, "%Y-%m-%d").date()
-                        # 어제 이전(과거)이고 7일 이내인 경우에만 재등록으로 판정
                         if old_date < today_date and (today_date - old_date).days <= 7:
                             is_re_reg = True
                             break
                     except: pass
             
-        if is_re_reg:
-            data['status'] = "매물 재등록"
-            re_count += 1
-        else:
-            data['status'] = "신규매물"
-            new_count += 1
+            if is_re_reg:
+                data['status'] = "매물 재등록"
+                re_count += 1
+            else:
+                data['status'] = "신규매물"
+                new_count += 1
             
         results.append(data)
         
@@ -561,7 +600,7 @@ async def main():
             if status == "거래 완료":
                 del_count += 1
 
-    print(f"\n📊 Summary (Properties): New: {new_count}, Re-reg: {re_count}, Completed: {del_count}, Expired: {expire_count}")
+    print(f"\n📊 Summary (Properties): New: {new_count}, Price Down: {down_count}, Price Up: {up_count}, Re-reg: {re_count}, Completed: {del_count}, Expired: {expire_count}")
 
     results.sort(key=lambda x: (x.get('status') not in ['거래 완료', '등록 만료'], int(x.get('price_val', 0)), str(x.get('dong', '')), str(x.get('floor', ''))))
     
