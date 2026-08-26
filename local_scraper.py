@@ -85,6 +85,20 @@ async def fetch_complex_listings(page, tgt):
     complex_id = str(tgt["id"])
     print(f"\n[TARGET] {apt_name} (ID: {complex_id}) 수집 시작...", flush=True)
 
+    target_url = f"https://fin.land.naver.com/complexes/{complex_id}?propertyType=APT&tradeType=SALE"
+    
+    # 단지별 페이지 접속 및 세션 확보
+    try:
+        await page.goto(target_url, wait_until="domcontentloaded", timeout=25000)
+        await asyncio.sleep(1.5)
+    except Exception as e:
+        print(f"  ⚠️ 페이지 접속 재시도 ({apt_name}): {e}", flush=True)
+        try:
+            await page.goto(target_url, wait_until="domcontentloaded", timeout=30000)
+            await asyncio.sleep(2.0)
+        except Exception:
+            pass
+
     all_raw_items = []
     last_info = []
     seed = None
@@ -104,21 +118,41 @@ async def fetch_complex_listings(page, tgt):
         if seed:
             payload["seed"] = seed
 
-        res_data = await page.evaluate("""async (p) => {
-            try {
-                const res = await fetch('/front-api/v1/complex/article/list', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json, text/plain, */*'
-                    },
-                    body: JSON.stringify(p)
-                });
-                return await res.json();
-            } catch (err) {
-                return { error: err.toString() };
-            }
-        }""", payload)
+        res_data = None
+        for fetch_try in range(1, 4):
+            try:
+                res_data = await page.evaluate("""async (p) => {
+                    try {
+                        const res = await fetch('/front-api/v1/complex/article/list', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json, text/plain, */*'
+                            },
+                            body: JSON.stringify(p)
+                        });
+                        return await res.json();
+                    } catch (err) {
+                        return { error: err.toString() };
+                    }
+                }""", payload)
+                
+                if res_data and res_data.get("isSuccess"):
+                    break
+                elif res_data and "error" in res_data:
+                    # 세션 복구 재접속
+                    print(f"  ⚠️ API 응답 이상: {res_data.get('error')}. 세션 재접속...", flush=True)
+                    await page.goto(target_url, wait_until="domcontentloaded", timeout=20000)
+                    await asyncio.sleep(2.0)
+            except Exception as eval_err:
+                print(f"  ⚠️ Evaluate 실패: {eval_err}. 세션 재접속...", flush=True)
+                try:
+                    await page.goto(target_url, wait_until="domcontentloaded", timeout=20000)
+                    await asyncio.sleep(2.0)
+                except Exception:
+                    pass
+            
+            await asyncio.sleep(1.0)
 
         if not res_data or not res_data.get("isSuccess"):
             print(f"  ⚠️ API 응답 실패 또는 종료: {res_data}", flush=True)
@@ -144,7 +178,7 @@ async def fetch_complex_listings(page, tgt):
         if not last_info or len(page_list) < 30 or (is_more is False) or (has_next is False):
             break
 
-        await asyncio.sleep(0.2)
+        await asyncio.sleep(0.3)
 
     print(f"  ✅ 원시 데이터 {len(all_raw_items)}개 수집 완료. 필터링 및 파싱 진행 중...", flush=True)
 
@@ -309,23 +343,51 @@ async def main():
 
         all_today_articles = {}
         for tgt in TARGETS:
-            results = {}
+            apt_name = tgt["name"]
+            
+            # 이전 수량 파악 (reference_listings 기준)
+            prev_tgt_items = [l for l in reference_listings.values() if l.get("complex_name") == apt_name]
+            prev_count = len(prev_tgt_items)
+
+            best_results = {}
+            success = False
+
             for attempt in range(1, 4):
                 try:
                     results = await fetch_complex_listings(page, tgt)
-                    if results and len(results) > 0:
-                        break # Success!
+                    curr_count = len(results) if results else 0
+                    
+                    # 30% 이상 수량 급감 검증 (이전 수량이 3건 이상인데, 이번 수량이 이전의 70% 미만인 경우)
+                    if prev_count >= 3 and curr_count < (prev_count * 0.70):
+                        print(f"  ⚠️ [수량 검증 실패] {apt_name}: 이전 {prev_count}건 대비 현재 {curr_count}건으로 30% 이상 급감 감지! 재수집 시도 ({attempt}/3)...", flush=True)
+                        if len(results) > len(best_results):
+                            best_results = results
+                        
+                        # 세션 재접속 후 재시도
+                        target_url = f"https://fin.land.naver.com/complexes/{tgt['id']}?propertyType=APT&tradeType=SALE"
+                        await page.goto(target_url, wait_until="domcontentloaded", timeout=25000)
+                        await asyncio.sleep(attempt * 2.5)
+                        continue
+                    
+                    # 정상 수집 완료 (검증 통과)
+                    best_results = results
+                    success = True
+                    print(f"  🎯 [검증 성공] {apt_name}: {curr_count}개 매물 정상 수집 및 검증 완료.", flush=True)
+                    break
+
                 except Exception as e:
                     print(f"  ⚠️ Attempt {attempt} error: {e}", flush=True)
-                
-                if attempt < 3:
-                    wait_retry = attempt * 3
-                    print(f"  ⚠️ Attempt {attempt} failed. Retrying in {wait_retry}s...", flush=True)
-                    await asyncio.sleep(wait_retry)
-                else:
-                    print(f"  ❌ Max retries reached for {tgt['name']}.", flush=True)
-            
-            all_today_articles.update(results)
+                    await asyncio.sleep(attempt * 2.5)
+
+            if not success:
+                print(f"  ⚠️ {apt_name}: 재시도 후에도 수량이 부족하여 수집된 최선 데이터({len(best_results)}건)를 사용합니다.", flush=True)
+                # 만약 수집이 0건으로 완전히 실패했다면, 이전 정상 매물을 보존하여 대량 삭제/거래완료 오판 방지
+                if len(best_results) == 0 and prev_count > 0:
+                    print(f"  🛡️ [안전장치] {apt_name}: 수집 실패로 인해 이전 정상 매물({prev_count}건)을 임시 보존합니다.", flush=True)
+                    for l in prev_tgt_items:
+                        best_results[l.get("article_no", l.get("unit_hash"))] = l
+
+            all_today_articles.update(best_results)
             await asyncio.sleep(random.uniform(0.5, 1.0))
             
         await browser.close()
