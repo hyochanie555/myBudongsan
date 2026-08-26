@@ -121,11 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusOrder = {
                 '신규매물': 1,
                 '가격 인하': 2,
-                '거래 완료': 3,
-                '가격 인상': 4,
+                '가격 인상': 3,
+                '거래 완료': 4,
                 '매물 재등록': 5,
-                '유지': 6,
-                '등록 만료': 7
+                '유지': 5,
+                '등록 만료': 6
             };
             const statusA = (a.status || "").trim();
             const statusB = (b.status || "").trim();
