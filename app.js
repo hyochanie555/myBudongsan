@@ -207,8 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceHtml = `
                     <div style="font-size:0.82em; color:#94a3b8; text-decoration:line-through;">${item.prev_price}</div>
                     <div style="display:flex; align-items:center; gap:4px;">
-                        <strong style="color:#fb7185;">${item.price}</strong>
-                        <span style="color:#f43f5e; font-size:0.8em; font-weight:bold;">(-${diffMan}만 🔻)</span>
+                        <strong style="color:#60a5fa;">${item.price}</strong>
+                        <span style="color:#38bdf8; font-size:0.82em; font-weight:bold;">(-${diffMan}만 🔻)</span>
                     </div>
                 `;
             } else if (item.prev_price && status === '가격 인상') {
@@ -216,8 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceHtml = `
                     <div style="font-size:0.82em; color:#94a3b8; text-decoration:line-through;">${item.prev_price}</div>
                     <div style="display:flex; align-items:center; gap:4px;">
-                        <strong style="color:#a78bfa;">${item.price}</strong>
-                        <span style="color:#8b5cf6; font-size:0.8em; font-weight:bold;">(+${diffMan}만 🔺)</span>
+                        <strong style="color:#f87171;">${item.price}</strong>
+                        <span style="color:#ef4444; font-size:0.82em; font-weight:bold;">(+${diffMan}만 🔺)</span>
                     </div>
                 `;
             }

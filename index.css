@@ -89,8 +89,8 @@ body {
 }
 
 .new-icon {
-    background: rgba(59, 130, 246, 0.2);
-    border: 1px solid var(--accent-blue);
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid #10b981;
 }
 
 .re-icon {
@@ -98,19 +98,14 @@ body {
     border: 1px solid var(--accent-orange);
 }
 
-.price-down-icon {
-    background: rgba(244, 63, 94, 0.2);
-    border: 1px solid #f43f5e;
-}
-
 .done-icon {
-    background: rgba(239, 68, 68, 0.2);
-    border: 1px solid var(--accent-red);
+    background: rgba(168, 85, 247, 0.2);
+    border: 1px solid #a855f7;
 }
 
 .total-icon {
-    background: rgba(16, 185, 129, 0.2);
-    border: 1px solid var(--accent-green);
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid var(--accent-blue);
 }
 
 .card-content h3 {
@@ -242,22 +237,24 @@ tbody tr:hover {
 }
 
 .status-신규매물 {
-    background: rgba(59, 130, 246, 0.2);
-    color: #60a5fa;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    font-weight: 700;
 }
 
 .status-가격인하 {
-    background: rgba(244, 63, 94, 0.2);
-    color: #fb7185;
-    border: 1px solid rgba(244, 63, 94, 0.4);
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.4);
     font-weight: 700;
 }
 
 .status-가격인상 {
-    background: rgba(139, 92, 246, 0.2);
-    color: #a78bfa;
-    border: 1px solid rgba(139, 92, 246, 0.4);
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    font-weight: 700;
 }
 
 .status-매물재등록 {
@@ -267,9 +264,10 @@ tbody tr:hover {
 }
 
 .status-거래완료 {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(168, 85, 247, 0.2);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    font-weight: 700;
 }
 
 .status-유지 {
