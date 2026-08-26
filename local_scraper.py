@@ -262,6 +262,73 @@ def get_prop_hash(data):
     """Generates a physical property hash based on core attributes to detect re-registered items."""
     return f"{data.get('complex_name', '')}_{data.get('dong', '')}_{data.get('floor', '')}_{data.get('price_val', 0)}_{data.get('area', '')}"
 
+def get_fuzzy_prop_hash(data):
+    """Generates property hash WITHOUT floor (complex, dong, price, area) for floor change matching."""
+    return f"{data.get('complex_name', '')}_{data.get('dong', '')}_{data.get('price_val', 0)}_{data.get('area', '')}"
+
+def parse_floor_info(floor_str):
+    """
+    Parses strings like '2/21', '저/21', '고/29', '중/15', '3층', '저층'
+    Returns (type_or_num, total_floors)
+    """
+    if not floor_str:
+        return (None, None)
+    floor_str = str(floor_str).strip().replace("층", "")
+    parts = floor_str.split("/")
+    cur_part = parts[0].strip()
+    total_floors = int(parts[1].strip()) if len(parts) > 1 and parts[1].strip().isdigit() else None
+
+    if cur_part in ["저", "저층"]:
+        return ("저", total_floors)
+    elif cur_part in ["중", "중층"]:
+        return ("중", total_floors)
+    elif cur_part in ["고", "고층"]:
+        return ("고", total_floors)
+    elif cur_part.isdigit():
+        return (int(cur_part), total_floors)
+    else:
+        digits = "".join(filter(str.isdigit, cur_part))
+        if digits:
+            return (int(digits), total_floors)
+        return (cur_part, total_floors)
+
+def is_floor_compatible(f1_str, f2_str):
+    """
+    Checks if f1 and f2 are compatible floor representations (e.g. '2/21' <-> '저/21', '고/29' <-> '29/29').
+    """
+    if not f1_str or not f2_str:
+        return False
+    if f1_str == f2_str:
+        return True
+        
+    c1, t1 = parse_floor_info(f1_str)
+    c2, t2 = parse_floor_info(f2_str)
+    
+    # Both numbers -> must match exactly
+    if isinstance(c1, int) and isinstance(c2, int):
+        return c1 == c2
+        
+    # Both category -> match if same category
+    if isinstance(c1, str) and isinstance(c2, str):
+        return c1 == c2
+
+    # One is number, one is category ('저', '중', '고')
+    num = c1 if isinstance(c1, int) else c2
+    cat = c2 if isinstance(c1, int) else c1
+    total = t1 or t2 or 20
+
+    low_bound = max(1, total // 3)
+    high_bound = max(low_bound + 1, (total * 2) // 3)
+
+    if cat in ["저", "저층"]:
+        return num <= low_bound + 1
+    elif cat in ["중", "중층"]:
+        return low_bound <= num <= high_bound + 1
+    elif cat in ["고", "고층"]:
+        return num >= high_bound
+        
+    return False
+
 def group_listings(listings_dict):
     """Groups multiple article_nos into unique properties (trusting Naver's grouping)."""
     groups = {}
@@ -296,6 +363,7 @@ async def main():
     # Timezone handling (KST)
     now_kst = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=9)
     current_date = now_kst.strftime("%Y-%m-%d")
+    today_date = now_kst.date()
 
     # Migration for list to dict if necessary
     hist_hashes = {h: current_date for h in hist_hashes_raw} if isinstance(hist_hashes_raw, list) else hist_hashes_raw
@@ -357,9 +425,16 @@ async def main():
                     results = await fetch_complex_listings(page, tgt)
                     curr_count = len(results) if results else 0
                     
-                    # 30% 이상 수량 급감 검증 (이전 수량이 3건 이상인데, 이번 수량이 이전의 70% 미만인 경우)
-                    if prev_count >= 3 and curr_count < (prev_count * 0.70):
-                        print(f"  ⚠️ [수량 검증 실패] {apt_name}: 이전 {prev_count}건 대비 현재 {curr_count}건으로 30% 이상 급감 감지! 재수집 시도 ({attempt}/3)...", flush=True)
+                    # 수량 급감 검증 로직:
+                    # 1) 10개 이상 단지: 이전 수량 대비 30% 이상 급감(70% 미만) 시 재수집
+                    # 2) 10개 미만 단지: 0건으로 완전히 수집 실패한 경우에만 재수집 (예외 처리)
+                    if prev_count >= 10:
+                        needs_retry = (curr_count < prev_count * 0.70)
+                    else:
+                        needs_retry = (curr_count == 0 and prev_count > 0)
+                    
+                    if needs_retry:
+                        print(f"  ⚠️ [수량 검증 실패] {apt_name}: 이전 {prev_count}건 대비 현재 {curr_count}건 수집됨. 재수집 시도 ({attempt}/3)...", flush=True)
                         if len(results) > len(best_results):
                             best_results = results
                         
@@ -412,49 +487,61 @@ async def main():
             data['status'] = "유지"
             results.append(data)
             processed_today.add(uh)
-            hist_hashes[uh] = current_date
-            hist_props[get_prop_hash(data)] = current_date
 
-    # Build maps for remaining ref_groups
+    # Build maps for remaining ref_groups (어제 기준선에서 오늘 그대로 나타나지 않은 매물들)
     ref_leftovers = {uh: data for uh, data in ref_groups.items() if uh not in today_groups}
     ref_prop_map = {get_prop_hash(data): uh for uh, data in ref_leftovers.items()}
+    ref_fuzzy_map = {get_fuzzy_prop_hash(data): uh for uh, data in ref_leftovers.items()}
     
-    # Pass 2: remaining in today_groups (신규 or 재등록)
+    # Pass 2: remaining in today_groups (신규 or 재등록 판정)
     for uh, data in today_groups.items():
         if uh in processed_today: continue
         
         prop_hash = get_prop_hash(data)
+        fuzzy_hash = get_fuzzy_prop_hash(data)
         
-        # Check if it physically replaces an item in ref_groups (Deleted then re-registered)
+        is_re_reg = False
+
+        # Case 1: 어제 기준선(ref_groups)에서 삭제되었다가 물리적 조건(단지/동/층/가격/면적) 완벽 일치로 다시 올라온 경우
         if prop_hash in ref_prop_map:
             old_uh = ref_prop_map[prop_hash]
-            replaced_ref_uhs.add(old_uh)
-            data['status'] = "매물 재등록"
-            re_count += 1
-        else:
-            # Check if it existed within the last 7 days
-            is_re_reg = False
+            replaced_ref_uhs.add(old_uh) # 이전 매물은 거래완료 목록에서 제거
+            is_re_reg = True
+            
+        # Case 2: 층수 표기 변경 (예: 2층 -> 저층, 고층 -> 29층 등)
+        # 동일 단지, 동일 동, 동일 가격, 동일 면적이고 층수 호환 관계인 경우
+        elif fuzzy_hash in ref_fuzzy_map:
+            old_uh = ref_fuzzy_map[fuzzy_hash]
+            old_data = ref_leftovers[old_uh]
+            if is_floor_compatible(data.get('floor'), old_data.get('floor')):
+                replaced_ref_uhs.add(old_uh) # 이전 층수 매물은 거래완료 목록에서 제거
+                is_re_reg = True
+                print(f"  🔄 [층수 표기 변경 감지] {data.get('complex_name')} {data.get('dong')}: {old_data.get('floor')} ➔ {data.get('floor')} (재등록 처리)", flush=True)
+
+        # Case 3: 과거(어제 이전) 7일 이내에 등록된 적이 있던 매물인지 확인
+        # ★ 중요: 오늘(current_date) 등록된 신규 매물끼리는 대조하지 않고, 어제 이전(old_date < today_date) 기록과만 대조!
+        if not is_re_reg:
             for check_dict, key in [(hist_hashes, uh), (hist_props, prop_hash)]:
                 if key in check_dict:
                     try:
-                        old_date = datetime.datetime.strptime(check_dict[key], "%Y-%m-%d").date()
-                        if (now_kst.date() - old_date).days <= 7:
+                        old_date_str = check_dict[key]
+                        old_date = datetime.datetime.strptime(old_date_str, "%Y-%m-%d").date()
+                        # 어제 이전(과거)이고 7일 이내인 경우에만 재등록으로 판정
+                        if old_date < today_date and (today_date - old_date).days <= 7:
                             is_re_reg = True
                             break
                     except: pass
             
-            if is_re_reg:
-                data['status'] = "매물 재등록"
-                re_count += 1
-            else:
-                data['status'] = "신규매물"
-                new_count += 1
+        if is_re_reg:
+            data['status'] = "매물 재등록"
+            re_count += 1
+        else:
+            data['status'] = "신규매물"
+            new_count += 1
             
         results.append(data)
-        hist_hashes[uh] = current_date
-        hist_props[prop_hash] = current_date
         
-    # Pass 3: Process remaining ref_groups
+    # Pass 3: Process remaining ref_groups (대체되지 않은 남은 어제 매물 -> 거래 완료 또는 등록 만료)
     expire_count = 0
     for uh, data in ref_leftovers.items():
         if uh not in replaced_ref_uhs:
@@ -498,6 +585,11 @@ async def main():
     
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
+
+    # 히스토리 업데이트: 오늘 날짜 기록 갱신
+    for uh, data in today_groups.items():
+        hist_hashes[uh] = current_date
+        hist_props[get_prop_hash(data)] = current_date
 
     history["daily_stats"] = daily_stats
     history["last_day_listings"] = all_today_articles
