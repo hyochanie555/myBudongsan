@@ -440,9 +440,9 @@ tbody tr {
         font-size: 1.05rem;
     }
 
-    /* Fully Refined 2-Line List View for Mobile */
+    /* Fully Refined Uniform Mobile Card View */
     .dashboard-main {
-        padding: 0.3rem; /* Tighter padding for flow */
+        padding: 0.4rem;
     }
 
     table, thead, tbody, th, td, tr {
@@ -455,13 +455,16 @@ tbody tr {
 
     tbody tr {
         display: grid;
-        grid-template-columns: max-content max-content auto max-content;
-        padding: 0.9rem 1rem;
-        margin-bottom: 0.6rem;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid var(--border-color);
-        row-gap: 0.4rem;
+        grid-template-columns: auto auto 1fr auto;
+        grid-template-rows: auto auto;
+        padding: 1rem 1.1rem;
+        margin-bottom: 0.75rem;
+        border-radius: 14px;
+        background: rgba(30, 41, 59, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+        row-gap: 0.55rem;
+        column-gap: 0.45rem;
         align-items: center;
         position: relative;
     }
@@ -475,31 +478,37 @@ tbody tr {
         width: auto !important;
     }
 
-    /* Grid layout mapping mapping */
+    /* Grid layout mapping */
     td[data-label="단지명"], td[data-label="제공처"] { display: none !important; }
 
     .dong-cell {
-        grid-column: 1; 
+        grid-column: 1;
         grid-row: 1;
-        font-size: 1rem;
-        font-weight: 500;
+        font-size: 1.05rem;
+        font-weight: 700;
         color: #fff;
+        white-space: nowrap;
     }
 
     .floor-cell {
         grid-column: 2;
         grid-row: 1;
-        color: var(--text-secondary);
-        font-size: 0.85rem;
-        padding-left: 0.6rem;
+        color: #94a3b8;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding-left: 0.2rem;
+        white-space: nowrap;
     }
 
     .area-cell {
         grid-column: 3;
         grid-row: 1;
-        color: var(--text-secondary);
+        color: #94a3b8;
         font-size: 0.85rem;
-        padding-left: 0.4rem;
+        padding-left: 0.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     td[data-label="상태"] {
@@ -507,25 +516,28 @@ tbody tr {
         grid-row: 1;
         display: flex;
         justify-content: flex-end;
+        white-space: nowrap;
     }
 
     .reg-date-cell {
-        grid-column: 1 / span 3;
+        grid-column: 1 / span 2;
         grid-row: 2;
-        color: var(--text-secondary);
+        color: #64748b;
         font-size: 0.8rem;
-        align-self: flex-end;
+        align-self: center;
+        white-space: nowrap;
     }
 
     .price-cell {
-        grid-column: 4;
+        grid-column: 3 / span 2;
         grid-row: 2;
         display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
         font-size: 1.15rem;
-        font-weight: 700;
-        color: #60a5fa;
+        font-weight: 800;
+        text-align: right;
     }
 
     /* Hide labels and unwanted info */
@@ -533,7 +545,7 @@ tbody tr {
     td[data-label="단지명"], td[data-label="제공처"] { display: none !important; }
 
     .status-badge {
-        font-size: 0.7rem;
-        padding: 0.15rem 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.55rem;
     }
 }
