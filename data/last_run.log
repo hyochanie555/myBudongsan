@@ -563,3 +563,10 @@ To https://github.com/hyochanie555/myBudongsan.git
 
 📊 Summary (Properties): New: 1, Re-reg: 55, Completed: 6, Expired: 0
 ✅ 완료! 364개 고유 매물 저장됨.
+warning: in the working copy of 'automate_scheduler.ps1', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/last_run.log', LF will be replaced by CRLF the next time Git touches it
+[main 7a12e18] Auto-update listings: 2026-08-26 21:32:36 (Local Scraper)
+ 6 files changed, 5668 insertions(+), 756 deletions(-)
+To https://github.com/hyochanie555/myBudongsan.git
+   c1a52ac..7a12e18  main -> main
+[SUCCESS] Scraping and GitHub sync finished at 2026-08-26 21:32:36 
