@@ -674,3 +674,9 @@ To https://github.com/hyochanie555/myBudongsan.git
 
 📊 Summary (Properties): New: 2, Price Down: 1, Price Up: 1, Re-reg: 52, Completed: 2, Expired: 0
 ✅ 완료! 364개 고유 매물 저장됨.
+warning: in the working copy of 'data/last_run.log', LF will be replaced by CRLF the next time Git touches it
+[main fd41e41] Auto-update listings: 2026-08-26 21:47:04 (Local Scraper)
+ 8 files changed, 1775 insertions(+), 1655 deletions(-)
+To https://github.com/hyochanie555/myBudongsan.git
+   d10c32f..fd41e41  main -> main
+[SUCCESS] Scraping and GitHub sync finished at 2026-08-26 21:47:04 

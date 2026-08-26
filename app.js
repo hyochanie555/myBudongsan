@@ -154,19 +154,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update cards with safety
         try {
-            let countNew = 0, countPriceDown = 0, countRe = 0, countActive = 0, countDone = 0;
+            let countNew = 0, countRe = 0, countActive = 0, countDone = 0;
 
             filtered.forEach(item => {
                 const status = (item.status || "").trim();
                 if (status === '신규매물') {
                     countNew++;
                     countActive++;
-                } else if (status === '가격 인하') {
-                    countPriceDown++;
-                    countActive++;
-                } else if (status === '가격 인상') {
-                    countActive++;
-                } else if (status === '매물 재등록') {
+                } else if (status === '매물 재등록' || status === '가격 인하' || status === '가격 인상') {
                     countRe++;
                     countActive++;
                 } else if (status === '유지') {
@@ -177,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (document.getElementById('count-new')) document.getElementById('count-new').textContent = countNew;
-            if (document.getElementById('count-price-down')) document.getElementById('count-price-down').textContent = countPriceDown;
             if (document.getElementById('count-re')) document.getElementById('count-re').textContent = countRe;
             if (document.getElementById('count-done')) document.getElementById('count-done').textContent = countDone;
             if (document.getElementById('count-active')) document.getElementById('count-active').textContent = countActive;
