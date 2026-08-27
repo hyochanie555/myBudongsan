@@ -13,8 +13,8 @@ try {
     # 무시
 }
 
-# 1. 트리거 정의 (하루 6회: 07:00, 11:00, 13:00, 15:00, 18:00, 21:00)
-$times = @("07:00", "11:00", "13:00", "15:00", "18:00", "21:00")
+# 1. 트리거 정의 (하루 7회: 07:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)
+$times = @("07:00", "09:00", "11:00", "13:00", "15:00", "18:00", "21:00")
 $triggers = foreach ($time in $times) {
     New-ScheduledTaskTrigger -Daily -At $time
 }
@@ -46,7 +46,7 @@ try {
         -Action $action `
         -Settings $settings `
         -Principal $principal `
-        -Description "myBudongsan Real Estate Auto Scraper (Daily 6 times: 07:00, 11:00, 13:00, 15:00, 18:00, 21:00)" `
+        -Description "myBudongsan Real Estate Auto Scraper (Daily 7 times: 07:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)" `
         -Force `
         -ErrorAction Stop | Out-Null
 
@@ -54,7 +54,7 @@ try {
     Write-Host "==========================================================" -ForegroundColor Green
     Write-Host " [SUCCESS] 스케줄러 등록이 성공적으로 완료되었습니다!" -ForegroundColor Green
     Write-Host " 작업 이름 : $taskName" -ForegroundColor Green
-    Write-Host " 실행 시간 : $($times -join ', ') (하루 6회)" -ForegroundColor Green
+    Write-Host " 실행 시간 : $($times -join ', ') (하루 7회)" -ForegroundColor Green
     Write-Host " 절전 모드 : 화면 꺼짐/절전 모드에서도 백그라운드 실행(S4U/WakeToRun)" -ForegroundColor Green
     Write-Host "==========================================================" -ForegroundColor Green
 } catch {
@@ -65,7 +65,7 @@ try {
             -Trigger $triggers `
             -Action $action `
             -Settings $settings `
-            -Description "myBudongsan Real Estate Auto Scraper (Daily 6 times: 07:00, 11:00, 13:00, 15:00, 18:00, 21:00)" `
+            -Description "myBudongsan Real Estate Auto Scraper (Daily 7 times: 07:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)" `
             -Force `
             -ErrorAction Stop | Out-Null
 
@@ -73,7 +73,7 @@ try {
         Write-Host "==========================================================" -ForegroundColor Green
         Write-Host " [SUCCESS] 스케줄러 등록이 완료되었습니다 (기본 모드)!" -ForegroundColor Green
         Write-Host " 작업 이름 : $taskName" -ForegroundColor Green
-        Write-Host " 실행 시간 : $($times -join ', ') (하루 6회)" -ForegroundColor Green
+        Write-Host " 실행 시간 : $($times -join ', ') (하루 7회)" -ForegroundColor Green
         Write-Host "==========================================================" -ForegroundColor Green
     } catch {
         Write-Host "[ERROR] 작업 등록 실패: $($_.Exception.Message)" -ForegroundColor Red
