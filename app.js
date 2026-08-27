@@ -118,37 +118,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Multi-level Sorting Logic
         filtered.sort((a, b) => {
-            const statusOrder = {
-                '신규매물': 1,
-                '가격 인하': 2,
-                '가격 인상': 3,
-                '거래 완료': 4,
-                '매물 재등록': 5,
-                '유지': 5,
-                '등록 만료': 6
-            };
             const statusA = (a.status || "").trim();
             const statusB = (b.status || "").trim();
-            
-            const weightA = statusOrder[statusA] || 99;
-            const weightB = statusOrder[statusB] || 99;
 
-            // 1. Status Priority
-            if (weightA !== weightB) {
-                return weightA - weightB;
+            if (showChangesOnly) {
+                // [체크박스 켜짐 - 변동 매물 집중 보기]
+                // 신규매물 > 가격 인하 > 가격 인상 > 거래 완료 > 등록 만료
+                const changeStatusOrder = {
+                    '신규매물': 1,
+                    '가격 인하': 2,
+                    '가격 인상': 3,
+                    '거래 완료': 4,
+                    '등록 만료': 5,
+                    '매물 재등록': 6,
+                    '유지': 6
+                };
+                const weightA = changeStatusOrder[statusA] || 99;
+                const weightB = changeStatusOrder[statusB] || 99;
+
+                if (weightA !== weightB) {
+                    return weightA - weightB;
+                }
+            } else {
+                // [체크박스 해제 - 전체 매물 시세순 보기]
+                // 1순위: 거래 완료/등록 만료 매물만 최상단에 배치
+                // 2순위: 나머지 모든 활성 매물은 신규 여부 무관하게 동일 순위로 묶어 가격순 정렬
+                const isDoneA = (statusA === '거래 완료' || statusA === '등록 만료') ? 1 : 2;
+                const isDoneB = (statusB === '거래 완료' || statusB === '등록 만료') ? 1 : 2;
+
+                if (isDoneA !== isDoneB) {
+                    return isDoneA - isDoneB;
+                }
             }
 
-            // 2. Price: Lowest price first (price_val)
+            // 공통 정렬 1순위: 가격 낮은 순 (price_val)
             if ((a.price_val || 0) !== (b.price_val || 0)) {
                 return (a.price_val || 0) - (b.price_val || 0);
             }
 
-            // 3. Dong: Alphabetical order
+            // 공통 정렬 2순위: 동 번호 순
             if (a.dong !== b.dong) {
                 return (a.dong || "").localeCompare(b.dong || "");
             }
 
-            // 4. Floor: String comparison (deals with '고/21', '중/21', etc.)
+            // 공통 정렬 3순위: 층수 순
             return (a.floor || "").localeCompare(b.floor || "");
         });
 
