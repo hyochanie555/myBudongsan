@@ -13,8 +13,8 @@ try {
     # 무시
 }
 
-# 1. 트리거 정의 (하루 7회: 07:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)
-$times = @("07:00", "09:00", "11:00", "13:00", "15:00", "18:00", "21:00")
+# 1. 트리거 정의 (하루 7회: 05:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)
+$times = @("05:00", "09:00", "11:00", "13:00", "15:00", "18:00", "21:00")
 $triggers = foreach ($time in $times) {
     New-ScheduledTaskTrigger -Daily -At $time
 }
@@ -46,7 +46,7 @@ try {
         -Action $action `
         -Settings $settings `
         -Principal $principal `
-        -Description "myBudongsan Real Estate Auto Scraper (Daily 7 times: 07:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)" `
+        -Description "myBudongsan Real Estate Auto Scraper (Daily 7 times: 05:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)" `
         -Force `
         -ErrorAction Stop | Out-Null
 
@@ -65,7 +65,7 @@ try {
             -Trigger $triggers `
             -Action $action `
             -Settings $settings `
-            -Description "myBudongsan Real Estate Auto Scraper (Daily 7 times: 07:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)" `
+            -Description "myBudongsan Real Estate Auto Scraper (Daily 7 times: 05:00, 09:00, 11:00, 13:00, 15:00, 18:00, 21:00)" `
             -Force `
             -ErrorAction Stop | Out-Null
 
