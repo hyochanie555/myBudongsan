@@ -9,7 +9,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./index.css?v=2.9">
+    <link rel="stylesheet" href="./index.css?v=3.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -18,7 +18,10 @@
         <header class="dashboard-header">
             <div>
                 <h1>부동산 매물 현황 DashBoard</h1>
-                <p class="subtitle" id="last-update">데이터를 불러오는 중...</p>
+                <div class="subtitle-container" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 0.5rem;">
+                    <p class="subtitle" id="last-update" style="margin-top: 0;">데이터를 불러오는 중...</p>
+                    <span id="battery-status" class="battery-badge" style="display: none;">🔋 --%</span>
+                </div>
             </div>
             <div class="actions">
                 <button id="trend-btn" class="secondary-btn" style="margin-right: 0.5rem; background-color: rgba(30, 64, 175, 0.5); border-color: rgba(96, 165, 250, 0.5);">📈 매물 추이 보기</button>
@@ -122,7 +125,7 @@
         </div>
     </div>
 
-    <script src="./app.js?v=2.9"></script>
+    <script src="./app.js?v=3.0"></script>
 </body>
 
 </html>

@@ -26,6 +26,37 @@ HISTORY_FILE = os.path.join(DATA_DIR, "history.json")
 RESULTS_FILE = os.path.join(DATA_DIR, "results.json")
 LAST_RUN_FILE = os.path.join(DATA_DIR, "last_run.txt")
 
+def get_battery_info():
+    """Retrieves Windows battery percentage and charging status using ctypes GetSystemPowerStatus."""
+    if sys.platform != "win32":
+        return None
+    try:
+        import ctypes
+        from ctypes import wintypes
+
+        class SYSTEM_POWER_STATUS(ctypes.Structure):
+            _fields_ = [
+                ('ACLineStatus', wintypes.BYTE),
+                ('BatteryFlag', wintypes.BYTE),
+                ('BatteryLifePercent', wintypes.BYTE),
+                ('Reserved1', wintypes.BYTE),
+                ('BatteryLifeTime', wintypes.DWORD),
+                ('BatteryFullLifeTime', wintypes.DWORD),
+            ]
+
+        status = SYSTEM_POWER_STATUS()
+        if ctypes.windll.kernel32.GetSystemPowerStatus(ctypes.byref(status)):
+            percent = int(status.BatteryLifePercent)
+            is_charging = bool(status.ACLineStatus == 1)
+            if 0 <= percent <= 100:
+                return {
+                    "percent": percent,
+                    "is_charging": is_charging
+                }
+    except Exception:
+        pass
+    return None
+
 def parse_price(p_str):
     """Parses various Korean price strings to Won units."""
     if not p_str or "협의" in p_str: return 0
@@ -617,6 +648,7 @@ async def main():
 
     output = {
         "last_update": now_kst.strftime("%Y-%m-%d %H:%M"),
+        "battery": get_battery_info(),
         "summary": {apt["name"]: {"prev": len([l for l in ref_groups.values() if l["complex_name"] == apt["name"]]), "today": len([l for l in today_groups.values() if l["complex_name"] == apt["name"]])} for apt in TARGETS},
         "daily_stats": daily_stats,
         "listings": results

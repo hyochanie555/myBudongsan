@@ -38,6 +38,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 lastUpdateEl.textContent = `최근 갱신: ${responseData.last_update}`;
             }
 
+            // Show Battery Status
+            const batteryEl = document.getElementById('battery-status');
+            if (responseData.battery && batteryEl && typeof responseData.battery.percent === 'number') {
+                const b = responseData.battery;
+                const pct = b.percent;
+                const isCharging = b.is_charging;
+                
+                let icon = '🔋';
+                if (isCharging) icon = '⚡';
+                else if (pct <= 20) icon = '🪫';
+
+                batteryEl.textContent = `${icon} ${pct}%${isCharging ? ' (충전중)' : ''}`;
+                batteryEl.style.display = 'inline-flex';
+                
+                batteryEl.className = 'battery-badge';
+                if (isCharging || pct > 50) {
+                    batteryEl.classList.add('battery-good');
+                } else if (pct > 20) {
+                    batteryEl.classList.add('battery-mid');
+                } else {
+                    batteryEl.classList.add('battery-low');
+                }
+            } else if (batteryEl) {
+                batteryEl.style.display = 'none';
+            }
+
             // Update Filter Button Texts (Aesthetics Restoration)
             filterBtns.forEach(btn => {
                 const apt = btn.dataset.apt;

@@ -1,5 +1,9 @@
 {
-  "last_update": "2026-08-30 13:00",
+  "last_update": "2026-08-30 14:46",
+  "battery": {
+    "percent": 39,
+    "is_charging": true
+  },
   "summary": {
     "더샵동천포레스트": {
       "prev": 3,
@@ -8457,21 +8461,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2645236431",
+      "article_no": "2644786357",
       "complex_name": "더샵동천포레스트",
       "dong": "103동",
       "floor": "저/17",
       "price": "9억 4,000",
       "price_val": 940000000,
       "area": "112A / 84.86㎡",
-      "reg_date": "2026.08.22",
-      "cp_name": "더샵동천(265-8849)이스트포레공인중개사사무소",
-      "unit_hash": "NV_2645236431",
+      "reg_date": "2026.08.20",
+      "cp_name": "동천역 현대홈타운 공인중개사사무소",
+      "unit_hash": "NV_2644786357",
       "count": 1,
       "ids": [
-        "2645236431"
+        "2644786357"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2645691211",

@@ -53,6 +53,39 @@ body {
     margin-top: 0.5rem;
 }
 
+.battery-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.18rem 0.55rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.battery-badge.battery-good {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.battery-badge.battery-mid {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.battery-badge.battery-low {
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
 .glass {
     background: var(--card-bg);
     background-clip: padding-box;
