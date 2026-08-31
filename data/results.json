@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-08-31 05:00",
+  "last_update": "2026-08-31 09:00",
   "battery": {
-    "percent": 48,
+    "percent": 47,
     "is_charging": false
   },
   "summary": {
@@ -3562,23 +3562,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2646651231",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.08.30",
-      "cp_name": "블루마kcc공인중개사사무소",
-      "unit_hash": "NV_2646651231",
-      "count": 1,
-      "ids": [
-        "2646651231"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2646511619",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
@@ -3611,6 +3594,23 @@
         "2643535372"
       ],
       "status": "유지"
+    },
+    {
+      "article_no": "2646681990",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "106동",
+      "floor": "고/28",
+      "price": "3억 5,000",
+      "price_val": 350000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.08.31",
+      "cp_name": "블루마kcc공인중개사사무소",
+      "unit_hash": "NV_2646681990",
+      "count": 1,
+      "ids": [
+        "2646681990"
+      ],
+      "status": "매물 재등록"
     },
     {
       "article_no": "2645548058",
