@@ -3241,3 +3241,67 @@ To https://github.com/hyochanie555/myBudongsan.git
 
 📊 Summary (Properties): New: 2, Price Down: 2, Price Up: 2, Re-reg: 54, Completed: 2, Expired: 0
 ✅ 완료! 366개 고유 매물 저장됨.
+[main 62f81c3] Auto-update listings: 2026-09-02 18:01:39 (Local Scraper)
+ 4 files changed, 1773 insertions(+), 1679 deletions(-)
+[SYNC] Attempt 1: Pushing to GitHub... 
+To https://github.com/hyochanie555/myBudongsan.git
+   8620b69..62f81c3  main -> main
+[SUCCESS] Scraping and GitHub sync finished at 2026-09-02 18:01:39 
+======================================================== 
+[RUN] Scraper started at 2026-09-02 21:00:11 
+[NET] Network is online. 
+🌐 세션 초기화 접속: https://fin.land.naver.com/complexes/110798?propertyType=APT&tradeType=SALE
+
+[TARGET] 더샵동천포레스트 (ID: 110798) 수집 시작...
+  📥 페이지 1: +8건 수집 (누적: 8 / 전체 8건)
+  ✅ 원시 데이터 8개 수집 완료. 필터링 및 파싱 진행 중...
+  🎯 타겟 면적 필터 적용 후 4개 매물 확정.
+  🎯 [검증 성공] 더샵동천포레스트: 4개 매물 정상 수집 및 검증 완료.
+
+[TARGET] 울산 힐스테이트 강동 (ID: 109228) 수집 시작...
+  📥 페이지 1: +30건 수집 (누적: 30 / 전체 69건)
+  📥 페이지 2: +30건 수집 (누적: 60 / 전체 69건)
+  📥 페이지 3: +9건 수집 (누적: 69 / 전체 69건)
+  ✅ 원시 데이터 69개 수집 완료. 필터링 및 파싱 진행 중...
+  🎯 타겟 면적 필터 적용 후 64개 매물 확정.
+  🎯 [검증 성공] 울산 힐스테이트 강동: 64개 매물 정상 수집 및 검증 완료.
+
+[TARGET] 한강센트럴자이 1단지 (ID: 108487) 수집 시작...
+  📥 페이지 1: +30건 수집 (누적: 30 / 전체 401건)
+  ⚠️ Evaluate 실패: Page.evaluate: Execution context was destroyed, most likely because of a navigation.. 세션 재접속...
+  📥 페이지 2: +30건 수집 (누적: 60 / 전체 401건)
+  📥 페이지 3: +30건 수집 (누적: 90 / 전체 401건)
+  📥 페이지 4: +30건 수집 (누적: 120 / 전체 401건)
+  📥 페이지 5: +30건 수집 (누적: 150 / 전체 401건)
+  ⚠️ Evaluate 실패: Page.evaluate: Execution context was destroyed, most likely because of a navigation.. 세션 재접속...
+  📥 페이지 6: +30건 수집 (누적: 180 / 전체 401건)
+  📥 페이지 7: +30건 수집 (누적: 210 / 전체 401건)
+  📥 페이지 8: +30건 수집 (누적: 240 / 전체 401건)
+  📥 페이지 9: +30건 수집 (누적: 270 / 전체 401건)
+  📥 페이지 10: +30건 수집 (누적: 300 / 전체 401건)
+  ⚠️ API 응답 이상: SyntaxError: Unexpected token '<', "<html>
+<h"... is not valid JSON. 세션 재접속...
+  📥 페이지 11: +30건 수집 (누적: 330 / 전체 401건)
+  📥 페이지 12: +30건 수집 (누적: 360 / 전체 401건)
+  📥 페이지 13: +30건 수집 (누적: 390 / 전체 401건)
+  ⚠️ API 응답 이상: SyntaxError: Unexpected token '<', "<html>
+<h"... is not valid JSON. 세션 재접속...
+  📥 페이지 14: +11건 수집 (누적: 401 / 전체 401건)
+  ✅ 원시 데이터 401개 수집 완료. 필터링 및 파싱 진행 중...
+  🎯 타겟 면적 필터 적용 후 281개 매물 확정.
+  🎯 [검증 성공] 한강센트럴자이 1단지: 281개 매물 정상 수집 및 검증 완료.
+
+[TARGET] 선암에코하이츠 (ID: 106191) 수집 시작...
+  📥 페이지 1: +30건 수집 (누적: 30 / 전체 47건)
+  📥 페이지 2: +17건 수집 (누적: 47 / 전체 47건)
+  ✅ 원시 데이터 47개 수집 완료. 필터링 및 파싱 진행 중...
+  🎯 타겟 면적 필터 적용 후 16개 매물 확정.
+  🎯 [검증 성공] 선암에코하이츠: 16개 매물 정상 수집 및 검증 완료.
+  🔻 [가격 인하 감지] 울산 힐스테이트 강동 101동 3/30: 3억 1,000 ➔ 3억 (-1,000만)
+  🔺 [가격 인상 감지] 한강센트럴자이 1단지 133동 16/21: 5억 2,900 ➔ 5억 4,000 (+1,100만)
+  🔻 [가격 인하 감지] 한강센트럴자이 1단지 124동 7/22: 5억 2,000 ➔ 4억 8,000 (-4,000만)
+  🔺 [가격 인상 감지] 한강센트럴자이 1단지 132동 4/28: 5억 1,000 ➔ 5억 3,000 (+2,000만)
+  🔄 [층수 표기 변경 감지] 한강센트럴자이 1단지 111동: 15/27 ➔ 중/27 (재등록 처리)
+
+📊 Summary (Properties): New: 3, Price Down: 2, Price Up: 2, Re-reg: 55, Completed: 2, Expired: 1
+✅ 완료! 365개 고유 매물 저장됨.
