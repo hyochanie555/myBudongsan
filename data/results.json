@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-03 18:00",
+  "last_update": "2026-09-03 21:00",
   "battery": {
-    "percent": 30,
+    "percent": 28,
     "is_charging": false
   },
   "summary": {
@@ -3457,23 +3457,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2645696620",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "중/30",
-      "price": "3억 4,500",
-      "price_val": 345000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.08.25",
-      "cp_name": "바른공인중개사",
-      "unit_hash": "NV_2645696620",
-      "count": 1,
-      "ids": [
-        "2645696620"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2642457824",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "101동",
@@ -3489,6 +3472,23 @@
         "2642457824"
       ],
       "status": "유지"
+    },
+    {
+      "article_no": "2647662932",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "101동",
+      "floor": "중/30",
+      "price": "3억 4,500",
+      "price_val": 345000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.09.03",
+      "cp_name": "강동사랑가부동산공인중개사사무소",
+      "unit_hash": "NV_2647662932",
+      "count": 1,
+      "ids": [
+        "2647662932"
+      ],
+      "status": "매물 재등록"
     },
     {
       "article_no": "2643789313",
