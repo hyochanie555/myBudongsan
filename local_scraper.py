@@ -26,6 +26,7 @@ HISTORY_FILE = os.path.join(DATA_DIR, "history.json")
 RESULTS_FILE = os.path.join(DATA_DIR, "results.json")
 LAST_RUN_FILE = os.path.join(DATA_DIR, "last_run.txt")
 COMPLETED_HISTORY_FILE = os.path.join(DATA_DIR, "completed_history.json")
+LISTINGS_HISTORY_FILE = os.path.join(DATA_DIR, "listings_history.json")
 
 def get_battery_info():
     """Retrieves Windows battery percentage and charging status using ctypes GetSystemPowerStatus."""
@@ -655,8 +656,11 @@ async def main():
         "listings": results
     }
 
-    # 거래 완료 이력(completed_history.json) 자동 갱신
+    # 거래 완료 및 이력(listings_history.json / completed_history.json) 자동 갱신
+    active_art_nos = {r.get("article_no") for r in results if r.get("status") not in ["거래 완료", "등록 만료"]}
     completed_today = [r for r in results if r.get("status") == "거래 완료"]
+
+    # 1) completed_history.json 갱신
     completed_hist = []
     if os.path.exists(COMPLETED_HISTORY_FILE):
         try:
@@ -665,6 +669,8 @@ async def main():
         except:
             completed_hist = []
 
+    # 활성 매물로 부활한 항목은 완료 목록에서 제외
+    completed_hist = [x for x in completed_hist if x.get("article_no") not in active_art_nos]
     existing_uids = {x.get("article_no") or x.get("unit_hash") for x in completed_hist}
     new_completed = []
     for c in completed_today:
@@ -672,16 +678,76 @@ async def main():
         if uid and uid not in existing_uids:
             c_copy = dict(c)
             c_copy["done_date"] = current_date
+            c_copy["event_date"] = current_date
             new_completed.append(c_copy)
             existing_uids.add(uid)
 
-    if new_completed:
+    if new_completed or len(completed_hist) != len(existing_uids):
         completed_hist = new_completed + completed_hist
         with open(COMPLETED_HISTORY_FILE, "w", encoding="utf-8") as f:
             json.dump(completed_hist, f, ensure_ascii=False, indent=2)
 
+    # 2) listings_history.json 갱신
+    listings_hist = {"new": [], "re": [], "done": []}
+    if os.path.exists(LISTINGS_HISTORY_FILE):
+        try:
+            with open(LISTINGS_HISTORY_FILE, "r", encoding="utf-8") as f:
+                listings_hist = json.load(f)
+        except:
+            pass
+
+    listings_hist["done"] = completed_hist
+
+    # 오늘 신규매물 추가
+    new_today = [r for r in results if r.get("status") == "신규매물"]
+    existing_new_arts = {x.get("article_no") for x in listings_hist.get("new", [])}
+    new_to_add = []
+    for n in new_today:
+        art = n.get("article_no")
+        if art and art not in existing_new_arts:
+            new_to_add.append({
+                "event_date": current_date,
+                "complex_name": n.get("complex_name"),
+                "dong": n.get("dong"),
+                "floor": n.get("floor"),
+                "area": n.get("area"),
+                "price": n.get("price"),
+                "price_val": n.get("price_val"),
+                "reg_date": n.get("reg_date"),
+                "status": "신규매물",
+                "article_no": art
+            })
+            existing_new_arts.add(art)
+    if new_to_add:
+        listings_hist["new"] = (new_to_add + listings_hist.get("new", []))[:2000]
+
+    # 오늘 재등록/변동 매물 추가
+    re_today = [r for r in results if r.get("status") in ["매물 재등록", "가격 인하", "가격 인상"]]
+    re_to_add = []
+    for r in re_today:
+        re_to_add.append({
+            "event_date": current_date,
+            "complex_name": r.get("complex_name"),
+            "dong": r.get("dong"),
+            "floor": r.get("floor"),
+            "area": r.get("area"),
+            "price": r.get("price"),
+            "price_val": r.get("price_val"),
+            "reg_date": r.get("reg_date"),
+            "status": r.get("status"),
+            "article_no": r.get("article_no"),
+            "prev_price": r.get("prev_price", ""),
+            "price_diff": r.get("price_diff", 0)
+        })
+    if re_to_add:
+        listings_hist["re"] = (re_to_add + listings_hist.get("re", []))[:2000]
+
+    with open(LISTINGS_HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(listings_hist, f, ensure_ascii=False, separators=(',', ':'))
+
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
+
 
     # 히스토리 업데이트: 오늘 날짜 기록 갱신
     for uh, data in today_groups.items():

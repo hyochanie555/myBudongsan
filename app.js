@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allData = [];
     let summaryData = {};
-    let completedHistory = [];
+    let listingsHistory = { new: [], re: [], done: [] };
 
     // JSON Data Source
     const DATA_SOURCE = './data/results.json';
-    const COMPLETED_SOURCE = './data/completed_history.json';
+    const HISTORY_SOURCE = './data/listings_history.json';
 
     // Fetch data with improved error handling for "Scraping in progress"
     const loadData = async () => {
@@ -34,15 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryData = responseData.summary || {};
             window.dailyStatsData = responseData.daily_stats || {};
 
-            // Fetch Completed History Data
+            // Fetch Unified Listings History Data
             try {
-                const compRes = await fetch(`${COMPLETED_SOURCE}?t=${new Date().getTime()}`);
-                if (compRes.ok) {
-                    completedHistory = await compRes.json();
+                const histRes = await fetch(`${HISTORY_SOURCE}?t=${new Date().getTime()}`);
+                if (histRes.ok) {
+                    listingsHistory = await histRes.json();
                 }
-            } catch (ce) {
-                console.warn("Completed history fetch error:", ce);
+            } catch (he) {
+                console.warn("Listings history fetch error:", he);
             }
+
 
             // Show Last Update Time
             const lastUpdateEl = document.getElementById('last-update');
@@ -387,116 +388,189 @@ document.addEventListener('DOMContentLoaded', () => {
         renderChart(e.target.value);
     });
 
-    // --- Completed History Modal Logic ---
-    const completedModal = document.getElementById('completed-modal');
-    const cardDoneBtn = document.getElementById('card-done-btn');
-    const closeCompletedBtn = document.getElementById('close-completed-btn');
-    const compFilterBtns = document.querySelectorAll('.comp-filter-btn');
-    const compSearchInput = document.getElementById('completed-search-input');
-    const compTableBody = document.getElementById('completed-history-body');
-    const compTotalBadge = document.getElementById('completed-total-badge');
-    let activeCompApt = 'ALL';
+    // --- Unified History Modal Logic (New, Re, Done) ---
+    const historyModal = document.getElementById('history-modal');
+    const closeHistoryBtn = document.getElementById('close-history-btn');
+    const historyTitleText = document.getElementById('history-title-text');
+    const historyTotalBadge = document.getElementById('history-total-badge');
+    const historyModalSubtitle = document.getElementById('history-modal-subtitle');
+    const historyColDate = document.getElementById('history-col-date');
+    const historyColPrice = document.getElementById('history-col-price');
+    const historyAptFilters = document.querySelectorAll('#history-apt-filters .comp-filter-btn');
+    const historySearchInput = document.getElementById('history-search-input');
+    const historyTableBody = document.getElementById('history-table-body');
 
-    const renderCompletedModal = () => {
-        if (!compTableBody) return;
-        const searchTerm = (compSearchInput?.value || '').trim().toLowerCase();
+    const cardNewBtn = document.getElementById('card-new-btn');
+    const cardReBtn = document.getElementById('card-re-btn');
+    const cardDoneBtn = document.getElementById('card-done-btn');
+
+    let currentHistoryType = 'done'; // 'new' | 're' | 'done'
+    let activeHistoryApt = 'ALL';
+
+    const renderHistoryModal = () => {
+        if (!historyTableBody) return;
+        const rawList = listingsHistory[currentHistoryType] || [];
+        const searchTerm = (historySearchInput?.value || '').trim().toLowerCase();
         
-        let filtered = completedHistory.filter(item => {
-            if (activeCompApt !== 'ALL' && item.complex_name !== activeCompApt) return false;
+        let filtered = rawList.filter(item => {
+            if (activeHistoryApt !== 'ALL' && item.complex_name !== activeHistoryApt) return false;
             if (searchTerm) {
-                const str = `${item.done_date || ''} ${item.complex_name || ''} ${item.dong || ''} ${item.floor || ''} ${item.price || ''} ${item.area || ''} ${item.reg_date || ''}`.toLowerCase();
+                const str = `${item.event_date || item.done_date || ''} ${item.complex_name || ''} ${item.dong || ''} ${item.floor || ''} ${item.price || ''} ${item.area || ''} ${item.reg_date || ''}`.toLowerCase();
                 if (!str.includes(searchTerm)) return false;
             }
             return true;
         });
 
-        // Sort: done_date descending (newest / yesterday backwards), then price descending
+        // Sort: event_date descending (newest first), then price descending
         filtered.sort((a, b) => {
-            const dateA = a.done_date || '';
-            const dateB = b.done_date || '';
+            const dateA = a.event_date || a.done_date || '';
+            const dateB = b.event_date || b.done_date || '';
             if (dateA !== dateB) return dateB.localeCompare(dateA);
             return (b.price_val || 0) - (a.price_val || 0);
         });
 
-        if (compTotalBadge) {
-            compTotalBadge.textContent = `${filtered.length}건`;
+        if (historyTotalBadge) {
+            historyTotalBadge.textContent = `${filtered.length}건`;
         }
 
-        compTableBody.innerHTML = '';
+        historyTableBody.innerHTML = '';
         if (filtered.length === 0) {
-            compTableBody.innerHTML = `
+            historyTableBody.innerHTML = `
                 <tr>
-                    <td colspan="7" style="text-align: center; padding: 3.5rem; color: #94a3b8; font-size: 1.1rem;">
-                        선택된 단지 또는 검색 조건에 일치하는 거래 완료 내역이 없습니다.
+                    <td colspan="7" style="text-align: center; padding: 3.5rem; color: #94a3b8; font-size: 1.05rem;">
+                        선택된 단지 또는 검색 조건에 일치하는 이력이 없습니다.
                     </td>
                 </tr>
             `;
             return;
         }
 
+        const priceColor = currentHistoryType === 'new' ? '#34d399' : (currentHistoryType === 're' ? '#fbbf24' : '#c084fc');
+
         filtered.forEach(item => {
             const tr = document.createElement('tr');
             const articleLink = item.article_no ? `https://m.land.naver.com/article/info/${item.article_no}` : '#';
+            const eventDate = item.event_date || item.done_date || '-';
             
+            let priceHtml = `<span class="history-price-val" style="color: ${priceColor};">${item.price}</span>`;
+            if (item.prev_price && currentHistoryType === 're') {
+                const isDown = item.price_diff < 0;
+                const diffMan = Math.abs(item.price_diff) / 10000;
+                const diffBadge = isDown
+                    ? `<span style="font-size: 0.75rem; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 4px; border-radius: 4px; margin-left: 4px;">🔻 -${diffMan}만</span>`
+                    : `<span style="font-size: 0.75rem; color: #f87171; background: rgba(248, 113, 113, 0.15); padding: 1px 4px; border-radius: 4px; margin-left: 4px;">🔺 +${diffMan}만</span>`;
+                priceHtml = `
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
+                        <div>${priceHtml} ${diffBadge}</div>
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-decoration: line-through;">이전: ${item.prev_price}</span>
+                    </div>
+                `;
+            }
+
             tr.innerHTML = `
-                <td data-label="완료일자"><span class="done-date-badge">${item.done_date || '-'}</span></td>
-                <td data-label="단지명"><strong>${item.complex_name}</strong></td>
+                <td data-label="일자"><span class="done-date-badge">${eventDate}</span></td>
+                <td data-label="단지명"><strong>${item.complex_name || '-'}</strong></td>
                 <td class="dong-cell">
-                    <a href="${articleLink}" target="_blank" style="color: #60a5fa; text-decoration: none; font-weight: 600;">
-                        ${item.dong} ↗
+                    <a href="${articleLink}" target="_blank" rel="noopener" style="color: #60a5fa; text-decoration: none; font-weight: 600;">
+                        ${item.dong || '-'} ↗
                     </a>
                 </td>
                 <td class="floor-cell">${item.floor || '-'}</td>
                 <td class="area-cell" style="color: #94a3b8;">${item.area || '-'}</td>
-                <td data-label="거래 완료 금액" class="price-cell" style="text-align: right;"><span class="history-price-val">${item.price}</span></td>
+                <td data-label="금액" class="price-cell" style="text-align: right;">${priceHtml}</td>
                 <td data-label="등록일" style="text-align: center; color: #64748b; font-size: 0.85rem;">${item.reg_date || '-'}</td>
             `;
-            compTableBody.appendChild(tr);
+            historyTableBody.appendChild(tr);
         });
     };
 
-    cardDoneBtn?.addEventListener('click', () => {
-        completedModal.style.display = 'flex';
+    const openHistoryModal = (type) => {
+        currentHistoryType = type;
+        if (!historyModal) return;
+
         // Match current active apartment filter on main screen if selected
         const activeMainBtn = document.querySelector('.filter-btn.active');
-        if (activeMainBtn && activeMainBtn.dataset.apt) {
-            activeCompApt = activeMainBtn.dataset.apt;
-        } else {
-            activeCompApt = 'ALL';
-        }
+        activeHistoryApt = (activeMainBtn && activeMainBtn.dataset.apt) ? activeMainBtn.dataset.apt : 'ALL';
 
-        compFilterBtns.forEach(btn => {
-            if (btn.dataset.apt === activeCompApt) {
+        historyAptFilters.forEach(btn => {
+            if (btn.dataset.apt === activeHistoryApt) {
                 btn.classList.add('active');
             } else {
                 btn.classList.remove('active');
             }
         });
 
-        if (compSearchInput) compSearchInput.value = '';
-        renderCompletedModal();
+        if (historySearchInput) historySearchInput.value = '';
+
+        // Dynamic header setup
+        if (type === 'new') {
+            if (historyTitleText) historyTitleText.textContent = '✨ 신규 매물 등록 이력';
+            if (historyModalSubtitle) historyModalSubtitle.textContent = '과거에 새롭게 등록되었던 매물의 등록일자와 최초 등록 가격을 최신순으로 표시합니다.';
+            if (historyTotalBadge) historyTotalBadge.className = 'history-count-badge badge-new';
+            if (historyColDate) historyColDate.textContent = '등록일자';
+            if (historyColPrice) historyColPrice.textContent = '최초 등록 금액';
+        } else if (type === 're') {
+            if (historyTitleText) historyTitleText.textContent = '🔄 매물 재등록 및 변동 이력';
+            if (historyModalSubtitle) historyModalSubtitle.textContent = '과거 매물 재등록 및 가격 변동(인하/인상) 내역을 최신순으로 표시합니다.';
+            if (historyTotalBadge) historyTotalBadge.className = 'history-count-badge badge-re';
+            if (historyColDate) historyColDate.textContent = '변동일자';
+            if (historyColPrice) historyColPrice.textContent = '변동 금액';
+        } else {
+            if (historyTitleText) historyTitleText.textContent = '📋 거래 완료 내역';
+            if (historyModalSubtitle) historyModalSubtitle.textContent = '어제부터 시작하여 이전에 거래 완료된 매물의 날짜와 금액을 최신순으로 표시합니다.';
+            if (historyTotalBadge) historyTotalBadge.className = 'history-count-badge badge-done';
+            if (historyColDate) historyColDate.textContent = '완료일자';
+            if (historyColPrice) historyColPrice.textContent = '거래 완료 금액';
+        }
+
+        historyModal.style.display = 'flex';
+        renderHistoryModal();
+    };
+
+    // Click & Touch listeners for summary cards
+    cardNewBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openHistoryModal('new');
+    });
+    cardReBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openHistoryModal('re');
+    });
+    cardDoneBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openHistoryModal('done');
     });
 
-    closeCompletedBtn?.addEventListener('click', () => {
-        completedModal.style.display = 'none';
-    });
-
-    completedModal?.addEventListener('click', (e) => {
-        if (e.target === completedModal) completedModal.style.display = 'none';
-    });
-
-    compFilterBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            compFilterBtns.forEach(b => b.classList.remove('active'));
-            e.currentTarget.classList.add('active');
-            activeCompApt = e.currentTarget.dataset.apt;
-            renderCompletedModal();
+    [cardNewBtn, cardReBtn, cardDoneBtn].forEach(card => {
+        card?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
         });
     });
 
-    compSearchInput?.addEventListener('input', () => {
-        renderCompletedModal();
+    closeHistoryBtn?.addEventListener('click', () => {
+        if (historyModal) historyModal.style.display = 'none';
     });
+
+    historyModal?.addEventListener('click', (e) => {
+        if (e.target === historyModal) historyModal.style.display = 'none';
+    });
+
+    historyAptFilters.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            historyAptFilters.forEach(b => b.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            activeHistoryApt = e.currentTarget.dataset.apt;
+            renderHistoryModal();
+        });
+    });
+
+    historySearchInput?.addEventListener('input', () => {
+        renderHistoryModal();
+    });
+
 
     // Setup listeners
     refreshBtn.addEventListener('click', loadData);

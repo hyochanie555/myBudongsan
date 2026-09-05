@@ -9,7 +9,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./index.css?v=3.0">
+    <link rel="stylesheet" href="./index.css?v=4.5">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -30,27 +30,24 @@
         </header>
 
         <div class="summary-cards">
-            <div class="card glass">
+            <div class="card glass clickable-card" id="card-new-btn" role="button" tabindex="0">
                 <div class="card-icon new-icon"></div>
                 <div class="card-content">
                     <h3>신규매물</h3>
                     <p id="count-new" class="count">0</p>
                 </div>
             </div>
-            <div class="card glass">
+            <div class="card glass clickable-card" id="card-re-btn" role="button" tabindex="0">
                 <div class="card-icon re-icon"></div>
                 <div class="card-content">
                     <h3>매물 재등록</h3>
                     <p id="count-re" class="count">0</p>
                 </div>
             </div>
-            <div class="card glass clickable-card" id="card-done-btn" title="클릭하여 과거 거래 완료 내역 보기">
+            <div class="card glass clickable-card" id="card-done-btn" role="button" tabindex="0">
                 <div class="card-icon done-icon"></div>
                 <div class="card-content">
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
-                        <h3>거래 완료 (또는 삭제)</h3>
-                        <span class="card-action-badge">이력 보기 📋</span>
-                    </div>
+                    <h3>거래 완료 (또는 삭제)</h3>
                     <p id="count-done" class="count">0</p>
                 </div>
             </div>
@@ -102,45 +99,47 @@
         </main>
     </div>
 
-    <!-- Completed Transactions Modal -->
-    <div id="completed-modal" class="modal-overlay" style="display: none;">
-        <div class="modal-content glass" style="max-width: 960px; max-height: 88vh;">
+    <!-- History Modal (New, Re-reg, Done) -->
+    <div id="history-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content glass" style="max-width: 960px; max-height: 90vh;">
             <div class="modal-header">
                 <div>
-                    <h2 id="completed-modal-title" style="display: flex; align-items: center; gap: 8px;">
-                        <span>📋 거래 완료 내역 (과거 이력)</span>
-                        <span id="completed-total-badge" class="history-count-badge">0건</span>
+                    <h2 id="history-modal-title" style="display: flex; align-items: center; gap: 8px;">
+                        <span id="history-title-text">📋 거래 완료 내역</span>
+                        <span id="history-total-badge" class="history-count-badge badge-done">0건</span>
                     </h2>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">어제부터 시작하여 이전에 거래 완료된 매물의 날짜와 금액을 최신순으로 표시합니다.</p>
+                    <p id="history-modal-subtitle" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                        어제부터 시작하여 이전에 거래 완료된 매물의 날짜와 금액을 최신순으로 표시합니다.
+                    </p>
                 </div>
-                <button id="close-completed-btn" class="close-btn">&times;</button>
+                <button id="close-history-btn" class="close-btn" aria-label="닫기">&times;</button>
             </div>
             <div class="modal-body" style="display: flex; flex-direction: column; overflow: hidden; padding: 1.2rem;">
                 <div class="completed-toolbar" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; justify-content: space-between;">
-                    <div class="modal-filters" style="display: flex; gap: 6px; flex-wrap: wrap;" id="completed-apt-filters">
+                    <div class="modal-filters" style="display: flex; gap: 6px; flex-wrap: wrap;" id="history-apt-filters">
                         <button class="comp-filter-btn active" data-apt="ALL">전체 단지</button>
                         <button class="comp-filter-btn" data-apt="더샵동천포레스트">더샵동천포레스트</button>
                         <button class="comp-filter-btn" data-apt="울산 힐스테이트 강동">울산 힐스테이트 강동</button>
                         <button class="comp-filter-btn" data-apt="한강센트럴자이 1단지">한강센트럴자이 1단지</button>
                         <button class="comp-filter-btn" data-apt="선암에코하이츠">선암에코하이츠</button>
                     </div>
-                    <input type="text" id="completed-search-input" placeholder="동, 층, 금액, 날짜 검색..." 
-                        style="padding: 0.5rem 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.25); color: white; font-size: 0.9rem; min-width: 200px;">
+                    <input type="text" id="history-search-input" placeholder="동, 층, 금액, 날짜 검색..." 
+                        style="padding: 0.5rem 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.25); color: white; font-size: 0.9rem; min-width: 180px;">
                 </div>
-                <div class="table-container history-table-container" style="overflow-y: auto; max-height: 520px; border: 1px solid var(--border-color); border-radius: 10px;">
-                    <table class="history-table" style="width: 100%; border-collapse: collapse;">
+                <div class="table-container history-table-container" style="overflow-y: auto; max-height: 520px; border: 1px solid var(--border-color); border-radius: 10px; -webkit-overflow-scrolling: touch;">
+                    <table class="history-table" style="width: 100%; border-collapse: collapse; min-width: 600px;">
                         <thead style="position: sticky; top: 0; background: #1e293b; z-index: 10;">
                             <tr>
-                                <th style="padding: 0.75rem 1rem; text-align: left; color: #94a3b8; font-weight: 600; width: 115px;">완료일자</th>
-                                <th style="padding: 0.75rem 1rem; text-align: left; color: #94a3b8; font-weight: 600;">단지명</th>
-                                <th style="padding: 0.75rem 1rem; text-align: left; color: #94a3b8; font-weight: 600;">동</th>
-                                <th style="padding: 0.75rem 1rem; text-align: left; color: #94a3b8; font-weight: 600;">층</th>
-                                <th style="padding: 0.75rem 1rem; text-align: left; color: #94a3b8; font-weight: 600;">면적</th>
-                                <th style="padding: 0.75rem 1rem; text-align: right; color: #94a3b8; font-weight: 600;">거래 완료 금액</th>
-                                <th style="padding: 0.75rem 1rem; text-align: center; color: #94a3b8; font-weight: 600; width: 100px;">등록일</th>
+                                <th id="history-col-date" style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600; width: 110px;">완료일자</th>
+                                <th style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600;">단지명</th>
+                                <th style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600;">동</th>
+                                <th style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600;">층</th>
+                                <th style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600;">면적</th>
+                                <th id="history-col-price" style="padding: 0.75rem 0.85rem; text-align: right; color: #94a3b8; font-weight: 600;">거래 완료 금액</th>
+                                <th style="padding: 0.75rem 0.85rem; text-align: center; color: #94a3b8; font-weight: 600; width: 95px;">등록일</th>
                             </tr>
                         </thead>
-                        <tbody id="completed-history-body">
+                        <tbody id="history-table-body">
                             <!-- JS renders rows here -->
                         </tbody>
                     </table>
@@ -175,7 +174,7 @@
         </div>
     </div>
 
-    <script src="./app.js?v=3.0"></script>
+    <script src="./app.js?v=4.5"></script>
 </body>
 
 </html>
