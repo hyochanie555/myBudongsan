@@ -475,20 +475,25 @@ tbody tr {
         font-size: 1.05rem;
     }
 
-    /* Fully Refined Uniform Mobile Card View */
+    /* Fully Refined Uniform Mobile Card View (Original format restored) */
     .dashboard-main {
         padding: 0.4rem;
     }
 
-    #listings-table, #listings-table thead, #listings-table tbody, #listings-table th, #listings-table td, #listings-table tr {
+    .dashboard-main table, 
+    .dashboard-main thead, 
+    .dashboard-main tbody, 
+    .dashboard-main th, 
+    .dashboard-main td, 
+    .dashboard-main tr {
         display: block;
     }
 
-    #listings-table thead {
+    .dashboard-main thead {
         display: none;
     }
 
-    #listings-table tbody tr {
+    .dashboard-main tbody tr {
         display: grid;
         grid-template-columns: auto auto 1fr auto;
         grid-template-rows: auto auto;
@@ -504,7 +509,7 @@ tbody tr {
         position: relative;
     }
 
-    #listings-table td {
+    .dashboard-main td {
         border: none !important;
         padding: 0 !important;
         min-height: auto !important;
@@ -514,9 +519,12 @@ tbody tr {
     }
 
     /* Grid layout mapping */
-    td[data-label="단지명"], td[data-label="제공처"] { display: none !important; }
+    .dashboard-main td[data-label="단지명"], 
+    .dashboard-main td[data-label="제공처"] { 
+        display: none !important; 
+    }
 
-    .dong-cell {
+    .dashboard-main .dong-cell {
         grid-column: 1;
         grid-row: 1;
         font-size: 1.05rem;
@@ -525,7 +533,7 @@ tbody tr {
         white-space: nowrap;
     }
 
-    .floor-cell {
+    .dashboard-main .floor-cell {
         grid-column: 2;
         grid-row: 1;
         color: #94a3b8;
@@ -535,7 +543,7 @@ tbody tr {
         white-space: nowrap;
     }
 
-    .area-cell {
+    .dashboard-main .area-cell {
         grid-column: 3;
         grid-row: 1;
         color: #94a3b8;
@@ -546,15 +554,15 @@ tbody tr {
         text-overflow: ellipsis;
     }
 
-    td[data-label="상태"] {
+    .dashboard-main td[data-label="상태"] {
         grid-column: 4;
         grid-row: 1;
-        display: flex;
+        display: flex !important;
         justify-content: flex-end;
         white-space: nowrap;
     }
 
-    .reg-date-cell {
+    .dashboard-main .reg-date-cell {
         grid-column: 1 / span 2;
         grid-row: 2;
         color: #64748b;
@@ -563,10 +571,10 @@ tbody tr {
         white-space: nowrap;
     }
 
-    .price-cell {
+    .dashboard-main .price-cell {
         grid-column: 3 / span 2;
         grid-row: 2;
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         align-items: flex-end;
         justify-content: center;
@@ -576,14 +584,14 @@ tbody tr {
     }
 
     /* Hide labels and unwanted info */
-    td::before { display: none !important; }
-    td[data-label="단지명"], td[data-label="제공처"] { display: none !important; }
+    .dashboard-main td::before { display: none !important; }
 
-    .status-badge {
+    .dashboard-main .status-badge {
         font-size: 0.75rem;
         padding: 0.2rem 0.55rem;
     }
 }
+
 
 /* Clickable Summary Cards */
 .clickable-card {
@@ -726,14 +734,23 @@ tbody tr {
         padding: 0.8rem;
     }
     .history-table-container {
-        max-height: 58vh !important;
+        max-height: 60vh !important;
         overflow-x: auto;
     }
+    .history-table {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
     .history-table th, .history-table td {
-        padding: 0.6rem 0.5rem !important;
+        padding: 0.55rem 0.35rem !important;
         font-size: 0.82rem !important;
     }
-    .history-price-val {
-        font-size: 0.95rem;
+    .done-date-badge {
+        font-size: 0.74rem !important;
+        padding: 1px 5px !important;
     }
+    .history-price-val {
+        font-size: 0.88rem !important;
+    }
+
 }

@@ -9,7 +9,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./index.css?v=4.5">
+    <link rel="stylesheet" href="./index.css?v=4.6">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -127,22 +127,21 @@
                         style="padding: 0.5rem 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.25); color: white; font-size: 0.9rem; min-width: 180px;">
                 </div>
                 <div class="table-container history-table-container" style="overflow-y: auto; max-height: 520px; border: 1px solid var(--border-color); border-radius: 10px; -webkit-overflow-scrolling: touch;">
-                    <table class="history-table" style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                    <table class="history-table" style="width: 100%; border-collapse: collapse;">
                         <thead style="position: sticky; top: 0; background: #1e293b; z-index: 10;">
                             <tr>
-                                <th id="history-col-date" style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600; width: 110px;">완료일자</th>
-                                <th style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600;">단지명</th>
-                                <th style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600;">동</th>
-                                <th style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600;">층</th>
-                                <th style="padding: 0.75rem 0.85rem; text-align: left; color: #94a3b8; font-weight: 600;">면적</th>
-                                <th id="history-col-price" style="padding: 0.75rem 0.85rem; text-align: right; color: #94a3b8; font-weight: 600;">거래 완료 금액</th>
-                                <th style="padding: 0.75rem 0.85rem; text-align: center; color: #94a3b8; font-weight: 600; width: 95px;">등록일</th>
+                                <th id="history-col-date" style="padding: 0.75rem 0.5rem; text-align: left; color: #94a3b8; font-weight: 600; width: 24%;">완료일자</th>
+                                <th style="padding: 0.75rem 0.5rem; text-align: left; color: #94a3b8; font-weight: 600; width: 22%;">동</th>
+                                <th style="padding: 0.75rem 0.5rem; text-align: left; color: #94a3b8; font-weight: 600; width: 16%;">층</th>
+                                <th id="history-col-price" style="padding: 0.75rem 0.5rem; text-align: right; color: #94a3b8; font-weight: 600; width: 23%;">거래 금액</th>
+                                <th style="padding: 0.75rem 0.5rem; text-align: center; color: #94a3b8; font-weight: 600; width: 15%;">등록일</th>
                             </tr>
                         </thead>
                         <tbody id="history-table-body">
                             <!-- JS renders rows here -->
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
@@ -174,7 +173,7 @@
         </div>
     </div>
 
-    <script src="./app.js?v=4.5"></script>
+    <script src="./app.js?v=4.6"></script>
 </body>
 
 </html>

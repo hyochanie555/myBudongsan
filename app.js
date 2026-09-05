@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (filtered.length === 0) {
             historyTableBody.innerHTML = `
                 <tr>
-                    <td colspan="7" style="text-align: center; padding: 3.5rem; color: #94a3b8; font-size: 1.05rem;">
+                    <td colspan="5" style="text-align: center; padding: 3rem 1rem; color: #94a3b8; font-size: 1rem;">
                         선택된 단지 또는 검색 조건에 일치하는 이력이 없습니다.
                     </td>
                 </tr>
@@ -457,31 +457,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isDown = item.price_diff < 0;
                 const diffMan = Math.abs(item.price_diff) / 10000;
                 const diffBadge = isDown
-                    ? `<span style="font-size: 0.75rem; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 4px; border-radius: 4px; margin-left: 4px;">🔻 -${diffMan}만</span>`
-                    : `<span style="font-size: 0.75rem; color: #f87171; background: rgba(248, 113, 113, 0.15); padding: 1px 4px; border-radius: 4px; margin-left: 4px;">🔺 +${diffMan}만</span>`;
+                    ? `<span style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 3px; border-radius: 4px; margin-left: 2px;">🔻 -${diffMan}만</span>`
+                    : `<span style="font-size: 0.72rem; color: #f87171; background: rgba(248, 113, 113, 0.15); padding: 1px 3px; border-radius: 4px; margin-left: 2px;">🔺 +${diffMan}만</span>`;
                 priceHtml = `
-                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px;">
                         <div>${priceHtml} ${diffBadge}</div>
-                        <span style="font-size: 0.75rem; color: #94a3b8; text-decoration: line-through;">이전: ${item.prev_price}</span>
+                        <span style="font-size: 0.72rem; color: #94a3b8; text-decoration: line-through;">이전: ${item.prev_price}</span>
                     </div>
                 `;
             }
 
             tr.innerHTML = `
-                <td data-label="일자"><span class="done-date-badge">${eventDate}</span></td>
-                <td data-label="단지명"><strong>${item.complex_name || '-'}</strong></td>
-                <td class="dong-cell">
-                    <a href="${articleLink}" target="_blank" rel="noopener" style="color: #60a5fa; text-decoration: none; font-weight: 600;">
+                <td style="text-align: left; padding: 0.7rem 0.5rem;"><span class="done-date-badge">${eventDate}</span></td>
+                <td style="text-align: left; padding: 0.7rem 0.5rem; font-weight: 600;">
+                    <a href="${articleLink}" target="_blank" rel="noopener" style="color: #60a5fa; text-decoration: none;">
                         ${item.dong || '-'} ↗
                     </a>
                 </td>
-                <td class="floor-cell">${item.floor || '-'}</td>
-                <td class="area-cell" style="color: #94a3b8;">${item.area || '-'}</td>
-                <td data-label="금액" class="price-cell" style="text-align: right;">${priceHtml}</td>
-                <td data-label="등록일" style="text-align: center; color: #64748b; font-size: 0.85rem;">${item.reg_date || '-'}</td>
+                <td style="text-align: left; padding: 0.7rem 0.5rem; color: #cbd5e1;">${item.floor || '-'}</td>
+                <td style="text-align: right; padding: 0.7rem 0.5rem;">${priceHtml}</td>
+                <td style="text-align: center; padding: 0.7rem 0.5rem; color: #64748b; font-size: 0.82rem;">${item.reg_date || '-'}</td>
             `;
             historyTableBody.appendChild(tr);
         });
+
     };
 
     const openHistoryModal = (type) => {
