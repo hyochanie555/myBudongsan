@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-05 05:00",
+  "last_update": "2026-09-05 09:00",
   "battery": {
-    "percent": 47,
+    "percent": 46,
     "is_charging": false
   },
   "summary": {
@@ -2622,21 +2622,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2645261316",
+      "article_no": "2647911905",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "103동",
       "floor": "14/32",
       "price": "3억",
       "price_val": 300000000,
       "area": "113A / 84.76㎡",
-      "reg_date": "2026.08.22",
-      "cp_name": "강동스타힐스부동산공인중개사사무소",
-      "unit_hash": "NV_2645261316",
+      "reg_date": "2026.09.05",
+      "cp_name": "강동KCC부동산공인중개사사무소",
+      "unit_hash": "NV_2647911905",
       "count": 1,
       "ids": [
-        "2645261316"
+        "2647911905"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2646251205",
