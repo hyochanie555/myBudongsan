@@ -7,9 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allData = [];
     let summaryData = {};
+    let completedHistory = [];
 
     // JSON Data Source
     const DATA_SOURCE = './data/results.json';
+    const COMPLETED_SOURCE = './data/completed_history.json';
 
     // Fetch data with improved error handling for "Scraping in progress"
     const loadData = async () => {
@@ -31,6 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
             allData = responseData.listings || [];
             summaryData = responseData.summary || {};
             window.dailyStatsData = responseData.daily_stats || {};
+
+            // Fetch Completed History Data
+            try {
+                const compRes = await fetch(`${COMPLETED_SOURCE}?t=${new Date().getTime()}`);
+                if (compRes.ok) {
+                    completedHistory = await compRes.json();
+                }
+            } catch (ce) {
+                console.warn("Completed history fetch error:", ce);
+            }
 
             // Show Last Update Time
             const lastUpdateEl = document.getElementById('last-update');
@@ -373,6 +385,117 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chartAptSelect?.addEventListener('change', (e) => {
         renderChart(e.target.value);
+    });
+
+    // --- Completed History Modal Logic ---
+    const completedModal = document.getElementById('completed-modal');
+    const cardDoneBtn = document.getElementById('card-done-btn');
+    const closeCompletedBtn = document.getElementById('close-completed-btn');
+    const compFilterBtns = document.querySelectorAll('.comp-filter-btn');
+    const compSearchInput = document.getElementById('completed-search-input');
+    const compTableBody = document.getElementById('completed-history-body');
+    const compTotalBadge = document.getElementById('completed-total-badge');
+    let activeCompApt = 'ALL';
+
+    const renderCompletedModal = () => {
+        if (!compTableBody) return;
+        const searchTerm = (compSearchInput?.value || '').trim().toLowerCase();
+        
+        let filtered = completedHistory.filter(item => {
+            if (activeCompApt !== 'ALL' && item.complex_name !== activeCompApt) return false;
+            if (searchTerm) {
+                const str = `${item.done_date || ''} ${item.complex_name || ''} ${item.dong || ''} ${item.floor || ''} ${item.price || ''} ${item.area || ''} ${item.reg_date || ''}`.toLowerCase();
+                if (!str.includes(searchTerm)) return false;
+            }
+            return true;
+        });
+
+        // Sort: done_date descending (newest / yesterday backwards), then price descending
+        filtered.sort((a, b) => {
+            const dateA = a.done_date || '';
+            const dateB = b.done_date || '';
+            if (dateA !== dateB) return dateB.localeCompare(dateA);
+            return (b.price_val || 0) - (a.price_val || 0);
+        });
+
+        if (compTotalBadge) {
+            compTotalBadge.textContent = `${filtered.length}건`;
+        }
+
+        compTableBody.innerHTML = '';
+        if (filtered.length === 0) {
+            compTableBody.innerHTML = `
+                <tr>
+                    <td colspan="7" style="text-align: center; padding: 3.5rem; color: #94a3b8; font-size: 1.1rem;">
+                        선택된 단지 또는 검색 조건에 일치하는 거래 완료 내역이 없습니다.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        filtered.forEach(item => {
+            const tr = document.createElement('tr');
+            const articleLink = item.article_no ? `https://m.land.naver.com/article/info/${item.article_no}` : '#';
+            
+            tr.innerHTML = `
+                <td data-label="완료일자"><span class="done-date-badge">${item.done_date || '-'}</span></td>
+                <td data-label="단지명"><strong>${item.complex_name}</strong></td>
+                <td class="dong-cell">
+                    <a href="${articleLink}" target="_blank" style="color: #60a5fa; text-decoration: none; font-weight: 600;">
+                        ${item.dong} ↗
+                    </a>
+                </td>
+                <td class="floor-cell">${item.floor || '-'}</td>
+                <td class="area-cell" style="color: #94a3b8;">${item.area || '-'}</td>
+                <td data-label="거래 완료 금액" class="price-cell" style="text-align: right;"><span class="history-price-val">${item.price}</span></td>
+                <td data-label="등록일" style="text-align: center; color: #64748b; font-size: 0.85rem;">${item.reg_date || '-'}</td>
+            `;
+            compTableBody.appendChild(tr);
+        });
+    };
+
+    cardDoneBtn?.addEventListener('click', () => {
+        completedModal.style.display = 'flex';
+        // Match current active apartment filter on main screen if selected
+        const activeMainBtn = document.querySelector('.filter-btn.active');
+        if (activeMainBtn && activeMainBtn.dataset.apt) {
+            activeCompApt = activeMainBtn.dataset.apt;
+        } else {
+            activeCompApt = 'ALL';
+        }
+
+        compFilterBtns.forEach(btn => {
+            if (btn.dataset.apt === activeCompApt) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        if (compSearchInput) compSearchInput.value = '';
+        renderCompletedModal();
+    });
+
+    closeCompletedBtn?.addEventListener('click', () => {
+        completedModal.style.display = 'none';
+    });
+
+    completedModal?.addEventListener('click', (e) => {
+        if (e.target === completedModal) completedModal.style.display = 'none';
+    });
+
+    compFilterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            compFilterBtns.forEach(b => b.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            activeCompApt = e.currentTarget.dataset.apt;
+            renderCompletedModal();
+        });
+    });
+
+    compSearchInput?.addEventListener('input', () => {
+        renderCompletedModal();
     });
 
     // Setup listeners

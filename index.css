@@ -582,3 +582,106 @@ tbody tr {
         padding: 0.2rem 0.55rem;
     }
 }
+
+/* Clickable Summary Card */
+.clickable-card {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.clickable-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.25);
+}
+
+.clickable-card:active {
+    transform: translateY(-2px) scale(0.99);
+}
+
+.card-action-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: rgba(168, 85, 247, 0.2);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    border-radius: 6px;
+    padding: 2px 7px;
+    letter-spacing: -0.3px;
+    transition: all 0.2s ease;
+}
+
+.clickable-card:hover .card-action-badge {
+    background: #a855f7;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+/* History Modal Specifics */
+.history-count-badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: rgba(168, 85, 247, 0.25);
+    color: #d8b4fe;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+.comp-filter-btn {
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.comp-filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.comp-filter-btn.active {
+    background: rgba(168, 85, 247, 0.35);
+    border-color: #a855f7;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+}
+
+.history-table th {
+    font-size: 0.85rem;
+    letter-spacing: -0.2px;
+}
+
+.history-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.92rem;
+}
+
+.history-table tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.done-date-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    background: rgba(96, 165, 250, 0.15);
+    color: #93c5fd;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.history-price-val {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #c084fc;
+}

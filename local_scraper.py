@@ -25,6 +25,7 @@ DATA_DIR = "data"
 HISTORY_FILE = os.path.join(DATA_DIR, "history.json")
 RESULTS_FILE = os.path.join(DATA_DIR, "results.json")
 LAST_RUN_FILE = os.path.join(DATA_DIR, "last_run.txt")
+COMPLETED_HISTORY_FILE = os.path.join(DATA_DIR, "completed_history.json")
 
 def get_battery_info():
     """Retrieves Windows battery percentage and charging status using ctypes GetSystemPowerStatus."""
@@ -653,7 +654,32 @@ async def main():
         "daily_stats": daily_stats,
         "listings": results
     }
-    
+
+    # 거래 완료 이력(completed_history.json) 자동 갱신
+    completed_today = [r for r in results if r.get("status") == "거래 완료"]
+    completed_hist = []
+    if os.path.exists(COMPLETED_HISTORY_FILE):
+        try:
+            with open(COMPLETED_HISTORY_FILE, "r", encoding="utf-8") as f:
+                completed_hist = json.load(f)
+        except:
+            completed_hist = []
+
+    existing_uids = {x.get("article_no") or x.get("unit_hash") for x in completed_hist}
+    new_completed = []
+    for c in completed_today:
+        uid = c.get("article_no") or c.get("unit_hash")
+        if uid and uid not in existing_uids:
+            c_copy = dict(c)
+            c_copy["done_date"] = current_date
+            new_completed.append(c_copy)
+            existing_uids.add(uid)
+
+    if new_completed:
+        completed_hist = new_completed + completed_hist
+        with open(COMPLETED_HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(completed_hist, f, ensure_ascii=False, indent=2)
+
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
