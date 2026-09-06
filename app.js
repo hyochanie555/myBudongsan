@@ -366,8 +366,78 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // --- Toast Notification ---
+    let toastTimeout = null;
+    const showToast = (message) => {
+        let toast = document.getElementById('app-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'app-toast';
+            toast.className = 'toast-msg';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.classList.add('show');
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2000);
+    };
+
+    // --- History Navigation Guard (Back button support for modals & main screen) ---
+    let isProgrammaticBack = false;
+
+    const initHistoryGuard = () => {
+        if (!window.history.state || window.history.state.page !== 'home_active') {
+            window.history.replaceState({ page: 'home_base' }, '');
+            window.history.pushState({ page: 'home_active' }, '');
+        }
+
+        window.addEventListener('popstate', () => {
+            if (isProgrammaticBack) {
+                isProgrammaticBack = false;
+                return;
+            }
+
+            const historyModalEl = document.getElementById('history-modal');
+            const chartModalEl = document.getElementById('chart-modal');
+
+            const isHistoryOpen = historyModalEl && historyModalEl.style.display !== 'none';
+            const isChartOpen = chartModalEl && chartModalEl.style.display !== 'none';
+
+            if (isHistoryOpen) {
+                historyModalEl.style.display = 'none';
+                return;
+            }
+            if (isChartOpen) {
+                chartModalEl.style.display = 'none';
+                return;
+            }
+
+            // User pressed Back on main dashboard: prevent exit and show toast
+            window.history.pushState({ page: 'home_active' }, '');
+            showToast('마지막 화면입니다.');
+        });
+    };
+
+    const pushModalHistory = (modalName) => {
+        window.history.pushState({ modal: modalName }, '');
+    };
+
+    const closeModalSafely = (modalEl) => {
+        if (!modalEl || modalEl.style.display === 'none') return;
+        modalEl.style.display = 'none';
+        if (window.history.state && window.history.state.modal) {
+            isProgrammaticBack = true;
+            window.history.back();
+        }
+    };
+
+    initHistoryGuard();
+
     trendBtn?.addEventListener('click', () => {
         chartModal.style.display = 'flex';
+        pushModalHistory('chart');
         // Select currently active filter if possible
         const activeBtn = document.querySelector('.filter-btn.active');
         if(activeBtn) {
@@ -377,11 +447,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     closeChartBtn?.addEventListener('click', () => {
-        chartModal.style.display = 'none';
+        closeModalSafely(chartModal);
     });
 
     chartModal?.addEventListener('click', (e) => {
-        if(e.target === chartModal) chartModal.style.display = 'none';
+        if(e.target === chartModal) closeModalSafely(chartModal);
     });
 
     chartAptSelect?.addEventListener('change', (e) => {
@@ -406,6 +476,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentHistoryType = 'done'; // 'new' | 're' | 'done'
     let activeHistoryApt = 'ALL';
+
+    const formatDateCompact = (d) => {
+        if (!d || d === '-') return '-';
+        let clean = String(d).replace(/-/g, '.').trim();
+        if (clean.startsWith('20')) {
+            clean = clean.substring(2);
+        }
+        return clean;
+    };
 
     const renderHistoryModal = () => {
         if (!historyTableBody) return;
@@ -450,33 +529,29 @@ document.addEventListener('DOMContentLoaded', () => {
         filtered.forEach(item => {
             const tr = document.createElement('tr');
             const articleLink = item.article_no ? `https://m.land.naver.com/article/info/${item.article_no}` : '#';
-            const eventDate = item.event_date || item.done_date || '-';
+            const eventDate = formatDateCompact(item.event_date || item.done_date || '-');
+            const regDate = formatDateCompact(item.reg_date || '-');
             
             let priceHtml = `<span class="history-price-val" style="color: ${priceColor};">${item.price}</span>`;
             if (item.prev_price && currentHistoryType === 're') {
                 const isDown = item.price_diff < 0;
                 const diffMan = Math.abs(item.price_diff) / 10000;
                 const diffBadge = isDown
-                    ? `<span style="font-size: 0.72rem; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 3px; border-radius: 4px; margin-left: 2px;">🔻 -${diffMan}만</span>`
-                    : `<span style="font-size: 0.72rem; color: #f87171; background: rgba(248, 113, 113, 0.15); padding: 1px 3px; border-radius: 4px; margin-left: 2px;">🔺 +${diffMan}만</span>`;
-                priceHtml = `
-                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px;">
-                        <div>${priceHtml} ${diffBadge}</div>
-                        <span style="font-size: 0.72rem; color: #94a3b8; text-decoration: line-through;">이전: ${item.prev_price}</span>
-                    </div>
-                `;
+                    ? `<span style="font-size: 0.7rem; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 1px 3px; border-radius: 3px; margin-left: 3px; font-weight: 600;">▼${diffMan}만</span>`
+                    : `<span style="font-size: 0.7rem; color: #f87171; background: rgba(248, 113, 113, 0.15); padding: 1px 3px; border-radius: 3px; margin-left: 3px; font-weight: 600;">▲${diffMan}만</span>`;
+                priceHtml = `<span style="display: inline-flex; align-items: center; justify-content: flex-end; white-space: nowrap;">${priceHtml}${diffBadge}</span>`;
             }
 
             tr.innerHTML = `
-                <td style="text-align: left; padding: 0.7rem 0.5rem;"><span class="done-date-badge">${eventDate}</span></td>
-                <td style="text-align: left; padding: 0.7rem 0.5rem; font-weight: 600;">
-                    <a href="${articleLink}" target="_blank" rel="noopener" style="color: #60a5fa; text-decoration: none;">
+                <td style="text-align: center; padding: 0.6rem 0.25rem;"><span class="done-date-badge">${eventDate}</span></td>
+                <td style="text-align: left; padding: 0.6rem 0.25rem; font-weight: 600;">
+                    <a href="${articleLink}" target="_blank" rel="noopener" style="color: #60a5fa; text-decoration: none; white-space: nowrap;">
                         ${item.dong || '-'} ↗
                     </a>
                 </td>
-                <td style="text-align: left; padding: 0.7rem 0.5rem; color: #cbd5e1;">${item.floor || '-'}</td>
-                <td style="text-align: right; padding: 0.7rem 0.5rem;">${priceHtml}</td>
-                <td style="text-align: center; padding: 0.7rem 0.5rem; color: #64748b; font-size: 0.82rem;">${item.reg_date || '-'}</td>
+                <td style="text-align: center; padding: 0.6rem 0.25rem; color: #cbd5e1;">${item.floor || '-'}</td>
+                <td style="text-align: right; padding: 0.6rem 0.25rem;">${priceHtml}</td>
+                <td style="text-align: center; padding: 0.6rem 0.25rem; color: #64748b; font-size: 0.78rem;">${regDate}</td>
             `;
             historyTableBody.appendChild(tr);
         });
@@ -523,6 +598,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         historyModal.style.display = 'flex';
+        pushModalHistory('history');
         renderHistoryModal();
     };
 
@@ -550,11 +626,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     closeHistoryBtn?.addEventListener('click', () => {
-        if (historyModal) historyModal.style.display = 'none';
+        closeModalSafely(historyModal);
     });
 
     historyModal?.addEventListener('click', (e) => {
-        if (e.target === historyModal) historyModal.style.display = 'none';
+        if (e.target === historyModal) closeModalSafely(historyModal);
     });
 
     historyAptFilters.forEach(btn => {

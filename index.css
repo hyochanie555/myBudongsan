@@ -682,15 +682,25 @@ tbody tr {
     box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
 }
 
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
 .history-table th {
     font-size: 0.85rem;
     letter-spacing: -0.2px;
+    white-space: nowrap !important;
 }
 
 .history-table td {
-    padding: 0.75rem 0.85rem;
+    padding: 0.7rem 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .history-table tr:hover td {
@@ -706,14 +716,41 @@ tbody tr {
     background: rgba(96, 165, 250, 0.15);
     color: #93c5fd;
     border: 1px solid rgba(96, 165, 250, 0.3);
-    white-space: nowrap;
+    white-space: nowrap !important;
 }
 
 .history-price-val {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     font-weight: 800;
     color: #c084fc;
+    white-space: nowrap !important;
+}
+
+/* Floating Toast Notification */
+.toast-msg {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(15, 23, 42, 0.95);
+    color: #f1f5f9;
+    padding: 0.7rem 1.4rem;
+    border-radius: 9999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    z-index: 99999;
     white-space: nowrap;
+}
+
+.toast-msg.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -734,23 +771,32 @@ tbody tr {
         padding: 0.8rem;
     }
     .history-table-container {
-        max-height: 60vh !important;
-        overflow-x: auto;
+        max-height: 62vh !important;
+        overflow-x: hidden;
     }
     .history-table {
         width: 100% !important;
         min-width: 100% !important;
+        table-layout: fixed !important;
     }
     .history-table th, .history-table td {
-        padding: 0.55rem 0.35rem !important;
-        font-size: 0.82rem !important;
+        padding: 0.55rem 0.2rem !important;
+        font-size: 0.78rem !important;
+        white-space: nowrap !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .done-date-badge {
-        font-size: 0.74rem !important;
-        padding: 1px 5px !important;
+        font-size: 0.72rem !important;
+        padding: 1px 4px !important;
+        letter-spacing: -0.3px;
+        white-space: nowrap !important;
     }
     .history-price-val {
-        font-size: 0.88rem !important;
+        font-size: 0.82rem !important;
+        white-space: nowrap !important;
+        letter-spacing: -0.4px;
     }
 
 }
+
