@@ -368,76 +368,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Toast Notification ---
     let toastTimeout = null;
-    const showToast = (message) => {
-        let toast = document.getElementById('app-toast');
-        if (!toast) {
-            toast = document.createElement('div');
-            toast.id = 'app-toast';
-            toast.className = 'toast-msg';
-            document.body.appendChild(toast);
-        }
+    const showToast = (message = '마지막 화면입니다.') => {
+        const toast = document.getElementById('app-toast');
+        if (!toast) return;
         toast.textContent = message;
         toast.classList.add('show');
         if (toastTimeout) clearTimeout(toastTimeout);
         toastTimeout = setTimeout(() => {
             toast.classList.remove('show');
-        }, 2000);
+        }, 2200);
     };
 
-    // --- History Navigation Guard (Back button support for modals & main screen) ---
-    let isProgrammaticBack = false;
+    // --- Robust Mobile Back Navigation Guard ---
+    const ensureGuard = () => {
+        try {
+            window.history.pushState({ guard: 'main' }, '', window.location.href);
+        } catch (e) {
+            console.warn('guard push error', e);
+        }
+    };
 
-    const initHistoryGuard = () => {
-        if (!window.history.state || window.history.state.page !== 'home_active') {
-            window.history.replaceState({ page: 'home_base' }, '');
-            window.history.pushState({ page: 'home_active' }, '');
+    // Initial push on load
+    ensureGuard();
+
+    // CRITICAL for Mobile Chrome / Android:
+    // Chromium has "History Manipulation Intervention" which intentionally ignores
+    // back button interception unless pushState is tied to a verified user gesture.
+    // We bind to user interaction events (touch, click, scroll, pointerdown) to guarantee
+    // the history state is marked trusted by the browser.
+    let isGestureArmed = false;
+    const armOnUserGesture = () => {
+        if (!isGestureArmed) {
+            isGestureArmed = true;
+            ensureGuard();
+        }
+    };
+
+    ['touchstart', 'pointerdown', 'mousedown', 'click', 'scroll'].forEach(evt => {
+        window.addEventListener(evt, armOnUserGesture, { passive: true });
+    });
+
+    // Popstate Listener: Intercepts phone Back button / gesture
+    window.addEventListener('popstate', (e) => {
+        const historyModalEl = document.getElementById('history-modal');
+        const chartModalEl = document.getElementById('chart-modal');
+
+        const isHistoryOpen = historyModalEl && historyModalEl.style.display !== 'none';
+        const isChartOpen = chartModalEl && chartModalEl.style.display !== 'none';
+
+        // Re-push guard state in next tick so browser finishes pop transition
+        setTimeout(() => {
+            ensureGuard();
+        }, 50);
+
+        if (isHistoryOpen) {
+            historyModalEl.style.display = 'none';
+            return;
         }
 
-        window.addEventListener('popstate', () => {
-            if (isProgrammaticBack) {
-                isProgrammaticBack = false;
-                return;
-            }
+        if (isChartOpen) {
+            chartModalEl.style.display = 'none';
+            return;
+        }
 
-            const historyModalEl = document.getElementById('history-modal');
-            const chartModalEl = document.getElementById('chart-modal');
+        // Neither modal is open -> User is on main dashboard!
+        showToast('마지막 화면입니다.');
+    });
 
-            const isHistoryOpen = historyModalEl && historyModalEl.style.display !== 'none';
-            const isChartOpen = chartModalEl && chartModalEl.style.display !== 'none';
-
-            if (isHistoryOpen) {
-                historyModalEl.style.display = 'none';
-                return;
-            }
-            if (isChartOpen) {
-                chartModalEl.style.display = 'none';
-                return;
-            }
-
-            // User pressed Back on main dashboard: prevent exit and show toast
-            window.history.pushState({ page: 'home_active' }, '');
-            showToast('마지막 화면입니다.');
-        });
-    };
-
-    const pushModalHistory = (modalName) => {
-        window.history.pushState({ modal: modalName }, '');
-    };
-
-    const closeModalSafely = (modalEl) => {
+    const closeModal = (modalEl) => {
         if (!modalEl || modalEl.style.display === 'none') return;
         modalEl.style.display = 'none';
-        if (window.history.state && window.history.state.modal) {
-            isProgrammaticBack = true;
-            window.history.back();
-        }
+        setTimeout(() => {
+            ensureGuard();
+        }, 50);
     };
-
-    initHistoryGuard();
 
     trendBtn?.addEventListener('click', () => {
         chartModal.style.display = 'flex';
-        pushModalHistory('chart');
+        ensureGuard();
         // Select currently active filter if possible
         const activeBtn = document.querySelector('.filter-btn.active');
         if(activeBtn) {
@@ -447,11 +455,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     closeChartBtn?.addEventListener('click', () => {
-        closeModalSafely(chartModal);
+        closeModal(chartModal);
     });
 
     chartModal?.addEventListener('click', (e) => {
-        if(e.target === chartModal) closeModalSafely(chartModal);
+        if(e.target === chartModal) closeModal(chartModal);
     });
 
     chartAptSelect?.addEventListener('change', (e) => {
@@ -598,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         historyModal.style.display = 'flex';
-        pushModalHistory('history');
+        ensureGuard();
         renderHistoryModal();
     };
 
@@ -626,11 +634,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     closeHistoryBtn?.addEventListener('click', () => {
-        closeModalSafely(historyModal);
+        closeModal(historyModal);
     });
 
     historyModal?.addEventListener('click', (e) => {
-        if (e.target === historyModal) closeModalSafely(historyModal);
+        if (e.target === historyModal) closeModal(historyModal);
     });
 
     historyAptFilters.forEach(btn => {
