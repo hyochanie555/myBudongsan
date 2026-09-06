@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-06 05:00",
+  "last_update": "2026-09-06 09:00",
   "battery": {
-    "percent": 45,
+    "percent": 43,
     "is_charging": false
   },
   "summary": {
@@ -3624,6 +3624,25 @@
       "status": "유지"
     },
     {
+      "article_no": "2648067096",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "104동",
+      "floor": "중/31",
+      "price": "3억 4,000",
+      "price_val": 340000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.09.06",
+      "cp_name": "바른공인중개사",
+      "unit_hash": "NV_2648067096",
+      "count": 1,
+      "ids": [
+        "2648067096"
+      ],
+      "prev_price": "3억 5,000",
+      "price_diff": -10000000,
+      "status": "가격 인하"
+    },
+    {
       "article_no": "2645024262",
       "complex_name": "선암에코하이츠",
       "dong": "106동",
@@ -3739,23 +3758,6 @@
       "count": 1,
       "ids": [
         "2645697892"
-      ],
-      "status": "유지"
-    },
-    {
-      "article_no": "2647631698",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "중/31",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.09.03",
-      "cp_name": "강동뉴타운공인중개사사무소",
-      "unit_hash": "NV_2647631698",
-      "count": 1,
-      "ids": [
-        "2647631698"
       ],
       "status": "유지"
     },
