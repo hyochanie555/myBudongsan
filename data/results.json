@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-07 05:00",
+  "last_update": "2026-09-07 09:00",
   "battery": {
-    "percent": 45,
+    "percent": 43,
     "is_charging": false
   },
   "summary": {
@@ -3011,23 +3011,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2647932029",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "104동",
-      "floor": "고/31",
-      "price": "3억 1,000",
-      "price_val": 310000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.09.05",
-      "cp_name": "바른공인중개사",
-      "unit_hash": "NV_2647932029",
-      "count": 1,
-      "ids": [
-        "2647932029"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2647638684",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "104동",
@@ -3060,6 +3043,23 @@
         "2643321553"
       ],
       "status": "유지"
+    },
+    {
+      "article_no": "2648101035",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "104동",
+      "floor": "고/31",
+      "price": "3억 1,000",
+      "price_val": 310000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.09.07",
+      "cp_name": "강동스타힐스부동산공인중개사사무소",
+      "unit_hash": "NV_2648101035",
+      "count": 1,
+      "ids": [
+        "2648101035"
+      ],
+      "status": "매물 재등록"
     },
     {
       "article_no": "2647305154",
