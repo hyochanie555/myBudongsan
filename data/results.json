@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-10 05:00",
+  "last_update": "2026-09-10 09:00",
   "battery": {
-    "percent": 81,
+    "percent": 80,
     "is_charging": false
   },
   "summary": {
@@ -7003,23 +7003,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2648749253",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "133동",
-      "floor": "중/21",
-      "price": "5억 3,500",
-      "price_val": 535000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.09.09",
-      "cp_name": "한강자이(981-1544)공인중개사사무소",
-      "unit_hash": "NV_2648749253",
-      "count": 1,
-      "ids": [
-        "2648749253"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2648720356",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "133동",
@@ -7033,6 +7016,23 @@
       "count": 1,
       "ids": [
         "2648720356"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2648749253",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "133동",
+      "floor": "중/21",
+      "price": "5억 3,500",
+      "price_val": 535000000,
+      "area": "112A / 84.96㎡",
+      "reg_date": "2026.09.09",
+      "cp_name": "한강자이(981-1544)공인중개사사무소",
+      "unit_hash": "NV_2648749253",
+      "count": 1,
+      "ids": [
+        "2648749253"
       ],
       "status": "유지"
     },
