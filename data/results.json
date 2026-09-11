@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-11 15:00",
+  "last_update": "2026-09-11 18:00",
   "battery": {
-    "percent": 59,
+    "percent": 58,
     "is_charging": false
   },
   "summary": {
@@ -4173,7 +4173,7 @@
       "status": "유지"
     },
     {
-      "article_no": "2649119918",
+      "article_no": "2649133436",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "103동",
       "floor": "20/25",
@@ -4181,11 +4181,11 @@
       "price_val": 490000000,
       "area": "112C / 84.97㎡",
       "reg_date": "2026.09.11",
-      "cp_name": "김포착한부동산공인중개사사무소",
-      "unit_hash": "NV_2649119918",
+      "cp_name": "자이탑(997-0006)공인중개사사무소",
+      "unit_hash": "NV_2649133436",
       "count": 1,
       "ids": [
-        "2649119918"
+        "2649133436"
       ],
       "status": "매물 재등록"
     },
