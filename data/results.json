@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-12 18:00",
+  "last_update": "2026-09-12 21:00",
   "battery": {
-    "percent": 49,
+    "percent": 48,
     "is_charging": false
   },
   "summary": {
@@ -3178,7 +3178,7 @@
       "status": "유지"
     },
     {
-      "article_no": "2649460501",
+      "article_no": "2649485136",
       "complex_name": "선암에코하이츠",
       "dong": "101동",
       "floor": "17/20",
@@ -3186,11 +3186,11 @@
       "price_val": 320000000,
       "area": "81A / 59.94㎡",
       "reg_date": "2026.09.12",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2649460501",
+      "cp_name": "그랑라크에코사랑공인중개사사무소",
+      "unit_hash": "NV_2649485136",
       "count": 1,
       "ids": [
-        "2649460501"
+        "2649485136"
       ],
       "status": "매물 재등록"
     },
