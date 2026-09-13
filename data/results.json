@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-13 13:00",
+  "last_update": "2026-09-13 15:00",
   "battery": {
-    "percent": 42,
+    "percent": 41,
     "is_charging": false
   },
   "summary": {
@@ -2869,21 +2869,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2644013221",
+      "article_no": "2649503291",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "105동",
       "floor": "저/29",
       "price": "3억",
       "price_val": 300000000,
       "area": "113A / 84.76㎡",
-      "reg_date": "2026.08.15",
-      "cp_name": "강동사랑가부동산공인중개사사무소",
-      "unit_hash": "NV_2644013221",
+      "reg_date": "2026.09.13",
+      "cp_name": "도담부동산공인중개사사무소",
+      "unit_hash": "NV_2649503291",
       "count": 1,
       "ids": [
-        "2644013221"
+        "2649503291"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2646725390",
