@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-16 18:00",
+  "last_update": "2026-09-16 21:00",
   "battery": {
-    "percent": 88,
+    "percent": 87,
     "is_charging": false
   },
   "summary": {
@@ -3512,21 +3512,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2649826231",
+      "article_no": "2650213058",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
       "floor": "20/20",
       "price": "3억 3,500",
       "price_val": 335000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.09.15",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2649826231",
+      "reg_date": "2026.09.16",
+      "cp_name": "한아름공인중개사사무소",
+      "unit_hash": "NV_2650213058",
       "count": 1,
       "ids": [
-        "2649826231"
+        "2650213058"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2647142825",
@@ -4532,21 +4532,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2648808788",
+      "article_no": "2648425463",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
       "floor": "24/28",
       "price": "4억 9,500",
       "price_val": 495000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.09.10",
-      "cp_name": "김포착한부동산공인중개사사무소",
-      "unit_hash": "NV_2648808788",
+      "reg_date": "2026.09.08",
+      "cp_name": "착한부동산공인중개사사무소",
+      "unit_hash": "NV_2648425463",
       "count": 1,
       "ids": [
-        "2648808788"
+        "2648425463"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2648655599",
@@ -5042,21 +5042,21 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2648691632",
+      "article_no": "2650208872",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "130동",
       "floor": "중/29",
       "price": "5억",
       "price_val": 500000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.09.09",
-      "cp_name": "참조은자이공인중개사사무소",
-      "unit_hash": "NV_2648691632",
+      "reg_date": "2026.09.16",
+      "cp_name": "금빛자이(989-2017)공인중개사사무소",
+      "unit_hash": "NV_2650208872",
       "count": 1,
       "ids": [
-        "2648691632"
+        "2650208872"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2650022149",
