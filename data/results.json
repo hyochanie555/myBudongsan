@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-19 18:00",
+  "last_update": "2026-09-19 21:00",
   "battery": {
-    "percent": 61,
+    "percent": 60,
     "is_charging": false
   },
   "summary": {
@@ -4359,21 +4359,21 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2650543214",
+      "article_no": "2650838817",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "116동",
       "floor": "중/29",
       "price": "4억 9,000",
       "price_val": 490000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.09.18",
-      "cp_name": "자이탑(997-0006)공인중개사사무소",
-      "unit_hash": "NV_2650543214",
+      "reg_date": "2026.09.19",
+      "cp_name": "으뜸자이(031-982-3611)공인중개사사무소",
+      "unit_hash": "NV_2650838817",
       "count": 1,
       "ids": [
-        "2650543214"
+        "2650838817"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2650701543",
