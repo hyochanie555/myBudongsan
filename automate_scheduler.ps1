@@ -1,4 +1,4 @@
-﻿# Windows Task Scheduler Setup for real estate scraper
+# Windows Task Scheduler Setup for real estate scraper
 $taskName = "MyBudongsan_Scraper_Auto"
 $batchPath = Join-Path $PSScriptRoot "실행_budongsan.bat"
 $workingDir = $PSScriptRoot
@@ -7,8 +7,11 @@ $workingDir = $PSScriptRoot
 try {
     powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 1 2>$null
     powercfg /setdcvalueindex SCHEME_CURRENT SUB_SLEEP bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 1 2>$null
+    # 대기 모드 중 네트워크 연결 유지 (모니터 분리 / 절전 모드에서도 Wi-Fi 유지)
+    powercfg /setacvalueindex SCHEME_CURRENT fea3413e-7e05-4911-9a71-700331f1c294 f15576e8-98b7-4186-b944-eafa664402d9 1 2>$null
+    powercfg /setdcvalueindex SCHEME_CURRENT fea3413e-7e05-4911-9a71-700331f1c294 f15576e8-98b7-4186-b944-eafa664402d9 1 2>$null
     powercfg /setactive SCHEME_CURRENT 2>$null
-    Write-Host "[INFO] Windows 절전 모드 해제 타이머(Wake Timers) 활성화 확인 완료" -ForegroundColor Cyan
+    Write-Host "[INFO] Windows 절전 모드 해제 타이머 및 대기 중 Wi-Fi 유지 활성화 완료" -ForegroundColor Cyan
 } catch {
     # 무시
 }
