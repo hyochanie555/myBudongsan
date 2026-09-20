@@ -1,8 +1,8 @@
 {
-  "last_update": "2026-09-20 18:00",
+  "last_update": "2026-09-20 21:10",
   "battery": {
-    "percent": 52,
-    "is_charging": false
+    "percent": 89,
+    "is_charging": true
   },
   "summary": {
     "더샵동천포레스트": {
@@ -4800,23 +4800,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2650600700",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "116동",
-      "floor": "고/29",
-      "price": "5억",
-      "price_val": 500000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.09.18",
-      "cp_name": "금빛자이(989-2017)공인중개사사무소",
-      "unit_hash": "NV_2650600700",
-      "count": 1,
-      "ids": [
-        "2650600700"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2650602149",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "116동",
@@ -4830,6 +4813,23 @@
       "count": 1,
       "ids": [
         "2650602149"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2650600700",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "116동",
+      "floor": "고/29",
+      "price": "5억",
+      "price_val": 500000000,
+      "area": "112C / 84.97㎡",
+      "reg_date": "2026.09.18",
+      "cp_name": "금빛자이(989-2017)공인중개사사무소",
+      "unit_hash": "NV_2650600700",
+      "count": 1,
+      "ids": [
+        "2650600700"
       ],
       "status": "유지"
     },
