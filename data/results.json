@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-09-21 18:00",
+  "last_update": "2026-09-21 21:00",
   "battery": {
-    "percent": 83,
+    "percent": 81,
     "is_charging": false
   },
   "summary": {
@@ -6722,21 +6722,21 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2646847222",
+      "article_no": "2651165764",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "119동",
       "floor": "고/29",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.08.31",
-      "cp_name": "최강자이공인중개사사무소",
-      "unit_hash": "NV_2646847222",
+      "reg_date": "2026.09.21",
+      "cp_name": "우남최고공인중개사사무소",
+      "unit_hash": "NV_2651165764",
       "count": 1,
       "ids": [
-        "2646847222"
+        "2651165764"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2650740794",
