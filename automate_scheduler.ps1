@@ -10,8 +10,15 @@ try {
     # 대기 모드 중 네트워크 연결 유지 (모니터 분리 / 절전 모드에서도 Wi-Fi 유지)
     powercfg /setacvalueindex SCHEME_CURRENT fea3413e-7e05-4911-9a71-700331f1c294 f15576e8-98b7-4186-b944-eafa664402d9 1 2>$null
     powercfg /setdcvalueindex SCHEME_CURRENT fea3413e-7e05-4911-9a71-700331f1c294 f15576e8-98b7-4186-b944-eafa664402d9 1 2>$null
+    # 배터리 소모 한계(Standby Budget)로 인한 Wi-Fi 차단 및 강제 동면 방지 (0으로 해제)
+    powercfg /setacvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 9fe527be-1b70-48da-930d-7bcf17b44990 0 2>$null
+    powercfg /setdcvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 9fe527be-1b70-48da-930d-7bcf17b44990 0 2>$null
+    # 연결 끊김 대기 모드 및 예비 시간 해제
+    powercfg /setdcvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 468fe7e5-1158-46ec-88bc-5b96c9e44fd0 0 2>$null
+    powercfg /setdcvalueindex SCHEME_CURRENT SUB_NONE 68afb2d9-ee95-47a8-8f50-4115088073b1 0 2>$null
+    powercfg /setacvalueindex SCHEME_CURRENT SUB_NONE 68afb2d9-ee95-47a8-8f50-4115088073b1 0 2>$null
     powercfg /setactive SCHEME_CURRENT 2>$null
-    Write-Host "[INFO] Windows 절전 모드 해제 타이머 및 대기 중 Wi-Fi 유지 활성화 완료" -ForegroundColor Cyan
+    Write-Host "[INFO] Windows 절전 해제 타이머, 배터리 긴축 해제 및 대기 중 Wi-Fi 유지 활성화 완료" -ForegroundColor Cyan
 } catch {
     # 무시
 }
