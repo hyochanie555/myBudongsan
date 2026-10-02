@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-10-02 18:00",
+  "last_update": "2026-10-02 21:00",
   "battery": {
-    "percent": 82,
+    "percent": 81,
     "is_charging": false
   },
   "summary": {
@@ -4095,23 +4095,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2652280209",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "106동",
-      "floor": "고/28",
-      "price": "3억 5,000",
-      "price_val": 350000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.09.29",
-      "cp_name": "100억부동산공인중개사사무소",
-      "unit_hash": "NV_2652280209",
-      "count": 1,
-      "ids": [
-        "2652280209"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2652239779",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
@@ -4125,6 +4108,23 @@
       "count": 1,
       "ids": [
         "2652239779"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2652280209",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "106동",
+      "floor": "고/28",
+      "price": "3억 5,000",
+      "price_val": 350000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.09.29",
+      "cp_name": "100억부동산공인중개사사무소",
+      "unit_hash": "NV_2652280209",
+      "count": 1,
+      "ids": [
+        "2652280209"
       ],
       "status": "유지"
     },
