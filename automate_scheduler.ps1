@@ -1,4 +1,4 @@
-﻿# Windows Task Scheduler Setup for real estate scraper
+# Windows Task Scheduler Setup for real estate scraper
 $taskName = "MyBudongsan_Scraper_Auto"
 
 $projectDir = "D:\8.Antigravity\myBudongsan"
@@ -7,13 +7,24 @@ $workingDir = $projectDir
 
 # 0. Windows Power Settings
 try {
+    # RTC Wake timers
     powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 1 2>$null
     powercfg /setdcvalueindex SCHEME_CURRENT SUB_SLEEP bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 1 2>$null
+    # Connectivity in Standby (Modern Standby Wi-Fi on)
     powercfg /setacvalueindex SCHEME_CURRENT fea3413e-7e05-4911-9a71-700331f1c294 f15576e8-98b7-4186-b944-eafa664402d9 1 2>$null
     powercfg /setdcvalueindex SCHEME_CURRENT fea3413e-7e05-4911-9a71-700331f1c294 f15576e8-98b7-4186-b944-eafa664402d9 1 2>$null
-    powercfg /setacvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 9fe527be-1b70-48da-930d-7bcf17b44990 0 2>$null
-    powercfg /setdcvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 9fe527be-1b70-48da-930d-7bcf17b44990 0 2>$null
+    # Standby Budget Percent: 100% (Prevents premature "Austerity Battery Drain Budget Exceeded")
+    powercfg /setacvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 9fe527be-1b70-48da-930d-7bcf17b44990 100 2>$null
+    powercfg /setdcvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 9fe527be-1b70-48da-930d-7bcf17b44990 100 2>$null
+    # Standby Budget Grace Period: 86400s (24h)
+    powercfg /setacvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 60c07fe1-0556-45cf-9903-d56e32210242 86400 2>$null
+    powercfg /setdcvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 60c07fe1-0556-45cf-9903-d56e32210242 86400 2>$null
+    # User Presence Prediction: 0 (Disabled)
+    powercfg /setacvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 82011705-fb95-4d46-8d35-4042b1d20def 0 2>$null
+    powercfg /setdcvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 82011705-fb95-4d46-8d35-4042b1d20def 0 2>$null
+    # Standby Reserve Time: 0
     powercfg /setdcvalueindex SCHEME_CURRENT 8619b916-e004-4dd8-9b66-dae86f806698 468fe7e5-1158-46ec-88bc-5b96c9e44fd0 0 2>$null
+    # Disconnected Standby Mode: 0 (Normal)
     powercfg /setdcvalueindex SCHEME_CURRENT SUB_NONE 68afb2d9-ee95-47a8-8f50-4115088073b1 0 2>$null
     powercfg /setacvalueindex SCHEME_CURRENT SUB_NONE 68afb2d9-ee95-47a8-8f50-4115088073b1 0 2>$null
     powercfg /setactive SCHEME_CURRENT 2>$null
@@ -37,7 +48,7 @@ $settings = New-ScheduledTaskSettingsSet `
     -DontStopIfGoingOnBatteries `
     -StartWhenAvailable `
     -Priority 4 `
-    -ExecutionTimeLimit (New-TimeSpan -Hours 1) `
+    -ExecutionTimeLimit (New-TimeSpan -Minutes 15) `
     -MultipleInstances IgnoreNew
 
 # 4. Principal (S4U Mode)
