@@ -18,16 +18,23 @@ for /f "usebackq tokens=*" %%i in (`powershell -NoProfile -Command "Get-Date -Fo
 echo ======================================================== >> "%LOG_FILE%"
 echo [RUN] Scraper started at %NOW% >> "%LOG_FILE%"
 
-echo [NET] Waiting for network connection...
-for /L %%w in (1,1,10) do (
-    ping -n 1 github.com > nul 2>&1
+echo [NET] Waiting for Wi-Fi / network connection...
+for /L %%w in (1,1,30) do (
+    ping -n 1 -w 1000 8.8.8.8 > nul 2>&1
     if !errorlevel!==0 (
-        echo [NET] Network is online. >> "%LOG_FILE%"
-        goto :NET_READY
+        ping -n 1 -w 1000 github.com > nul 2>&1
+        if !errorlevel!==0 (
+            echo [NET] Network is online. (Connected at attempt %%w, approx !%%w!*2s) >> "%LOG_FILE%"
+            echo [NET] Network is online.
+            goto :NET_READY
+        )
     )
+    echo [NET] Waiting for Wi-Fi... (%%w/30)
     timeout /t 2 /nobreak > nul
 )
-echo [WARN] Network ping check timed out. Proceeding anyway... >> "%LOG_FILE%"
+echo [WARN] Network ping check timed out after 60s. Skipping scraper to prevent hang. >> "%LOG_FILE%"
+echo [WARN] Network ping check timed out after 60s. Skipping scraper.
+exit /b 0
 
 :NET_READY
 echo [RUN] Starting Real Estate Scraper...

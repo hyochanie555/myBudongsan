@@ -4,6 +4,8 @@ import json
 import os
 import sys
 import datetime
+import socket
+import time
 from playwright.async_api import async_playwright
 from playwright_stealth import Stealth
 import random
@@ -12,6 +14,25 @@ import re
 # Fix Korean output on Windows terminals
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
+def check_network_availability(max_wait=30):
+    """스크래퍼 시작 전 인터넷/Wi-Fi 연결 상태를 확인하고 준비될 때까지 대기합니다."""
+    start = time.time()
+    targets = [("fin.land.naver.com", 443), ("1.1.1.1", 53)]
+    attempt = 1
+    while time.time() - start < max_wait:
+        for host, port in targets:
+            try:
+                with socket.create_connection((host, port), timeout=2.0):
+                    if attempt > 1:
+                        print(f"🌐 [NET] 인터넷 연결 복구 확인 완료 ({attempt}회 시도, {time.time() - start:.1f}초 소요)", flush=True)
+                    return True
+            except OSError:
+                pass
+        print(f"⏳ [NET] Wi-Fi / 인터넷 연결 대기 중... ({attempt}회, {int(time.time() - start)}/{max_wait}초)", flush=True)
+        time.sleep(2)
+        attempt += 1
+    return False
 
 # --- Configuration ---
 TARGETS = [
@@ -411,6 +432,11 @@ async def main():
         history["reference_listings"] = reference_listings
     else:
         reference_listings = history.get("reference_listings", prev_listings)
+
+    # 0. 네트워크 연결 확인 (화면 켜짐/절전 해제 직후 Wi-Fi 연결 대기)
+    if not check_network_availability(max_wait=30):
+        print("❌ [NET] 인터넷 연결을 확인할 수 없어 스크래핑을 안전하게 종료합니다.", flush=True)
+        return
 
     async with async_playwright() as p:
         browser_args = [
