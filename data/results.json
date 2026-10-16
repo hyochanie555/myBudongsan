@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-10-16 05:00",
+  "last_update": "2026-10-16 09:00",
   "battery": {
-    "percent": 53,
+    "percent": 51,
     "is_charging": false
   },
   "summary": {
@@ -3382,21 +3382,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2651268290",
+      "article_no": "2655758556",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "104동",
       "floor": "중/31",
       "price": "3억",
       "price_val": 300000000,
       "area": "113A / 84.76㎡",
-      "reg_date": "2026.09.22",
-      "cp_name": "서희부동산중개사무소",
-      "unit_hash": "NV_2651268290",
+      "reg_date": "2026.10.16",
+      "cp_name": "환희공인중개사사무소",
+      "unit_hash": "NV_2655758556",
       "count": 1,
       "ids": [
-        "2651268290"
+        "2655758556"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2654360175",
@@ -4198,23 +4198,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2654988566",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "101동",
-      "floor": "중/30",
-      "price": "3억 4,500",
-      "price_val": 345000000,
-      "area": "113B / 84.96㎡",
-      "reg_date": "2026.10.12",
-      "cp_name": "강동힐스테이트부동산공인중개사사무소",
-      "unit_hash": "NV_2654988566",
-      "count": 1,
-      "ids": [
-        "2654988566"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2653971125",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "101동",
@@ -4230,6 +4213,23 @@
         "2653971125"
       ],
       "status": "유지"
+    },
+    {
+      "article_no": "2655758689",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "101동",
+      "floor": "중/30",
+      "price": "3억 4,500",
+      "price_val": 345000000,
+      "area": "113B / 84.96㎡",
+      "reg_date": "2026.10.16",
+      "cp_name": "환희공인중개사사무소",
+      "unit_hash": "NV_2655758689",
+      "count": 1,
+      "ids": [
+        "2655758689"
+      ],
+      "status": "매물 재등록"
     },
     {
       "article_no": "2654844567",
