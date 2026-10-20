@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-10-20 05:00",
+  "last_update": "2026-10-20 09:00",
   "battery": {
-    "percent": 93,
+    "percent": 89,
     "is_charging": false
   },
   "summary": {
@@ -5928,23 +5928,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2652972221",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "109동",
-      "floor": "고/28",
-      "price": "5억 1,000",
-      "price_val": 510000000,
-      "area": "112C / 84.97㎡",
-      "reg_date": "2026.10.02",
-      "cp_name": "착한부동산공인중개사사무소",
-      "unit_hash": "NV_2652972221",
-      "count": 1,
-      "ids": [
-        "2652972221"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2652412498",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "109동",
@@ -5958,6 +5941,23 @@
       "count": 1,
       "ids": [
         "2652412498"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2652972221",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "109동",
+      "floor": "고/28",
+      "price": "5억 1,000",
+      "price_val": 510000000,
+      "area": "112C / 84.97㎡",
+      "reg_date": "2026.10.02",
+      "cp_name": "착한부동산공인중개사사무소",
+      "unit_hash": "NV_2652972221",
+      "count": 1,
+      "ids": [
+        "2652972221"
       ],
       "status": "유지"
     },
