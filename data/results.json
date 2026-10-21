@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-10-21 18:00",
+  "last_update": "2026-10-21 21:00",
   "battery": {
-    "percent": 72,
+    "percent": 71,
     "is_charging": false
   },
   "summary": {
@@ -8298,21 +8298,21 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2656262390",
+      "article_no": "2656464310",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "101동",
       "floor": "22/29",
       "price": "5억 5,000",
       "price_val": 550000000,
       "area": "112B / 84.96㎡",
-      "reg_date": "2026.10.19",
-      "cp_name": "땡큐공인중개사사무소",
-      "unit_hash": "NV_2656262390",
+      "reg_date": "2026.10.20",
+      "cp_name": "착한부동산공인중개사사무소",
+      "unit_hash": "NV_2656464310",
       "count": 1,
       "ids": [
-        "2656262390"
+        "2656464310"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2655858220",
