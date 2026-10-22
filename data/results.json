@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-10-22 05:00",
+  "last_update": "2026-10-22 09:00",
   "battery": {
     "percent": 100,
     "is_charging": false
@@ -6062,21 +6062,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2655462496",
+      "article_no": "2656927576",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "112동",
       "floor": "20/28",
       "price": "5억 1,000",
       "price_val": 510000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.10.15",
-      "cp_name": "참조은자이공인중개사사무소",
-      "unit_hash": "NV_2655462496",
+      "reg_date": "2026.10.22",
+      "cp_name": "래미안큰부자공인중개사사무소",
+      "unit_hash": "NV_2656927576",
       "count": 1,
       "ids": [
-        "2655462496"
+        "2656927576"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2656831154",
