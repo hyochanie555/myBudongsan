@@ -1,3 +1,5 @@
 backup/
 __pycache__/
 *.pyc
+
+standby_keepalive.log
