@@ -1,8 +1,8 @@
 {
-  "last_update": "2026-10-29 18:00",
+  "last_update": "2026-10-29 21:00",
   "battery": {
-    "percent": 75,
-    "is_charging": false
+    "percent": 92,
+    "is_charging": true
   },
   "summary": {
     "더샵동천포레스트": {
@@ -3641,6 +3641,25 @@
       "status": "유지"
     },
     {
+      "article_no": "2658487790",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "103동",
+      "floor": "27/32",
+      "price": "3억 500",
+      "price_val": 305000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.10.29",
+      "cp_name": "태양공인중개사사무소",
+      "unit_hash": "NV_2658487790",
+      "count": 1,
+      "ids": [
+        "2658487790"
+      ],
+      "prev_price": "3억 3,000",
+      "price_diff": -25000000,
+      "status": "가격 인하"
+    },
+    {
       "article_no": "2652621638",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "104동",
@@ -4151,23 +4170,6 @@
       "prev_price": "3억 3,500",
       "price_diff": -5000000,
       "status": "가격 인하"
-    },
-    {
-      "article_no": "2656394868",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "103동",
-      "floor": "고/32",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.10.19",
-      "cp_name": "참빛푸르지오부동산공인중개사사무소",
-      "unit_hash": "NV_2656394868",
-      "count": 1,
-      "ids": [
-        "2656394868"
-      ],
-      "status": "유지"
     },
     {
       "article_no": "2657503617",
