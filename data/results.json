@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-01 05:00",
+  "last_update": "2026-11-01 09:00",
   "battery": {
-    "percent": 73,
+    "percent": 70,
     "is_charging": false
   },
   "summary": {
@@ -6664,23 +6664,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2658882355",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "114동",
-      "floor": "중/29",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.10.31",
-      "cp_name": "미소자이(997.6488)공인중개사사무소",
-      "unit_hash": "NV_2658882355",
-      "count": 1,
-      "ids": [
-        "2658882355"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2658800966",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "114동",
@@ -6694,6 +6677,23 @@
       "count": 1,
       "ids": [
         "2658800966"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2658882355",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "114동",
+      "floor": "중/29",
+      "price": "5억 2,000",
+      "price_val": 520000000,
+      "area": "112A / 84.96㎡",
+      "reg_date": "2026.10.31",
+      "cp_name": "미소자이(997.6488)공인중개사사무소",
+      "unit_hash": "NV_2658882355",
+      "count": 1,
+      "ids": [
+        "2658882355"
       ],
       "status": "유지"
     },
