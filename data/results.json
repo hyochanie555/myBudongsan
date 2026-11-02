@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-02 18:00",
+  "last_update": "2026-11-02 21:00",
   "battery": {
-    "percent": 53,
+    "percent": 52,
     "is_charging": false
   },
   "summary": {
@@ -3331,23 +3331,6 @@
       "status": "등록 만료"
     },
     {
-      "article_no": "2657414909",
-      "complex_name": "울산 힐스테이트 강동",
-      "dong": "105동",
-      "floor": "29/29",
-      "price": "2억 8,500",
-      "price_val": 285000000,
-      "area": "113A / 84.76㎡",
-      "reg_date": "2026.10.23",
-      "cp_name": "강동스타힐스부동산공인중개사사무소",
-      "unit_hash": "NV_2657414909",
-      "count": 1,
-      "ids": [
-        "2657414909"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2658415004",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "101동",
@@ -3634,7 +3617,7 @@
       "ids": [
         "2659241664"
       ],
-      "status": "매물 재등록"
+      "status": "신규매물"
     },
     {
       "article_no": "2658748549",
@@ -3688,6 +3671,23 @@
       "status": "유지"
     },
     {
+      "article_no": "2654360175",
+      "complex_name": "울산 힐스테이트 강동",
+      "dong": "105동",
+      "floor": "29/29",
+      "price": "3억",
+      "price_val": 300000000,
+      "area": "113A / 84.76㎡",
+      "reg_date": "2026.10.09",
+      "cp_name": "100억부동산공인중개사사무소",
+      "unit_hash": "NV_2654360175",
+      "count": 1,
+      "ids": [
+        "2654360175"
+      ],
+      "status": "신규매물"
+    },
+    {
       "article_no": "2659113995",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "105동",
@@ -3702,9 +3702,9 @@
       "ids": [
         "2659113995"
       ],
-      "prev_price": "3억 5,000",
-      "price_diff": -50000000,
-      "status": "가격 인하"
+      "prev_price": "2억 8,500",
+      "price_diff": 15000000,
+      "status": "가격 인상"
     },
     {
       "article_no": "2657042070",
@@ -4641,7 +4641,7 @@
       "ids": [
         "2659127118"
       ],
-      "status": "신규매물"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2657235518",
