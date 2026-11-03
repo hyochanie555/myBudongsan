@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-03 15:00",
+  "last_update": "2026-11-03 18:00",
   "battery": {
-    "percent": 90,
+    "percent": 89,
     "is_charging": false
   },
   "summary": {
@@ -4469,21 +4469,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2658915066",
+      "article_no": "2659362607",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
       "floor": "16/20",
       "price": "3억 4,000",
       "price_val": 340000000,
       "area": "81B / 59.91㎡",
-      "reg_date": "2026.11.01",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2658915066",
+      "reg_date": "2026.11.03",
+      "cp_name": "그랑라크에코사랑공인중개사사무소",
+      "unit_hash": "NV_2659362607",
       "count": 1,
       "ids": [
-        "2658915066"
+        "2659362607"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2653889139",
@@ -5406,21 +5406,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2658801679",
+      "article_no": "2659324369",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "118동",
       "floor": "24/28",
       "price": "4억 9,500",
       "price_val": 495000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.10.31",
-      "cp_name": "자이탑(997-0006)공인중개사사무소",
-      "unit_hash": "NV_2658801679",
+      "reg_date": "2026.11.03",
+      "cp_name": "김포착한부동산공인중개사사무소",
+      "unit_hash": "NV_2659324369",
       "count": 1,
       "ids": [
-        "2658801679"
+        "2659324369"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2657498615",
