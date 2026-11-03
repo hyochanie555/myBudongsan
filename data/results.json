@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-03 05:00",
+  "last_update": "2026-11-03 09:00",
   "battery": {
-    "percent": 96,
+    "percent": 94,
     "is_charging": false
   },
   "summary": {
@@ -3959,21 +3959,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2658915216",
+      "article_no": "2659304751",
       "complex_name": "선암에코하이츠",
       "dong": "102동",
       "floor": "6/20",
       "price": "3억 1,500",
       "price_val": 315000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.11.01",
+      "reg_date": "2026.11.03",
       "cp_name": "그랑라크에코사랑공인중개사사무소",
-      "unit_hash": "NV_2658915216",
+      "unit_hash": "NV_2659304751",
       "count": 1,
       "ids": [
-        "2658915216"
+        "2659304751"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2657823290",
@@ -7206,21 +7206,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2659065313",
+      "article_no": "2659307211",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "134동",
       "floor": "13/17",
       "price": "5억 2,000",
       "price_val": 520000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.11.02",
-      "cp_name": "금빛자이(989-2017)공인중개사사무소",
-      "unit_hash": "NV_2659065313",
+      "reg_date": "2026.11.03",
+      "cp_name": "자이단지내(031-996-0001)공인중개사사무소",
+      "unit_hash": "NV_2659307211",
       "count": 1,
       "ids": [
-        "2659065313"
+        "2659307211"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2657347845",
