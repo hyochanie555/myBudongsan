@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-04 18:00",
+  "last_update": "2026-11-04 21:00",
   "battery": {
-    "percent": 76,
+    "percent": 75,
     "is_charging": false
   },
   "summary": {
@@ -6238,21 +6238,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2659440043",
+      "article_no": "2659726577",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "112동",
       "floor": "20/28",
       "price": "5억 1,000",
       "price_val": 510000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.11.03",
-      "cp_name": "한강자이(981-1544)공인중개사사무소",
-      "unit_hash": "NV_2659440043",
+      "reg_date": "2026.11.04",
+      "cp_name": "친구공인중개사사무소",
+      "unit_hash": "NV_2659726577",
       "count": 1,
       "ids": [
-        "2659440043"
+        "2659726577"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2657103494",
