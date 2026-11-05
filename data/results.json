@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-05 18:00",
+  "last_update": "2026-11-05 21:00",
   "battery": {
-    "percent": 65,
+    "percent": 64,
     "is_charging": false
   },
   "summary": {
@@ -5459,19 +5459,19 @@
       "status": "유지"
     },
     {
-      "article_no": "2659134470",
+      "article_no": "2659941246",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "112동",
       "floor": "14/28",
       "price": "4억 9,500",
       "price_val": 495000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.11.02",
-      "cp_name": "자이탑(997-0006)공인중개사사무소",
-      "unit_hash": "NV_2659134470",
+      "reg_date": "2026.11.05",
+      "cp_name": "김포코너부동산공인중개사사무소",
+      "unit_hash": "NV_2659941246",
       "count": 1,
       "ids": [
-        "2659134470"
+        "2659941246"
       ],
       "prev_price": "5억 1,000",
       "price_diff": -15000000,
