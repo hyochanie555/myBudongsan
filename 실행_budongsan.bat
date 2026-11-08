@@ -14,6 +14,18 @@ if errorlevel 1 (
 if not exist "data" mkdir "data"
 set "LOG_FILE=%CURRENT_DIR%data\last_run.log"
 
+:: 옵션 확인 (/hibernate)
+set "DO_HIBERNATE=0"
+if /i "%~1"=="/hibernate" set "DO_HIBERNATE=1"
+if /i "%~1"=="-hibernate" set "DO_HIBERNATE=1"
+if /i "%~1"=="hibernate" set "DO_HIBERNATE=1"
+
+:: 이전 멈춘 스크래퍼 및 Playwright 고아 프로세스 안전 정리 (Session 0 백그라운드 좀비 정리)
+taskkill /F /FI "SESSION eq 0" /IM chrome.exe >nul 2>&1
+taskkill /F /FI "SESSION eq 0" /IM node.exe >nul 2>&1
+powershell -NoProfile -Command "Get-CimInstance Win32_Process | Where-Object { (`$_.Name -match 'python') -and (`$_.CommandLine -like '*local_scraper.py*') } | ForEach-Object { Stop-Process -Id `$_.ProcessId -Force -ErrorAction SilentlyContinue }" >nul 2>&1
+
+
 for /f "usebackq tokens=*" %%i in (`powershell -NoProfile -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"`) do set "NOW=%%i"
 echo ======================================================== >> "%LOG_FILE%"
 echo [RUN] Scraper started at %NOW% >> "%LOG_FILE%"
@@ -52,6 +64,11 @@ git diff --cached --quiet
 if %errorlevel%==0 (
     echo [INFO] No changes detected. >> "%LOG_FILE%"
     echo [INFO] No changes detected.
+    if !DO_HIBERNATE!==1 (
+        echo [SYSTEM] Entering hibernation mode as requested... >> "%LOG_FILE%"
+        echo [SYSTEM] Entering hibernation mode as requested...
+        shutdown /h
+    )
     exit /b 0
 )
 
@@ -75,6 +92,11 @@ for /L %%A in (1,1,3) do (
 if !PUSH_OK!==1 (
     echo [SUCCESS] Scraping and GitHub sync finished at %NOW% >> "%LOG_FILE%"
     echo [SUCCESS] Scraping and GitHub sync finished successfully!
+    if !DO_HIBERNATE!==1 (
+        echo [SYSTEM] Entering hibernation mode as requested... >> "%LOG_FILE%"
+        echo [SYSTEM] Entering hibernation mode as requested...
+        shutdown /h
+    )
     exit /b 0
 ) else (
     echo [ERROR] Git push failed after 3 attempts at %NOW% >> "%LOG_FILE%"

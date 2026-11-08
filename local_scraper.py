@@ -793,5 +793,14 @@ async def main():
     print(f"✅ 완료! {len(today_groups)}개 고유 매물 저장됨.")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        # 전체 스크래핑에 최대 300초(5분) 전역 제한 시간 적용 (프로세스 무한 멈춤 방지)
+        asyncio.run(asyncio.wait_for(main(), timeout=300))
+    except (asyncio.TimeoutError, TimeoutError):
+        print("\n❌ [TIMEOUT] 전체 스크래핑 제한 시간(5분)이 초과되어 안전하게 종료합니다.", flush=True)
+        sys.exit(1)
+    except Exception as e:
+        print(f"\n❌ [ERROR] 스크래퍼 실행 중 치명적 예외 발생: {e}", flush=True)
+        sys.exit(1)
+
 
