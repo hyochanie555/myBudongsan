@@ -1,13 +1,13 @@
 {
-  "last_update": "2026-11-09 05:01",
+  "last_update": "2026-11-09 09:01",
   "battery": {
-    "percent": 49,
+    "percent": 47,
     "is_charging": false
   },
   "summary": {
     "더샵동천포레스트": {
       "prev": 1,
-      "today": 1
+      "today": 2
     },
     "울산 힐스테이트 강동": {
       "prev": 64,
@@ -869,7 +869,7 @@
         "done": 0
       },
       "2026-11-09": {
-        "total": 1,
+        "total": 2,
         "done": 0
       }
     },
@@ -9782,6 +9782,23 @@
         "2658214377"
       ],
       "status": "유지"
+    },
+    {
+      "article_no": "2660420321",
+      "complex_name": "더샵동천포레스트",
+      "dong": "103동",
+      "floor": "고/17",
+      "price": "11억",
+      "price_val": 1100000000,
+      "area": "112A / 84.86㎡",
+      "reg_date": "2026.11.09",
+      "cp_name": "하나공인중개사사무소",
+      "unit_hash": "NV_2660420321",
+      "count": 1,
+      "ids": [
+        "2660420321"
+      ],
+      "status": "신규매물"
     }
   ]
 }
