@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-10 13:01",
+  "last_update": "2026-11-10 15:01",
   "battery": {
-    "percent": 31,
+    "percent": 29,
     "is_charging": false
   },
   "summary": {
@@ -4802,21 +4802,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2656135599",
+      "article_no": "2660908508",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "106동",
-      "floor": "24/28",
+      "floor": "고/28",
       "price": "3억 6,000",
       "price_val": 360000000,
       "area": "113A / 84.76㎡",
-      "reg_date": "2026.10.17",
-      "cp_name": "현부동산공인중개사사무소",
-      "unit_hash": "NV_2656135599",
+      "reg_date": "2026.11.10",
+      "cp_name": "센트리지사랑부동산중개",
+      "unit_hash": "NV_2660908508",
       "count": 1,
       "ids": [
-        "2656135599"
+        "2660908508"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2656809405",
