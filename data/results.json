@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-15 15:00",
+  "last_update": "2026-11-15 18:00",
   "battery": {
-    "percent": 83,
+    "percent": 81,
     "is_charging": false
   },
   "summary": {
@@ -4340,23 +4340,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2661782733",
-      "complex_name": "선암에코하이츠",
-      "dong": "103동",
-      "floor": "10/20",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "81B / 59.91㎡",
-      "reg_date": "2026.11.14",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2661782733",
-      "count": 1,
-      "ids": [
-        "2661782733"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2661783195",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
@@ -4370,6 +4353,23 @@
       "count": 1,
       "ids": [
         "2661783195"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2661782733",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "10/20",
+      "price": "3억 3,000",
+      "price_val": 330000000,
+      "area": "81B / 59.91㎡",
+      "reg_date": "2026.11.14",
+      "cp_name": "에코공인중개사사무소",
+      "unit_hash": "NV_2661782733",
+      "count": 1,
+      "ids": [
+        "2661782733"
       ],
       "status": "유지"
     },
@@ -6873,23 +6873,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2660833217",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "106동",
-      "floor": "저/29",
-      "price": "5억 2,000",
-      "price_val": 520000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.11.10",
-      "cp_name": "금빛자이(989-2017)공인중개사사무소",
-      "unit_hash": "NV_2660833217",
-      "count": 1,
-      "ids": [
-        "2660833217"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2656279704",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "107동",
@@ -7704,6 +7687,25 @@
         "2661831531"
       ],
       "status": "유지"
+    },
+    {
+      "article_no": "2659535936",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "106동",
+      "floor": "저/29",
+      "price": "5억 3,000",
+      "price_val": 530000000,
+      "area": "112A / 84.96㎡",
+      "reg_date": "2026.11.04",
+      "cp_name": "행복한자이공인중개사사무소",
+      "unit_hash": "NV_2659535936",
+      "count": 1,
+      "ids": [
+        "2659535936"
+      ],
+      "prev_price": "5억 2,000",
+      "price_diff": 10000000,
+      "status": "가격 인상"
     },
     {
       "article_no": "2661033528",
