@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-16 05:00",
+  "last_update": "2026-11-16 09:00",
   "battery": {
-    "percent": 78,
+    "percent": 76,
     "is_charging": false
   },
   "summary": {
@@ -4118,21 +4118,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2661917331",
+      "article_no": "2661949601",
       "complex_name": "선암에코하이츠",
       "dong": "106동",
       "floor": "중/20",
       "price": "3억 1,500",
       "price_val": 315000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.11.15",
+      "reg_date": "2026.11.16",
       "cp_name": "그랑라크에코사랑공인중개사사무소",
-      "unit_hash": "NV_2661917331",
+      "unit_hash": "NV_2661949601",
       "count": 1,
       "ids": [
-        "2661917331"
+        "2661949601"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2660555523",
@@ -4339,23 +4339,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2661782733",
-      "complex_name": "선암에코하이츠",
-      "dong": "103동",
-      "floor": "10/20",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "81B / 59.91㎡",
-      "reg_date": "2026.11.14",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2661782733",
-      "count": 1,
-      "ids": [
-        "2661782733"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2661783195",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
@@ -4369,6 +4352,23 @@
       "count": 1,
       "ids": [
         "2661783195"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2661782733",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "10/20",
+      "price": "3억 3,000",
+      "price_val": 330000000,
+      "area": "81B / 59.91㎡",
+      "reg_date": "2026.11.14",
+      "cp_name": "에코공인중개사사무소",
+      "unit_hash": "NV_2661782733",
+      "count": 1,
+      "ids": [
+        "2661782733"
       ],
       "status": "유지"
     },
@@ -7671,21 +7671,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2659535936",
+      "article_no": "2657134392",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "106동",
       "floor": "저/29",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.11.04",
-      "cp_name": "행복한자이공인중개사사무소",
-      "unit_hash": "NV_2659535936",
+      "reg_date": "2026.10.22",
+      "cp_name": "미소자이(997.6488)공인중개사사무소",
+      "unit_hash": "NV_2657134392",
       "count": 1,
       "ids": [
-        "2659535936"
+        "2657134392"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2661033528",
