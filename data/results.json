@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-19 18:00",
+  "last_update": "2026-11-19 21:00",
   "battery": {
-    "percent": 86,
+    "percent": 85,
     "is_charging": false
   },
   "summary": {
@@ -4440,23 +4440,6 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2661782733",
-      "complex_name": "선암에코하이츠",
-      "dong": "103동",
-      "floor": "10/20",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "81B / 59.91㎡",
-      "reg_date": "2026.11.14",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2661782733",
-      "count": 1,
-      "ids": [
-        "2661782733"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2661783195",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
@@ -4470,6 +4453,23 @@
       "count": 1,
       "ids": [
         "2661783195"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2661782733",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "10/20",
+      "price": "3억 3,000",
+      "price_val": 330000000,
+      "area": "81B / 59.91㎡",
+      "reg_date": "2026.11.14",
+      "cp_name": "에코공인중개사사무소",
+      "unit_hash": "NV_2661782733",
+      "count": 1,
+      "ids": [
+        "2661782733"
       ],
       "status": "유지"
     },
