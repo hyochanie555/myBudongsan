@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-20 18:00",
+  "last_update": "2026-11-20 21:00",
   "battery": {
-    "percent": 71,
+    "percent": 70,
     "is_charging": false
   },
   "summary": {
@@ -4454,23 +4454,6 @@
       "status": "유지"
     },
     {
-      "article_no": "2661782733",
-      "complex_name": "선암에코하이츠",
-      "dong": "103동",
-      "floor": "10/20",
-      "price": "3억 3,000",
-      "price_val": 330000000,
-      "area": "81B / 59.91㎡",
-      "reg_date": "2026.11.14",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2661782733",
-      "count": 1,
-      "ids": [
-        "2661782733"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2661783195",
       "complex_name": "선암에코하이츠",
       "dong": "103동",
@@ -4484,6 +4467,23 @@
       "count": 1,
       "ids": [
         "2661783195"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2661782733",
+      "complex_name": "선암에코하이츠",
+      "dong": "103동",
+      "floor": "10/20",
+      "price": "3억 3,000",
+      "price_val": 330000000,
+      "area": "81B / 59.91㎡",
+      "reg_date": "2026.11.14",
+      "cp_name": "에코공인중개사사무소",
+      "unit_hash": "NV_2661782733",
+      "count": 1,
+      "ids": [
+        "2661782733"
       ],
       "status": "유지"
     },
@@ -9046,23 +9046,6 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2660962781",
-      "complex_name": "한강센트럴자이 1단지",
-      "dong": "105동",
-      "floor": "중/28",
-      "price": "5억 5,000",
-      "price_val": 550000000,
-      "area": "112A / 84.96㎡",
-      "reg_date": "2026.11.10",
-      "cp_name": "착한부동산공인중개사사무소",
-      "unit_hash": "NV_2660962781",
-      "count": 1,
-      "ids": [
-        "2660962781"
-      ],
-      "status": "유지"
-    },
-    {
       "article_no": "2662787901",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "105동",
@@ -9076,6 +9059,23 @@
       "count": 1,
       "ids": [
         "2662787901"
+      ],
+      "status": "유지"
+    },
+    {
+      "article_no": "2660962781",
+      "complex_name": "한강센트럴자이 1단지",
+      "dong": "105동",
+      "floor": "중/28",
+      "price": "5억 5,000",
+      "price_val": 550000000,
+      "area": "112A / 84.96㎡",
+      "reg_date": "2026.11.10",
+      "cp_name": "착한부동산공인중개사사무소",
+      "unit_hash": "NV_2660962781",
+      "count": 1,
+      "ids": [
+        "2660962781"
       ],
       "status": "유지"
     },
