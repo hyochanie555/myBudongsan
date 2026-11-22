@@ -1,8 +1,8 @@
 {
-  "last_update": "2026-11-22 15:00",
+  "last_update": "2026-11-22 18:00",
   "battery": {
     "percent": 100,
-    "is_charging": true
+    "is_charging": false
   },
   "summary": {
     "더샵동천포레스트": {
