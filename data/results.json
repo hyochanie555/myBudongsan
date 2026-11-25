@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-25 18:01",
+  "last_update": "2026-11-25 21:01",
   "battery": {
-    "percent": 64,
+    "percent": 62,
     "is_charging": false
   },
   "summary": {
@@ -7069,21 +7069,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2662836484",
+      "article_no": "2663048532",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "107동",
       "floor": "13/28",
       "price": "5억 2,000",
       "price_val": 520000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.11.19",
-      "cp_name": "금빛자이(989-2017)공인중개사사무소",
-      "unit_hash": "NV_2662836484",
+      "reg_date": "2026.11.20",
+      "cp_name": "착한부동산공인중개사사무소",
+      "unit_hash": "NV_2663048532",
       "count": 1,
       "ids": [
-        "2662836484"
+        "2663048532"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2664093987",
