@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-25 13:01",
+  "last_update": "2026-11-25 15:01",
   "battery": {
-    "percent": 66,
+    "percent": 65,
     "is_charging": false
   },
   "summary": {
@@ -6389,21 +6389,21 @@
       "status": "매물 재등록"
     },
     {
-      "article_no": "2663866341",
+      "article_no": "2663947567",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "111동",
       "floor": "4/27",
       "price": "5억 500",
       "price_val": 505000000,
       "area": "112A / 84.96㎡",
-      "reg_date": "2026.11.24",
-      "cp_name": "금빛자이(989-2017)공인중개사사무소",
-      "unit_hash": "NV_2663866341",
+      "reg_date": "2026.11.25",
+      "cp_name": "참조은자이공인중개사사무소",
+      "unit_hash": "NV_2663947567",
       "count": 1,
       "ids": [
-        "2663866341"
+        "2663947567"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2663467017",
@@ -8293,21 +8293,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2662305487",
+      "article_no": "2663953068",
       "complex_name": "한강센트럴자이 1단지",
       "dong": "127동",
       "floor": "8/29",
       "price": "5억 3,000",
       "price_val": 530000000,
       "area": "112C / 84.97㎡",
-      "reg_date": "2026.11.17",
-      "cp_name": "미소자이(997.6488)공인중개사사무소",
-      "unit_hash": "NV_2662305487",
+      "reg_date": "2026.11.25",
+      "cp_name": "라베니체공인중개사사무소",
+      "unit_hash": "NV_2663953068",
       "count": 1,
       "ids": [
-        "2662305487"
+        "2663953068"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2658810611",
