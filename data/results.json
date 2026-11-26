@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-26 05:01",
+  "last_update": "2026-11-26 09:01",
   "battery": {
-    "percent": 60,
+    "percent": 59,
     "is_charging": false
   },
   "summary": {
@@ -4278,38 +4278,38 @@
       "status": "유지"
     },
     {
-      "article_no": "2664126172",
+      "article_no": "2664157966",
       "complex_name": "선암에코하이츠",
       "dong": "101동",
       "floor": "6/20",
       "price": "3억 1,500",
       "price_val": 315000000,
       "area": "81B / 59.91㎡",
-      "reg_date": "2026.11.25",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2664126172",
+      "reg_date": "2026.11.26",
+      "cp_name": "그랑라크에코사랑공인중개사사무소",
+      "unit_hash": "NV_2664157966",
       "count": 1,
       "ids": [
-        "2664126172"
+        "2664157966"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
-      "article_no": "2664125906",
+      "article_no": "2664157946",
       "complex_name": "선암에코하이츠",
       "dong": "102동",
       "floor": "6/20",
       "price": "3억 1,500",
       "price_val": 315000000,
       "area": "81A / 59.94㎡",
-      "reg_date": "2026.11.25",
-      "cp_name": "에코공인중개사사무소",
-      "unit_hash": "NV_2664125906",
+      "reg_date": "2026.11.26",
+      "cp_name": "그랑라크에코사랑공인중개사사무소",
+      "unit_hash": "NV_2664157946",
       "count": 1,
       "ids": [
-        "2664125906"
+        "2664157946"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2663965009",
