@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-27 01:01",
+  "last_update": "2026-11-27 05:01",
   "battery": {
-    "percent": 51,
+    "percent": 50,
     "is_charging": false
   },
   "summary": {
@@ -3767,21 +3767,21 @@
       "status": "유지"
     },
     {
-      "article_no": "2663010631",
+      "article_no": "2664352837",
       "complex_name": "울산 힐스테이트 강동",
       "dong": "103동",
       "floor": "저/32",
       "price": "2억 9,500",
       "price_val": 295000000,
       "area": "113A / 84.76㎡",
-      "reg_date": "2026.11.20",
+      "reg_date": "2026.11.27",
       "cp_name": "블루마kcc공인중개사사무소",
-      "unit_hash": "NV_2663010631",
+      "unit_hash": "NV_2664352837",
       "count": 1,
       "ids": [
-        "2663010631"
+        "2664352837"
       ],
-      "status": "유지"
+      "status": "매물 재등록"
     },
     {
       "article_no": "2660614899",
