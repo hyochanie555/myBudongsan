@@ -1,7 +1,7 @@
 {
-  "last_update": "2026-11-28 18:01",
+  "last_update": "2026-11-28 21:01",
   "battery": {
-    "percent": 32,
+    "percent": 31,
     "is_charging": false
   },
   "summary": {
@@ -7781,7 +7781,7 @@
       "ids": [
         "2664556821"
       ],
-      "status": "매물 재등록"
+      "status": "신규매물"
     },
     {
       "article_no": "2664382935",
